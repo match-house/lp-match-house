@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Match House · Smart Link para Corretores</title>
-  <meta name="description" content="O Smart Link com IA que qualifica seus leads 24h por dia. Perfil de autoridade, imóveis, depoimentos e agendamento — tudo num link só." />
+  <meta name="description" content="O Smart Link com IA que qualifica seus leads 24h por dia. Perfil de autoridade, imóveis, depoimentos e agendamento, tudo num link só." />
   <style>
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,23 +12,25 @@
     :root {
       --black:   #0A0A0A;
       --dark:    #111111;
-      --card:    #181818;
-      --border:  #262626;
+      --card:    #FFFFFF;
+      --card-alt:#F7F9FC;
+      --border:  #E5E7EB;
       --white:   #FFFFFF;
-      --off:     #A3A3A3;
+      --text:    #111111;
+      --muted:   #6B6B6B;
+      --off:     #6B6B6B;
       --blue:    #1A6BFF;
       --blue-lt: #4D8FFF;
       --green:   #25D366;
       --green-dk:#1EB75A;
-      --glow:    rgba(26,107,255,0.18);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--white);
+      color: var(--text);
       line-height: 1.6;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
@@ -43,9 +45,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10,10,10,0.85);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #1E1E1E;
     }
 
     nav {
@@ -100,13 +102,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--off);
+      color: var(--muted);
       font-size: 15px;
       font-weight: 500;
       text-decoration: none;
       transition: color 0.15s;
     }
-    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost:hover { color: var(--text); }
 
     /* ── Hero ── */
     #hero {
@@ -114,6 +116,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background: #FFFFFF;
     }
 
     #hero::before {
@@ -124,7 +127,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(26,107,255,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(26,107,255,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -132,9 +135,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(26,107,255,0.12);
-      border: 1px solid rgba(26,107,255,0.3);
-      color: var(--blue-lt);
+      background: rgba(26,107,255,0.08);
+      border: 1px solid rgba(26,107,255,0.2);
+      color: var(--blue);
       font-size: 13px;
       font-weight: 600;
       padding: 6px 14px;
@@ -145,7 +148,7 @@
 
     .hero-badge .dot {
       width: 7px; height: 7px;
-      background: var(--blue-lt);
+      background: var(--blue);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -161,6 +164,7 @@
       line-height: 1.08;
       letter-spacing: -2px;
       margin-bottom: 24px;
+      color: var(--text);
     }
 
     #hero h1 em {
@@ -173,7 +177,7 @@
 
     #hero .sub {
       font-size: clamp(16px, 2.5vw, 19px);
-      color: var(--off);
+      color: var(--muted);
       max-width: 520px;
       margin: 0 auto 44px;
       line-height: 1.7;
@@ -188,13 +192,13 @@
 
     .hero-cta-note {
       font-size: 13px;
-      color: #555;
+      color: #999;
     }
 
     /* ── AI Section ── */
     #ai {
       padding: 100px 0;
-      background: var(--dark);
+      background: var(--card-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -211,7 +215,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--blue-lt);
+      color: var(--blue);
       margin-bottom: 16px;
     }
 
@@ -221,11 +225,12 @@
       letter-spacing: -1px;
       line-height: 1.15;
       margin-bottom: 20px;
+      color: var(--text);
     }
 
     #ai p {
       font-size: 16px;
-      color: var(--off);
+      color: var(--muted);
       line-height: 1.75;
       margin-bottom: 16px;
     }
@@ -238,7 +243,7 @@
     }
 
     .ai-stat {
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px;
@@ -247,7 +252,7 @@
     .ai-stat .num {
       font-size: 32px;
       font-weight: 800;
-      color: var(--blue-lt);
+      color: var(--blue);
       letter-spacing: -1px;
       line-height: 1;
       margin-bottom: 6px;
@@ -255,13 +260,14 @@
 
     .ai-stat .label {
       font-size: 13px;
-      color: var(--off);
+      color: var(--muted);
       line-height: 1.4;
     }
 
+    /* chat panel kept dark for realism */
     .ai-visual {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: #111111;
+      border: 1px solid #2A2A2A;
       border-radius: 20px;
       padding: 28px;
       position: relative;
@@ -292,8 +298,8 @@
 
     .chat-msg.lead {
       background: #222;
-      border: 1px solid var(--border);
-      color: var(--off);
+      border: 1px solid #333;
+      color: #A3A3A3;
       align-self: flex-start;
       border-radius: 4px 16px 16px 16px;
     }
@@ -301,7 +307,7 @@
     .chat-msg.ai {
       background: linear-gradient(135deg, #1A3A6B 0%, #1A2A5E 100%);
       border: 1px solid rgba(26,107,255,0.3);
-      color: var(--white);
+      color: #FFFFFF;
       align-self: flex-end;
       border-radius: 16px 4px 16px 16px;
     }
@@ -313,15 +319,15 @@
       margin-bottom: 4px;
     }
 
-    .chat-msg.lead .chat-sender { color: #666; }
+    .chat-msg.lead .chat-sender { color: #555; }
     .chat-msg.ai .chat-sender { color: var(--blue-lt); }
 
     .ai-badge-24 {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(26,107,255,0.1);
-      border: 1px solid rgba(26,107,255,0.25);
+      background: rgba(26,107,255,0.12);
+      border: 1px solid rgba(26,107,255,0.3);
       color: var(--blue-lt);
       font-size: 12px;
       font-weight: 700;
@@ -331,16 +337,17 @@
     }
 
     /* ── Dor ── */
-    #dor { padding: 100px 0; }
+    #dor { padding: 100px 0; background: var(--white); }
 
     #dor h2 {
       font-size: clamp(26px, 4vw, 40px);
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 16px;
+      color: var(--text);
     }
 
-    #dor .lead { font-size: 17px; color: var(--off); margin-bottom: 40px; line-height: 1.7; }
+    #dor .lead { font-size: 17px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; }
 
     .pain-list {
       list-style: none;
@@ -355,12 +362,12 @@
       align-items: center;
       gap: 14px;
       padding: 16px 20px;
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--border);
       border-left: 3px solid #EF4444;
       border-radius: 8px;
       font-size: 15px;
-      color: var(--off);
+      color: var(--muted);
     }
 
     .pain-list li::before {
@@ -375,18 +382,18 @@
       font-size: 17px;
       font-style: italic;
       font-weight: 600;
-      color: var(--white);
+      color: var(--text);
       line-height: 1.65;
       border-left: 3px solid var(--blue);
       padding: 16px 20px;
-      background: rgba(26,107,255,0.07);
+      background: rgba(26,107,255,0.05);
       border-radius: 0 8px 8px 0;
     }
 
     /* ── Comparação ── */
     #custo {
       padding: 100px 0;
-      background: var(--dark);
+      background: var(--card-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -396,6 +403,7 @@
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 40px;
+      color: var(--text);
     }
 
     .comparison-table {
@@ -415,8 +423,8 @@
 
     .comparison-table th:first-child { text-align: left; width: 160px; }
     .comparison-table th:nth-child(2) {
-      background: #1A1A1A;
-      color: #555;
+      background: #EEEEEE;
+      color: #888;
       border-radius: 8px 8px 0 0;
     }
     .comparison-table th:nth-child(3) {
@@ -434,20 +442,20 @@
     .comparison-table td:first-child {
       font-weight: 600;
       font-size: 12px;
-      color: #555;
+      color: #888;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
     .comparison-table td:nth-child(2) {
-      background: #141414;
-      color: #555;
+      background: #F5F5F5;
+      color: #999;
       text-align: center;
     }
 
     .comparison-table td:nth-child(3) {
-      background: rgba(26,107,255,0.08);
-      color: #7EB3FF;
+      background: #EEF4FF;
+      color: var(--blue);
       font-weight: 600;
       text-align: center;
     }
@@ -456,18 +464,21 @@
     .comparison-table tr:last-child td:nth-child(3) { border-radius: 0 0 8px 0; }
 
     /* ── Funcionalidades ── */
-    #features { padding: 100px 0; }
+    #features { padding: 100px 0; background: var(--white); }
 
-    #features > .container > h2 {
+    #features > .container > h2,
+    #features > .container--wide > .container > h2 {
       font-size: clamp(26px, 4vw, 40px);
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 12px;
+      color: var(--text);
     }
 
-    #features > .container > p {
+    #features > .container > p,
+    #features > .container--wide > .container > p {
       font-size: 17px;
-      color: var(--off);
+      color: var(--muted);
       margin-bottom: 60px;
       line-height: 1.7;
     }
@@ -479,24 +490,25 @@
     }
 
     .feature-card {
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
-      transition: border-color 0.2s, transform 0.2s;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
       position: relative;
       overflow: hidden;
     }
 
     .feature-card:hover {
-      border-color: rgba(26,107,255,0.4);
+      border-color: rgba(26,107,255,0.3);
       transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(26,107,255,0.08);
     }
 
     .feature-card.featured {
       grid-column: 1 / -1;
-      background: linear-gradient(135deg, #111827 0%, #0D1A33 100%);
-      border-color: rgba(26,107,255,0.3);
+      background: linear-gradient(135deg, #EEF4FF 0%, #E6EEFF 100%);
+      border-color: rgba(26,107,255,0.2);
     }
 
     .feature-card.featured::after {
@@ -504,7 +516,7 @@
       position: absolute;
       top: -80px; right: -80px;
       width: 250px; height: 250px;
-      background: radial-gradient(circle, rgba(26,107,255,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(26,107,255,0.08) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -518,12 +530,12 @@
       font-size: 18px;
       font-weight: 700;
       margin-bottom: 8px;
-      color: var(--white);
+      color: var(--text);
     }
 
     .feature-card p {
       font-size: 14px;
-      color: var(--off);
+      color: var(--muted);
       line-height: 1.65;
     }
 
@@ -533,9 +545,9 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--blue-lt);
-      background: rgba(26,107,255,0.12);
-      border: 1px solid rgba(26,107,255,0.25);
+      color: var(--blue);
+      background: rgba(26,107,255,0.08);
+      border: 1px solid rgba(26,107,255,0.2);
       padding: 3px 10px;
       border-radius: 999px;
       margin-bottom: 16px;
@@ -566,23 +578,23 @@
     }
 
     .mini-msg.in {
-      background: #222;
-      border: 1px solid var(--border);
-      color: var(--off);
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      color: #555;
       align-self: flex-start;
     }
 
     .mini-msg.out {
-      background: rgba(26,107,255,0.2);
-      border: 1px solid rgba(26,107,255,0.3);
-      color: #A3C4FF;
+      background: rgba(26,107,255,0.12);
+      border: 1px solid rgba(26,107,255,0.25);
+      color: var(--blue);
       align-self: flex-end;
     }
 
     /* ── Depoimentos ── */
     #depoimentos {
       padding: 100px 0;
-      background: var(--dark);
+      background: var(--card-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -592,6 +604,7 @@
       font-weight: 800;
       letter-spacing: -1px;
       margin-bottom: 48px;
+      color: var(--text);
     }
 
     .testimonials {
@@ -601,7 +614,7 @@
     }
 
     .testimonial {
-      background: var(--card);
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
@@ -616,7 +629,7 @@
 
     .testimonial blockquote {
       font-size: 15px;
-      color: #D4D4D4;
+      color: var(--muted);
       line-height: 1.75;
       margin-bottom: 20px;
     }
@@ -637,14 +650,15 @@
       justify-content: center;
       font-weight: 700;
       font-size: 14px;
+      color: #FFFFFF;
       flex-shrink: 0;
     }
 
-    .cite-name { font-size: 14px; font-weight: 700; color: var(--white); }
-    .cite-role { font-size: 12px; color: #555; }
+    .cite-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .cite-role { font-size: 12px; color: #999; }
 
     /* ── Números ── */
-    #numeros { padding: 80px 0; }
+    #numeros { padding: 80px 0; background: var(--white); }
 
     .stats-row {
       display: grid;
@@ -657,7 +671,7 @@
     }
 
     .stat-cell {
-      background: var(--card);
+      background: var(--white);
       padding: 40px 24px;
       text-align: center;
     }
@@ -665,7 +679,7 @@
     .stat-num {
       font-size: clamp(36px, 5vw, 52px);
       font-weight: 800;
-      color: var(--white);
+      color: var(--text);
       letter-spacing: -2px;
       line-height: 1;
       margin-bottom: 8px;
@@ -673,7 +687,7 @@
 
     .stat-lbl {
       font-size: 14px;
-      color: var(--off);
+      color: var(--muted);
       line-height: 1.4;
     }
 
@@ -683,6 +697,8 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background: #111111;
+      color: #FFFFFF;
     }
 
     #cta-final::before {
@@ -691,7 +707,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 800px; height: 500px;
-      background: radial-gradient(ellipse, rgba(26,107,255,0.1) 0%, transparent 65%);
+      background: radial-gradient(ellipse, rgba(26,107,255,0.12) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -701,11 +717,12 @@
       letter-spacing: -2px;
       line-height: 1.1;
       margin-bottom: 16px;
+      color: #FFFFFF;
     }
 
     #cta-final p {
       font-size: 18px;
-      color: var(--off);
+      color: #A3A3A3;
       margin-bottom: 48px;
       line-height: 1.65;
     }
@@ -719,7 +736,7 @@
 
     .cta-note {
       font-size: 13px;
-      color: #444;
+      color: #555;
     }
 
     /* ── Footer ── */
@@ -727,8 +744,9 @@
       padding: 28px 24px;
       text-align: center;
       font-size: 13px;
-      color: #333;
+      color: var(--muted);
       border-top: 1px solid var(--border);
+      background: var(--white);
     }
 
     /* ── Floating WA ── */
@@ -801,7 +819,7 @@
         enquanto você <em>fecha negócios.</em>
       </h1>
       <p class="sub">
-        O Smart Link da Match House trabalha por você 24 horas por dia, 7 dias por semana —
+        O Smart Link da Match House trabalha por você 24 horas por dia, 7 dias por semana,
         respondendo, filtrando e entregando só os leads que realmente querem comprar.
       </p>
       <div class="hero-cta">
@@ -823,7 +841,7 @@
           <h2>Sua IA nunca dorme.<br>Seus leads, tampoco.</h2>
           <p>
             Enquanto você está numa visita, no trânsito ou dormindo, sua IA está respondendo
-            cada lead que chega no seu Smart Link — com inteligência, personalidade e foco em qualificar.
+            cada lead que chega no seu Smart Link, respondendo com inteligência e foco em qualificar.
           </p>
           <p>
             Ela faz as perguntas certas, identifica quem está pronto para comprar e só te
@@ -886,10 +904,10 @@
         primeira impressão online não reflete quem eles realmente são.
       </p>
       <ul class="pain-list">
-        <li>Link genérico com foto e telefone — zero autoridade</li>
+        <li>Link genérico com foto e telefone, zero autoridade</li>
         <li>Nenhuma prova social de anos de vendas</li>
         <li>Lead chega frio, sem contexto, e você perde tempo qualificando</li>
-        <li>Sem agenda integrada — perdendo visitas por falta de organização</li>
+        <li>Sem agenda integrada, perdendo visitas por falta de organização</li>
         <li>Perfil igual ao de qualquer corretor que começou essa semana</li>
       </ul>
       <p class="callout">
@@ -948,7 +966,7 @@
       <div class="container" style="padding:0">
         <p class="section-label">Tudo num só link</p>
         <h2>Cada detalhe construído<br>para converter.</h2>
-        <p>O Smart Link reúne tudo que um comprador precisa ver para confiar em você — antes mesmo de te ligar.</p>
+        <p>O Smart Link reúne tudo que um comprador precisa ver para confiar em você, antes mesmo de te ligar.</p>
       </div>
 
       <div class="features-grid">
@@ -1002,7 +1020,7 @@
           <span class="feature-icon">📱</span>
           <h3>Suas redes sociais</h3>
           <p>
-            Instagram, TikTok, YouTube, WhatsApp — tudo centralizado num link só.
+            Instagram, TikTok, YouTube, WhatsApp: tudo centralizado num link só.
             O lead escolhe como quer te conhecer e se conectar.
           </p>
         </div>
@@ -1013,7 +1031,7 @@
           <h3>Depoimentos de clientes</h3>
           <p>
             Anos de vendas bem-feitas viram prova social visível. Depoimentos reais
-            de clientes que te indicariam de olhos fechados — logo na primeira tela.
+            de clientes que te indicariam de olhos fechados, logo na primeira tela.
           </p>
         </div>
 
@@ -1023,7 +1041,7 @@
           <h3>Agendamento de visitas e calls</h3>
           <p>
             Calendário integrado direto no seu link. O lead escolhe o horário, você confirma
-            e pronto — sem aquele vai e vem interminável no WhatsApp.
+            e pronto. Sem aquele vai e vem interminável no WhatsApp.
           </p>
         </div>
 
@@ -1040,7 +1058,7 @@
         <div class="testimonial">
           <div class="stars">★★★★★</div>
           <blockquote>
-            "Nunca imaginei que um link pudesse fazer tanta diferença. O cliente chegou na visita já sabendo tudo sobre mim — experiência, imóveis, tudo. Foi direto para fechar."
+            "Nunca imaginei que um link pudesse fazer tanta diferença. O cliente chegou na visita já sabendo tudo sobre mim: experiência, imóveis, tudo. Foi direto para fechar."
           </blockquote>
           <cite>
             <div class="cite-avatar">BA</div>
