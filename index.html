@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match House · Smart Link para Corretores</title>
+  <meta name="description" content="O Smart Link com IA que qualifica seus leads 24h por dia. Perfil de autoridade, imóveis, depoimentos e agendamento, tudo num link só." />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0A0A0A;
+      --dark:    #111111;
+      --card:    #FFFFFF;
+      --card-alt:#F7F9FC;
+      --border:  #E5E7EB;
+      --white:   #FFFFFF;
+      --text:    #111111;
+      --muted:   #6B6B6B;
+      --off:     #6B6B6B;
+      --blue:    #1A6BFF;
+      --blue-lt: #4D8FFF;
+      --green:   #25D366;
+      --green-dk:#1EB75A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Utilities ── */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Navbar ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1E1E1E;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; }
+    .logo img { display: block; }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s;
+    }
+    .btn-nav:hover { background: var(--green-dk); transform: translateY(-1px); }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0);
+    }
+    .btn-primary:hover {
+      background: var(--green-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.25);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .btn-ghost:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    #hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(26,107,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(26,107,255,0.08);
+      border: 1px solid rgba(26,107,255,0.2);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 32px;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    #hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    #hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #1A6BFF 0%, #00C6FF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #hero .sub {
+      font-size: clamp(16px, 2.5vw, 19px);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-cta-note {
+      font-size: 13px;
+      color: #999;
+    }
+
+    /* ── AI Section ── */
+    #ai {
+      padding: 100px 0;
+      background: var(--card-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ai-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    #ai h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    #ai p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .ai-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .ai-stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .ai-stat .num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--blue);
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .ai-stat .label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* chat panel kept dark for realism */
+    .ai-visual {
+      background: #111111;
+      border: 1px solid #2A2A2A;
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-visual::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(26,107,255,0.15) 0%, transparent 70%);
+    }
+
+    .chat-bubble {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .chat-msg.lead {
+      background: #222;
+      border: 1px solid #333;
+      color: #A3A3A3;
+      align-self: flex-start;
+      border-radius: 4px 16px 16px 16px;
+    }
+
+    .chat-msg.ai {
+      background: linear-gradient(135deg, #1A3A6B 0%, #1A2A5E 100%);
+      border: 1px solid rgba(26,107,255,0.3);
+      color: #FFFFFF;
+      align-self: flex-end;
+      border-radius: 16px 4px 16px 16px;
+    }
+
+    .chat-sender {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .chat-msg.lead .chat-sender { color: #555; }
+    .chat-msg.ai .chat-sender { color: var(--blue-lt); }
+
+    .ai-badge-24 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(26,107,255,0.12);
+      border: 1px solid rgba(26,107,255,0.3);
+      color: var(--blue-lt);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-top: 20px;
+    }
+
+    /* ── Dor ── */
+    #dor { padding: 100px 0; background: var(--white); }
+
+    #dor h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    #dor .lead { font-size: 17px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; }
+
+    .pain-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .pain-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid #EF4444;
+      border-radius: 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .pain-list li::before {
+      content: "✕";
+      color: #EF4444;
+      font-weight: 700;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .callout {
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.65;
+      border-left: 3px solid var(--blue);
+      padding: 16px 20px;
+      background: rgba(26,107,255,0.05);
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* ── Comparação ── */
+    #custo {
+      padding: 100px 0;
+      background: var(--card-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #custo h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    .comparison-table th {
+      padding: 14px 18px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .comparison-table th:first-child { text-align: left; width: 160px; }
+    .comparison-table th:nth-child(2) {
+      background: #EEEEEE;
+      color: #888;
+      border-radius: 8px 8px 0 0;
+    }
+    .comparison-table th:nth-child(3) {
+      background: var(--blue);
+      color: var(--white);
+      border-radius: 8px 8px 0 0;
+    }
+
+    .comparison-table td {
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .comparison-table td:first-child {
+      font-weight: 600;
+      font-size: 12px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .comparison-table td:nth-child(2) {
+      background: #F5F5F5;
+      color: #999;
+      text-align: center;
+    }
+
+    .comparison-table td:nth-child(3) {
+      background: #EEF4FF;
+      color: var(--blue);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .comparison-table tr:last-child td:nth-child(2) { border-radius: 0 0 8px 0; }
+    .comparison-table tr:last-child td:nth-child(3) { border-radius: 0 0 8px 0; }
+
+    /* ── Funcionalidades ── */
+    #features { padding: 100px 0; background: var(--white); }
+
+    #features > .container > h2,
+    #features > .container--wide > .container > h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    #features > .container > p,
+    #features > .container--wide > .container > p {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 60px;
+      line-height: 1.7;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(26,107,255,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(26,107,255,0.08);
+    }
+
+    .feature-card.featured {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #EEF4FF 0%, #E6EEFF 100%);
+      border-color: rgba(26,107,255,0.2);
+    }
+
+    .feature-card.featured::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(26,107,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .feature-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(26,107,255,0.08);
+      border: 1px solid rgba(26,107,255,0.2);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .feature-card.featured .inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .feature-card.featured h3 { font-size: 22px; }
+    .feature-card.featured p { font-size: 15px; }
+
+    .mini-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mini-msg {
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+
+    .mini-msg.in {
+      background: #FFFFFF;
+      border: 1px solid #D1D5DB;
+      color: #555;
+      align-self: flex-start;
+    }
+
+    .mini-msg.out {
+      background: rgba(26,107,255,0.12);
+      border: 1px solid rgba(26,107,255,0.25);
+      color: var(--blue);
+      align-self: flex-end;
+    }
+
+    /* ── Depoimentos ── */
+    #depoimentos {
+      padding: 100px 0;
+      background: var(--card-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #depoimentos h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+      color: var(--text);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .stars {
+      color: #FBBF24;
+      font-size: 14px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial blockquote {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .testimonial cite {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-style: normal;
+    }
+
+    .cite-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1A6BFF, #00C6FF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .cite-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .cite-role { font-size: 12px; color: #999; }
+
+    /* ── Números ── */
+    #numeros { padding: 80px 0; background: var(--white); }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .stat-cell {
+      background: var(--white);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-lbl {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── CTA Final ── */
+    #cta-final {
+      padding: 120px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: #111111;
+      color: #FFFFFF;
+    }
+
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(26,107,255,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #cta-final h2 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+
+    #cta-final p {
+      font-size: 18px;
+      color: #A3A3A3;
+      margin-bottom: 48px;
+      line-height: 1.65;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-note {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    /* ── Floating WA ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      background: var(--green);
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .wa-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 32px rgba(37,211,102,0.45);
+    }
+
+    /* ── WA icon SVG ── */
+    .ico-wa { flex-shrink: 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      #hero { padding: 72px 0 60px; }
+
+      .ai-inner { grid-template-columns: 1fr; gap: 40px; }
+      .ai-visual { display: none; }
+
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card.featured .inner { grid-template-columns: 1fr; }
+      .mini-chat { display: none; }
+
+      .testimonials { grid-template-columns: 1fr; }
+
+      .stats-row { grid-template-columns: 1fr; }
+
+      .comparison-table td:first-child { width: 80px; font-size: 11px; }
+      .comparison-table td, .comparison-table th { padding: 10px 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <a href="#" class="logo">
+        <img src="logo.png" alt="Match House" height="34" />
+      </a>
+      <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+quero+saber+mais+sobre+o+Smart+Link" class="btn-nav" target="_blank" rel="noopener">
+        <svg class="ico-wa" width="16" height="16" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </nav>
+  </header>
+
+  <!-- ① Hero -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Smart Link com IA para Corretores
+      </div>
+      <h1>
+        Sua IA qualifica leads<br>
+        enquanto você <em>fecha negócios.</em>
+      </h1>
+      <p class="sub">
+        O Smart Link da Match House trabalha por você 24 horas por dia, 7 dias por semana,
+        respondendo, filtrando e entregando só os leads que realmente querem comprar.
+      </p>
+      <div class="hero-cta">
+        <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+quero+criar+meu+Smart+Link" class="btn-primary" target="_blank" rel="noopener">
+          <svg class="ico-wa" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+          Quero meu Smart Link agora
+        </a>
+        <span class="hero-cta-note">Grátis para começar · Sem cartão de crédito · 5 minutos para criar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② IA 24h -->
+  <section id="ai">
+    <div class="container--wide">
+      <div class="ai-inner">
+        <div>
+          <p class="section-label">Inteligência Artificial</p>
+          <h2>Sua IA nunca dorme.<br>Seus leads, tampoco.</h2>
+          <p>
+            Enquanto você está numa visita, no trânsito ou dormindo, sua IA está respondendo
+            cada lead que chega no seu Smart Link, respondendo com inteligência e foco em qualificar.
+          </p>
+          <p>
+            Ela faz as perguntas certas, identifica quem está pronto para comprar e só te
+            aciona quando o lead já está quente. Chega de perder tempo com quem só está "dando uma olhada".
+          </p>
+          <div class="ai-stats">
+            <div class="ai-stat">
+              <div class="num">24h</div>
+              <div class="label">atendimento sem parar</div>
+            </div>
+            <div class="ai-stat">
+              <div class="num">+3x</div>
+              <div class="label">mais leads qualificados</div>
+            </div>
+            <div class="ai-stat">
+              <div class="num">0min</div>
+              <div class="label">tempo de resposta inicial</div>
+            </div>
+            <div class="ai-stat">
+              <div class="num">100%</div>
+              <div class="label">focada no seu perfil</div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-visual">
+          <div class="chat-bubble">
+            <div class="chat-msg lead">
+              <div class="chat-sender">Lead · 23:47</div>
+              Oi, vi um apartamento no seu perfil. Tem 3 quartos em Meireles?
+            </div>
+            <div class="chat-msg ai">
+              <div class="chat-sender">IA Match House</div>
+              Oi! Tenho sim 😊 Posso te perguntar uma coisa rápida para te indicar o melhor? Você já tem financiamento aprovado ou prefere à vista?
+            </div>
+            <div class="chat-msg lead">
+              <div class="chat-sender">Lead · 23:48</div>
+              Tenho financiamento aprovado pela Caixa, até 600k.
+            </div>
+            <div class="chat-msg ai">
+              <div class="chat-sender">IA Match House</div>
+              Perfeito! Tenho 2 opções que encaixam direto. Quer agendar uma visita ainda essa semana?
+            </div>
+          </div>
+          <div class="ai-badge-24">
+            <span class="dot" style="background:var(--blue-lt)"></span>
+            IA respondendo agora · 23:49
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ A Dor -->
+  <section id="dor">
+    <div class="container">
+      <p class="section-label">O problema real</p>
+      <h2>Você tem 10 anos de experiência.<br>Seu link parece que você começou ontem.</h2>
+      <p class="lead">
+        Corretores experientes perdem negócios todos os dias para iniciantes, só porque a
+        primeira impressão online não reflete quem eles realmente são.
+      </p>
+      <ul class="pain-list">
+        <li>Link genérico com foto e telefone, zero autoridade</li>
+        <li>Nenhuma prova social de anos de vendas</li>
+        <li>Lead chega frio, sem contexto, e você perde tempo qualificando</li>
+        <li>Sem agenda integrada, perdendo visitas por falta de organização</li>
+        <li>Perfil igual ao de qualquer corretor que começou essa semana</li>
+      </ul>
+      <p class="callout">
+        O lead decide em segundos. E na dúvida, escolhe quem parece mais profissional.
+      </p>
+    </div>
+  </section>
+
+  <!-- ④ Comparação -->
+  <section id="custo">
+    <div class="container">
+      <p class="section-label">Antes vs. depois</p>
+      <h2>O que isso está custando para você</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Corretor comum</th>
+            <th>Com Smart Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primeira impressão</td>
+            <td>Link vazio, foto básica</td>
+            <td>Perfil de autoridade completo</td>
+          </tr>
+          <tr>
+            <td>Qualificação</td>
+            <td>Manual, leva horas</td>
+            <td>IA filtrando 24h por você</td>
+          </tr>
+          <tr>
+            <td>Prova social</td>
+            <td>Nenhuma</td>
+            <td>Depoimentos de clientes reais</td>
+          </tr>
+          <tr>
+            <td>Agendamento</td>
+            <td>WhatsApp e ida e vinda</td>
+            <td>Calendário integrado no link</td>
+          </tr>
+          <tr>
+            <td>Conversão</td>
+            <td>Baixa, lead some</td>
+            <td>Alta, lead já confia antes de ligar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ⑤ Funcionalidades -->
+  <section id="features">
+    <div class="container--wide">
+      <div class="container" style="padding:0">
+        <p class="section-label">Tudo num só link</p>
+        <h2>Cada detalhe construído<br>para converter.</h2>
+        <p>O Smart Link reúne tudo que um comprador precisa ver para confiar em você, antes mesmo de te ligar.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <!-- Card destaque: IA -->
+        <div class="feature-card featured">
+          <div class="inner">
+            <div>
+              <span class="tag">⚡ Destaque</span>
+              <span class="feature-icon">🤖</span>
+              <h3>IA que qualifica leads por você</h3>
+              <p>
+                Sua assistente de IA responde na hora, faz as perguntas certas e filtra quem
+                está pronto para comprar. Você só recebe o lead já qualificado, pronto para fechar.
+                Funciona 24h, 7 dias por semana, sem custo extra por mensagem.
+              </p>
+            </div>
+            <div class="mini-chat">
+              <div class="mini-msg in">Tem imóvel com 3 quartos?</div>
+              <div class="mini-msg out">Tenho sim! Qual sua faixa de valor?</div>
+              <div class="mini-msg in">Até 550k, financiado.</div>
+              <div class="mini-msg out">Perfeito. Quer ver as opções agora?</div>
+              <div class="mini-msg in">Quero! Me mostra.</div>
+              <div class="mini-msg out">Te encaminhando pro corretor agora 👌</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perfil -->
+        <div class="feature-card">
+          <span class="feature-icon">👤</span>
+          <h3>Perfil de autoridade</h3>
+          <p>
+            Mostre quem você é de verdade: anos de experiência, bairros que domina,
+            especialidades e história. O lead te conhece antes de te ligar.
+          </p>
+        </div>
+
+        <!-- Imóveis -->
+        <div class="feature-card">
+          <span class="feature-icon">🏠</span>
+          <h3>Vitrine de imóveis</h3>
+          <p>
+            Cole os links que você já usa e seus imóveis aparecem organizados e bonitos
+            no seu Smart Link. Atualização automática, sem trabalho manual.
+          </p>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="feature-card">
+          <span class="feature-icon">📱</span>
+          <h3>Suas redes sociais</h3>
+          <p>
+            Instagram, TikTok, YouTube, WhatsApp: tudo centralizado num link só.
+            O lead escolhe como quer te conhecer e se conectar.
+          </p>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="feature-card">
+          <span class="feature-icon">⭐</span>
+          <h3>Depoimentos de clientes</h3>
+          <p>
+            Anos de vendas bem-feitas viram prova social visível. Depoimentos reais
+            de clientes que te indicariam de olhos fechados, logo na primeira tela.
+          </p>
+        </div>
+
+        <!-- Calendário -->
+        <div class="feature-card">
+          <span class="feature-icon">📅</span>
+          <h3>Agendamento de visitas e calls</h3>
+          <p>
+            Calendário integrado direto no seu link. O lead escolhe o horário, você confirma
+            e pronto. Sem aquele vai e vem interminável no WhatsApp.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ Depoimentos -->
+  <section id="depoimentos">
+    <div class="container">
+      <p class="section-label">Prova social</p>
+      <h2>O que corretores estão dizendo</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <blockquote>
+            "Nunca imaginei que um link pudesse fazer tanta diferença. O cliente chegou na visita já sabendo tudo sobre mim: experiência, imóveis, tudo. Foi direto para fechar."
+          </blockquote>
+          <cite>
+            <div class="cite-avatar">BA</div>
+            <div>
+              <div class="cite-name">Bernardo A.</div>
+              <div class="cite-role">Corretor · São Paulo</div>
+            </div>
+          </cite>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <blockquote>
+            "Antes eu perdia horas explicando minha experiência no WhatsApp. Agora o perfil já faz isso por mim, e a IA ainda filtra quem está pronto para comprar."
+          </blockquote>
+          <cite>
+            <div class="cite-avatar">AC</div>
+            <div>
+              <div class="cite-name">Ana C.</div>
+              <div class="cite-role">Corretora · São Paulo</div>
+            </div>
+          </cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ Números -->
+  <section id="numeros">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-cell">
+          <div class="stat-num">1.000+</div>
+          <div class="stat-lbl">corretores ativos</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">24/7</div>
+          <div class="stat-lbl">IA trabalhando por você</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">5min</div>
+          <div class="stat-lbl">para criar seu Smart Link</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ CTA Final -->
+  <section id="cta-final">
+    <h2>Chega de parecer iniciante.<br>Mostre quem você é.</h2>
+    <p>Seu Smart Link com IA pronto em 5 minutos.<br>Sem cartão de crédito para começar.</p>
+    <div class="cta-group">
+      <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+quero+criar+meu+Smart+Link+agora" class="btn-primary" target="_blank" rel="noopener">
+        <svg class="ico-wa" width="20" height="20" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+        Falar com o time no WhatsApp
+      </a>
+      <span class="cta-note">Resposta em menos de 1 hora · Sem compromisso</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Match House · matchhouse.com.br
+  </footer>
+
+  <!-- Botão flutuante -->
+  <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+saber+mais" class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+  </a>
+
+</body>
+</html>
