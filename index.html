@@ -1279,20 +1279,24 @@ function gtag_report_conversion(url) {
   (function() {
     var el = document.getElementById('leads-counter');
     if (!el) return;
+    // Gera número do dia: varia entre 65–147 de forma não-linear por data
+    var now = new Date();
+    var seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+    seed = (((seed >>> 16) ^ seed) * 0x45d9f3b) >>> 0;
+    seed = (((seed >>> 16) ^ seed) * 0x45d9f3b) >>> 0;
+    seed = ((seed >>> 16) ^ seed) >>> 0;
+    var max = 65 + (seed % 83 + 76) % 83; // hoje (26/06) = 147
     var current = 1;
-    var max = 94;
-    var delay = 80; // ms entre cada número — começa rápido e vai desacelerando
+    var delay = 60;
     function tick() {
       el.textContent = '+' + current;
       if (current < max) {
         current++;
-        // Desacelera progressivamente na reta final
         var progress = current / max;
         var nextDelay = delay + Math.floor(progress * progress * 400);
         setTimeout(tick, nextDelay);
       }
     }
-    // Inicia após 600ms para o visitante ver a página primeiro
     setTimeout(tick, 600);
   })();
 </script>
