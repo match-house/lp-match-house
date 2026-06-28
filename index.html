@@ -103,6 +103,22 @@ function gtag_report_conversion(url) {
     }
     .btn-nav:hover { background: var(--green-dk); transform: translateY(-1px); }
 
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .btn-nav-ghost {
+      display: inline-flex;
+      align-items: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #2A2A2A;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-nav-ghost:hover { border-color: #3A3A3A; background: rgba(255,255,255,0.04); }
+
     /* ── Buttons ── */
     .btn-primary {
       display: inline-flex;
@@ -881,6 +897,8 @@ function gtag_report_conversion(url) {
       }
       .btn-nav .ico-wa { width: 14px; height: 14px; }
       .btn-nav .btn-nav-text { display: none; }
+      .nav-actions { gap: 8px; }
+      .btn-nav-ghost { font-size: 12px; padding: 8px 12px; }
 
       .ai-inner { grid-template-columns: 1fr; gap: 40px; }
       .ai-visual { display: none; }
@@ -906,10 +924,13 @@ function gtag_report_conversion(url) {
       <a href="#" class="logo">
         <img src="logo.png" alt="Match House" height="34" />
       </a>
-      <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+quero+saber+mais+sobre+o+Smart+Link+da+Bio" class="btn-nav" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
-        <svg class="ico-wa" width="16" height="16" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
-        <span class="btn-nav-text">Falar no WhatsApp</span>
-      </a>
+      <div class="nav-actions">
+        <a href="/diagnostico" class="btn-nav-ghost">Diagnóstico grátis</a>
+        <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C+quero+saber+mais+sobre+o+Smart+Link+da+Bio" class="btn-nav" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">
+          <svg class="ico-wa" width="16" height="16" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+          <span class="btn-nav-text">Falar no WhatsApp</span>
+        </a>
+      </div>
     </nav>
   </header>
 
