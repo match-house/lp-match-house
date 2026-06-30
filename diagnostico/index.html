@@ -136,6 +136,9 @@ function Diagnostico() {
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [error, setError] = useState("");
+  const [sessionId] = useState(
+    () => Math.random().toString(36).slice(2) + Date.now().toString(36)
+  );
 
   const canStartLink = name.trim().length > 1 && whats.trim().length >= 8;
 
@@ -145,6 +148,7 @@ function Diagnostico() {
       return;
     }
     setError("");
+    sendPartial();
     setStep("link");
   }
 
@@ -225,19 +229,12 @@ function Diagnostico() {
     return computeTotalScore(answers, analysis);
   }
 
-  function sendLead(finalAnswers) {
+  function postLead(extra) {
     try {
-      const score = computeTotalScore(finalAnswers, analysis);
-      const t = tier(score);
-      const payload = {
-        name,
-        whats,
-        link,
-        linkType,
-        score,
-        tier: t.label,
-        answers: finalAnswers,
-      };
+      const payload = Object.assign(
+        { sessionId, name, whats, link, linkType },
+        extra
+      );
       fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -247,6 +244,22 @@ function Diagnostico() {
     } catch (e) {
       /* nunca bloqueia o usuário se o registro falhar */
     }
+  }
+
+  // Captura o lead assim que temos nome + WhatsApp, mesmo que não conclua.
+  function sendPartial() {
+    postLead({ status: "iniciado" });
+  }
+
+  function sendLead(finalAnswers) {
+    const score = computeTotalScore(finalAnswers, analysis);
+    const t = tier(score);
+    postLead({
+      status: "completo",
+      score,
+      tier: t.label,
+      answers: finalAnswers,
+    });
   }
 
   function tier(score) {
