@@ -109,6 +109,31 @@ function detectLinkType(url) {
   return "site";
 }
 
+function onlyDigits(s) {
+  return (s || "").replace(/\D/g, "");
+}
+
+// Máscara progressiva: (27) 99999-9999
+function formatBrCell(s) {
+  var d = onlyDigits(s).slice(0, 11);
+  if (d.length === 0) return "";
+  if (d.length <= 2) return "(" + d;
+  if (d.length <= 6) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  if (d.length <= 10)
+    return "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+
+// Celular brasileiro: 11 dígitos (DDD 11–99 + 9 + 8 dígitos)
+function isValidBrCell(s) {
+  var d = onlyDigits(s);
+  if (d.length !== 11) return false;
+  var ddd = parseInt(d.slice(0, 2), 10);
+  if (ddd < 11 || ddd > 99) return false;
+  if (d.charAt(2) !== "9") return false;
+  return true;
+}
+
 function scoreFromAnalysis(analysis) {
   if (!analysis) return 0;
   let s = 0;
@@ -146,11 +171,15 @@ function Diagnostico() {
     () => Math.random().toString(36).slice(2) + Date.now().toString(36)
   );
 
-  const canStartLink = name.trim().length > 1 && whats.trim().length >= 8;
+  const canStartLink = name.trim().length > 1 && isValidBrCell(whats);
 
   function goToLinkStep() {
-    if (!canStartLink) {
-      setError("Preencha seu nome e WhatsApp para continuar.");
+    if (name.trim().length <= 1) {
+      setError("Digite seu nome para continuar.");
+      return;
+    }
+    if (!isValidBrCell(whats)) {
+      setError("Digite um celular válido com DDD. Ex: (27) 99999-9999.");
       return;
     }
     setError("");
@@ -454,9 +483,11 @@ function FormStep({ name, setName, whats, setWhats, onSubmit, error }) {
           <input
             style={styles.input}
             value={whats}
-            onChange={(e) => setWhats(e.target.value)}
+            onChange={(e) => setWhats(formatBrCell(e.target.value))}
             onKeyDown={handleKeyDown}
             placeholder="(00) 00000-0000"
+            inputMode="numeric"
+            maxLength={16}
           />
         </label>
         {error && <div style={styles.errorText}>{error}</div>}
