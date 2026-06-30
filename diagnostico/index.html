@@ -115,6 +115,17 @@ function scoreFromAnalysis(analysis) {
   return Math.max(0, Math.min(30, s));
 }
 
+function computeTotalScore(answers, analysis) {
+  const quizMax = QUESTIONS.reduce(
+    (sum, q) => sum + Math.max(...q.options.map((o) => o.v)),
+    0
+  );
+  const quizSum = Object.values(answers).reduce((a, b) => a + b, 0);
+  const quizPart = (quizSum / quizMax) * 70;
+  const linkPart = scoreFromAnalysis(analysis);
+  return Math.round(quizPart + linkPart);
+}
+
 function Diagnostico() {
   const [step, setStep] = useState("intro");
   const [name, setName] = useState("");
@@ -201,6 +212,7 @@ function Diagnostico() {
     if (qIndex < QUESTIONS.length - 1) {
       setQIndex(qIndex + 1);
     } else {
+      sendLead(next);
       setStep("result");
     }
   }
@@ -210,13 +222,31 @@ function Diagnostico() {
   }
 
   function totalScore() {
-    const quizMax = QUESTIONS.reduce(
-      (sum, q) => sum + Math.max(...q.options.map((o) => o.v)),
-      0
-    );
-    const quizPart = (quizScore() / quizMax) * 70;
-    const linkPart = scoreFromAnalysis(analysis);
-    return Math.round(quizPart + linkPart);
+    return computeTotalScore(answers, analysis);
+  }
+
+  function sendLead(finalAnswers) {
+    try {
+      const score = computeTotalScore(finalAnswers, analysis);
+      const t = tier(score);
+      const payload = {
+        name,
+        whats,
+        link,
+        linkType,
+        score,
+        tier: t.label,
+        answers: finalAnswers,
+      };
+      fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      }).catch(() => {});
+    } catch (e) {
+      /* nunca bloqueia o usuário se o registro falhar */
+    }
   }
 
   function tier(score) {
@@ -277,6 +307,7 @@ function Diagnostico() {
         {step === "result" && (
           <ResultStep
             name={name}
+            link={link}
             score={totalScore()}
             tierInfo={tier(totalScore())}
             analysis={analysis}
@@ -509,9 +540,17 @@ function QuizStep({ question, index, total, onAnswer, analysis, linkType }) {
   );
 }
 
-function ResultStep({ name, score, tierInfo, analysis, answers, onRestart }) {
+function ResultStep({ name, link, score, tierInfo, analysis, answers, onRestart }) {
   const firstName = name.split(" ")[0] || "Corretor(a)";
   const recommendations = buildRecommendations(analysis, answers);
+
+  const waNumber = "5527992268000";
+  const waMessage =
+    "Olá! Acabei de fazer o Diagnóstico de Posicionamento Digital e quero receber meu resultado completo." +
+    "\n\nNome: " + name +
+    "\nMeu Score: " + score + "/100 (" + tierInfo.label + ")" +
+    (link ? "\nLink que uso hoje: " + link : "");
+  const waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(waMessage);
 
   return (
     <div style={styles.card}>
@@ -536,6 +575,16 @@ function ResultStep({ name, score, tierInfo, analysis, answers, onRestart }) {
             </div>
           </div>
         ))}
+      </div>
+
+      <a href={waUrl} target="_blank" rel="noopener" style={styles.waCta}>
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
+          <path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+        </svg>
+        Receber meu diagnóstico no WhatsApp
+      </a>
+      <div style={styles.waNote}>
+        Enviamos seu resultado completo e os próximos passos direto no seu WhatsApp.
       </div>
 
       <CtaSmartLink firstName={firstName} score={score} />
@@ -973,6 +1022,30 @@ const styles = {
     fontWeight: 600,
     cursor: "pointer",
     marginBottom: "8px",
+  },
+  waCta: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
+    width: "100%",
+    background: "#25D366",
+    color: "#fff",
+    border: "none",
+    borderRadius: "12px",
+    padding: "16px 18px",
+    fontSize: "15px",
+    fontWeight: 700,
+    textDecoration: "none",
+    cursor: "pointer",
+    boxShadow: "0 8px 28px rgba(37,211,102,0.28)",
+  },
+  waNote: {
+    fontSize: "12px",
+    color: "rgba(255,255,255,0.5)",
+    textAlign: "center",
+    margin: "10px 0 22px",
+    lineHeight: 1.5,
   },
 };
 
