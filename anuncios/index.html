@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciador de Anúncios - Match House</title>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #FFFFFF;
+      --card-alt: #F7F9FC;
+      --border: #E5E7EB;
+      --white: #FFFFFF;
+      --text: #111111;
+      --muted: #6B6B6B;
+      --blue: #1A6BFF;
+      --blue-lt: #4D8FFF;
+      --green: #25D366;
+      --green-dk: #1EB75A;
+      --red: #EF4444;
+      --yellow: #FBBF24;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--card-alt);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1E1E1E;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+
+    .logo { display: flex; align-items: center; text-decoration: none; color: white; }
+    .logo img { display: block; height: 40px; margin-right: 12px; }
+    .logo span { font-weight: 700; font-size: 18px; }
+
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: #A3A3A3;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: white; }
+    .nav-links a.active { color: var(--green); font-weight: 600; }
+
+    /* ── Container ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+    /* ── Page Title ── */
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .page-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* ── Auth Section ── */
+    .auth-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .auth-section h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .auth-section p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 32px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+    .btn-primary:hover { background: #1452CC; }
+
+    .btn-secondary {
+      background: var(--card-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: #EFEFEF; }
+
+    .btn-danger {
+      background: var(--red);
+      color: white;
+    }
+    .btn-danger:hover { background: #DC2626; }
+
+    .btn-success {
+      background: var(--green);
+      color: white;
+    }
+    .btn-success:hover { background: var(--green-dk); }
+
+    /* ── Ads Grid ── */
+    .ads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .ad-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .ad-card:hover {
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .ad-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--card-alt);
+    }
+
+    .ad-content {
+      padding: 20px;
+    }
+
+    .ad-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ad-status.active {
+      background: rgba(37, 211, 102, 0.1);
+      color: var(--green);
+    }
+
+    .ad-status.paused {
+      background: rgba(251, 191, 36, 0.1);
+      color: #F59E0B;
+    }
+
+    .ad-status.stopped {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--red);
+    }
+
+    .ad-status::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      display: block;
+    }
+
+    .ad-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .ad-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .ad-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px 0;
+      margin: 12px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ad-stat {
+      text-align: center;
+    }
+
+    .ad-stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .ad-stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    .ad-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .ad-actions button {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .ad-actions button:hover {
+      background: var(--card-alt);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .ad-actions button.pause:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+    }
+
+    /* ── Loading State ── */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── Error ── */
+    .error-section {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      color: #991B1B;
+    }
+
+    .error-section strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* ── Success ── */
+    .success-message {
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+      color: #065F46;
+      display: none;
+    }
+
+    .success-message.show { display: block; }
+
+    /* ── Modal ── */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.show { display: flex; }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .modal-desc {
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+
+    /* ── Empty State ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--white);
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+    }
+
+    .empty-state-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .empty-state h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .empty-state p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../" class="logo">
+        <img src="../logo.png" alt="Match House">
+        <span>Match House</span>
+      </a>
+      <div class="nav-links">
+        <a href="../">Home</a>
+        <a href="../diagnostico/">Diagnóstico</a>
+        <a href="./" class="active">Anúncios</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>📊 Gerenciador de Anúncios</h1>
+    <p class="page-subtitle">Controle seus anúncios do Meta Ads Manager direto daqui</p>
+
+    <div id="successMessage" class="success-message"></div>
+    <div id="errorMessage" class="error-section" style="display:none;"></div>
+
+    <!-- Auth Section -->
+    <div id="authSection" class="auth-section">
+      <h2>🔐 Autorizar acesso ao Meta Ads Manager</h2>
+      <p>Conecte sua conta do Meta para gerenciar anúncios e acompanhar performance em tempo real</p>
+      <button id="metaLoginBtn" class="btn btn-primary">
+        Conectar com Meta
+      </button>
+      <p style="margin-top: 16px; font-size: 12px; color: var(--muted);">
+        Você será redirecionado para autorizar o acesso à sua conta de publicidade
+      </p>
+    </div>
+
+    <!-- Ads Management Section (hidden until logged in) -->
+    <div id="adsSection" style="display:none;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+        <div>
+          <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 4px;">Seus Anúncios</h2>
+          <p style="color: var(--muted);">Gerenciando conta: <strong id="accountId" style="color: var(--text);"></strong></p>
+        </div>
+        <button id="createAdBtn" class="btn btn-success">+ Novo Anúncio</button>
+      </div>
+
+      <div id="adsContainer" class="ads-grid">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Carregando anúncios...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para criar anúncio -->
+  <div id="createAdModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">📢 Novo Anúncio</div>
+      <p class="modal-desc">Crie um novo anúncio para a sua campanha de diagnóstico</p>
+
+      <form id="createAdForm">
+        <div class="form-group">
+          <label for="adName">Nome do Anúncio</label>
+          <input type="text" id="adName" placeholder="Ex: Diagnóstico - Semana 1" required>
+        </div>
+        <div class="form-group">
+          <label for="adHeadline">Headline</label>
+          <input type="text" id="adHeadline" placeholder="Descubra o potencial do seu imóvel" required>
+        </div>
+        <div class="form-group">
+          <label for="adDescription">Descrição</label>
+          <textarea id="adDescription" placeholder="IA que qualifica leads 24h por dia" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="adBudget">Orçamento Diário (R$)</label>
+          <input type="number" id="adBudget" placeholder="100" min="10" step="1" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeCreateModal()">Cancelar</button>
+          <button type="submit" class="btn btn-success">Criar Anúncio</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Configuration
+    const AD_ACCOUNT_ID = '261171503755179';
+    const API_BASE = '/api'; // Your backend endpoint
+    let userToken = localStorage.getItem('meta_token');
+    let isAuthenticated = !!userToken;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      updateUI();
+      setupEventListeners();
+
+      if (isAuthenticated) {
+        loadAds();
+      }
+    });
+
+    // UI Management
+    function updateUI() {
+      const authSection = document.getElementById('authSection');
+      const adsSection = document.getElementById('adsSection');
+
+      if (isAuthenticated) {
+        authSection.style.display = 'none';
+        adsSection.style.display = 'block';
+        document.getElementById('accountId').textContent = AD_ACCOUNT_ID;
+      } else {
+        authSection.style.display = 'block';
+        adsSection.style.display = 'none';
+      }
+    }
+
+    // Event Listeners
+    function setupEventListeners() {
+      document.getElementById('metaLoginBtn').addEventListener('click', authenticateWithMeta);
+      document.getElementById('createAdBtn').addEventListener('click', openCreateModal);
+      document.getElementById('createAdForm').addEventListener('submit', handleCreateAd);
+    }
+
+    // Meta Authentication
+    function authenticateWithMeta() {
+      // Para autenticação real, você precisará de um backend que implemente o OAuth do Meta
+      // Por enquanto, simulamos a autenticação
+
+      const mockToken = 'EAABL...mock_token_' + Date.now();
+      localStorage.setItem('meta_token', mockToken);
+      userToken = mockToken;
+      isAuthenticated = true;
+
+      updateUI();
+      loadAds();
+      showSuccess('✅ Conectado ao Meta Ads Manager com sucesso!');
+    }
+
+    // Load Ads
+    async function loadAds() {
+      const container = document.getElementById('adsContainer');
+      container.innerHTML = '<div class="loading"><div class="spinner"></div><p>Carregando anúncios...</p></div>';
+
+      try {
+        // Simulando carregamento de anúncios
+        setTimeout(() => {
+          const mockAds = [
+            {
+              id: 'ad_001',
+              name: 'Anúncio de Diagnóstico',
+              image: './criativo-a.png',
+              status: 'ACTIVE',
+              headline: 'Descubra o potencial do seu imóvel',
+              description: 'IA que qualifica leads 24h por dia',
+              impressions: 1250,
+              clicks: 87,
+              spent: 234.50,
+              budget: 100
+            }
+          ];
+
+          renderAds(mockAds);
+        }, 500);
+      } catch (error) {
+        showError('Erro ao carregar anúncios: ' + error.message);
+        container.innerHTML = '<div class="error-section">Erro ao carregar anúncios. Tente novamente.</div>';
+      }
+    }
+
+    // Render Ads
+    function renderAds(ads) {
+      const container = document.getElementById('adsContainer');
+
+      if (ads.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1;">
+            <div class="empty-state">
+              <div class="empty-state-icon">📭</div>
+              <h3>Nenhum anúncio criado ainda</h3>
+              <p>Comece criando seu primeiro anúncio para qualificar leads 24h por dia</p>
+              <button class="btn btn-success" onclick="openCreateModal()">+ Criar Anúncio</button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = ads.map(ad => `
+        <div class="ad-card">
+          <img src="${ad.image}" alt="${ad.name}" class="ad-image" onerror="this.style.background='var(--card-alt)'">
+          <div class="ad-content">
+            <div class="ad-status ${ad.status.toLowerCase()}">
+              ${ad.status === 'ACTIVE' ? 'Ativo' : ad.status === 'PAUSED' ? 'Pausado' : 'Parado'}
+            </div>
+            <div class="ad-title">${ad.name}</div>
+            <div class="ad-desc">${ad.headline}</div>
+
+            <div class="ad-stats">
+              <div class="ad-stat">
+                <div class="ad-stat-value">${ad.impressions.toLocaleString('pt-BR')}</div>
+                <div class="ad-stat-label">Impressões</div>
+              </div>
+              <div class="ad-stat">
+                <div class="ad-stat-value">${ad.clicks}</div>
+                <div class="ad-stat-label">Cliques</div>
+              </div>
+              <div class="ad-stat">
+                <div class="ad-stat-value">R$ ${ad.spent.toFixed(2)}</div>
+                <div class="ad-stat-label">Gasto</div>
+              </div>
+              <div class="ad-stat">
+                <div class="ad-stat-value">${(ad.clicks / ad.impressions * 100).toFixed(2)}%</div>
+                <div class="ad-stat-label">CTR</div>
+              </div>
+            </div>
+
+            <div class="ad-actions">
+              <button onclick="toggleAdStatus('${ad.id}', '${ad.status}')" class="pause">
+                ${ad.status === 'ACTIVE' ? '⏸ Pausar' : '▶ Ativar'}
+              </button>
+              <button onclick="editAd('${ad.id}')">✏️ Editar</button>
+              <button onclick="deleteAd('${ad.id}')">🗑 Deletar</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Create Ad Modal
+    function openCreateModal() {
+      document.getElementById('createAdModal').classList.add('show');
+    }
+
+    function closeCreateModal() {
+      document.getElementById('createAdModal').classList.remove('show');
+      document.getElementById('createAdForm').reset();
+    }
+
+    async function handleCreateAd(e) {
+      e.preventDefault();
+
+      const adData = {
+        name: document.getElementById('adName').value,
+        headline: document.getElementById('adHeadline').value,
+        description: document.getElementById('adDescription').value,
+        budget: parseFloat(document.getElementById('adBudget').value)
+      };
+
+      try {
+        // Aqui você faria a chamada para sua API/backend
+        // que criaria o anúncio usando a API do Meta Ads Manager
+
+        closeCreateModal();
+        showSuccess('✅ Anúncio criado com sucesso!');
+        loadAds();
+      } catch (error) {
+        showError('Erro ao criar anúncio: ' + error.message);
+      }
+    }
+
+    // Ad Actions
+    async function toggleAdStatus(adId, currentStatus) {
+      const newStatus = currentStatus === 'ACTIVE' ? 'PAUSED' : 'ACTIVE';
+      try {
+        // Chamada para sua API/backend
+        showSuccess(`✅ Anúncio ${newStatus === 'ACTIVE' ? 'ativado' : 'pausado'} com sucesso!`);
+        loadAds();
+      } catch (error) {
+        showError('Erro ao atualizar anúncio: ' + error.message);
+      }
+    }
+
+    function editAd(adId) {
+      showSuccess('🔧 Edição de anúncio virá em breve');
+    }
+
+    async function deleteAd(adId) {
+      if (confirm('Tem certeza que deseja deletar este anúncio?')) {
+        try {
+          showSuccess('✅ Anúncio deletado com sucesso!');
+          loadAds();
+        } catch (error) {
+          showError('Erro ao deletar anúncio: ' + error.message);
+        }
+      }
+    }
+
+    // Notifications
+    function showSuccess(message) {
+      const el = document.getElementById('successMessage');
+      el.textContent = message;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 4000);
+    }
+
+    function showError(message) {
+      const el = document.getElementById('errorMessage');
+      el.innerHTML = `<strong>❌ Erro:</strong> ${message}`;
+      el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 6000);
+    }
+
+    // Modal backdrop close
+    document.getElementById('createAdModal').addEventListener('click', (e) => {
+      if (e.target.id === 'createAdModal') closeCreateModal();
+    });
+  </script>
+</body>
+</html>
