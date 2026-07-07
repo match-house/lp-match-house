@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Leads - Match House</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #0066cc;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stat {
+      font-size: 32px;
+      font-weight: bold;
+      color: #0066cc;
+      margin: 15px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .btn:hover {
+      background: #0052a3;
+    }
+    .btn.secondary {
+      background: #666;
+    }
+    .btn.secondary:hover {
+      background: #444;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    th {
+      background: #0066cc;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .instructions {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .instructions h3 {
+      margin-top: 0;
+      color: #856404;
+    }
+    .instructions ol {
+      margin-bottom: 0;
+    }
+    .empty {
+      text-align: center;
+      color: #999;
+      padding: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Dashboard de Leads - Match House</h1>
+
+    <div class="instructions">
+      <h3>📌 Como usar:</h3>
+      <ol>
+        <li>Leads são capturados automaticamente do diagnóstico</li>
+        <li>Meta Ads e Google Ads são separados automaticamente</li>
+        <li>Clique em "Baixar CSV" para exportar</li>
+        <li>Copie e cole na sua planilha Google Sheets</li>
+      </ol>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>🎯 Meta Ads</h2>
+        <div class="stat" id="meta-count">0</div>
+        <p id="meta-status">Aguardando dados...</p>
+        <button class="btn" onclick="carregarLeads('meta')">Atualizar</button>
+        <a href="/api/leads/download/meta" class="btn secondary">⬇️ Baixar CSV</a>
+      </div>
+
+      <div class="card">
+        <h2>🔍 Google Ads</h2>
+        <div class="stat" id="google-count">0</div>
+        <p id="google-status">Aguardando dados...</p>
+        <button class="btn" onclick="carregarLeads('google')">Atualizar</button>
+        <a href="/api/leads/download/google" class="btn secondary">⬇️ Baixar CSV</a>
+      </div>
+    </div>
+
+    <h2>📋 Últimos Leads - Meta Ads</h2>
+    <div id="meta-table">
+      <div class="empty">Nenhum lead capturado ainda</div>
+    </div>
+
+    <h2>📋 Últimos Leads - Google Ads</h2>
+    <div id="google-table">
+      <div class="empty">Nenhum lead capturado ainda</div>
+    </div>
+  </div>
+
+  <script>
+    async function carregarLeads(source) {
+      try {
+        const response = await fetch(`/api/leads/export?source=${source}`);
+        const data = await response.json();
+
+        if (source === 'meta') {
+          document.getElementById('meta-count').textContent = data.total || 0;
+          document.getElementById('meta-status').textContent =
+            data.total > 0
+              ? `${data.total} lead${data.total !== 1 ? 's' : ''} capturado${data.total !== 1 ? 's' : ''}`
+              : 'Aguardando dados...';
+          montarTabela('meta', data.leads);
+        } else {
+          document.getElementById('google-count').textContent = data.total || 0;
+          document.getElementById('google-status').textContent =
+            data.total > 0
+              ? `${data.total} lead${data.total !== 1 ? 's' : ''} capturado${data.total !== 1 ? 's' : ''}`
+              : 'Aguardando dados...';
+          montarTabela('google', data.leads);
+        }
+      } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao carregar leads: ' + error.message);
+      }
+    }
+
+    function montarTabela(source, leads) {
+      const containerId = source === 'meta' ? 'meta-table' : 'google-table';
+      const container = document.getElementById(containerId);
+
+      if (!leads || leads.length === 0) {
+        container.innerHTML = '<div class="empty">Nenhum lead capturado ainda</div>';
+        return;
+      }
+
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>Data/Hora</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Telefone</th>
+              <th>Campanha</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      leads.slice(-10).reverse().forEach(lead => {
+        html += `
+          <tr>
+            <td>${lead['Data/Hora'] || '-'}</td>
+            <td>${lead['Nome'] || '-'}</td>
+            <td>${lead['Email'] || '-'}</td>
+            <td>${lead['Telefone'] || '-'}</td>
+            <td>${lead['Campanha'] || '-'}</td>
+            <td>${lead['Score'] || '-'}</td>
+          </tr>
+        `;
+      });
+
+      html += '</tbody></table>';
+      container.innerHTML = html;
+    }
+
+    // Carregar dados ao abrir a página
+    window.addEventListener('load', () => {
+      carregarLeads('meta');
+      carregarLeads('google');
+      // Atualizar a cada 30 segundos
+      setInterval(() => {
+        carregarLeads('meta');
+        carregarLeads('google');
+      }, 30000);
+    });
+  </script>
+</body>
+</html>
