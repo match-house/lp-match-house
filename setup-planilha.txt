@@ -1,0 +1,116 @@
+═══════════════════════════════════════════════════════════════
+  SETUP AUTOMÁTICO - GOOGLE SHEETS
+═══════════════════════════════════════════════════════════════
+
+PASSO 1: Abra sua planilha
+👉 https://docs.google.com/spreadsheets/d/1H7u-b0O0_tYUnGcxBa4mx8dp847F50nampiw_5y10xs
+
+PASSO 2: Crie 2 ABAS
+├─ Clique no "+" (adicionar aba)
+├─ Digite: Meta Ads
+├─ Clique no "+" novamente
+└─ Digite: Google Ads
+
+PASSO 3: Configure HEADERS
+
+🔷 Na aba "Meta Ads" - Linha 1:
+┌─────────────────────────────────────────────────────┐
+│ A1: Data/Hora                                       │
+│ B1: Nome                                            │
+│ C1: Email                                           │
+│ D1: Telefone                                        │
+│ E1: Campanha                                        │
+│ F1: Score                                           │
+│ G1: Notas                                           │
+└─────────────────────────────────────────────────────┘
+
+🔷 Na aba "Google Ads" - Linha 1:
+┌─────────────────────────────────────────────────────┐
+│ A1: Data/Hora                                       │
+│ B1: Nome                                            │
+│ C1: Email                                           │
+│ D1: Telefone                                        │
+│ E1: Campanha                                        │
+│ F1: Conversor                                       │
+│ G1: Notas                                           │
+└─────────────────────────────────────────────────────┘
+
+PASSO 4: Adicione o Script
+
+1. Na sua planilha, clique em: Extensions > Apps Script
+
+2. DELETE todo o código que estiver lá
+
+3. COPIE E COLE este código:
+
+═══════════════════════════════════════════════════════════════
+CÓDIGO PARA COLAR:
+═══════════════════════════════════════════════════════════════
+
+function doPost(e) {
+  try {
+    const payload = JSON.parse(e.postData.contents);
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+
+    // Pega a aba correta baseado na source
+    let sheet;
+    if (payload.source === 'Google Ads') {
+      sheet = spreadsheet.getSheetByName('Google Ads');
+    } else {
+      sheet = spreadsheet.getSheetByName('Meta Ads');
+    }
+
+    if (!sheet) {
+      return ContentService.createTextOutput(JSON.stringify({
+        success: false,
+        error: 'Aba não encontrada. Verifique se as abas existem!'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // Adiciona a linha
+    sheet.appendRow([
+      new Date().toLocaleString('pt-BR'),
+      payload.name || '',
+      payload.email || '',
+      payload.phone || '',
+      payload.campaign || 'N/A',
+      payload.score || payload.conversor || '',
+      payload.notes || ''
+    ]);
+
+    return ContentService.createTextOutput(JSON.stringify({
+      success: true,
+      message: 'Lead adicionado com sucesso!'
+    })).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      success: false,
+      error: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+═══════════════════════════════════════════════════════════════
+
+PASSO 5: DEPLOY
+
+1. Clique em "Deploy" (canto superior direito)
+2. Clique em "+ New deployment"
+3. Selecione "Type" → Web app
+4. "Execute as" → Sua conta (matchhouse.br@gmail.com)
+5. "Who has access" → Anyone
+6. Clique "Deploy"
+7. COPIE A URL que aparecer
+
+═══════════════════════════════════════════════════════════════
+
+✅ PRONTO!
+
+Quando terminar, me manda:
+- A URL do webhook (da Step 5)
+- Eu conecta no site
+
+Dados começarão a cair automaticamente na planilha! 🎉
+
+═══════════════════════════════════════════════════════════════
