@@ -345,16 +345,16 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--glass);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--glass-brd);
+      border: 1px solid rgba(255,255,255,1);
       border-radius: 999px;
       padding: 9px 16px;
       font-size: 12.5px;
       font-weight: 700;
       color: var(--ink);
-      box-shadow: 0 16px 38px -14px rgba(46,124,255,0.4);
+      box-shadow: 0 16px 38px -12px rgba(46,124,255,0.5);
       white-space: nowrap;
       z-index: 3;
     }
@@ -365,7 +365,7 @@
       -webkit-text-fill-color: transparent; color: transparent;
       font-weight: 800; font-size: 14px;
     }
-    .fb-ia { bottom: 16%; right: -30px; animation: badge-bob 6.5s ease-in-out infinite reverse; color: #128C46; }
+    .fb-ia { bottom: 17%; right: -64px; animation: badge-bob 6.5s ease-in-out infinite reverse; color: #128C46; }
     .fb-ia .dot { background: var(--green); }
     @keyframes badge-bob {
       0%, 100% { transform: translateY(0); }
@@ -885,7 +885,7 @@
       margin-bottom: 44px;
     }
     .cta-group { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .cta-note { font-size: 13.5px; color: #7381A9; font-weight: 500; }
+    .cta-note { font-size: 13.5px; color: #8C99C0; font-weight: 500; }
 
     /* ── Footer ── */
     footer {
@@ -894,9 +894,9 @@
       padding: 26px 24px 30px;
       text-align: center;
       font-size: 13.5px;
-      color: #7381A9;
+      color: #8C99C0;
     }
-    footer a { color: #93A2CC; text-decoration: underline; }
+    footer a { color: #A5B3DA; text-decoration: underline; }
 
     /* ── Floating WA ── */
     .wa-float {
@@ -951,7 +951,7 @@
       }
       .phone { width: 258px; }
       .fb-leads { left: -8px; top: 5%; }
-      .fb-ia { right: -6px; }
+      .fb-ia { right: -44px; }
 
       .marquee-seq { font-size: 13px; }
 
