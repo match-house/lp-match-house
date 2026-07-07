@@ -288,6 +288,40 @@ app.get('/api/account', async (req, res) => {
   }
 });
 
+// Webhook para receber leads (Meta ou Google)
+app.post('/api/leads', async (req, res) => {
+  try {
+    const { name, email, phone, campaign, source, score, notes } = req.body;
+
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Nome e email são obrigatórios' });
+    }
+
+    // Preparar dados para enviar à planilha
+    const leadData = {
+      name,
+      email,
+      phone: phone || '',
+      campaign: campaign || 'N/A',
+      source: source || 'Direto',
+      score: score || '',
+      notes: notes || ''
+    };
+
+    // TODO: Enviar para Google Apps Script webhook
+    console.log('📝 Lead recebido:', leadData);
+
+    res.json({
+      success: true,
+      message: 'Lead registrado com sucesso',
+      lead: leadData
+    });
+  } catch (error) {
+    console.error('Erro ao processar lead:', error.message);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err);
