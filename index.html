@@ -483,7 +483,7 @@ class Component extends DCLogic {
       onPick: () => {
         const a = this.state.c3Ans.slice();
         a[s3] = label;
-        this.setState({ c3Ans: a, c3Step: s3 + 1, c3Typed: '' });
+        this.setState({ c3Ans: a, c3Step: s3 + 1, c3Typed: '', c3ChipsReady: false });
       }
     }));
     const c3IsInput = s3 === 1 && done3;
@@ -494,7 +494,7 @@ class Component extends DCLogic {
       const nm = words.slice(0, 2).join(' ');
       const a = this.state.c3Ans.slice();
       a[1] = nm;
-      this.setState({ c3Name: nm, c3Ans: a, c3Step: 2, c3Typed: '', c3Input: '' });
+      this.setState({ c3Name: nm, c3Ans: a, c3Step: 2, c3Typed: '', c3Input: '', c3ChipsReady: false });
     };
     const onC3Key = e => { if (e.key === 'Enter') c3Submit(); };
     const c3Done = s3 === 5 && done3;
