@@ -93,7 +93,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <img src="assets/logo-light.png" alt="match house" style="height:38px;display:block">
     <a href="{{ waHrefHeader }}" target="_blank" rel="noopener" style="color:#000000;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:8px" style-hover="color:#000f90"><i class="ph-fill ph-whatsapp-logo" style="font-size:17px"></i>Falar no WhatsApp</a>
   </div>
-  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:56px;padding:92px 32px 108px;align-items:start;min-height:64vh">
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:92px 32px 108px;align-items:start;min-height:64vh">
     <div style="grid-column:span 1;max-width:760px">
       <div style="font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#000f90;margin:0 0 14px">Sua IA no link da bio →</div>
       <sc-for list="{{ c3PastLines }}" as="p" hint-placeholder-count="1">
@@ -180,7 +180,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
 <!-- ============ S2 · O QUE É O SMART LINK (central) ============ -->
 <div id="smartlink" data-screen-label="O que é o Smart Link" style="background:#ffffff;scroll-margin-top:24px">
-  <div style="max-width:1240px;margin:0 auto;padding:96px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:64px;align-items:center">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(40px,7vw,64px);align-items:center">
     <div style="max-width:560px">
       <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">O que é o Smart Link ↘</div>
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-0.018em;color:#00073e;margin:14px 0 0">Um link. Toda a sua operação.</h2>
@@ -249,7 +249,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
   <!-- onde ele mora: link da bio -->
   <div style="max-width:1240px;margin:0 auto;padding:40px 32px 96px">
-    <div style="background:#f1f1f1;border-radius:32px;padding:56px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
+    <div style="background:#f1f1f1;border-radius:32px;padding:clamp(28px,7vw,56px) clamp(18px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,6vw,48px);align-items:center">
       <div style="max-width:520px">
         <h3 style="font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.8vw,34px);line-height:1.12;letter-spacing:-0.015em;color:#00073e;margin:0">E onde ele mora?<br>No seu link da bio.</h3>
         <p style="color:#494d5e;font-size:15.5px;line-height:1.65;margin:16px 0 0">Cole o seu Smart Link na bio do Instagram — e do TikTok, do YouTube, do Facebook. Um único link leva todas as suas audiências para a mesma central, e cada clique é atendido pela Match IA.</p>
@@ -271,10 +271,9 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
               <div style="font-size:12px;color:#6c7081;margin:2px 0 0">Corretora de Imóveis · Alto padrão</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;gap:9px;background:#ebfeff;border:1.5px solid rgba(0,239,255,.5);border-radius:14px;padding:12px 16px;margin:18px 0 0;animation:mhGlowSoft 2.6s infinite">
-            <i class="ph-bold ph-link" style="font-size:16px;color:#000f90"></i>
-            <span style="font-weight:600;font-size:14px;color:#000f90">smartli.ink/seunome</span>
-            <span style="margin-left:auto;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#00073e;background:#ffffff;border-radius:999px;padding:4px 10px">seu Smart Link</span>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:9px;background:#ebfeff;border:1.5px solid rgba(0,239,255,.5);border-radius:14px;padding:12px 16px;margin:18px 0 0;animation:mhGlowSoft 2.6s infinite">
+            <span style="display:inline-flex;align-items:center;gap:9px"><i class="ph-bold ph-link" style="font-size:16px;color:#000f90"></i><span style="font-weight:600;font-size:14px;color:#000f90">smartli.ink/seunome</span></span>
+            <span style="margin-left:auto;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#00073e;background:#ffffff;border-radius:999px;padding:4px 10px;white-space:nowrap">seu Smart Link</span>
           </div>
         </div>
         <div style="text-align:center;font-size:11.5px;color:#969aaa;margin:12px 0 0">Sua bio, em qualquer rede — o link em destaque</div>
@@ -286,7 +285,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 <!-- ============ S3 · MADRUGADA (prova 23h47) ============ -->
 <div id="hero" data-screen-label="Madrugada 23h47" style="position:relative;background:#00052b;overflow:hidden">
   <div style="position:absolute;inset:0;background:radial-gradient(90% 75% at 82% 115%, rgba(0,239,255,.16) 0%, rgba(0,15,144,.14) 38%, rgba(0,5,43,0) 72%)"></div>
-  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:56px;padding:80px 32px 88px;align-items:center">
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:56px;padding:80px 32px 88px;align-items:center">
     <div>
       <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(64px,9vw,104px);line-height:1;color:#ffffff;font-variant-numeric:tabular-nums;text-shadow:0 0 32px rgba(0,239,255,.3)">{{ clock }}</div>
       <div style="height:2px;width:120px;background:#00efff;margin:22px 0 0;animation:mhPulse 2.4s infinite"></div>
@@ -351,7 +350,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <div style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">Match IA →</span></div>
     <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-0.015em;color:#00073e;margin:14px 0 0;max-width:720px">"Não acredite em mim. Converse com uma IA que já está no ar."</h2>
     <p style="color:#494d5e;font-size:16.5px;line-height:1.6;margin:14px 0 0;max-width:560px">Estes são Smart Links de corretores reais, funcionando agora. Clique, pergunte qualquer coisa e veja a IA responder — sem cadastro.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:36px 0 0;max-width:920px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin:36px 0 0;max-width:920px">
       <a href="https://www.smartli.ink/bernardovicentevieiraneves_727" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,rgba(0,239,255,.45) 0%,rgba(0,15,144,.5) 40%,rgba(255,255,255,.08) 100%);border-radius:26px;padding:1.5px;box-shadow:0 24px 60px rgba(0,5,43,.35);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,239,255,.3),0 32px 80px rgba(0,5,43,.5)">
         <span style="display:flex;flex-direction:column;height:100%;background:#00052b;border-radius:25px;overflow:hidden">
           <span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px">
