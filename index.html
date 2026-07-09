@@ -356,9 +356,9 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;velocidadeDigitacao&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 100, &quot;min&quot;: 10, &quot;max&quot;: 100, &quot;step&quot;: 5, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Conversa&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5527992268000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contato&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;velocidadeDigitacao&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 200, &quot;min&quot;: 10, &quot;max&quot;: 400, &quot;step&quot;: 5, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Conversa&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5527992268000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contato&quot;}}">
 class Component extends DCLogic {
-  state = { clock: 33, notifN: 3, flipN: 6, leads: 1284, c3Step: 0, c3Typed: '', c3Ans: [], c3Name: '', c3Input: '' };
+  state = { clock: 33, notifN: 3, flipN: 6, leads: 1284, c3Step: 0, c3Typed: '', c3Ans: [], c3Name: '', c3Input: '', c3ChipsReady: false };
 
   notifScript = [
     'Lead qualificado: Marina P. · busca cobertura para investir',
@@ -428,7 +428,7 @@ class Component extends DCLogic {
   startTimers() {
     if (this._started) return;
     this._started = true;
-    const typeSpeed = this.props.velocidadeDigitacao ?? 55;
+    const typeSpeed = this.props.velocidadeDigitacao ?? 300;
     this._t = [
       setInterval(() => this.setState(s => ({ clock: s.clock + 1 })), 1000),
       setInterval(() => this.setState(s => ({ notifN: s.notifN + 1 })), 2600),
@@ -437,7 +437,9 @@ class Component extends DCLogic {
       setInterval(() => {
         const t3 = this.c3Text(this.state.c3Step);
         if (this.state.c3Typed.length < t3.length) {
-          this.setState(s => ({ c3Typed: t3.slice(0, s.c3Typed.length + 1) }));
+          this.setState(s => ({ c3Typed: t3.slice(0, s.c3Typed.length + 1), c3ChipsReady: false }));
+        } else if (!this.state.c3ChipsReady) {
+          setTimeout(() => this.setState({ c3ChipsReady: true }), 2000);
         }
       }, typeSpeed)
     ];
@@ -476,7 +478,7 @@ class Component extends DCLogic {
     const c3Line = this.state.c3Typed;
     const c3CaretStyle = 'display:inline-block;width:12px;height:42px;background:#00efff;margin-left:9px;vertical-align:-5px;' + (done3 ? 'animation:mhBlink 1.1s infinite;' : '');
     const c3PastLines = [];
-    const c3Chips = (done3 ? this.c3ChipList(s3) : []).map(label => ({
+    const c3Chips = (done3 && this.state.c3ChipsReady ? this.c3ChipList(s3) : []).map(label => ({
       label,
       onPick: () => {
         const a = this.state.c3Ans.slice();
