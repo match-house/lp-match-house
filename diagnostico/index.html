@@ -9,11 +9,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCDP75SR8J"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11228755115"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  gtag('config', 'AW-11228755115');
   gtag('config', 'G-HCDP75SR8J');
 </script>
 <!-- Meta Pixel (Conjunto de dados Match House) -->
@@ -33,11 +34,18 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=442305528638784&ev=PageView&noscript=1"
 /></noscript>
 <script>
-// Evento de contato (Meta) em qualquer clique para o WhatsApp
+// Conversão (Google Ads + Meta) em qualquer clique para o WhatsApp
+function handleWhatsAppClick() {
+  if (window.gtag) gtag('event', 'conversion', {
+    'send_to': 'AW-11228755115/oQBICMaAn8AcEKvppOop',
+    'value': 1.0,
+    'currency': 'BRL'
+  });
+  if (window.fbq) fbq('track', 'Lead');
+}
 document.addEventListener('click', function (e) {
-  var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"]') : null;
-  if (!a) return;
-  if (window.fbq) fbq('track', 'Contact');
+  var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]') : null;
+  if (a) handleWhatsAppClick();
 }, true);
 </script>
 <style>
