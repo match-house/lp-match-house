@@ -1,0 +1,293 @@
+/* =============================================================================
+   Match House — Design Tokens (Colors, Type, Spacing, Effects)
+   Source: Brandbook VF – Diretrizes Match House (2025)
+   ============================================================================= */
+
+/* =============================================================================
+   WEBFONTS — self-hosted (uploaded by brand)
+   - Poppins: the brand's primary family (10 weights + italics).
+   - Helvetica Now Display: display/heading family (wordmark + big headlines).
+   The fonts/ src paths are resolved relative to THIS css file (project root),
+   so they work no matter which page loads it. Keep this CSS at project root.
+   ============================================================================= */
+
+/* ---- Poppins ---- */
+@font-face { font-family:'Poppins'; font-weight:100; font-style:normal; font-display:swap; src:url('fonts/Poppins-Thin.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:100; font-style:italic; font-display:swap; src:url('fonts/Poppins-ThinItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:200; font-style:normal; font-display:swap; src:url('fonts/Poppins-ExtraLight.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:200; font-style:italic; font-display:swap; src:url('fonts/Poppins-ExtraLightItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:300; font-style:normal; font-display:swap; src:url('fonts/Poppins-Light.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:300; font-style:italic; font-display:swap; src:url('fonts/Poppins-LightItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:400; font-style:normal; font-display:swap; src:url('fonts/Poppins-Regular.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:400; font-style:italic; font-display:swap; src:url('fonts/Poppins-Italic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:500; font-style:normal; font-display:swap; src:url('fonts/Poppins-Medium.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:500; font-style:italic; font-display:swap; src:url('fonts/Poppins-MediumItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:600; font-style:normal; font-display:swap; src:url('fonts/Poppins-SemiBold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:600; font-style:italic; font-display:swap; src:url('fonts/Poppins-SemiBoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:700; font-style:normal; font-display:swap; src:url('fonts/Poppins-Bold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:700; font-style:italic; font-display:swap; src:url('fonts/Poppins-BoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:800; font-style:normal; font-display:swap; src:url('fonts/Poppins-ExtraBold.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:800; font-style:italic; font-display:swap; src:url('fonts/Poppins-ExtraBoldItalic.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:900; font-style:normal; font-display:swap; src:url('fonts/Poppins-Black.ttf') format('truetype'); }
+@font-face { font-family:'Poppins'; font-weight:900; font-style:italic; font-display:swap; src:url('fonts/Poppins-BlackItalic.ttf') format('truetype'); }
+
+/* ---- Helvetica Now Display ---- */
+@font-face { font-family:'Helvetica Now Display'; font-weight:400; font-style:normal; font-display:swap; src:url('fonts/HelveticaNowDisplay-Regular.otf') format('opentype'); }
+@font-face { font-family:'Helvetica Now Display'; font-weight:700; font-style:normal; font-display:swap; src:url('fonts/HelveticaNowDisplay-Bold.otf') format('opentype'); }
+@font-face { font-family:'Helvetica Now Display'; font-weight:800; font-style:normal; font-display:swap; src:url('fonts/HelveticaNowDisplay-ExtraBold.otf') format('opentype'); }
+@font-face { font-family:'Helvetica Now Display'; font-weight:900; font-style:normal; font-display:swap; src:url('fonts/HelveticaNowDisplay-Black.otf') format('opentype'); }
+
+:root {
+  /* ---------------------------------------------------------------------------
+     CORE INSTITUTIONAL PALETTE (from brandbook page 24)
+     The four institutional colors. Use sparingly and in balance.
+     --------------------------------------------------------------------------- */
+  --mh-navy:        #00073e;  /* Deep midnight navy — primary brand ink, dark surfaces */
+  --mh-blue:        #000f90;  /* Rich royal blue — primary brand fill, CTAs */
+  --mh-cyan:        #00efff;  /* Electric cyan — accent, "unlock" energy, highlights */
+  --mh-paper:       #f1f1f1;  /* Soft off-white — primary light background */
+  --mh-white:       #ffffff;
+  --mh-black:       #000000;
+
+  /* ---------------------------------------------------------------------------
+     EXTENDED SCALE (derived, kept harmonious with the four institutional colors)
+     Use these for hover states, dividers, body copy on light surfaces, etc.
+     --------------------------------------------------------------------------- */
+  --mh-navy-900:    #00052b;
+  --mh-navy-800:    #00073e;  /* same as --mh-navy */
+  --mh-navy-700:    #050f5a;
+  --mh-blue-600:    #000f90;  /* same as --mh-blue */
+  --mh-blue-500:    #0a23c0;
+  --mh-blue-400:    #2748df;
+  --mh-cyan-500:    #00efff;  /* same as --mh-cyan */
+  --mh-cyan-400:    #5af5ff;
+  --mh-cyan-200:    #c7faff;
+  --mh-cyan-50:     #ebfeff;
+
+  --mh-gray-50:     #f7f7f8;
+  --mh-gray-100:    #f1f1f1;  /* same as --mh-paper */
+  --mh-gray-200:    #e4e5ea;
+  --mh-gray-300:    #c9ccd5;
+  --mh-gray-400:    #969aaa;
+  --mh-gray-500:    #6c7081;
+  --mh-gray-600:    #494d5e;
+  --mh-gray-700:    #2c3043;
+  --mh-gray-800:    #161a2c;
+
+  /* ---------------------------------------------------------------------------
+     SIGNATURE GRADIENTS
+     The brand's identifying gradient runs navy → blue → cyan (lower-right hot spot).
+     --------------------------------------------------------------------------- */
+  --mh-gradient-brand:      linear-gradient(115deg, #00073e 0%, #000f90 45%, #00efff 100%);
+  --mh-gradient-brand-soft: linear-gradient(115deg, #00073e 0%, #000f90 70%, #1d6df0 100%);
+  --mh-gradient-symbol:     linear-gradient(110deg, #001a8a 0%, #0a3fd0 50%, #00d4ff 100%);
+  --mh-gradient-radial:     radial-gradient(120% 80% at 85% 60%, #00efff 0%, #000f90 45%, #00073e 100%);
+
+  /* ---------------------------------------------------------------------------
+     SEMANTIC TOKENS — light mode (default)
+     --------------------------------------------------------------------------- */
+  --fg-1:           var(--mh-navy);        /* Primary text, headings */
+  --fg-2:           var(--mh-gray-700);    /* Body text */
+  --fg-3:           var(--mh-gray-500);    /* Tertiary / captions */
+  --fg-muted:       var(--mh-gray-400);    /* Placeholder, disabled */
+  --fg-on-brand:    #ffffff;               /* Text on blue/navy fills */
+
+  --bg-1:           var(--mh-paper);       /* App / page background */
+  --bg-2:           #ffffff;               /* Card surface */
+  --bg-3:           var(--mh-gray-50);     /* Recessed surfaces */
+  --bg-brand:       var(--mh-blue);
+  --bg-brand-dark:  var(--mh-navy);
+  --bg-brand-accent:var(--mh-cyan);
+
+  --border-subtle:  var(--mh-gray-200);
+  --border-strong:  var(--mh-gray-300);
+  --border-brand:   var(--mh-blue);
+
+  --link:           var(--mh-blue);
+  --link-hover:     var(--mh-navy);
+
+  /* Status (harmonized with palette; not from brandbook — flagged) */
+  --status-success: #0a8a5b;
+  --status-warn:    #c97a00;
+  --status-danger:  #c8243f;
+  --status-info:    var(--mh-blue);
+
+  /* ---------------------------------------------------------------------------
+     TYPOGRAPHY
+     Two self-hosted families:
+       --font-sans    = Poppins (body, UI, most text). Brandbook's named family.
+       --font-display = Helvetica Now Display (wordmark + large headlines).
+                        Falls back to Poppins where display weights are absent.
+     Weights available: 100 (Thin), 300 (Light), 400 (Regular), 500 (Medium),
+                        600 (SemiBold), 700 (Bold), 800 (ExtraBold), 900 (Black),
+                        + italic variants.
+     Brandbook restrictions: never use justified text, never use very tight
+     letter-spacing, never use very tight line-height, never stretch, never
+     outline, never use other typefaces.
+     --------------------------------------------------------------------------- */
+  --font-sans:      'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display:   'Helvetica Now Display', 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono:      ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale — generous, rooted in the brandbook's display usage on cover pages */
+  --fs-display-xl: clamp(56px, 7.5vw, 112px);  /* "Sessão 07. Exemplos" hero */
+  --fs-display:    clamp(40px, 5vw, 72px);
+  --fs-h1:         clamp(32px, 3.6vw, 52px);
+  --fs-h2:         clamp(26px, 2.6vw, 38px);
+  --fs-h3:         22px;
+  --fs-h4:         18px;
+  --fs-body-lg:    18px;
+  --fs-body:       16px;
+  --fs-body-sm:    14px;
+  --fs-caption:    12px;
+  --fs-overline:   11px;
+
+  --lh-tight:      1.05;
+  --lh-snug:       1.2;
+  --lh-normal:     1.45;
+  --lh-relaxed:    1.6;
+  --lh-loose:      1.75;
+
+  --ls-tight:      -0.02em;
+  --ls-snug:       -0.01em;
+  --ls-normal:     0;
+  --ls-wide:       0.04em;
+  --ls-overline:   0.12em;
+
+  /* ---------------------------------------------------------------------------
+     SPACING (4px base)
+     --------------------------------------------------------------------------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+  --sp-32: 128px;
+
+  /* ---------------------------------------------------------------------------
+     RADII
+     Pill-shaped surfaces are a key brand motif (search bars, badges, buttons).
+     Cards on the cover use soft rounded rectangles.
+     --------------------------------------------------------------------------- */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-2xl:  48px;
+  --radius-pill: 999px;
+
+  /* ---------------------------------------------------------------------------
+     ELEVATION / SHADOWS
+     Brand surfaces use soft, low-contrast shadows. Cyan glow used sparingly
+     for "interactive / live" states (e.g. AI is active).
+     --------------------------------------------------------------------------- */
+  --shadow-xs:   0 1px 2px rgba(0, 7, 62, 0.05);
+  --shadow-sm:   0 2px 6px rgba(0, 7, 62, 0.06), 0 1px 2px rgba(0, 7, 62, 0.04);
+  --shadow-md:   0 8px 24px rgba(0, 7, 62, 0.08), 0 2px 6px rgba(0, 7, 62, 0.04);
+  --shadow-lg:   0 18px 48px rgba(0, 7, 62, 0.12), 0 4px 12px rgba(0, 7, 62, 0.06);
+  --shadow-xl:   0 32px 80px rgba(0, 7, 62, 0.18), 0 8px 24px rgba(0, 7, 62, 0.08);
+  --shadow-glow: 0 0 0 4px rgba(0, 239, 255, 0.25), 0 8px 24px rgba(0, 15, 144, 0.22);
+  --shadow-inset:inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(0,7,62,0.06);
+
+  /* ---------------------------------------------------------------------------
+     MOTION
+     Brand voice is "claro, inovador com propósito" — motion should feel
+     intentional and unrushed. Avoid bouncy/elastic easing.
+     --------------------------------------------------------------------------- */
+  --ease-out:      cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast:      120ms;
+  --dur-base:      200ms;
+  --dur-slow:      360ms;
+  --dur-deliberate:600ms;
+}
+
+/* =============================================================================
+   DARK MODE
+   The brandbook ships both "Modo Claro" and "Modo Escuro" icon sets, and the
+   symbol has a dedicated black-background version. Dark mode is a first-class
+   citizen of the brand.
+   ============================================================================= */
+:root.dark, [data-theme='dark'] {
+  --fg-1:           #ffffff;
+  --fg-2:           rgba(255, 255, 255, 0.78);
+  --fg-3:           rgba(255, 255, 255, 0.58);
+  --fg-muted:       rgba(255, 255, 255, 0.40);
+  --fg-on-brand:    #ffffff;
+
+  --bg-1:           var(--mh-navy);
+  --bg-2:           var(--mh-navy-700);
+  --bg-3:           rgba(255, 255, 255, 0.04);
+  --bg-brand:       var(--mh-blue);
+  --bg-brand-dark:  var(--mh-navy-900);
+  --bg-brand-accent:var(--mh-cyan);
+
+  --border-subtle:  rgba(255, 255, 255, 0.08);
+  --border-strong:  rgba(255, 255, 255, 0.16);
+  --border-brand:   var(--mh-cyan);
+
+  --link:           var(--mh-cyan);
+  --link-hover:     #ffffff;
+}
+
+/* =============================================================================
+   SEMANTIC TYPE STYLES
+   Use these classes/selectors directly instead of restating font properties.
+   ============================================================================= */
+html { font-family: var(--font-sans); color: var(--fg-1); background: var(--bg-1); }
+body { font-size: var(--fs-body); line-height: var(--lh-normal); -webkit-font-smoothing: antialiased; }
+
+.display-xl, h1.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-xl);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+h1, .h1 { font-size: var(--fs-h1); font-weight: 700; line-height: var(--lh-snug); letter-spacing: var(--ls-snug); }
+h2, .h2 { font-size: var(--fs-h2); font-weight: 600; line-height: var(--lh-snug); letter-spacing: var(--ls-snug); }
+h3, .h3 { font-size: var(--fs-h3); font-weight: 600; line-height: var(--lh-snug); }
+h4, .h4 { font-size: var(--fs-h4); font-weight: 600; line-height: var(--lh-normal); }
+
+p, .body { font-size: var(--fs-body); line-height: var(--lh-relaxed); color: var(--fg-2); }
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); }
+.body-sm { font-size: var(--fs-body-sm); line-height: var(--lh-normal); }
+.caption { font-size: var(--fs-caption); line-height: var(--lh-normal); color: var(--fg-3); }
+.overline {
+  font-size: var(--fs-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--fg-3);
+}
+
+/* Branded "underline" treatment seen on the brandbook intro paragraphs */
+.brand-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  padding-bottom: 2px;
+}
+
+/* Code / mono — for technical contexts; brandbook does not specify a mono. */
+code, kbd, samp, pre, .mono { font-family: var(--font-mono); font-size: 0.95em; }
+
+/* Selection */
+::selection { background: var(--mh-cyan); color: var(--mh-navy); }
