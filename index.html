@@ -428,8 +428,8 @@ class Component extends DCLogic {
   startTimers() {
     if (this._started) return;
     this._started = true;
-    const typeSpeed = this.props.velocidadeDigitacao ?? 300;
-    console.log('typeSpeed configurado:', typeSpeed, 'ms por letra');
+    const typeSpeed = this.props.velocidadeDigitacao ?? 500;
+    console.log('typeSpeed configurado:', typeSpeed, 'ms. Props:', this.props);
     this._t = [
       setInterval(() => this.setState(s => ({ clock: s.clock + 1 })), 1000),
       setInterval(() => this.setState(s => ({ notifN: s.notifN + 1 })), 2600),
