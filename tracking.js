@@ -212,10 +212,29 @@
   //
   var conversaTracked = {};
 
-  var observer = new MutationObserver(function () {
-    // Detectar se o preview do Smart Link apareceu
-    var preview = document.querySelector('[data-screen-label="Conversa com a IA — destaque"] img[alt*="Avatar"]');
-    if (preview && !conversaTracked.preview) {
+  // Retorna true se o texto aparece dentro de root E está visível na tela.
+  // A checagem de offsetParent evita falso-positivo caso o bloco <sc-if>
+  // fique no DOM oculto (display:none) em vez de removido.
+  function textoVisivel(root, texto) {
+    var els = root.querySelectorAll('div');
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (
+        el.textContent &&
+        el.textContent.indexOf(texto) !== -1 &&
+        el.offsetParent !== null
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function checarConversa(root) {
+    if (!root) return;
+
+    // ── Prévia do Smart Link apareceu (painel da direita) ──
+    if (!conversaTracked.preview && textoVisivel(root, 'Prévia do seu Smart Link')) {
       conversaTracked.preview = true;
       fbq('trackCustom', 'SmartLinkPreview', {});
       gtag('event', 'smartlink_preview', {
@@ -225,9 +244,8 @@
       console.log('[MH Tracking] Smart Link preview shown');
     }
 
-    // Detectar CTA final (c3Done)
-    var ctaDone = document.querySelector('[data-screen-label="Conversa com a IA — destaque"] [style*="Seu Smart Link no ar"]');
-    if (ctaDone && !conversaTracked.ctaDone) {
+    // ── CTA final: "Seu Smart Link no ar em 5 minutos." (c3Done) ──
+    if (!conversaTracked.ctaDone && textoVisivel(root, 'Seu Smart Link no ar em 5 minutos')) {
       conversaTracked.ctaDone = true;
       fbq('track', 'CompleteRegistration', {
         content_name: 'conversa_completa',
@@ -240,6 +258,10 @@
       });
       console.log('[MH Tracking] Conversa completa');
     }
+  }
+
+  var observer = new MutationObserver(function () {
+    checarConversa(document.getElementById('conversa'));
   });
 
   // Observar mudanças na seção de conversa
@@ -247,6 +269,7 @@
     var conversa = document.getElementById('conversa');
     if (conversa) {
       observer.observe(conversa, { childList: true, subtree: true });
+      checarConversa(conversa); // checagem inicial (caso já esteja renderizado)
     }
   });
 
