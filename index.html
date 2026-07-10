@@ -1,60 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Match House · Smart Link para Bio de Corretores de Imóveis</title>
-<meta name="description" content="O Smart Link para Bio com IA que atende, qualifica e agenda seus leads 24h por dia. Coloque na bio do Instagram e transforme visitantes em compradores.">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<!-- Google tag (gtag.js) — Google Ads + GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11228755115"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11228755115');
-  gtag('config', 'G-HCDP75SR8J');
-</script>
-<!-- Meta Pixel (Conjunto de dados Match House) -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '442305528638784');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=442305528638784&ev=PageView&noscript=1"
-/></noscript>
-<script>
-// Conversão (Google Ads + Meta) em qualquer clique para o WhatsApp (links renderizados dinamicamente)
-function handleWhatsAppClick() {
-  if (window.gtag) gtag('event', 'conversion', {
-    'send_to': 'AW-11228755115/oQBICMaAn8AcEKvppOop',
-    'value': 1.0,
-    'currency': 'BRL'
-  });
-  if (window.fbq) fbq('track', 'Lead');
-}
-document.addEventListener('click', function (e) {
-  var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]') : null;
-  if (a) handleWhatsAppClick();
-}, true);
-</script>
-<script>
-// Bibliotecas hospedadas localmente (sem dependência de CDN externo)
-window.__resources = {
-  "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "vendor/react.production.min.js",
-  "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "vendor/react-dom.production.min.js"
-};
-</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -65,8 +13,7 @@ window.__resources = {
 <link rel="stylesheet" href="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/smart-link/styles2.css">
 <link rel="stylesheet" href="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/ui_kits/linkbio/styles.css">
 <script src="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/_ds_bundle.js"></script>
-<link rel="stylesheet" href="vendor/phosphor/fill/style.css">
-<link rel="stylesheet" href="vendor/phosphor/bold/style.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <script src="image-slot.js"></script>
 <style>
 html{scroll-behavior:smooth}
@@ -93,7 +40,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <img src="assets/logo-light.png" alt="match house" style="height:38px;display:block">
     <a href="{{ waHrefHeader }}" target="_blank" rel="noopener" style="color:#000000;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:8px" style-hover="color:#000f90"><i class="ph-fill ph-whatsapp-logo" style="font-size:17px"></i>Falar no WhatsApp</a>
   </div>
-  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:92px 32px 108px;align-items:start;min-height:64vh">
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:56px;padding:92px 32px 108px;align-items:start;min-height:64vh">
     <div style="grid-column:span 1;max-width:760px">
       <div style="font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#000f90;margin:0 0 14px">Sua IA no link da bio →</div>
       <sc-for list="{{ c3PastLines }}" as="p" hint-placeholder-count="1">
@@ -180,7 +127,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
 <!-- ============ S2 · O QUE É O SMART LINK (central) ============ -->
 <div id="smartlink" data-screen-label="O que é o Smart Link" style="background:#ffffff;scroll-margin-top:24px">
-  <div style="max-width:1240px;margin:0 auto;padding:96px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:clamp(40px,7vw,64px);align-items:center">
+  <div style="max-width:1240px;margin:0 auto;padding:96px 32px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:64px;align-items:center">
     <div style="max-width:560px">
       <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">O que é o Smart Link ↘</div>
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-0.018em;color:#00073e;margin:14px 0 0">Um link. Toda a sua operação.</h2>
@@ -249,7 +196,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
   <!-- onde ele mora: link da bio -->
   <div style="max-width:1240px;margin:0 auto;padding:40px 32px 96px">
-    <div style="background:#f1f1f1;border-radius:32px;padding:clamp(28px,7vw,56px) clamp(18px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:clamp(28px,6vw,48px);align-items:center">
+    <div style="background:#f1f1f1;border-radius:32px;padding:56px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
       <div style="max-width:520px">
         <h3 style="font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.8vw,34px);line-height:1.12;letter-spacing:-0.015em;color:#00073e;margin:0">E onde ele mora?<br>No seu link da bio.</h3>
         <p style="color:#494d5e;font-size:15.5px;line-height:1.65;margin:16px 0 0">Cole o seu Smart Link na bio do Instagram — e do TikTok, do YouTube, do Facebook. Um único link leva todas as suas audiências para a mesma central, e cada clique é atendido pela Match IA.</p>
@@ -271,9 +218,10 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
               <div style="font-size:12px;color:#6c7081;margin:2px 0 0">Corretora de Imóveis · Alto padrão</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:9px;background:#ebfeff;border:1.5px solid rgba(0,239,255,.5);border-radius:14px;padding:12px 16px;margin:18px 0 0;animation:mhGlowSoft 2.6s infinite">
-            <span style="display:inline-flex;align-items:center;gap:9px"><i class="ph-bold ph-link" style="font-size:16px;color:#000f90"></i><span style="font-weight:600;font-size:14px;color:#000f90">smartli.ink/seunome</span></span>
-            <span style="margin-left:auto;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#00073e;background:#ffffff;border-radius:999px;padding:4px 10px;white-space:nowrap">seu Smart Link</span>
+          <div style="display:flex;align-items:center;gap:9px;background:#ebfeff;border:1.5px solid rgba(0,239,255,.5);border-radius:14px;padding:12px 16px;margin:18px 0 0;animation:mhGlowSoft 2.6s infinite">
+            <i class="ph-bold ph-link" style="font-size:16px;color:#000f90"></i>
+            <span style="font-weight:600;font-size:14px;color:#000f90">smartli.ink/seunome</span>
+            <span style="margin-left:auto;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#00073e;background:#ffffff;border-radius:999px;padding:4px 10px">seu Smart Link</span>
           </div>
         </div>
         <div style="text-align:center;font-size:11.5px;color:#969aaa;margin:12px 0 0">Sua bio, em qualquer rede — o link em destaque</div>
@@ -285,7 +233,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 <!-- ============ S3 · MADRUGADA (prova 23h47) ============ -->
 <div id="hero" data-screen-label="Madrugada 23h47" style="position:relative;background:#00052b;overflow:hidden">
   <div style="position:absolute;inset:0;background:radial-gradient(90% 75% at 82% 115%, rgba(0,239,255,.16) 0%, rgba(0,15,144,.14) 38%, rgba(0,5,43,0) 72%)"></div>
-  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:56px;padding:80px 32px 88px;align-items:center">
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:56px;padding:80px 32px 88px;align-items:center">
     <div>
       <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(64px,9vw,104px);line-height:1;color:#ffffff;font-variant-numeric:tabular-nums;text-shadow:0 0 32px rgba(0,239,255,.3)">{{ clock }}</div>
       <div style="height:2px;width:120px;background:#00efff;margin:22px 0 0;animation:mhPulse 2.4s infinite"></div>
@@ -350,7 +298,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <div style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">Match IA →</span></div>
     <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-0.015em;color:#00073e;margin:14px 0 0;max-width:720px">"Não acredite em mim. Converse com uma IA que já está no ar."</h2>
     <p style="color:#494d5e;font-size:16.5px;line-height:1.6;margin:14px 0 0;max-width:560px">Estes são Smart Links de corretores reais, funcionando agora. Clique, pergunte qualquer coisa e veja a IA responder — sem cadastro.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin:36px 0 0;max-width:920px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin:36px 0 0;max-width:920px">
       <a href="https://www.smartli.ink/bernardovicentevieiraneves_727" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,rgba(0,239,255,.45) 0%,rgba(0,15,144,.5) 40%,rgba(255,255,255,.08) 100%);border-radius:26px;padding:1.5px;box-shadow:0 24px 60px rgba(0,5,43,.35);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,239,255,.3),0 32px 80px rgba(0,5,43,.5)">
         <span style="display:flex;flex-direction:column;height:100%;background:#00052b;border-radius:25px;overflow:hidden">
           <span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px">
@@ -408,8 +356,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
   </div>
 </div>
 </x-dc>
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#00073e"/><text x="50" y="63" font-family="Arial,sans-serif" font-size="34" font-weight="800" fill="#00efff" text-anchor="middle">M</text></svg></template>
-<script type="text/x-dc" data-dc-script data-props="{&quot;velocidadeDigitacao&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 26, &quot;min&quot;: 10, &quot;max&quot;: 60, &quot;step&quot;: 2, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Conversa&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5527992268000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contato&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;velocidadeDigitacao&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 110, &quot;min&quot;: 10, &quot;max&quot;: 300, &quot;step&quot;: 5, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Conversa&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5527992268000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contato&quot;}}">
 class Component extends DCLogic {
   state = { clock: 33, notifN: 3, flipN: 6, leads: 1284, c3Step: 0, c3Typed: '', c3Ans: [], c3Name: '', c3Input: '' };
 
@@ -481,22 +428,27 @@ class Component extends DCLogic {
   startTimers() {
     if (this._started) return;
     this._started = true;
-    const typeSpeed = this.props.velocidadeDigitacao ?? 26;
     this._t = [
       setInterval(() => this.setState(s => ({ clock: s.clock + 1 })), 1000),
       setInterval(() => this.setState(s => ({ notifN: s.notifN + 1 })), 2600),
       setInterval(() => this.setState(s => ({ flipN: s.flipN + 1 })), 2100),
       setInterval(() => this.setState(s => ({ leads: s.leads + 1 + Math.floor(Math.random() * 2) })), 1600),
-      setInterval(() => {
-        const t3 = this.c3Text(this.state.c3Step);
-        if (this.state.c3Typed.length < t3.length) {
-          this.setState(s => ({ c3Typed: t3.slice(0, s.c3Typed.length + 2) }));
-        }
-      }, typeSpeed)
     ];
+    this.scheduleTyping();
+  }
+
+  scheduleTyping() {
+    const speed = this.props.velocidadeDigitacao ?? 110;
+    this._typeTimeout = setTimeout(() => {
+      const t3 = this.c3Text(this.state.c3Step);
+      if (this.state.c3Typed.length < t3.length) {
+        this.setState(s => ({ c3Typed: t3.slice(0, s.c3Typed.length + 1) }));
+      }
+      this.scheduleTyping();
+    }, speed);
   }
   componentDidMount() { this.startTimers(); }
-  componentWillUnmount() { (this._t || []).forEach(clearInterval); this._started = false; }
+  componentWillUnmount() { (this._t || []).forEach(clearInterval); if (this._typeTimeout) clearTimeout(this._typeTimeout); this._started = false; }
 
   renderVals() {
     this.startTimers();
