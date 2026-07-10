@@ -2,6 +2,17 @@
 
 Notas do projeto para agentes. Ler antes de mexer.
 
+## Fluxo de trabalho padrão (o agente faz tudo)
+
+- O usuário **não é técnico** e espera que o agente **execute o processo inteiro**, do começo ao fim, sem pedir para ele mexer em git/GitHub.
+- Priorizar sempre o caminho **mais prático e rápido**. Para uma correção/ajuste pequeno e de baixo risco:
+  1. Fazer a alteração e commitar.
+  2. **Levar direto para a `main`** — pode commitar/pushar na `main` (foi assim nos "publiques" anteriores) ou, se estiver numa branch, abrir o PR **e já dar o merge você mesmo**. Não deixar esperando aprovação para tarefas simples.
+  3. Confirmar que a mudança chegou na `main` (é o que "publica" o site).
+  4. Avisar o usuário que está no ar e lembrar do **hard refresh (Ctrl+Shift+R)** por causa do cache.
+- Só parar para perguntar quando a mudança for **ambígua, grande ou arriscada** (ex.: reescrita, mudança de conteúdo/preço, algo que afete conversão). Ajuste visual/layout/cópia pequena: executar direto.
+- Ao mexer em algo, **não regredir o que já estava corrigido** (ex.: não alterar a velocidade de digitação da conversa — `velocidadeDigitacao`, hoje 65ms — nem quebrar os grids responsivos de mobile).
+
 ## Deploy / Publicação (IMPORTANTE)
 
 - O site em produção — **https://www.matchhouse.com.br** — é servido a partir da branch **`main`**.
