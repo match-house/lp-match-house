@@ -27,8 +27,6 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 @keyframes mhPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,239,255,.45)}50%{box-shadow:0 0 0 6px rgba(0,239,255,0)}}
 @keyframes mhGlowSoft{0%,100%{box-shadow:0 0 0 0 rgba(0,239,255,.30),0 6px 18px rgba(0,7,62,.08)}50%{box-shadow:0 0 0 6px rgba(0,239,255,.10),0 6px 18px rgba(0,7,62,.08)}}
 @keyframes mhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.mh-store-btn{display:inline-flex;align-items:center;gap:10px;background:#00073e;color:#ffffff;border-radius:16px;padding:14px 24px;font-weight:600;font-size:14.5px;transition:all .2s}
-.mh-store-btn:hover{background:#000f90;color:#ffffff}
 .mh-copy-btn{cursor:pointer;background:#00efff;color:#00073e;border:none;border-radius:12px;padding:12px 20px;font-family:'Poppins',system-ui,sans-serif;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:8px;transition:all .2s;animation:mhGlowSoft 2.6s infinite}
 .mh-copy-btn:hover{background:#00073e;color:#00efff}
 .mh-step-card{background:#ffffff;border-radius:24px;padding:28px 30px;box-shadow:0 12px 32px rgba(0,7,62,.08)}
@@ -57,7 +55,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <div id="mh-ref-banner" style="display:none;margin:36px auto 0;max-width:560px;animation:mhFadeUp .5s cubic-bezier(0.2,0.7,0.2,1)">
       <div style="background:#ffffff;border-radius:24px;padding:28px 30px;box-shadow:0 0 0 3px rgba(0,239,255,.25),0 18px 48px rgba(0,7,62,.12)">
         <div style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#00073e">Você foi indicado! 🎉</div>
-        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Use o código abaixo ao criar a sua conta no app Match House:</p>
+        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Use o código abaixo ao criar a sua conta na Match House:</p>
         <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;background:#ebfeff;border:1.5px solid rgba(0,239,255,.5);border-radius:14px;padding:14px 18px;margin:16px 0 0">
           <span id="mh-ref-code" style="font-family:var(--font-mono);font-weight:600;font-size:20px;letter-spacing:.08em;color:#000f90"></span>
           <button id="mh-copy-btn" class="mh-copy-btn" type="button"><i class="ph-bold ph-copy" style="font-size:16px"></i><span id="mh-copy-label">Copiar código</span></button>
@@ -67,10 +65,8 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
     <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:36px 0 0">
       <a href="#gerar-codigo" style="background:#000f90;color:#ffffff;border-radius:16px;padding:16px 28px;font-weight:600;font-size:15.5px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(0,15,144,.35);animation:mhGlowSoft 2.6s infinite">Gerar meu código agora →</a>
-      <a class="mh-store-btn" href="https://play.google.com/store/apps/details?id=com.matchhouse" target="_blank" rel="noopener"><i class="ph-fill ph-google-play-logo" style="font-size:19px"></i>Google Play</a>
-      <a class="mh-store-btn" href="https://apps.apple.com/us/app/match-house/id6450905070" target="_blank" rel="noopener"><i class="ph-fill ph-apple-logo" style="font-size:19px"></i>App Store</a>
     </div>
-    <div style="color:#969aaa;font-size:12.5px;margin:14px 0 0">Gere seu código aqui pelo site com o seu login Match House — ou pelo app</div>
+    <div style="color:#969aaa;font-size:12.5px;margin:14px 0 0">Gere seu código aqui mesmo, com o seu login Match House</div>
   </div>
 </div>
 
@@ -97,7 +93,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
           <button id="mh-login-btn" type="submit" style="cursor:pointer;width:100%;border:none;background:#000f90;color:#fff;border-radius:14px;padding:16px 20px;font-family:'Poppins',system-ui,sans-serif;font-weight:600;font-size:15.5px;margin:22px 0 0;transition:background .2s">Entrar e gerar meu código →</button>
           <div id="mh-login-error" style="display:none;background:#fff2f2;border:1.5px solid #ffc9c9;border-radius:12px;padding:12px 16px;font-size:13px;color:#b42318;margin:16px 0 0"></div>
         </form>
-        <div style="font-size:12px;color:#969aaa;margin:14px 0 0">Ainda não tem conta? <a href="https://play.google.com/store/apps/details?id=com.matchhouse" target="_blank" rel="noopener" style="font-weight:600">Baixe o app</a> e cadastre-se primeiro.</div>
+        <div style="font-size:12px;color:#969aaa;margin:14px 0 0">Ainda não tem conta? <a href="https://wa.me/5527992268000?text=Ol%C3%A1%2C%20quero%20criar%20minha%20conta%20na%20Match%20House" target="_blank" rel="noopener" style="font-weight:600">Fale com a gente no WhatsApp</a>.</div>
       </div>
 
       <!-- RESULTADO: CÓDIGO GERADO -->
@@ -116,7 +112,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
           </div>
           <div id="mh-friends-list" style="display:flex;flex-direction:column;gap:8px;margin:12px 0 0"></div>
         </div>
-        <div style="font-size:12px;color:#969aaa;margin:18px 0 0">Acompanhe seu progresso completo e as recompensas no app Match House.</div>
+        <div style="font-size:12px;color:#969aaa;margin:18px 0 0">Volte aqui quando quiser para acompanhar suas indicações.</div>
       </div>
     </div>
   </div>
@@ -133,12 +129,12 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
       <div class="mh-step-card">
         <span style="font-family:var(--font-display);font-weight:800;font-size:26px;color:#000f90">①</span>
         <div style="font-family:var(--font-display);font-weight:700;font-size:19px;color:#00073e;margin:12px 0 0">Indique seus amigos</div>
-        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Abra o app Match House, copie o seu código de indicação e compartilhe com amigos que ainda não conhecem a plataforma.</p>
+        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Gere seu código aqui no site com o seu login Match House e compartilhe com amigos que ainda não conhecem a plataforma.</p>
       </div>
       <div class="mh-step-card">
         <span style="font-family:var(--font-display);font-weight:800;font-size:26px;color:#000f90">②</span>
         <div style="font-family:var(--font-display);font-weight:700;font-size:19px;color:#00073e;margin:12px 0 0">Eles usam seu código</div>
-        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Seus amigos baixam o app e criam a conta usando o seu código. A indicação fica registrada automaticamente.</p>
+        <p style="color:#494d5e;font-size:14.5px;line-height:1.6;margin:10px 0 0">Seus amigos criam a conta na Match House usando o seu código. A indicação fica registrada automaticamente.</p>
       </div>
       <div class="mh-step-card">
         <span style="font-family:var(--font-display);font-weight:800;font-size:26px;color:#000f90">③</span>
@@ -198,7 +194,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
           </div>
           <div style="height:8px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;margin:8px 0 0"><div style="width:40%;height:100%;border-radius:999px;background:linear-gradient(90deg,#000f90,#00efff)"></div></div>
         </div>
-        <div style="text-align:center;font-size:11.5px;color:#969aaa;margin:12px 0 0">Ilustrativo — acompanhe seu progresso real dentro do app</div>
+        <div style="text-align:center;font-size:11.5px;color:#969aaa;margin:12px 0 0">Ilustrativo — gere seu código e acompanhe suas indicações aqui no site</div>
       </div>
     </div>
   </div>
@@ -208,13 +204,10 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 <div style="background:linear-gradient(115deg,#00073e 0%,#000f90 60%,#00b7d4 125%)">
   <div style="max-width:1240px;margin:0 auto;padding:80px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
     <div>
-      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.4vw,38px);line-height:1.1;color:#fff;margin:0">Baixe o app e comece a indicar.</h2>
-      <div style="color:rgba(255,255,255,.7);font-size:14px;margin:12px 0 0">Seu código é gerado no app · Recompensas a cada indicação aprovada</div>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.4vw,38px);line-height:1.1;color:#fff;margin:0">Gere seu código e comece a indicar.</h2>
+      <div style="color:rgba(255,255,255,.7);font-size:14px;margin:12px 0 0">Tudo pelo site · Recompensas a cada indicação aprovada</div>
     </div>
-    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <a href="https://play.google.com/store/apps/details?id=com.matchhouse" target="_blank" rel="noopener" style="background:#00efff;color:#00073e;border-radius:16px;padding:16px 26px;font-weight:600;font-size:15px;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(0,5,43,.35)"><i class="ph-fill ph-google-play-logo" style="font-size:19px"></i>Google Play</a>
-      <a href="https://apps.apple.com/us/app/match-house/id6450905070" target="_blank" rel="noopener" style="background:#ffffff;color:#00073e;border-radius:16px;padding:16px 26px;font-weight:600;font-size:15px;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(0,5,43,.35)"><i class="ph-fill ph-apple-logo" style="font-size:19px"></i>App Store</a>
-    </div>
+    <a href="#gerar-codigo" style="background:#00efff;color:#00073e;border-radius:16px;padding:17px 28px;font-weight:600;font-size:16px;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(0,5,43,.35)">Gerar meu código →</a>
   </div>
 </div>
 <div style="background:#00052b">
@@ -268,7 +261,7 @@ function mhCopyText(text, labelEl, defaultLabel) {
 function mhShareMessage(code) {
   var link = 'https://www.matchhouse.com.br/indique/?ref=' + encodeURIComponent(code);
   return 'Junte-se a mim no Match House! \n\nAcesse nosso site para se registrar diretamente:\n' + link +
-    '\n\nOu baixe o app: \nhttps://www.matchhouse.com.br/\n\ne utilize meu código de indicação: \n' + code +
+    '\n\ne utilize meu código de indicação: \n' + code +
     '\n\nDesbloqueie seu mundo!';
 }
 
@@ -279,9 +272,9 @@ function mhShareMessage(code) {
   var errorBox = document.getElementById('mh-login-error');
 
   var ERROR_MESSAGES = {
-    BUYER_PROFILE_NOT_ALLOWED: 'Contas de comprador geram o código pelo app Match House. Baixe o app para pegar o seu!',
+    BUYER_PROFILE_NOT_ALLOWED: 'Sua conta ainda não consegue gerar o código por aqui. Fale com nosso time no WhatsApp que a gente resolve!',
     INVALID_PASSWORD_ERROR: 'Senha incorreta. Tente novamente.',
-    INVALID_AUTH_PROVIDER: 'Essa conta usa login social (Google/Apple). Gere seu código pelo app Match House.',
+    INVALID_AUTH_PROVIDER: 'Essa conta usa login social (Google/Apple). Fale com nosso time no WhatsApp para pegar o seu código.',
     USER_NOT_FOUND: 'Não encontramos uma conta com esse e-mail.'
   };
 
@@ -290,8 +283,8 @@ function mhShareMessage(code) {
     for (var key in ERROR_MESSAGES) {
       if (raw.indexOf(key) >= 0) return ERROR_MESSAGES[key];
     }
-    if (err && err.name === 'TypeError') return 'Não foi possível falar com a Match House agora. Tente de novo em instantes ou gere o código pelo app.';
-    return 'Não foi possível entrar. Confira e-mail e senha ou gere o código pelo app Match House.';
+    if (err && err.name === 'TypeError') return 'Não foi possível falar com a Match House agora. Tente de novo em instantes.';
+    return 'Não foi possível entrar. Confira seu e-mail e senha e tente novamente.';
   }
 
   function showError(message) {
