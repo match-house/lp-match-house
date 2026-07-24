@@ -13,6 +13,55 @@
   var GA4_ID = 'G-HCDP75SR8J';
   // ────────────────────────────────────────────────────────────
 
+  // ── 0. LIMPAR UTMs CORROMPIDOS DOS ANÚNCIOS ────────────────
+  //
+  // Os anúncios de julho/2026 foram salvos com a URL inteira colada no
+  // campo "Parâmetros de URL" do Meta Ads; o Meta anexa aquilo à query
+  // e a página chega com um par-lixo do tipo
+  //   ?https://matchhouse.com.br/go?utm_source=meta&utm_medium=cpc&...
+  // O utm_source real fica preso dentro do par-lixo e o GA4 perde a
+  // origem da sessão. Antes de iniciar Pixel/GA4: recupera o utm_source,
+  // descarta o lixo, remove utm_* duplicado e reescreve a URL
+  // (replaceState) para os dois lerem a query limpa.
+  //
+  try {
+    var rawPairs = window.location.search.replace(/^\?/, '').split('&');
+    var cleanPairs = [];
+    var seenUtm = {};
+    var recoveredSource = null;
+    var queryChanged = false;
+    for (var qi = 0; qi < rawPairs.length; qi++) {
+      if (!rawPairs[qi]) continue;
+      var decPair = rawPairs[qi];
+      try { decPair = decodeURIComponent(decPair); } catch (errDec) {}
+      if (decPair.indexOf('://') !== -1) {
+        var srcMatch = decPair.match(/utm_source=([^&?]*)/);
+        if (srcMatch && srcMatch[1] && !recoveredSource) recoveredSource = srcMatch[1];
+        queryChanged = true;
+        continue;
+      }
+      var utmKey = decPair.indexOf('utm_') === 0 ? decPair.split('=')[0] : null;
+      if (utmKey) {
+        if (seenUtm[utmKey]) { queryChanged = true; continue; }
+        seenUtm[utmKey] = true;
+      }
+      cleanPairs.push(rawPairs[qi]);
+    }
+    if (recoveredSource && !seenUtm.utm_source) {
+      cleanPairs.unshift('utm_source=' + recoveredSource);
+      queryChanged = true;
+    }
+    if (queryChanged && window.history && window.history.replaceState) {
+      window.history.replaceState(
+        null,
+        '',
+        window.location.pathname +
+          (cleanPairs.length ? '?' + cleanPairs.join('&') : '') +
+          window.location.hash
+      );
+    }
+  } catch (errUtm) { /* limpeza nunca pode travar o tracking */ }
+
   // ── 1. META PIXEL (base code) ──────────────────────────────
   !(function (f, b, e, v, n, t, s) {
     if (f.fbq) return;
