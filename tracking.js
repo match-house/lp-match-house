@@ -65,9 +65,12 @@
 
   // ── 3. INTERCEPTAR CLIQUES EM WA.ME ───────────────────────
   //
-  // Escuta TODOS os cliques no documento.
-  // Se o clique for em um link (ou filho de link) com href wa.me,
-  // dispara eventos no Meta Pixel e GA4 ANTES de navegar.
+  // Escuta TODOS os cliques no documento (captura).
+  // Para wa.me que navega NA MESMA ABA: segura a navegação
+  // (preventDefault), dispara Pixel + GA4 e navega no event_callback
+  // do GA4 ou num fallback duro de 900ms — o que vier primeiro.
+  // Sem isso, o navegador (sobretudo o embutido do Instagram) cancela
+  // a requisição do pixel ao descarregar a página, e o Lead se perde.
   //
   document.addEventListener(
     'click',
@@ -105,43 +108,77 @@
           parent = parent.parentElement;
         }
 
-        // Gerar event_id único para deduplicação
+        // event_id único; no fbq vai no 4º argumento (eventID), que é
+        // onde o Meta lê para deduplicação (pronto p/ CAPI futura)
         var eventId = 'wac_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
 
-        // ── META PIXEL: Lead event ───────────────────────────
+        // ── META PIXEL ───────────────────────────────────────
         fbq('trackCustom', 'WhatsAppClick', {
           content_name: 'smartlink_whatsapp_click',
           content_category: section,
           value: 1,
           currency: 'BRL',
-          event_id: eventId,
-        });
+        }, { eventID: eventId });
 
-        // Também disparar evento padrão "Lead"
         fbq('track', 'Lead', {
           content_name: 'whatsapp_lead',
           content_category: section,
           value: 1,
           currency: 'BRL',
-          event_id: eventId + '_lead',
-        });
+        }, { eventID: eventId + '_lead' });
 
-        // ── GA4: custom event ────────────────────────────────
+        // ── GA4: evento de engajamento ───────────────────────
         gtag('event', 'whatsapp_click', {
           event_category: 'engagement',
           event_label: section,
           link_url: href,
           message_preview: msg,
           event_id: eventId,
+          transport_type: 'beacon',
         });
 
-        // Também enviar como conversão GA4
+        // Nova aba / janela / modificadores: a página atual não
+        // descarrega, o pixel sobrevive — não interceptar a navegação.
+        var opensElsewhere =
+          link.target === '_blank' ||
+          e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ||
+          (typeof e.button === 'number' && e.button !== 0);
+
+        if (opensElsewhere) {
+          gtag('event', 'generate_lead', {
+            event_category: 'conversion',
+            event_label: 'whatsapp_' + section,
+            value: 1,
+            currency: 'BRL',
+            transport_type: 'beacon',
+          });
+          console.log('[MH Tracking] WhatsApp click (nova aba):', section, eventId);
+          return;
+        }
+
+        // Mesma aba: segurar a navegação até o pixel sair.
+        e.preventDefault();
+
+        var navigated = false;
+        var go = function () {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = href;
+        };
+
         gtag('event', 'generate_lead', {
           event_category: 'conversion',
           event_label: 'whatsapp_' + section,
           value: 1,
           currency: 'BRL',
+          transport_type: 'beacon',
+          event_callback: go,
+          event_timeout: 900,
         });
+
+        // Fallback duro: aconteça o que acontecer (adblock, pixel
+        // bloqueado, rede ruim), o usuário navega em ≤ 900ms.
+        setTimeout(go, 900);
 
         console.log('[MH Tracking] WhatsApp click:', section, eventId);
       }
@@ -156,13 +193,14 @@
         gtag('event', 'smartlink_click', {
           event_category: 'engagement',
           event_label: href,
+          transport_type: 'beacon',
         });
 
         console.log('[MH Tracking] SmartLink click:', href);
       }
     },
     true
-  ); // useCapture = true para pegar antes de preventDefault
+  ); // useCapture = true para rodar antes de handlers de terceiros
 
   // ── 4. TRACKING DE SCROLL (25%, 50%, 75%, 100%) ───────────
   var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
