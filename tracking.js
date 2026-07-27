@@ -137,7 +137,8 @@
       var href = link.href;
 
       // ── 3a. Clique em wa.me ────────────────────────────────
-      if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
+      var isAppCta = href.indexOf('app.smartli.ink') !== -1;
+      if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || isAppCta) {
         // Extrair texto da mensagem (se houver)
         var msgMatch = href.match(/text=([^&]*)/);
         var msg = msgMatch ? decodeURIComponent(msgMatch[1]).substring(0, 50) : '';
@@ -162,22 +163,23 @@
         var eventId = 'wac_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
 
         // ── META PIXEL ───────────────────────────────────────
-        fbq('trackCustom', 'WhatsAppClick', {
-          content_name: 'smartlink_whatsapp_click',
+        var channel = isAppCta ? 'app' : 'whatsapp';
+        fbq('trackCustom', isAppCta ? 'AppCtaClick' : 'WhatsAppClick', {
+          content_name: 'smartlink_' + channel + '_click',
           content_category: section,
           value: 1,
           currency: 'BRL',
         }, { eventID: eventId });
 
         fbq('track', 'Lead', {
-          content_name: 'whatsapp_lead',
+          content_name: channel + '_lead',
           content_category: section,
           value: 1,
           currency: 'BRL',
         }, { eventID: eventId + '_lead' });
 
         // ── GA4: evento de engajamento ───────────────────────
-        gtag('event', 'whatsapp_click', {
+        gtag('event', channel + '_click', {
           event_category: 'engagement',
           event_label: section,
           link_url: href,
@@ -196,12 +198,12 @@
         if (opensElsewhere) {
           gtag('event', 'generate_lead', {
             event_category: 'conversion',
-            event_label: 'whatsapp_' + section,
+            event_label: channel + '_' + section,
             value: 1,
             currency: 'BRL',
             transport_type: 'beacon',
           });
-          console.log('[MH Tracking] WhatsApp click (nova aba):', section, eventId);
+          console.log('[MH Tracking] CTA click (nova aba):', channel, section, eventId);
           return;
         }
 
@@ -217,7 +219,7 @@
 
         gtag('event', 'generate_lead', {
           event_category: 'conversion',
-          event_label: 'whatsapp_' + section,
+          event_label: channel + '_' + section,
           value: 1,
           currency: 'BRL',
           transport_type: 'beacon',
@@ -229,11 +231,11 @@
         // bloqueado, rede ruim), o usuário navega em ≤ 900ms.
         setTimeout(go, 900);
 
-        console.log('[MH Tracking] WhatsApp click:', section, eventId);
+        console.log('[MH Tracking] CTA click:', channel, section, eventId);
       }
 
       // ── 3b. Clique em Smart Link externo ───────────────────
-      if (href.indexOf('smartli.ink') !== -1) {
+      if (href.indexOf('smartli.ink') !== -1 && !isAppCta) {
         fbq('trackCustom', 'SmartLinkClick', {
           content_name: 'smartlink_demo_click',
           link_url: href,
