@@ -1,3 +1,10 @@
+/* =========================================================================
+   BOOTSTRAP (preservado da versao anterior — o codigo novo abaixo assume
+   que o pixel base e o GA4 ja estao carregados; neste repo eles vivem aqui)
+   - limpeza de utm_source corrompido pelos url_tags (roda ANTES do pixel)
+   - Meta Pixel base (init + PageView + noscript)
+   - GA4 loader + config
+   ========================================================================= */
 /* ============================================================
    Match House — Tracking Script (Meta Pixel + GA4)
    Arquivo: tracking.js
@@ -111,256 +118,193 @@
   gtag('config', GA4_ID, {
     send_page_view: true,
   });
+})();
 
-  // ── 3. INTERCEPTAR CLIQUES EM WA.ME ───────────────────────
-  //
-  // Escuta TODOS os cliques no documento (captura).
-  // Para wa.me que navega NA MESMA ABA: segura a navegação
-  // (preventDefault), dispara Pixel + GA4 e navega no event_callback
-  // do GA4 ou num fallback duro de 900ms — o que vier primeiro.
-  // Sem isso, o navegador (sobretudo o embutido do Instagram) cancela
-  // a requisição do pixel ao descarregar a página, e o Lead se perde.
-  //
-  document.addEventListener(
-    'click',
-    function (e) {
-      // Encontrar o <a> mais próximo (pode ser clique em <i> dentro do <a>)
-      var link = e.target.closest ? e.target.closest('a[href]') : null;
-      if (!link) {
-        // fallback para browsers sem closest
-        var el = e.target;
-        while (el && el.tagName !== 'A') el = el.parentElement;
-        link = el;
-      }
-      if (!link || !link.href) return;
 
-      var href = link.href;
+/* =========================================================================
+   Match House — tracking.js
+   LP: matchhouse.com.br  |  Pixel: 1159381878670820  |  GA4: G-HCDP75SR8J
 
-      // ── 3a. Clique em wa.me ────────────────────────────────
-      var isAppCta = href.indexOf('app.smartli.ink') !== -1;
-      if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1 || isAppCta) {
-        // Extrair texto da mensagem (se houver)
-        var msgMatch = href.match(/text=([^&]*)/);
-        var msg = msgMatch ? decodeURIComponent(msgMatch[1]).substring(0, 50) : '';
+   O QUE MUDOU (jul/2026):
+   - `Lead`    -> agora dispara no CTA de CADASTRO (evento de otimizacao Meta)
+   - `Contact` -> agora dispara no CTA de WhatsApp (medicao, NAO otimizacao)
+   - UTMs + fbclid + _fbp/_fbc sao repassados pra URL de cadastro (cross-domain)
 
-        // Identificar posição do botão na página
-        var section = 'unknown';
-        var parent = link;
-        while (parent) {
-          if (parent.id) {
-            section = parent.id;
-            break;
-          }
-          if (parent.getAttribute && parent.getAttribute('data-screen-label')) {
-            section = parent.getAttribute('data-screen-label');
-            break;
-          }
-          parent = parent.parentElement;
-        }
+   IMPORTANTE: nao renomeie o evento `Lead`. O conjunto
+   "[07] Criativos Manual" otimiza por ele. Trocar o nome reseta o aprendizado.
+   ========================================================================= */
+(function () {
+  'use strict';
 
-        // event_id único; no fbq vai no 4º argumento (eventID), que é
-        // onde o Meta lê para deduplicação (pronto p/ CAPI futura)
-        var eventId = 'wac_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+  /* --------------------------------------------------------------------
+     CONFIG — ajuste só esta parte
+     -------------------------------------------------------------------- */
 
-        // ── META PIXEL ───────────────────────────────────────
-        var channel = isAppCta ? 'app' : 'whatsapp';
-        fbq('trackCustom', isAppCta ? 'AppCtaClick' : 'WhatsAppClick', {
-          content_name: 'smartlink_' + channel + '_click',
-          content_category: section,
-          value: 1,
-          currency: 'BRL',
-        }, { eventID: eventId });
+  // Qualquer link cujo href bata com isto é tratado como CTA de cadastro.
+  // Alternativa mais segura: coloque data-mh-cta="signup" no botão.
+  var SIGNUP_HREF = /(\/cadastro|\/signup|\/login|\/entrar|app\.matchhouse\.com\.br|app\.smartli\.ink)/i;
 
-        fbq('track', 'Lead', {
-          content_name: channel + '_lead',
-          content_category: section,
-          value: 1,
-          currency: 'BRL',
-        }, { eventID: eventId + '_lead' });
+  // CTA de WhatsApp.
+  var WHATSAPP_HREF = /(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com)/i;
 
-        // ── GA4: evento de engajamento ───────────────────────
-        gtag('event', channel + '_click', {
-          event_category: 'engagement',
-          event_label: section,
-          link_url: href,
-          message_preview: msg,
-          event_id: eventId,
-          transport_type: 'beacon',
-        });
+  // Tempo máximo que seguramos a navegação esperando o beacon do pixel.
+  var NAV_FALLBACK_MS = 900;
 
-        // Nova aba / janela / modificadores: a página atual não
-        // descarrega, o pixel sobrevive — não interceptar a navegação.
-        var opensElsewhere =
-          link.target === '_blank' ||
-          e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ||
-          (typeof e.button === 'number' && e.button !== 0);
+  var ATTR_KEY = 'mh_attr';
+  var ATTR_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign',
+                     'utm_content', 'utm_term', 'fbclid', 'gclid'];
 
-        if (opensElsewhere) {
-          gtag('event', 'generate_lead', {
-            event_category: 'conversion',
-            event_label: channel + '_' + section,
-            value: 1,
-            currency: 'BRL',
-            transport_type: 'beacon',
-          });
-          console.log('[MH Tracking] CTA click (nova aba):', channel, section, eventId);
-          return;
-        }
+  /* --------------------------------------------------------------------
+     HELPERS
+     -------------------------------------------------------------------- */
 
-        // Mesma aba: segurar a navegação até o pixel sair.
-        e.preventDefault();
-
-        var navigated = false;
-        var go = function () {
-          if (navigated) return;
-          navigated = true;
-          window.location.href = href;
-        };
-
-        gtag('event', 'generate_lead', {
-          event_category: 'conversion',
-          event_label: channel + '_' + section,
-          value: 1,
-          currency: 'BRL',
-          transport_type: 'beacon',
-          event_callback: go,
-          event_timeout: 900,
-        });
-
-        // Fallback duro: aconteça o que acontecer (adblock, pixel
-        // bloqueado, rede ruim), o usuário navega em ≤ 900ms.
-        setTimeout(go, 900);
-
-        console.log('[MH Tracking] CTA click:', channel, section, eventId);
-      }
-
-      // ── 3b. Clique em Smart Link externo ───────────────────
-      if (href.indexOf('smartli.ink') !== -1 && !isAppCta) {
-        fbq('trackCustom', 'SmartLinkClick', {
-          content_name: 'smartlink_demo_click',
-          link_url: href,
-        });
-
-        gtag('event', 'smartlink_click', {
-          event_category: 'engagement',
-          event_label: href,
-          transport_type: 'beacon',
-        });
-
-        console.log('[MH Tracking] SmartLink click:', href);
-      }
-    },
-    true
-  ); // useCapture = true para rodar antes de handlers de terceiros
-
-  // ── 4. TRACKING DE SCROLL (25%, 50%, 75%, 100%) ───────────
-  var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
-
-  window.addEventListener('scroll', function () {
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (docHeight <= 0) return;
-    var pct = Math.round((scrollTop / docHeight) * 100);
-
-    [25, 50, 75, 100].forEach(function (mark) {
-      if (pct >= mark && !scrollMarks[mark]) {
-        scrollMarks[mark] = true;
-
-        gtag('event', 'scroll_depth', {
-          event_category: 'engagement',
-          event_label: mark + '%',
-          value: mark,
-        });
-
-        if (mark === 50) {
-          fbq('trackCustom', 'ScrollDepth50', {});
-        }
-        if (mark === 100) {
-          fbq('trackCustom', 'ScrollDepth100', {});
-        }
-      }
-    });
-  });
-
-  // ── 5. TEMPO NA PÁGINA (30s, 60s, 120s) ───────────────────
-  var timeMarks = [30, 60, 120];
-  timeMarks.forEach(function (sec) {
-    setTimeout(function () {
-      gtag('event', 'time_on_page', {
-        event_category: 'engagement',
-        event_label: sec + 's',
-        value: sec,
-      });
-    }, sec * 1000);
-  });
-
-  // ── 6. TRACKING DA CONVERSA INTERATIVA ─────────────────────
-  //
-  // Observa mudanças no DOM para detectar quando o usuário
-  // avança na conversa (chips clicados, nome digitado, etc.)
-  //
-  var conversaTracked = {};
-
-  // Retorna true se o texto aparece dentro de root E está visível na tela.
-  // A checagem de offsetParent evita falso-positivo caso o bloco <sc-if>
-  // fique no DOM oculto (display:none) em vez de removido.
-  function textoVisivel(root, texto) {
-    var els = root.querySelectorAll('div');
-    for (var i = 0; i < els.length; i++) {
-      var el = els[i];
-      if (
-        el.textContent &&
-        el.textContent.indexOf(texto) !== -1 &&
-        el.offsetParent !== null
-      ) {
-        return true;
-      }
-    }
-    return false;
+  function getCookie(name) {
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : null;
   }
 
-  function checarConversa(root) {
-    if (!root) return;
+  function newEventId() {
+    return 'mh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+  }
 
-    // ── Prévia do Smart Link apareceu (painel da direita) ──
-    if (!conversaTracked.preview && textoVisivel(root, 'Prévia do seu Smart Link')) {
-      conversaTracked.preview = true;
-      fbq('trackCustom', 'SmartLinkPreview', {});
-      gtag('event', 'smartlink_preview', {
-        event_category: 'engagement',
-        event_label: 'conversa_completa',
+  // Grava a atribuição na 1a visita e reusa nas seguintes (o corretor
+  // costuma clicar no anúncio, sair, e voltar depois pelo direto).
+  function loadAttribution() {
+    var current = {};
+    var found = false;
+
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      ATTR_PARAMS.forEach(function (k) {
+        var v = qs.get(k);
+        if (v) { current[k] = v; found = true; }
       });
-      console.log('[MH Tracking] Smart Link preview shown');
+    } catch (e) { /* browser antigo — segue sem */ }
+
+    if (found) {
+      try { localStorage.setItem(ATTR_KEY, JSON.stringify(current)); } catch (e) {}
+      return current;
     }
 
-    // ── CTA final: "Seu Smart Link no ar em 5 minutos." (c3Done) ──
-    if (!conversaTracked.ctaDone && textoVisivel(root, 'Seu Smart Link no ar em 5 minutos')) {
-      conversaTracked.ctaDone = true;
-      fbq('track', 'CompleteRegistration', {
-        content_name: 'conversa_completa',
-        value: 1,
-        currency: 'BRL',
+    try { return JSON.parse(localStorage.getItem(ATTR_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+
+  var attribution = loadAttribution();
+
+  // Anexa atribuição + cookies do Meta na URL de destino, pra que o
+  // cadastro (outro domínio) saiba de onde a pessoa veio.
+  function decorateUrl(href) {
+    try {
+      var u = new URL(href, window.location.href);
+
+      Object.keys(attribution).forEach(function (k) {
+        if (!u.searchParams.has(k)) u.searchParams.set(k, attribution[k]);
       });
-      gtag('event', 'conversa_completa', {
-        event_category: 'conversion',
-        event_label: 'conversa_interativa',
-      });
-      console.log('[MH Tracking] Conversa completa');
+
+      var fbp = getCookie('_fbp');
+      var fbc = getCookie('_fbc');
+      if (fbp && !u.searchParams.has('fbp')) u.searchParams.set('fbp', fbp);
+      if (fbc && !u.searchParams.has('fbc')) u.searchParams.set('fbc', fbc);
+
+      return u.toString();
+    } catch (e) {
+      return href;
     }
   }
 
-  var observer = new MutationObserver(function () {
-    checarConversa(document.getElementById('conversa'));
-  });
+  /* --------------------------------------------------------------------
+     DISPARO SEGURO
+     O bug antigo: a navegação cancela o beacon do pixel antes dele sair.
+     Solução: preventDefault -> dispara -> navega no callback OU no timeout.
+     -------------------------------------------------------------------- */
 
-  // Observar mudanças na seção de conversa
-  document.addEventListener('DOMContentLoaded', function () {
-    var conversa = document.getElementById('conversa');
-    if (conversa) {
-      observer.observe(conversa, { childList: true, subtree: true });
-      checarConversa(conversa); // checagem inicial (caso já esteja renderizado)
+  function fireAndNavigate(eventName, extraParams, destination, openInNewTab) {
+    var eventId = newEventId();
+    var params = {};
+
+    Object.keys(attribution).forEach(function (k) { params[k] = attribution[k]; });
+    Object.keys(extraParams || {}).forEach(function (k) { params[k] = extraParams[k]; });
+
+    var navigated = false;
+    function navigate() {
+      if (navigated) return;
+      navigated = true;
+      if (openInNewTab) window.open(destination, '_blank', 'noopener');
+      else window.location.href = destination;
     }
-  });
 
-  console.log('[MH Tracking] Loaded — Pixel:', META_PIXEL_ID, '| GA4:', GA4_ID);
+    // Meta Pixel — fbq nao tem callback, entao dependemos do timer.
+    // O eventID deixa pronto pra dedup quando o CAPI server-side entrar.
+    if (typeof window.fbq === 'function') {
+      try { window.fbq('track', eventName, params, { eventID: eventId }); }
+      catch (e) {}
+    }
+
+    // GA4 — esse sim tem eventCallback, entao navega assim que confirmar.
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', eventName === 'Lead' ? 'signup_cta_click' : 'whatsapp_click', {
+          event_callback: navigate,
+          event_timeout: NAV_FALLBACK_MS,
+          mh_event_id: eventId
+        });
+      } catch (e) {}
+    }
+
+    // Rede de segurança: navega de qualquer jeito.
+    window.setTimeout(navigate, NAV_FALLBACK_MS);
+  }
+
+  /* --------------------------------------------------------------------
+     LISTENER (delegado — funciona com CTA renderizado depois)
+     -------------------------------------------------------------------- */
+
+  document.addEventListener('click', function (ev) {
+    // Deixa passar: ctrl/cmd/shift click, botão do meio, default já prevenido.
+    if (ev.defaultPrevented || ev.button !== 0) return;
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+
+    var el = ev.target.closest ? ev.target.closest('a, [data-mh-cta]') : null;
+    if (!el) return;
+
+    var href = el.getAttribute('href') || el.getAttribute('data-mh-href') || '';
+    var flag = el.getAttribute('data-mh-cta') || '';
+
+    var isSignup   = flag === 'signup'   || (href && SIGNUP_HREF.test(href));
+    var isWhatsapp = flag === 'whatsapp' || (href && WHATSAPP_HREF.test(href));
+
+    if (!isSignup && !isWhatsapp) return;
+    if (!href) return;
+
+    var newTab = el.getAttribute('target') === '_blank';
+
+    ev.preventDefault();
+
+    if (isSignup) {
+      // >>> EVENTO DE OTIMIZACAO DA CAMPANHA META <<<
+      fireAndNavigate('Lead', {
+        content_name: 'cta_cadastro',
+        cta_label: (el.textContent || '').trim().slice(0, 60)
+      }, decorateUrl(href), newTab);
+    } else {
+      // Medicao apenas — mantem o zap vivo como canal de discovery.
+      fireAndNavigate('Contact', {
+        content_name: 'cta_whatsapp'
+      }, href, newTab);
+    }
+  }, true);
+
+  /* --------------------------------------------------------------------
+     PageView de apoio (o pixel base já dispara o seu; este é só o custom)
+     -------------------------------------------------------------------- */
+
+  if (typeof window.fbq === 'function') {
+    try {
+      window.fbq('trackCustom', 'LPView', {
+        content_name: 'lp_smartlink',
+        utm_content: attribution.utm_content || '(none)'
+      });
+    } catch (e) {}
+  }
 })();
