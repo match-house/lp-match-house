@@ -308,3 +308,45 @@
     } catch (e) {}
   }
 })();
+
+/* =========================================================================
+   SCROLL DEPTH (reintroduzido em 30/07 a pedido do time de análise)
+   - GA4:   scroll_depth { percent_scrolled }
+   - Pixel: ScrollDepth25 / ScrollDepth50 / ScrollDepth75 / ScrollDepth100
+   Dispara uma única vez por marco, listener passivo (não afeta performance).
+   ========================================================================= */
+(function () {
+  'use strict';
+
+  var marks = { 25: false, 50: false, 75: false, 100: false };
+
+  function onScroll() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    var pct = Math.round((scrollTop / docHeight) * 100);
+
+    [25, 50, 75, 100].forEach(function (mark) {
+      if (pct >= mark && !marks[mark]) {
+        marks[mark] = true;
+
+        if (typeof window.fbq === 'function') {
+          try { window.fbq('trackCustom', 'ScrollDepth' + mark, { percent: mark }); }
+          catch (e) {}
+        }
+        if (typeof window.gtag === 'function') {
+          try {
+            window.gtag('event', 'scroll_depth', {
+              percent_scrolled: mark,
+              transport_type: 'beacon'
+            });
+          } catch (e) {}
+        }
+      }
+    });
+
+    if (marks[100]) window.removeEventListener('scroll', onScroll);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
