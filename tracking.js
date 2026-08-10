@@ -154,6 +154,11 @@
   var ATTR_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign',
                      'utm_content', 'utm_term', 'fbclid', 'gclid'];
 
+  // Janela de clique padrão do Meta. Passado esse prazo a atribuição guardada
+  // expira e a visita volta a contar como origem nova, senão uma campanha
+  // antiga segue levando o crédito de cadastros que ela não trouxe.
+  var ATTR_TTL_MS = 28 * 24 * 60 * 60 * 1000;
+
   /* --------------------------------------------------------------------
      HELPERS
      -------------------------------------------------------------------- */
@@ -167,8 +172,15 @@
     return 'mh-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
   }
 
+  function dropAttribution() {
+    try { localStorage.removeItem(ATTR_KEY); } catch (e) {}
+  }
+
   // Grava a atribuição na 1a visita e reusa nas seguintes (o corretor
-  // costuma clicar no anúncio, sair, e voltar depois pelo direto).
+  // costuma clicar no anúncio, sair, e voltar depois pelo direto) — mas só
+  // dentro da janela de ATTR_TTL_MS. Retorna { v: params, ts: pouso }, onde
+  // `ts` é o momento em que esses params chegaram pela URL: é ele que dita a
+  // expiração e que data o _fbc reconstruído em resolveFbc().
   function loadAttribution() {
     var current = {};
     var found = false;
@@ -182,19 +194,52 @@
     } catch (e) { /* browser antigo — segue sem */ }
 
     if (found) {
-      try { localStorage.setItem(ATTR_KEY, JSON.stringify(current)); } catch (e) {}
-      return current;
+      var landed = { v: current, ts: Date.now() };
+      try { localStorage.setItem(ATTR_KEY, JSON.stringify(landed)); } catch (e) {}
+      return landed;
     }
 
-    try { return JSON.parse(localStorage.getItem(ATTR_KEY) || '{}'); }
-    catch (e) { return {}; }
+    var empty = { v: {}, ts: null };
+
+    try {
+      var stored = JSON.parse(localStorage.getItem(ATTR_KEY) || '{}');
+
+      // Formato antigo (params na raiz, sem .v/.ts): não dá pra saber a idade,
+      // então descarta em vez de assumir que ainda vale.
+      if (!stored || !stored.v || !stored.ts) { dropAttribution(); return empty; }
+
+      if (Date.now() - stored.ts > ATTR_TTL_MS) { dropAttribution(); return empty; }
+
+      return stored;
+    } catch (e) { return empty; }
   }
 
-  var attribution = loadAttribution();
+  var attrRecord = loadAttribution();
+  var attribution = attrRecord.v;
+  var attributionTs = attrRecord.ts;
+
+  // O _fbc é gravado pelo fbevents.js de forma assíncrona quando ele detecta o
+  // fbclid na URL. Se o corretor clicar no CTA antes disso, o cookie ainda não
+  // existe e o sinal de atribuição mais forte do Meta se perde. Nesse caso
+  // (e quando o cookie ficou preso num fbclid de um clique anterior) o valor é
+  // reconstruído no formato fb.<subdomainIndex>.<criação>.<fbclid>, datado com
+  // o pouso real do anúncio — não com o instante do clique no CTA.
+  function resolveFbc() {
+    var cookie = getCookie('_fbc');
+    var fbclid = attribution.fbclid;
+
+    if (!fbclid) return cookie;
+
+    var parts = cookie ? cookie.split('.') : null;
+    var cookieFbclid = parts && parts.length >= 4 ? parts.slice(3).join('.') : null;
+    if (cookieFbclid === fbclid) return cookie;
+
+    return 'fb.1.' + (attributionTs || Date.now()) + '.' + fbclid;
+  }
 
   // Anexa atribuição + cookies do Meta na URL de destino, pra que o
   // cadastro (outro domínio) saiba de onde a pessoa veio.
-  function decorateUrl(href) {
+  function decorateUrl(href, eventId) {
     try {
       var u = new URL(href, window.location.href);
 
@@ -203,9 +248,16 @@
       });
 
       var fbp = getCookie('_fbp');
-      var fbc = getCookie('_fbc');
+      var fbc = resolveFbc();
       if (fbp && !u.searchParams.has('fbp')) u.searchParams.set('fbp', fbp);
       if (fbc && !u.searchParams.has('fbc')) u.searchParams.set('fbc', fbc);
+
+      // Mesmo id que vai no eventID do Pixel. Segue pro cadastro pro app
+      // persistir e o CAPI server-side reusar no CompleteRegistration — sem
+      // isso o id morre no browser e a dedup não tem como acontecer.
+      if (eventId && !u.searchParams.has('event_id')) {
+        u.searchParams.set('event_id', eventId);
+      }
 
       return u.toString();
     } catch (e) {
@@ -219,8 +271,8 @@
      Solução: preventDefault -> dispara -> navega no callback OU no timeout.
      -------------------------------------------------------------------- */
 
-  function fireAndNavigate(eventName, extraParams, destination, openInNewTab) {
-    var eventId = newEventId();
+  function fireAndNavigate(eventName, extraParams, destination, openInNewTab, eventId) {
+    eventId = eventId || newEventId();
     var params = {};
 
     Object.keys(attribution).forEach(function (k) { params[k] = attribution[k]; });
@@ -283,10 +335,13 @@
 
     if (isSignup) {
       // >>> EVENTO DE OTIMIZACAO DA CAMPANHA META <<<
+      // O id nasce aqui pra ser o mesmo nos dois caminhos: eventID do Pixel
+      // e event_id na URL do cadastro.
+      var signupEventId = newEventId();
       fireAndNavigate('Lead', {
         content_name: 'cta_cadastro',
         cta_label: (el.textContent || '').trim().slice(0, 60)
-      }, decorateUrl(href), newTab);
+      }, decorateUrl(href, signupEventId), newTab, signupEventId);
     } else {
       // Medicao apenas — mantem o zap vivo como canal de discovery.
       fireAndNavigate('Contact', {
