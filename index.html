@@ -91,37 +91,38 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
       <sc-if value="{{ c3PhoneVisible }}" hint-placeholder-val="{{ false }}">
         <div style="animation:mhFadeUp .5s cubic-bezier(0.2,0.7,0.2,1);margin-top:6px">
           <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6c7081;margin:0 0 10px">Prévia do seu Smart Link ↘</div>
-          <div style="background:#ffffff;border-radius:18px;overflow:hidden;width:420px;max-width:100%;box-shadow:0 0 0 3px rgba(0,239,255,.25),0 24px 60px rgba(0,15,144,.25)">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:#00052b;padding:10px 16px">
-              <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22)"></span><span style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22)"></span><span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:rgba(255,255,255,.6);margin-left:8px">smartli.ink/{{ c3Slug }}</span></span>
-              <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:.14em;color:#00efff">LIVE · 24/7</span></span>
+          <div style="position:relative;background:#020824;border-radius:22px;overflow:hidden;width:420px;max-width:100%;box-shadow:0 0 0 3px rgba(0,239,255,.25),0 24px 60px rgba(0,15,144,.25)">
+            <div style="position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 30%, rgba(0,90,200,.22) 0%, rgba(2,8,36,0) 70%)"></div>
+            <div style="position:relative;display:flex;align-items:center;justify-content:center;padding:16px 16px 0">
+              <span style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 18px"><i class="ph-bold ph-copy" style="font-size:12px;color:rgba(255,255,255,.5)"></i><span style="font-size:12.5px;color:rgba(255,255,255,.55)">smartli.ink/<strong style="color:#ffffff;font-weight:600">{{ c3Slug }}</strong></span></span>
             </div>
-            <div style="height:92px;background:url('assets/cover-smartlink.jpg') center/cover no-repeat"></div>
-            <div style="padding:0 18px 14px">
-              <sc-if value="{{ c3AvM }}" hint-placeholder-val="{{ false }}">
-                <img src="assets/avatar-corretor-real.jpg" alt="Avatar corretor" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:-32px 0 0;display:block;border:3px solid #ffffff;box-shadow:0 6px 18px rgba(0,7,62,.18)">
-              </sc-if>
-              <sc-if value="{{ c3AvF }}" hint-placeholder-val="{{ false }}">
-                <img src="assets/avatar-corretora-real.jpg" alt="Avatar corretora" style="width:64px;height:64px;border-radius:50%;object-fit:cover;margin:-32px 0 0;display:block;border:3px solid #ffffff;box-shadow:0 6px 18px rgba(0,7,62,.18)">
-              </sc-if>
-              <sc-if value="{{ c3AvN }}" hint-placeholder-val="{{ true }}">
-                <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(110deg,#0a3fd0,#00d4ff);margin:-32px 0 0;display:flex;align-items:center;justify-content:center;border:3px solid #ffffff;box-shadow:0 6px 18px rgba(0,7,62,.18)"><span style="font-family:var(--font-display);font-weight:800;font-size:20px;color:#fff">{{ c3Initials }}</span></div>
-              </sc-if>
-              <div style="font-family:var(--font-display);font-weight:700;font-size:19px;color:#0b0b0f;margin:8px 0 0">{{ c3Name }}</div>
-              <div style="font-size:10.5px;color:#6c7081;margin:2px 0 0">CRECI 102030</div>
-              <div style="color:#1d6df0;font-weight:600;font-size:11.5px;margin:7px 0 0">www.smartli.ink/{{ c3Slug }}</div>
-              <div style="color:#1d6df0;font-weight:600;font-size:11.5px;margin:4px 0 0">Ver Imóveis</div>
-            </div>
-            <div style="background:#0b0b0f;padding:13px 16px 15px">
-              <div style="display:flex;justify-content:center;gap:7px;margin:0 0 12px">
-                <span style="width:19px;height:19px;border-radius:50%;background:linear-gradient(135deg,#000f90 0%,#00b7d4 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(0,183,212,.4),inset 0 1px 0 rgba(255,255,255,.3)"><i class="ph-bold ph-link" style="color:#fff;font-size:9px"></i></span>
-                <span style="width:19px;height:19px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(214,36,159,.45),inset 0 1px 0 rgba(255,255,255,.3)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:10px"></i></span>
-                <span style="width:19px;height:19px;border-radius:50%;background:#0A66C2;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(10,102,194,.45),inset 0 1px 0 rgba(255,255,255,.3)"><i class="ph-fill ph-linkedin-logo" style="color:#fff;font-size:10px"></i></span>
-                <span style="width:19px;height:19px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 8px rgba(37,211,102,.45),inset 0 1px 0 rgba(255,255,255,.3)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:10px"></i></span>
+            <div style="position:relative;padding:18px 22px 0">
+              <div style="position:relative;height:150px">
+                <span style="position:absolute;left:50%;top:6px;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(255,255,255,.18)"><img src="favicon.png" alt="match house" style="width:24px;height:24px;display:block"></span>
+                <span style="position:absolute;left:6px;top:58px;width:40px;height:40px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(37,211,102,.45)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:21px"></i></span>
+                <span style="position:absolute;right:6px;top:54px;width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(214,36,159,.45)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:21px"></i></span>
+                <span style="position:absolute;left:50%;top:66px;transform:translateX(-50%)">
+                  <sc-if value="{{ c3AvM }}" hint-placeholder-val="{{ false }}">
+                    <img src="assets/avatar-corretor-real.jpg" alt="Avatar corretor" style="width:76px;height:76px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 24px rgba(0,120,255,.35)">
+                  </sc-if>
+                  <sc-if value="{{ c3AvF }}" hint-placeholder-val="{{ false }}">
+                    <img src="assets/avatar-corretora-real.jpg" alt="Avatar corretora" style="width:76px;height:76px;border-radius:50%;object-fit:cover;display:block;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 24px rgba(0,120,255,.35)">
+                  </sc-if>
+                  <sc-if value="{{ c3AvN }}" hint-placeholder-val="{{ true }}">
+                    <span style="width:76px;height:76px;border-radius:50%;background:linear-gradient(110deg,#0a3fd0,#00d4ff);display:flex;align-items:center;justify-content:center;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 24px rgba(0,120,255,.35)"><span style="font-family:var(--font-display);font-weight:800;font-size:24px;color:#fff">{{ c3Initials }}</span></span>
+                  </sc-if>
+                  <span style="position:absolute;right:-4px;bottom:2px;width:16px;height:16px;border-radius:50%;background:#041033;border:2px solid #00efff;display:flex;align-items:center;justify-content:center"><span style="width:6px;height:6px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span></span>
+                </span>
               </div>
-              <div style="font-weight:600;font-size:11px;color:#ffffff">{{ c3Name }} - <span style="color:#4b9dff">Match IA</span></div>
-              <div style="background:#1c1d24;border-radius:12px;padding:10px 12px;font-size:10.5px;color:rgba(255,255,255,.88);line-height:1.5;margin:8px 0 0">Olá! Eu sou a Match especializada nos imóveis de {{ c3First }}! Estou pronta para te ajudar a encontrar o imóvel perfeito — você busca para morar ou investir?</div>
-              <div style="font-size:9px;color:rgba(255,255,255,.4);margin:6px 0 0">15:26</div>
+              <div style="text-align:center;font-family:var(--font-display);font-weight:800;font-size:23px;line-height:1.2;color:#ffffff;margin:10px 0 0">Oi! Eu sou {{ c3IaTitle }} <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:19px;vertical-align:-2px"></i></div>
+              <div style="text-align:center;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.62);margin:8px auto 0;max-width:320px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</div>
+              <div style="display:flex;align-items:center;gap:10px;background:rgba(4,16,51,.75);border:1.5px solid rgba(0,180,255,.45);border-radius:999px;padding:7px 8px 7px 20px;margin:18px 0 0;box-shadow:0 0 22px rgba(0,140,255,.18)">
+                <span style="flex:1;font-size:14px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+                <span style="width:38px;height:38px;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:17px"></i></span>
+              </div>
+              <div style="text-align:center;font-weight:600;font-size:13px;color:#38c8ff;margin:18px 0 0">Prefere ver meus imóveis?</div>
+              <div style="text-align:center;font-size:11.5px;color:rgba(255,255,255,.55);margin:10px 0 0">{{ c3Name }} · CRECI 102030</div>
+              <div style="text-align:center;font-size:10px;color:rgba(255,255,255,.35);margin:3px 0 16px">powered by match house® · Desbloqueie seu mundo.</div>
             </div>
           </div>
         </div>
@@ -193,7 +194,22 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
             <span style="font-family:var(--font-mono);font-size:1.8cqw;letter-spacing:.04em;color:rgba(255,255,255,.6)">smartli.ink/seunome</span>
             <span style="display:inline-flex;align-items:center;gap:0.8cqw"><span style="width:0.9cqw;height:0.9cqw;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-family:var(--font-mono);font-size:1.5cqw;font-weight:600;letter-spacing:.14em;color:#00efff">LIVE · 24/7</span></span>
           </div>
-          <img src="assets/print-bernardo.jpg" alt="Print real do Smart Link" style="width:100%;display:block;border-radius:2.2cqw;border:1px solid rgba(255,255,255,.08)">
+          <div style="position:relative;background:#020824;border-radius:2.2cqw;border:1px solid rgba(255,255,255,.08);overflow:hidden;padding:2.4cqw 2.4cqw 2.8cqw">
+            <div style="position:absolute;inset:0;background:radial-gradient(75% 55% at 50% 22%, rgba(0,90,200,.25) 0%, rgba(2,8,36,0) 70%)"></div>
+            <div style="position:relative;height:13cqw">
+              <span style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:4.4cqw;height:4.4cqw;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center"><img src="favicon.png" alt="" style="width:2.4cqw;height:2.4cqw;display:block"></span>
+              <span style="position:absolute;left:0.6cqw;top:5cqw;width:4cqw;height:4cqw;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:2.2cqw"></i></span>
+              <span style="position:absolute;right:0.6cqw;top:4.6cqw;width:4cqw;height:4cqw;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);display:flex;align-items:center;justify-content:center"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:2.2cqw"></i></span>
+              <img src="assets/avatar-corretor-real.jpg" alt="" style="position:absolute;left:50%;top:5.4cqw;transform:translateX(-50%);width:7.2cqw;height:7.2cqw;border-radius:50%;object-fit:cover;border:0.3cqw solid rgba(90,120,255,.7);box-shadow:0 0 2.4cqw rgba(0,120,255,.35)">
+            </div>
+            <div style="position:relative;text-align:center;font-family:var(--font-display);font-weight:800;font-size:2.5cqw;color:#ffffff;margin:1.2cqw 0 0">Oi! Eu sou a sua IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:2.1cqw;vertical-align:-0.2cqw"></i></div>
+            <div style="position:relative;text-align:center;font-size:1.6cqw;line-height:1.5;color:rgba(255,255,255,.6);margin:0.8cqw auto 0;max-width:80%">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</div>
+            <div style="position:relative;display:flex;align-items:center;gap:1cqw;background:rgba(4,16,51,.75);border:1px solid rgba(0,180,255,.45);border-radius:999px;padding:0.8cqw 0.9cqw 0.8cqw 2cqw;margin:1.8cqw 0 0">
+              <span style="flex:1;font-size:1.6cqw;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+              <span style="width:3.4cqw;height:3.4cqw;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:1.6cqw"></i></span>
+            </div>
+            <div style="position:relative;text-align:center;font-weight:600;font-size:1.6cqw;color:#38c8ff;margin:1.8cqw 0 0">Prefere ver meus imóveis?</div>
+          </div>
         </div>
       </div>
     </div>
@@ -310,7 +326,22 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
             <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.16em;color:#00efff">LIVE · 24/7</span></span>
           </span>
           <span style="display:block;padding:0 14px">
-            <img src="assets/print-bernardo.jpg" alt="Smart Link de corretor criado na Match House" style="width:100%;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.08)">
+            <span style="position:relative;display:block;background:#020824;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;padding:18px 18px 20px">
+              <span style="position:absolute;inset:0;background:radial-gradient(75% 55% at 50% 22%, rgba(0,90,200,.25) 0%, rgba(2,8,36,0) 70%)"></span>
+              <span style="position:relative;display:block;height:96px">
+                <span style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(255,255,255,.16)"><img src="favicon.png" alt="" style="width:16px;height:16px;display:block"></span>
+                <span style="position:absolute;left:4px;top:36px;width:28px;height:28px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(37,211,102,.4)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:15px"></i></span>
+                <span style="position:absolute;right:4px;top:33px;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(214,36,159,.4)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:15px"></i></span>
+                <img src="assets/avatar-corretor-real.jpg" alt="" style="position:absolute;left:50%;top:40px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 18px rgba(0,120,255,.35)">
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-family:var(--font-display);font-weight:800;font-size:16.5px;color:#ffffff;margin:8px 0 0">Oi! Eu sou o Bernardo IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:14px;vertical-align:-2px"></i></span>
+              <span style="position:relative;display:block;text-align:center;font-size:10.5px;line-height:1.5;color:rgba(255,255,255,.6);margin:5px auto 0;max-width:240px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</span>
+              <span style="position:relative;display:flex;align-items:center;gap:8px;background:rgba(4,16,51,.75);border:1px solid rgba(0,180,255,.45);border-radius:999px;padding:5px 6px 5px 14px;margin:12px 0 0;box-shadow:0 0 16px rgba(0,140,255,.16)">
+                <span style="flex:1;font-size:10.5px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+                <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:11px"></i></span>
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-weight:600;font-size:10.5px;color:#38c8ff;margin:12px 0 0">Prefere ver meus imóveis?</span>
+            </span>
           </span>
           <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 20px 18px;margin-top:auto">
             <span style="display:block">
@@ -328,7 +359,22 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
             <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.16em;color:#00efff">LIVE · 24/7</span></span>
           </span>
           <span style="display:block;padding:0 14px">
-            <img src="assets/print-janaina.jpg" alt="Smart Link de corretora criado na Match House" style="width:100%;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.08)">
+            <span style="position:relative;display:block;background:#020824;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;padding:18px 18px 20px">
+              <span style="position:absolute;inset:0;background:radial-gradient(75% 55% at 50% 22%, rgba(0,90,200,.25) 0%, rgba(2,8,36,0) 70%)"></span>
+              <span style="position:relative;display:block;height:96px">
+                <span style="position:absolute;left:50%;top:0;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(255,255,255,.16)"><img src="favicon.png" alt="" style="width:16px;height:16px;display:block"></span>
+                <span style="position:absolute;left:4px;top:36px;width:28px;height:28px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(37,211,102,.4)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:15px"></i></span>
+                <span style="position:absolute;right:4px;top:33px;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(214,36,159,.4)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:15px"></i></span>
+                <img src="assets/avatar-corretora-real.jpg" alt="" style="position:absolute;left:50%;top:40px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 18px rgba(0,120,255,.35)">
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-family:var(--font-display);font-weight:800;font-size:16.5px;color:#ffffff;margin:8px 0 0">Oi! Eu sou a Janaina IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:14px;vertical-align:-2px"></i></span>
+              <span style="position:relative;display:block;text-align:center;font-size:10.5px;line-height:1.5;color:rgba(255,255,255,.6);margin:5px auto 0;max-width:240px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</span>
+              <span style="position:relative;display:flex;align-items:center;gap:8px;background:rgba(4,16,51,.75);border:1px solid rgba(0,180,255,.45);border-radius:999px;padding:5px 6px 5px 14px;margin:12px 0 0;box-shadow:0 0 16px rgba(0,140,255,.16)">
+                <span style="flex:1;font-size:10.5px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+                <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:11px"></i></span>
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-weight:600;font-size:10.5px;color:#38c8ff;margin:12px 0 0">Prefere ver meus imóveis?</span>
+            </span>
           </span>
           <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 20px 18px;margin-top:auto">
             <span style="display:block">
@@ -513,6 +559,7 @@ class Component extends DCLogic {
     const c3Slug = (this.state.c3Name || 'seunome').toLowerCase().replace(/[^a-z0-9]/g, '');
     const g3 = this.c3Gender((this.state.c3Name || '').split(' ')[0]);
     const c3AvM = g3 === 'm', c3AvF = g3 === 'f', c3AvN = g3 === 'n';
+    const c3IaTitle = this.state.c3Name ? (g3 === 'm' ? 'o ' : 'a ') + c3First + ' IA' : 'a sua IA';
 
     // rede ao vivo
     const flipTimes = ['agora', 'há 14s', 'há 31s', 'há 58s', 'há 1min', 'há 2min'];
@@ -535,7 +582,7 @@ class Component extends DCLogic {
       c3Line, c3CaretStyle, c3PastLines, c3Chips, c3Done, c3IsInput,
       c3Input: this.state.c3Input, onC3Input: e => this.setState({ c3Input: e.target.value }),
       onC3Key, c3Submit, c3NotifsVisible, c3PhoneVisible, c3RailEmpty,
-      c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN,
+      c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN, c3IaTitle,
       flipItems, leadsFmt
     };
   }
