@@ -169,6 +169,12 @@
 
   // Grava a atribuição na 1a visita e reusa nas seguintes (o corretor
   // costuma clicar no anúncio, sair, e voltar depois pelo direto).
+  // TTL de 30 dias: atribuição guardada some sozinha depois disso, senão
+  // um clique antigo (ex.: tags de julho pré-retag) vale para sempre e
+  // contamina a leitura por criativo. O formato antigo (sem timestamp)
+  // é descartado de propósito — é ele que carrega o resíduo "ig".
+  var ATTR_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+
   function loadAttribution() {
     var current = {};
     var found = false;
@@ -182,12 +188,25 @@
     } catch (e) { /* browser antigo — segue sem */ }
 
     if (found) {
-      try { localStorage.setItem(ATTR_KEY, JSON.stringify(current)); } catch (e) {}
+      try {
+        localStorage.setItem(ATTR_KEY, JSON.stringify({ v: current, ts: Date.now() }));
+      } catch (e) {}
       return current;
     }
 
-    try { return JSON.parse(localStorage.getItem(ATTR_KEY) || '{}'); }
-    catch (e) { return {}; }
+    try {
+      var stored = JSON.parse(localStorage.getItem(ATTR_KEY) || 'null');
+      if (!stored || typeof stored !== 'object' || !stored.v || !stored.ts) {
+        // vazio ou formato antigo (pré-TTL): limpa e segue sem atribuição
+        try { localStorage.removeItem(ATTR_KEY); } catch (e) {}
+        return {};
+      }
+      if (Date.now() - stored.ts > ATTR_TTL_MS) {
+        try { localStorage.removeItem(ATTR_KEY); } catch (e) {}
+        return {};
+      }
+      return stored.v;
+    } catch (e) { return {}; }
   }
 
   var attribution = loadAttribution();
