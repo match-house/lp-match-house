@@ -38,6 +38,12 @@ Notas do projeto para agentes. Ler antes de mexer.
   <link rel="apple-touch-icon" href="favicon.png">
   ```
 
+## Meta Ads — regras fixas do usuário
+
+- **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
+- **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
+- Qualquer alteração em campanha ativa (verba, lance, público, posicionamento, pausar/ativar) **exige aprovação direta do usuário antes** — nunca executar por conta própria, mesmo que pareça pequena.
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
