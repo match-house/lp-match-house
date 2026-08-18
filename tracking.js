@@ -148,7 +148,15 @@
   var WHATSAPP_HREF = /(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com)/i;
 
   // Tempo máximo que seguramos a navegação esperando o beacon do pixel.
-  var NAV_FALLBACK_MS = 900;
+  // São dois tetos porque o custo de errar é o botão ficar morto no dedo
+  // da pessoa:
+  //   - GA4 no ar   -> o event_callback volta em ~100ms e este teto quase
+  //                    nunca é usado; fica só como rede de segurança.
+  //   - GA4 bloqueado (adblock/Brave/Safari com proteção) -> o callback
+  //                    NUNCA chega. Aí seguramos apenas o mínimo para o
+  //                    beacon do fbq sair. Antes eram 900ms de botão morto.
+  var NAV_FALLBACK_MS = 400;
+  var NAV_NO_GA4_MS = 150;
 
   var ATTR_KEY = 'mh_attr';
   var ATTR_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign',
@@ -246,12 +254,22 @@
     Object.keys(extraParams || {}).forEach(function (k) { params[k] = extraParams[k]; });
 
     var navigated = false;
+    var navTimer = null;
     function navigate() {
       if (navigated) return;
       navigated = true;
+      if (navTimer) window.clearTimeout(navTimer);
       if (openInNewTab) window.open(destination, '_blank', 'noopener');
       else window.location.href = destination;
     }
+
+    // window.gtag é definido no bootstrap DESTE arquivo (só empilha no
+    // dataLayer), então ele existe mesmo quando o gtag.js do Google é
+    // bloqueado — e nesse caso esperar o event_callback trava o clique à toa.
+    // google_tag_manager só aparece se o script real subiu: é o único jeito
+    // de saber se vale a pena esperar.
+    var ga4Live = typeof window.google_tag_manager !== 'undefined';
+    var waitMs = ga4Live ? NAV_FALLBACK_MS : NAV_NO_GA4_MS;
 
     // Meta Pixel — fbq nao tem callback, entao dependemos do timer.
     // O eventID deixa pronto pra dedup quando o CAPI server-side entrar.
@@ -261,18 +279,21 @@
     }
 
     // GA4 — esse sim tem eventCallback, entao navega assim que confirmar.
+    // Com o gtag.js bloqueado ainda empilhamos o evento no dataLayer (se o
+    // script subir depois, ele é processado), mas sem esperar callback.
     if (typeof window.gtag === 'function') {
+      var gaParams = { mh_event_id: eventId };
+      if (ga4Live) {
+        gaParams.event_callback = navigate;
+        gaParams.event_timeout = waitMs;
+      }
       try {
-        window.gtag('event', eventName === 'Lead' ? 'signup_cta_click' : 'whatsapp_click', {
-          event_callback: navigate,
-          event_timeout: NAV_FALLBACK_MS,
-          mh_event_id: eventId
-        });
+        window.gtag('event', eventName === 'Lead' ? 'signup_cta_click' : 'whatsapp_click', gaParams);
       } catch (e) {}
     }
 
     // Rede de segurança: navega de qualquer jeito.
-    window.setTimeout(navigate, NAV_FALLBACK_MS);
+    navTimer = window.setTimeout(navigate, waitMs);
   }
 
   /* --------------------------------------------------------------------

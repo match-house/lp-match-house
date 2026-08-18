@@ -23,6 +23,16 @@
 <meta name="twitter:image" content="https://www.matchhouse.com.br/assets/og-cover.png">
 <script defer src="tracking.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
+<!-- React servido do próprio domínio. O support.js busca o React no unpkg.com;
+     se o unpkg estiver lento ou bloqueado, a página inteira renderiza EM BRANCO
+     (é ele que desenha o conteúdo). __resources é o override oficial do support.js
+     e também dispensa o check de integridade (SRI) do CDN. -->
+<script>
+window.__resources = {
+  "https://unpkg.com/react@18.3.1/umd/react.production.min.js": "vendor/react.production.min.js",
+  "https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js": "vendor/react-dom.production.min.js"
+};
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -33,7 +43,8 @@
 <link rel="stylesheet" href="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/smart-link/styles2.css">
 <link rel="stylesheet" href="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/ui_kits/linkbio/styles.css">
 <script src="_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/_ds_bundle.js"></script>
-<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="vendor/phosphor/fill/style.css">
+<link rel="stylesheet" href="vendor/phosphor/bold/style.css">
 <script src="image-slot.js"></script>
 <style>
 html{scroll-behavior:smooth}
