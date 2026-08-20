@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Arquitetura · Match House</title>
+<style>
+@font-face{font-family:'Poppins';font-weight:300;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Light.ttf') format('truetype')}
+@font-face{font-family:'Poppins';font-weight:400;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Regular.ttf') format('truetype')}
+@font-face{font-family:'Poppins';font-weight:500;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Medium.ttf') format('truetype')}
+@font-face{font-family:'Poppins';font-weight:600;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf') format('truetype')}
+@font-face{font-family:'Poppins';font-weight:700;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Bold.ttf') format('truetype')}
+@font-face{font-family:'HND';font-weight:400;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/HelveticaNowDisplay-Regular.otf') format('opentype')}
+@font-face{font-family:'HND';font-weight:700;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/HelveticaNowDisplay-Bold.otf') format('opentype')}
+@font-face{font-family:'HND';font-weight:800;src:url('../../_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/HelveticaNowDisplay-ExtraBold.otf') format('opentype')}
+
+:root{
+  --navy:#00073e; --navy900:#00052b; --blue:#000f90; --cyan:#00efff;
+  --paper:#f1f1f1; --muted:#6c7081; --muted2:#969aaa;
+  --line:rgba(0,7,62,.11); --line2:rgba(0,7,62,.06);
+  --disp:'HND','Poppins',sans-serif; --sans:'Poppins',sans-serif;
+}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);color:var(--navy);background:#fff;font-size:9.4pt;line-height:1.5}
+@page{size:A4;margin:0}
+
+.page{position:relative;width:210mm;height:296.8mm;padding:15mm 14mm 13mm;overflow:hidden;
+      page-break-after:always;background:var(--paper);display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+
+/* ---------- cover ---------- */
+.cover{background:linear-gradient(118deg,#00052b 0%,#00073e 22%,#000f90 62%,#0f7fd8 90%,#00efff 118%);
+       padding:0;justify-content:space-between;color:#fff}
+.cover .inner{padding:20mm 16mm 15mm;display:flex;flex-direction:column;height:100%;position:relative;z-index:2}
+.cover .glow{position:absolute;inset:0;z-index:1;
+  background:radial-gradient(44% 32% at 86% 30%, rgba(0,239,255,.26) 0%, rgba(0,239,255,0) 72%),
+             radial-gradient(40% 30% at 6% 88%, rgba(0,239,255,.14) 0%, rgba(0,239,255,0) 72%)}
+.cover img.logo{height:11mm;width:auto;align-self:flex-start;flex:none;display:block}
+.cover .eyebrow{font-size:8.4pt;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin:0 0 5mm}
+.cover h1{font-family:var(--disp);font-weight:800;font-size:33pt;line-height:1.03;letter-spacing:-.022em;margin:0;max-width:150mm}
+.cover .lead{font-size:11.4pt;line-height:1.55;color:rgba(255,255,255,.82);margin:7mm 0 0;max-width:132mm;font-weight:300}
+.cover .rule{height:2.6px;width:34mm;background:var(--cyan);margin:9mm 0 0;border-radius:2px}
+.cover .metagrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6mm;margin:0;
+   border-top:1px solid rgba(255,255,255,.20);padding-top:6mm}
+.cover .metagrid .k{font-size:7.2pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.cover .metagrid .v{font-size:9.4pt;font-weight:500;color:#fff;margin-top:1.6mm;line-height:1.4}
+
+/* ---------- page furniture ---------- */
+.ph{display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1.6px solid var(--navy);padding-bottom:3mm;margin-bottom:6.5mm;flex:none}
+.ph .n{font-family:var(--disp);font-weight:800;font-size:19pt;letter-spacing:-.02em;line-height:1;color:var(--navy)}
+.ph .n span{color:var(--blue)}
+.ph .tag{font-size:7.2pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pf{position:absolute;left:14mm;right:14mm;bottom:7mm;display:flex;justify-content:space-between;
+    font-size:7pt;color:var(--muted2);letter-spacing:.06em;border-top:1px solid var(--line2);padding-top:2.4mm}
+.body{flex:1;min-height:0}
+.body.spread{justify-content:space-between}
+.dense .stack{gap:3.6mm}
+.dense .card{padding:4.2mm 4.6mm}
+.dense .dark-card{padding:4.2mm 4.6mm}
+.dense td{padding:1.7mm 3mm 1.7mm 0}
+.dense p{margin-bottom:2.4mm}
+.airy td{padding:3.4mm 3mm 3.4mm 0}
+.airy .card{padding:5.5mm 5.5mm}
+.airy ol.steps li{margin-bottom:3.6mm}
+.airy ul.ticks li{margin-bottom:3.4mm}
+
+h2.sec{font-family:var(--disp);font-weight:700;font-size:12pt;letter-spacing:-.01em;margin:0 0 2.5mm;color:var(--navy)}
+h3.sub{font-size:8pt;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin:0 0 2.5mm}
+p{margin:0 0 3mm}
+.mut{color:var(--muted)}
+strong{font-weight:600}
+code,.mono{font-family:'DejaVu Sans Mono','Courier New',monospace;font-size:8.1pt;
+  background:rgba(0,15,144,.065);color:var(--blue);padding:.4mm 1.1mm;border-radius:2.5px}
+
+/* ---------- cards ---------- */
+.card{background:#fff;border-radius:5mm;padding:5mm 5.5mm;box-shadow:0 3px 14px rgba(0,7,62,.07)}
+.card.tight{padding:4mm 4.5mm}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:4.5mm}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.stack{display:flex;flex-direction:column;gap:4.5mm}
+
+/* ---------- flow diagram ---------- */
+.flow{display:flex;align-items:stretch;gap:0}
+.node{flex:1;background:#fff;border-radius:4mm;padding:4mm 3.6mm;text-align:center;
+      box-shadow:0 3px 12px rgba(0,7,62,.08);position:relative}
+.node.dark{background:linear-gradient(140deg,#00073e,#000f90);color:#fff;box-shadow:0 6px 20px rgba(0,7,62,.22)}
+.node.ghost{background:transparent;box-shadow:none;border:1.4px dashed rgba(0,7,62,.3)}
+.node .nk{font-size:6.8pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.node.dark .nk{color:var(--cyan)}
+.node .nt{font-family:var(--disp);font-weight:700;font-size:10.4pt;margin-top:1.6mm;line-height:1.15}
+.node .nd{font-size:7.4pt;color:var(--muted);margin-top:1.6mm;line-height:1.35}
+.node.dark .nd{color:rgba(255,255,255,.72)}
+.node.dark code{background:rgba(0,239,255,.16);color:var(--cyan)}
+.arrow{flex:none;width:9mm;display:flex;align-items:center;justify-content:center;
+       font-size:13pt;color:var(--blue);font-weight:700}
+
+/* ---------- list styles ---------- */
+ul.ticks{margin:0;padding:0;list-style:none}
+ul.ticks li{position:relative;padding-left:5.2mm;margin-bottom:2.2mm;line-height:1.45}
+ul.ticks li:last-child{margin-bottom:0}
+ul.ticks li:before{content:"→";position:absolute;left:0;top:0;color:var(--blue);font-weight:700}
+ul.ticks.cy li:before{color:#0b8fa8}
+
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.steps li{position:relative;padding-left:7.5mm;margin-bottom:2.8mm;counter-increment:s;line-height:1.42}
+ol.steps li:last-child{margin-bottom:0}
+ol.steps li:before{content:counter(s);position:absolute;left:0;top:.2mm;width:5mm;height:5mm;border-radius:50%;
+  background:var(--navy);color:#fff;font-size:6.8pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:8.3pt}
+th{text-align:left;font-size:6.8pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+   color:var(--muted);padding:0 3mm 2mm 0;border-bottom:1.2px solid var(--navy)}
+td{padding:2.3mm 3mm 2.3mm 0;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.35}
+tr:last-child td{border-bottom:none}
+td.k{font-weight:600;white-space:nowrap}
+
+/* ---------- misc bits ---------- */
+.pill{display:inline-block;border-radius:999px;padding:1mm 3mm;font-size:7.2pt;font-weight:600;
+      letter-spacing:.05em;background:var(--navy);color:#fff}
+.pill.cy{background:#d9fbff;color:#00566b}
+.pill.gh{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.kpi{font-family:var(--disp);font-weight:800;font-size:17pt;line-height:1;color:var(--navy);letter-spacing:-.02em}
+.kpi.b{color:var(--blue)}
+.kpi-l{font-size:7.2pt;color:var(--muted);margin-top:1.6mm;line-height:1.3}
+.note{border-left:2.4px solid var(--cyan);padding:2mm 0 2mm 4mm;background:transparent}
+.note .nl{font-size:7pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#0b8fa8;margin-bottom:1.2mm}
+.warn{border-left:2.4px solid var(--blue)}
+.warn .nl{color:var(--blue)}
+.dark-card{background:linear-gradient(135deg,#00052b 0%,#00073e 45%,#000f90 115%);color:#fff;
+           border-radius:5mm;padding:5mm 5.5mm;box-shadow:0 6px 20px rgba(0,7,62,.22)}
+.dark-card h2.sec,.dark-card h3.sub{color:#fff}
+.dark-card h3.sub{color:var(--cyan)}
+.dark-card .mut{color:rgba(255,255,255,.68)}
+.dark-card ul.ticks li:before{color:var(--cyan)}
+.dark-card code{background:rgba(0,239,255,.14);color:var(--cyan)}
+.dark-card td{border-bottom-color:rgba(255,255,255,.10)}
+.dark-card th{color:rgba(255,255,255,.55);border-bottom-color:rgba(255,255,255,.35)}
+
+.seq{display:flex;flex-direction:column;gap:0}
+.seq-row{display:grid;grid-template-columns:15mm 1fr;gap:4mm;padding:1.9mm 0;border-bottom:1px solid var(--line2)}
+.seq-row:last-child{border-bottom:none}
+.seq-t{font-family:'DejaVu Sans Mono','Courier New',monospace;font-size:7.6pt;font-weight:700;color:var(--blue);
+       text-align:right;padding-top:.4mm}
+.dark-card .seq-t{color:var(--cyan)}
+.seq-b{line-height:1.4}
+.seq-b b{font-weight:600}
+
+.legend{display:flex;gap:5mm;flex-wrap:wrap;font-size:7.4pt;color:var(--muted)}
+.legend i{display:inline-block;width:3mm;height:3mm;border-radius:1px;margin-right:1.6mm;vertical-align:-.3mm}
+</style>
+</head>
+<body>
+
+<!-- ============================== CAPA ============================== -->
+<section class="page cover">
+  <div class="glow"></div>
+  <div class="inner">
+    <img class="logo" src="../../assets/logo-dark.png" alt="match house">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding-bottom:6mm">
+      <div class="eyebrow">Arquitetura técnica · agosto 2026</div>
+      <h1>Como a Match House<br>está construída.</h1>
+      <div class="rule"></div>
+      <p class="lead">O Smart Link com IA para corretores de imóveis: a landing page, a
+      camada de medição e atribuição, o pipeline de deploy — e onde estão as fronteiras
+      do sistema.</p>
+    </div>
+    <div class="metagrid">
+      <div><div class="k">Repositório</div><div class="v">match-house/<br>lp-match-house</div></div>
+      <div><div class="k">Produção</div><div class="v">www.matchhouse.com.br<br>app.smartli.ink</div></div>
+      <div><div class="k">Escopo deste doc</div><div class="v">Aquisição: LP,<br>tracking e deploy</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== P2 · MAPA ============================== -->
+<section class="page">
+  <div class="ph"><div class="n">O mapa do <span>sistema</span></div><div class="tag">01 · Visão geral</div></div>
+  <div class="body stack spread">
+
+    <p style="margin:0">A Match House é uma <strong>plataforma de tecnologia</strong> para corretores de
+    imóveis de alto padrão — não é imobiliária, portal, nem geradora de leads. O produto é o
+    <strong>Smart Link</strong>: um único link que reúne imóveis, redes e WhatsApp do corretor, com uma IA
+    que atende, qualifica e agenda 24/7 em nome dele. Este documento cobre a
+    <strong>camada de aquisição</strong>, que é o que vive neste repositório.</p>
+
+    <div class="flow">
+      <div class="node">
+        <div class="nk">Tráfego</div>
+        <div class="nt">Meta Ads</div>
+        <div class="nd">Instagram e Facebook.<br>Segmentação manual,<br>otimizada pelo<br>evento <b>Lead</b></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node dark">
+        <div class="nk">Este repo</div>
+        <div class="nt">Landing page</div>
+        <div class="nd">matchhouse.com.br<br>Estática, na Vercel,<br>servida da <b>main</b></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node">
+        <div class="nk">Conversão</div>
+        <div class="nt">CTA · Lead</div>
+        <div class="nd">Dispara o pixel,<br>decora a URL e<br>só então navega</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node ghost">
+        <div class="nk">Fora do repo</div>
+        <div class="nt">app.smartli.ink</div>
+        <div class="nd">Cadastro, produto,<br>IA e painel do<br>corretor</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">O que está neste repositório</h3>
+        <ul class="ticks">
+          <li><strong>index.html</strong> — a LP publicada, uma página só</li>
+          <li><strong>tracking.js</strong> — pixel, GA4, atribuição e eventos</li>
+          <li><strong>/diagnostico</strong> — quiz de 4 passos que termina no WhatsApp</li>
+          <li><strong>politica-de-privacidade.html</strong> — termos e LGPD</li>
+          <li><strong>_ds/</strong> — design system da marca (tokens, fontes, kits)</li>
+          <li><strong>vendor/</strong> — React e Phosphor auto-hospedados</li>
+          <li><strong>anuncios/</strong> — criativos de campanha versionados</li>
+          <li><strong>concept-a…d.html</strong> — rascunhos, não publicados</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="sub">O que <em>não</em> está — e por quê</h3>
+        <p class="mut" style="margin-bottom:3mm">A fronteira do sistema é o clique no CTA. Tudo depois
+        dele vive em outro domínio e outro repositório:</p>
+        <ul class="ticks">
+          <li>O <strong>cadastro</strong> e a conta do corretor</li>
+          <li>A <strong>Match IA</strong> — atendimento, qualificação, geração de descrição</li>
+          <li>O <strong>painel de performance</strong> e a gestão de imóveis</li>
+          <li>Os <strong>apps</strong> iOS e Android</li>
+        </ul>
+        <div class="note" style="margin-top:4mm">
+          <div class="nl">Contrato entre as duas pontas</div>
+          A LP entrega ao app a atribuição completa via query string — UTMs,
+          <code>fbclid</code>, <code>gclid</code> e os cookies <code>_fbp</code>/<code>_fbc</code>.
+          É assim que uma venda lá na frente volta a apontar para o criativo que a gerou.
+        </div>
+      </div>
+    </div>
+
+    <div class="card tight">
+      <div class="grid3" style="align-items:start">
+        <div><div class="kpi">1</div><div class="kpi-l">página HTML em produção — a LP inteira é um arquivo só, sem rotas</div></div>
+        <div><div class="kpi b">0</div><div class="kpi-l">passos de build. Sem npm, sem bundler, sem CI: o que está no git é o que roda</div></div>
+        <div><div class="kpi">3</div><div class="kpi-l">sistemas de medição em paralelo: Meta Pixel, GA4 e Vercel Analytics</div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>01 · Visão geral</span><span>2</span></div>
+</section>
+
+<!-- ============================== P3 · STACK ============================== -->
+<section class="page">
+  <div class="ph"><div class="n">A stack da <span>landing page</span></div><div class="tag">02 · Front-end</div></div>
+  <div class="body stack spread">
+
+    <p style="margin:0">A decisão estruturante: <strong>site estático, sem etapa de build</strong>. O HTML no
+    repositório é literalmente o HTML que o navegador recebe. Isso mantém o custo de publicar em
+    segundos e o diff legível — mas o preço é que a LP usa um runtime próprio no lugar de um
+    framework tradicional.</p>
+
+    <div class="card">
+      <h2 class="sec">O runtime <code style="font-size:9.5pt">&lt;x-dc&gt;</code> — “design doc”</h2>
+      <p class="mut">A LP não é HTML comum. O corpo da página é um template dentro de
+      <code>&lt;x-dc&gt;</code>, compilado em tempo de execução por <code>support.js</code>
+      (um runtime gerado — o arquivo é build output, não se edita à mão). Ele monta React
+      a partir do template e de uma classe de lógica no mesmo arquivo.</p>
+      <table style="margin-top:1mm">
+        <tr><td class="k" style="width:38mm"><code>{{ expressão }}</code></td><td>Interpolação de valores vindos de <code>renderVals()</code>, inclusive handlers de evento</td></tr>
+        <tr><td class="k"><code>&lt;sc-for list as&gt;</code></td><td>Repetição sobre arrays — usada nas notificações, no feed ao vivo e nos chips</td></tr>
+        <tr><td class="k"><code>&lt;sc-if value&gt;</code></td><td>Renderização condicional — cada etapa da conversa aparece por aqui</td></tr>
+        <tr><td class="k"><code>style-hover</code></td><td>Estado de hover inline, sem folha de estilo separada</td></tr>
+        <tr><td class="k"><code>&lt;helmet&gt;</code></td><td>Bloco de CSS e dependências injetado no <code>&lt;head&gt;</code> depois do load</td></tr>
+        <tr><td class="k"><code>data-props</code></td><td>Props ajustáveis por editor visual — hoje a velocidade de digitação (65&nbsp;ms) e o número de contato</td></tr>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">Zero dependência de CDN em runtime</h3>
+        <p class="mut" style="margin-bottom:2.5mm">O runtime busca React no unpkg por padrão. Se o unpkg
+        estivesse lento ou bloqueado, <strong>a página inteira renderizava em branco</strong> — é o React
+        que desenha todo o conteúdo. A correção usa o override oficial do próprio runtime:</p>
+        <div style="background:var(--navy);color:#fff;border-radius:3mm;padding:3.5mm;font-family:'DejaVu Sans Mono',monospace;font-size:7.3pt;line-height:1.55">
+          <span style="color:#00efff">window</span>.__resources = {<br>
+          &nbsp;&nbsp;<span style="color:#8fa0ff">"…/react.production.min.js"</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00efff">"vendor/react.production.min.js"</span>,<br>
+          &nbsp;&nbsp;<span style="color:#8fa0ff">"…/react-dom.production.min.js"</span>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00efff">"vendor/react-dom.production.min.js"</span><br>
+          };
+        </div>
+        <p class="mut" style="margin:3mm 0 0">React, React-DOM e os ícones Phosphor passaram a ser
+        servidos do próprio domínio. Fontes da marca (Poppins e Helvetica Now Display) já eram
+        auto-hospedadas. <strong>Nenhum recurso crítico vem de terceiros.</strong></p>
+      </div>
+
+      <div class="stack">
+        <div class="card tight">
+          <h3 class="sub">Design system versionado</h3>
+          <p class="mut" style="margin:0">A pasta <code>_ds/</code> carrega o brandbook traduzido em código:
+          tokens CSS de cor, tipografia, sombra e motion, mais os UI kits. A paleta é enxuta de
+          propósito — quatro cores, com o ciano como acento de no máximo 5%.</p>
+          <div class="legend" style="margin-top:3mm">
+            <span><i style="background:#00073e"></i>navy #00073e</span>
+            <span><i style="background:#000f90"></i>blue #000f90</span>
+            <span><i style="background:#00efff"></i>cyan #00efff</span>
+            <span><i style="background:#f1f1f1;border:1px solid var(--line)"></i>paper #f1f1f1</span>
+          </div>
+        </div>
+        <div class="card tight warn note" style="border-radius:5mm;background:#fff;box-shadow:0 3px 14px rgba(0,7,62,.07);border-left:2.4px solid var(--blue);padding:4mm 4.5mm 4mm 4mm">
+          <div class="nl" style="font-size:7pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:1.5mm">Armadilha conhecida</div>
+          <p style="margin:0"><strong>Favicon e <code>&lt;title&gt;</code> ficam no <code>&lt;head&gt;</code> estático real</strong>,
+          nunca dentro do <code>&lt;helmet&gt;</code>. O helmet só injeta as tags via JS depois do load, e
+          nesse caminho o navegador não atualiza o favicon de forma confiável. Foi um bug real,
+          e a regra está fixada no <code>CLAUDE.md</code> do projeto.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>02 · Front-end</span><span>3</span></div>
+</section>
+
+<!-- ============================== P4 · A PÁGINA ============================== -->
+<section class="page">
+  <div class="ph"><div class="n">Anatomia do <span>index.html</span></div><div class="tag">03 · A página</div></div>
+  <div class="body stack spread">
+
+    <div class="card tight">
+      <h3 class="sub">Seis seções, uma narrativa</h3>
+      <table>
+        <thead><tr><th style="width:12mm">Seção</th><th style="width:42mm">O que é</th><th>Papel na conversão</th></tr></thead>
+        <tr><td class="k">S1</td><td>Conversa com a IA</td><td>Primeira dobra. A IA digita, o visitante responde em chips e dá o nome — a página se personaliza na hora</td></tr>
+        <tr><td class="k">S2</td><td>O que é o Smart Link</td><td>Explicação do produto: um link com imóveis, redes, WhatsApp e a Match IA</td></tr>
+        <tr><td class="k">S3</td><td>Madrugada 23h47</td><td>Prova emocional: relógio correndo e notificações de leads chegando enquanto o corretor dorme</td></tr>
+        <tr><td class="k">S4</td><td>Rede ao vivo</td><td>Feed de eventos da rede + contador de leads. Rotulado como painel ilustrativo</td></tr>
+        <tr><td class="k">S5</td><td>Smart Links reais</td><td>Prova social com Smart Links de corretores no ar</td></tr>
+        <tr><td class="k">S6</td><td>CTA final + rodapé</td><td>Último empurrão sobre o gradiente da marca</td></tr>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2 class="sec">A conversa é uma máquina de estados</h2>
+        <p class="mut" style="margin-bottom:3mm">O coração da LP são seis passos numa classe que estende
+        <code>DCLogic</code>. Cada passo tem um texto que é <strong>digitado caractere a caractere</strong>
+        e um conjunto de respostas possíveis.</p>
+        <ol class="steps">
+          <li><b>Apresentação</b> — a IA se apresenta; chips de continuar ou perguntar quem é ela</li>
+          <li><b>Captura do nome</b> — campo livre; aceita nome ou <code>@</code> do Instagram e normaliza</li>
+          <li><b>Dor</b> — três opções: lead frio, falta de tempo, link fraco</li>
+          <li><b>Resposta ramificada</b> — o texto muda conforme a dor escolhida</li>
+          <li><b>Prévia</b> — mostra o Smart Link com o nome e o slug do visitante</li>
+          <li><b>Fechamento</b> — preço ou cadastro, e o CTA final aparece</li>
+        </ol>
+        <div class="note" style="margin-top:4mm">
+          <div class="nl">Detalhe que costuma surpreender</div>
+          A partir do primeiro nome o código <strong>infere o gênero</strong> — por lista de nomes
+          conhecidos, com fallback na terminação em “a” ou “o”. Isso escolhe o avatar da prévia e
+          concorda o artigo: “<em>o</em> Bernardo IA” ou “<em>a</em> Marina IA”.
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="card tight">
+          <h3 class="sub">Os relógios que dão vida à página</h3>
+          <table>
+            <thead><tr><th style="width:20mm">Intervalo</th><th>O que avança</th></tr></thead>
+            <tr><td class="k">65 ms</td><td>Um caractere da fala da IA <span class="pill gh">ajustável</span></td></tr>
+            <tr><td class="k">1&nbsp;000 ms</td><td>O relógio da seção madrugada</td></tr>
+            <tr><td class="k">1&nbsp;600 ms</td><td>O contador de leads qualificados</td></tr>
+            <tr><td class="k">2&nbsp;100 ms</td><td>Uma linha nova no feed da rede</td></tr>
+            <tr><td class="k">2&nbsp;600 ms</td><td>Uma notificação nova na madrugada</td></tr>
+          </table>
+          <p class="mut" style="margin:3mm 0 0;font-size:8pt">Todos são limpos em
+          <code>componentWillUnmount</code>. A velocidade de digitação é prop de editor: mexeu nela,
+          mexeu no ritmo da primeira dobra — por isso está congelada em 65&nbsp;ms.</p>
+        </div>
+        <div class="card tight">
+          <h3 class="sub">Responsividade sem media query</h3>
+          <p class="mut" style="margin:0">Os grids usam
+          <code>auto-fit</code> com <code>minmax(min(330px,100%),1fr)</code>: colapsam sozinhos no
+          celular. Os tipos usam <code>clamp()</code> em vez de breakpoints. Como quase todo o
+          tráfego vem de Instagram e Facebook, <strong>mobile é o caso principal</strong>, não a exceção.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>03 · A página</span><span>4</span></div>
+</section>
+
+<!-- ============================== P5 · TRACKING ============================== -->
+<section class="page dense">
+  <div class="ph"><div class="n">Medição e <span>atribuição</span></div><div class="tag">04 · tracking.js</div></div>
+  <div class="body stack">
+
+    <p style="margin:0">A parte mais densa do repositório. <code>tracking.js</code> resolve quatro
+    problemas que quebram medição em campanha paga — todos descobertos em produção, com dinheiro rodando.</p>
+
+    <div class="dark-card">
+      <h3 class="sub">Problema 1 · O clique matava o próprio evento</h3>
+      <p class="mut" style="margin-bottom:2.5mm">Navegar cancela requisições em voo: o beacon do pixel saía
+      junto com a navegação e <strong>morria antes de chegar</strong> — leads reais não apareciam no Meta.</p>
+      <div class="seq">
+        <div class="seq-row"><div class="seq-t">t=0</div><div class="seq-b">Clique capturado por <b>listener delegado</b> na fase de captura — pega CTA renderizado depois. <code>preventDefault()</code> segura a navegação</div></div>
+        <div class="seq-row"><div class="seq-t">+1ms</div><div class="seq-b">Dispara <b>Meta Pixel</b> com um <code>eventID</code> único, e <b>GA4</b> com <code>event_callback</code></div></div>
+        <div class="seq-row"><div class="seq-t">~100ms</div><div class="seq-b">GA4 confirma o recebimento → <b>navega imediatamente</b></div></div>
+        <div class="seq-row"><div class="seq-t">teto</div><div class="seq-b"><b>400&nbsp;ms</b> com GA4 no ar (rede de segurança) · <b>150&nbsp;ms</b> se o GA4 estiver bloqueado</div></div>
+      </div>
+      <p class="mut" style="margin:3.5mm 0 0;font-size:8.2pt">O segundo teto existe porque com adblock o
+      callback <em>nunca</em> chega. Detectamos o gtag real por <code>window.google_tag_manager</code> —
+      sem isso, o botão ficava 900&nbsp;ms morto no dedo da pessoa.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">Problema 2 · UTMs corrompidos pelo Meta</h3>
+        <p class="mut" style="margin:0">Anúncios foram salvos com a URL inteira colada no campo
+        “Parâmetros de URL”. O Meta anexava aquilo à query e a página chegava com um par-lixo
+        (<code>?https://…?utm_source=…</code>) — o GA4 perdia a origem da sessão. Antes de inicializar
+        pixel e GA4, o script <strong>resgata o <code>utm_source</code> de dentro do lixo, descarta o par
+        quebrado, remove UTM duplicado e reescreve a URL</strong> com <code>replaceState</code>, para os
+        dois lerem uma query limpa.</p>
+      </div>
+      <div class="card">
+        <h3 class="sub">Problema 3 · Atribuição eterna</h3>
+        <p class="mut" style="margin:0">O corretor clica no anúncio, sai, e volta dias depois pelo
+        direto. A atribuição fica em <code>localStorage</code> para sobreviver a isso — mas
+        <strong>com TTL de 30 dias</strong>. Sem o TTL, um clique antigo valia para sempre e contaminava a
+        leitura por criativo. O formato antigo, sem timestamp, é <strong>descartado de propósito</strong>:
+        era ele que carregava o resíduo de campanhas pré-retag.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="sub">Problema 4 · A conversão acontece em outro domínio</h3>
+      <p class="mut" style="margin-bottom:3mm">O cadastro vive em <code>app.smartli.ink</code>. Antes de navegar, a URL
+      é decorada com a atribuição guardada e os cookies <code>_fbp</code>/<code>_fbc</code> — a ponte cross-domain
+      que devolve a conversão ao criativo certo. Cada evento sai com um <code>eventID</code> único: a chave de
+      deduplicação para quando a <strong>Conversions API server-side</strong> entrar.</p>
+      <table>
+        <thead><tr><th style="width:26mm">Evento</th><th style="width:34mm">Dispara em</th><th style="width:36mm">Espelho no GA4</th><th>Para que serve</th></tr></thead>
+        <tr><td class="k"><span class="pill">Lead</span></td><td>Todo CTA de cadastro</td><td><code>signup_cta_click</code></td><td><strong>Otimização da campanha.</strong> Renomear zera o aprendizado — regra fixa do projeto</td></tr>
+        <tr><td class="k"><span class="pill cy">Contact</span></td><td>Links de WhatsApp</td><td><code>whatsapp_click</code></td><td>Só medição. Hoje ativo no /diagnostico; na LP todos os CTAs vão para o app</td></tr>
+        <tr><td class="k"><span class="pill gh">LPView</span></td><td>Carga da página</td><td>—</td><td>PageView customizado, carimbado com o <code>utm_content</code></td></tr>
+        <tr><td class="k"><span class="pill gh">ScrollDepth</span></td><td>25 / 50 / 75 / 100%</td><td><code>scroll_depth</code></td><td>Onde a página perde a pessoa. Listener passivo, um disparo por marco</td></tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>04 · tracking.js</span><span>5</span></div>
+</section>
+
+<!-- ============================== P6 · DEPLOY ============================== -->
+<section class="page dense">
+  <div class="ph"><div class="n">Deploy e <span>operação</span></div><div class="tag">05 · Infra</div></div>
+  <div class="body stack spread">
+
+    <div class="flow">
+      <div class="node"><div class="nk">Passo 1</div><div class="nt">commit</div><div class="nd">Alteração direta<br>no HTML ou JS</div></div>
+      <div class="arrow">→</div>
+      <div class="node dark"><div class="nk">Passo 2</div><div class="nt">push na main</div><div class="nd">A <b>main</b> <em>é</em> a produção.<br>Branch de feature<br>não muda o site</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="nk">Passo 3</div><div class="nt">Vercel</div><div class="nd">Publica os arquivos<br>estáticos. Sem build,<br>sem container</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="nk">Passo 4</div><div class="nt">no ar</div><div class="nd">Validar com<br>hard refresh —<br>o cache é agressivo</div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">Configuração de plataforma</h3>
+        <table>
+          <tr><td class="k" style="width:32mm"><code>vercel.json</code></td><td>Redireciona <code>/go</code> para a raiz — a URL curta usada nos anúncios, mantida temporária de propósito</td></tr>
+          <tr><td class="k">Vercel Analytics</td><td><code>/_vercel/insights/script.js</code>, medição de audiência independente do GA4</td></tr>
+          <tr><td class="k">Verificação Meta</td><td>Meta tag de domain verification no <code>&lt;head&gt;</code></td></tr>
+          <tr><td class="k">Local</td><td><code>npx serve -p 3456 .</code> — nada além de um servidor de arquivos</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3 class="sub">Páginas satélite</h3>
+        <table>
+          <tr><td class="k" style="width:30mm">/diagnostico</td><td>Quiz de 4 passos que gera um diagnóstico e leva ao WhatsApp. Stack <strong>diferente</strong>: React por CDN + Babel no navegador, com pixel e conversão de Google Ads próprios</td></tr>
+          <tr><td class="k">Política</td><td>Termos de uso e privacidade, HTML puro</td></tr>
+          <tr><td class="k">concept-a…d</td><td>Rascunhos de conceito. Publicados no domínio, mas fora do fluxo</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">Higiene de performance</h3>
+        <ul class="ticks">
+          <li><strong>React, React-DOM e Phosphor saíram do CDN</strong> e passaram a ser servidos do próprio domínio — um terceiro fora do ar deixava a página em branco</li>
+          <li><strong>O CTA é liberado mais cedo</strong> na conversa, sem esperar a animação inteira terminar</li>
+          <li><strong>Fontes auto-hospedadas</strong> desde o início, sem chamada ao Google Fonts</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 class="sub">Depois de publicar</h3>
+        <p class="mut" style="margin-bottom:3mm">O cache da borda é agressivo, e o do favicon mais ainda.
+        A checagem depois de todo deploy:</p>
+        <ol class="steps">
+          <li>Confirmar que o commit chegou na <code>main</code></li>
+          <li>Abrir o site com <strong>hard refresh</strong> (Ctrl+Shift+R)</li>
+          <li>Conferir aba e favicon — foram o último bug de cache</li>
+          <li>Clicar num CTA e ver o <code>Lead</code> chegando no Meta</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="dark-card">
+      <h2 class="sec">Regras que não se negociam</h2>
+      <p class="mut" style="margin-bottom:3mm">Cada uma custou dinheiro ou aprendizado de campanha. Estão fixadas no <code>CLAUDE.md</code> para não voltarem.</p>
+      <div class="grid2" style="gap:5mm">
+        <ul class="ticks">
+          <li><strong>Não renomear o evento <code>Lead</code>.</strong> A campanha otimiza por ele; trocar o nome zera o aprendizado do conjunto</li>
+          <li><strong>Nunca ligar expansão de público</strong> (Advantage+). A segmentação é sempre manual — decisão explícita</li>
+        </ul>
+        <ul class="ticks">
+          <li><strong>Nada muda em campanha ativa sem aprovação</strong> — verba, lance, público ou posicionamento</li>
+          <li><strong>Não regredir o que já foi corrigido</strong>: velocidade de digitação e grids de mobile são território minado</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>05 · Infra</span><span>6</span></div>
+</section>
+
+<!-- ============================== P7 · TRADE-OFFS ============================== -->
+<section class="page airy">
+  <div class="ph"><div class="n">Trade-offs e <span>o que vem depois</span></div><div class="tag">06 · Pauta</div></div>
+  <div class="body stack">
+
+    <p style="margin:0">Onde a arquitetura cobra o preço das próprias escolhas. Esta é a parte que
+    vale discutir na mesa.</p>
+
+    <div class="card">
+      <table>
+        <thead><tr><th style="width:52mm">Escolha</th><th style="width:52mm">O que ganhamos</th><th>O que custa</th></tr></thead>
+        <tr>
+          <td class="k">Site estático, sem build</td>
+          <td>Publicar em segundos; diff legível; nada quebra por dependência</td>
+          <td>Sem type check, sem lint, sem teste automatizado. A revisão é o único portão</td>
+        </tr>
+        <tr>
+          <td class="k">Runtime <code>&lt;x-dc&gt;</code> próprio</td>
+          <td>React com estado real sem tocar em bundler</td>
+          <td>Ninguém de fora conhece o DSL. <code>support.js</code> é build output — não dá para corrigir no lugar</td>
+        </tr>
+        <tr>
+          <td class="k">Tudo em um HTML</td>
+          <td>Uma leitura só entende a página inteira</td>
+          <td>~66&nbsp;KB de arquivo, estilo inline, conflito garantido se duas pessoas editarem juntas</td>
+        </tr>
+        <tr>
+          <td class="k">Medição só no cliente</td>
+          <td>Zero backend para manter</td>
+          <td>Adblock e Safari derrubam parte dos eventos. O <code>eventID</code> já está lá para a CAPI</td>
+        </tr>
+        <tr>
+          <td class="k">/diagnostico com Babel no navegador</td>
+          <td>Foi ao ar rápido</td>
+          <td>Compila JSX no aparelho do visitante, e usa um pixel diferente da LP — duas verdades de medição</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3 class="sub">Fila técnica, em ordem de impacto</h3>
+        <ol class="steps">
+          <li><b>Conversions API server-side.</b> A dedup por <code>eventID</code> já está pronta; falta o endpoint. É o que recupera o evento perdido para adblock</li>
+          <li><b>Unificar a medição do /diagnostico</b> com a da LP, ou assumir explicitamente que são dois funis separados</li>
+          <li><b>Tirar o Babel do runtime</b> do /diagnostico — pré-compilar ou reescrever sem JSX</li>
+          <li><b>Logo vetorial e ícones da marca.</b> Hoje: PNG raster e Phosphor como substituto declarado</li>
+        </ol>
+      </div>
+      <div class="dark-card">
+        <h3 class="sub">Perguntas para o café</h3>
+        <ul class="ticks">
+          <li>Vale trocar o runtime próprio por algo padrão, ou o custo de migração come o ganho?</li>
+          <li>Qual o mínimo de teste automatizado que faz sentido numa página só — smoke test de render e de CTA?</li>
+          <li>CAPI: rota serverless na Vercel ou serviço à parte?</li>
+          <li>A medição client-side está subestimando os leads em quanto, de fato?</li>
+        </ul>
+        <div style="margin-top:5mm;padding-top:4mm;border-top:1px solid rgba(255,255,255,.18)">
+          <div style="font-family:var(--disp);font-weight:800;font-size:13pt;letter-spacing:-.01em">Desbloqueie seu mundo.</div>
+          <div class="mut" style="font-size:8pt;margin-top:1.5mm">www.matchhouse.com.br · app.smartli.ink</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pf"><span>Match House · Arquitetura</span><span>06 · Pauta</span><span>7</span></div>
+</section>
+
+</body>
+</html>
