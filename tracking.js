@@ -258,6 +258,70 @@
   }
 
   /* --------------------------------------------------------------------
+     FUGA DO NAVEGADOR INTERNO (Android)
+
+     Quase todo o trafego pago chega pelo navegador embutido do Instagram.
+     No Android esse navegador e uma WebView, e o Google BLOQUEIA o login
+     dele por politica de seguranca ("disallowed_useragent"). Como a tela
+     de cadastro do app so oferece Google e Apple, e o corretor de Android
+     nao tem Apple ID, ele fica sem saida.
+
+     Os numeros batem com isso (21-31/08): Android converte 1,49% do clique
+     ao cadastro; iPhone, 4,37% — quase 3x mais, e o iPhone tem o botao
+     Apple funcionando dentro da WebView.
+
+     Solucao: no Android + navegador interno, mandar o destino para o
+     Chrome de verdade via intent://. Tres redes de seguranca:
+       1. S.browser_fallback_url — se o Chrome nao estiver instalado, o
+          proprio Android navega para a URL normal.
+       2. timer de 1,2s — se o intent nao fizer nada, navega do jeito antigo.
+       3. try/catch — qualquer erro cai na navegacao normal.
+     Em iPhone e em navegador normal NADA muda.
+     -------------------------------------------------------------------- */
+
+  var ESCAPE_FALLBACK_MS = 1200;
+
+  function isAndroidInAppBrowser() {
+    var ua = navigator.userAgent || '';
+    return /Android/i.test(ua) && /(Instagram|FBAN|FBAV|FB_IAB)/i.test(ua);
+  }
+
+  function chromeIntentUrl(httpsUrl) {
+    return 'intent://' + httpsUrl.replace(/^https?:\/\//i, '') +
+           '#Intent;scheme=https;package=com.android.chrome;' +
+           'S.browser_fallback_url=' + encodeURIComponent(httpsUrl) + ';end';
+  }
+
+  // allowEscape: so o CTA de cadastro tenta sair. O WhatsApp nao — o
+  // navegador interno ja abre o app do WhatsApp sozinho.
+  function openDestination(url, newTab, allowEscape) {
+    if (newTab) { window.open(url, '_blank', 'noopener'); return; }
+
+    if (allowEscape && isAndroidInAppBrowser()) {
+      var cancelled = false;
+      var fallback = window.setTimeout(function () {
+        if (cancelled) return;
+        cancelled = true;
+        window.location.href = url;
+      }, ESCAPE_FALLBACK_MS);
+      function cancel() {
+        if (cancelled) return;
+        cancelled = true;
+        window.clearTimeout(fallback);
+      }
+      function onVis() { if (document.hidden) cancel(); }
+      document.addEventListener('visibilitychange', onVis);
+      window.addEventListener('pagehide', cancel);
+      try {
+        window.location.href = chromeIntentUrl(url);
+        return;
+      } catch (e) { cancel(); }
+    }
+
+    window.location.href = url;
+  }
+
+  /* --------------------------------------------------------------------
      DISPARO SEGURO
      O bug antigo: a navegação cancela o beacon do pixel antes dele sair.
      Solução: preventDefault -> dispara -> navega no callback OU no timeout.
@@ -276,8 +340,7 @@
       if (navigated) return;
       navigated = true;
       if (navTimer) window.clearTimeout(navTimer);
-      if (openInNewTab) window.open(destination, '_blank', 'noopener');
-      else window.location.href = destination;
+      openDestination(destination, openInNewTab, eventName === 'Lead');
     }
 
     // window.gtag é definido no bootstrap DESTE arquivo (só empilha no
@@ -348,8 +411,7 @@
     var now = Date.now();
     if (lastFire.key === fireKey && (now - lastFire.ts) < REFIRE_WINDOW_MS) {
       var again = isSignup ? decorateUrl(href, lastFire.eid) : href;
-      if (newTab) window.open(again, '_blank', 'noopener');
-      else window.location.href = again;
+      openDestination(again, newTab, isSignup);
       return;
     }
 
