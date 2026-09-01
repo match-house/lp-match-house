@@ -158,6 +158,14 @@
   var NAV_FALLBACK_MS = 400;
   var NAV_NO_GA4_MS = 150;
 
+  // Clique repetido no MESMO CTA. Mesmo com a navegacao rapida, o corretor
+  // no celular toca duas vezes quando a tela nao muda na hora. Sem trava,
+  // cada toque virava um `Lead` separado e inflava justamente o numero que
+  // a campanha otimiza (os dados do Meta mostram 728 cliques no anuncio
+  // vindos de 617 pessoas: reclicar e comportamento real deste publico).
+  // Dentro da janela, o segundo toque navega na hora e NAO dispara evento.
+  var REFIRE_WINDOW_MS = 1500;
+
   var ATTR_KEY = 'mh_attr';
   var ATTR_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign',
                      'utm_content', 'utm_term', 'fbclid', 'gclid'];
@@ -221,7 +229,7 @@
 
   // Anexa atribuição + cookies do Meta na URL de destino, pra que o
   // cadastro (outro domínio) saiba de onde a pessoa veio.
-  function decorateUrl(href) {
+  function decorateUrl(href, eventId) {
     try {
       var u = new URL(href, window.location.href);
 
@@ -233,6 +241,15 @@
       var fbc = getCookie('_fbc');
       if (fbp && !u.searchParams.has('fbp')) u.searchParams.set('fbp', fbp);
       if (fbc && !u.searchParams.has('fbc')) u.searchParams.set('fbc', fbc);
+
+      // mh_eid: MESMO id do evento `Lead` disparado aqui. O cadastro roda em
+      // outro dominio (app.smartli.ink), entao este e o unico fio que liga
+      // "clicou em criar conta" a "criou a conta". Com ele o app pode mandar
+      // o CompleteRegistration pelo CAPI usando este eventID e o Meta
+      // deduplica os dois lados em vez de contar como visitas soltas.
+      // mh_src: marca que a pessoa veio pela LP, e nao do anuncio direto.
+      if (eventId && !u.searchParams.has('mh_eid')) u.searchParams.set('mh_eid', eventId);
+      if (!u.searchParams.has('mh_src')) u.searchParams.set('mh_src', 'lp');
 
       return u.toString();
     } catch (e) {
@@ -246,8 +263,8 @@
      Solução: preventDefault -> dispara -> navega no callback OU no timeout.
      -------------------------------------------------------------------- */
 
-  function fireAndNavigate(eventName, extraParams, destination, openInNewTab) {
-    var eventId = newEventId();
+  function fireAndNavigate(eventName, extraParams, destination, openInNewTab, eventId) {
+    eventId = eventId || newEventId();
     var params = {};
 
     Object.keys(attribution).forEach(function (k) { params[k] = attribution[k]; });
@@ -300,6 +317,9 @@
      LISTENER (delegado — funciona com CTA renderizado depois)
      -------------------------------------------------------------------- */
 
+  // Ultimo CTA disparado, para a trava de reclique (REFIRE_WINDOW_MS).
+  var lastFire = { key: '', ts: 0, eid: '' };
+
   document.addEventListener('click', function (ev) {
     // Deixa passar: ctrl/cmd/shift click, botão do meio, default já prevenido.
     if (ev.defaultPrevented || ev.button !== 0) return;
@@ -321,17 +341,32 @@
 
     ev.preventDefault();
 
+    // Reclique no mesmo CTA dentro da janela: navega direto, sem disparar
+    // o evento de novo. Reaproveita o mesmo eventID para o destino nao
+    // mudar entre um toque e outro.
+    var fireKey = (isSignup ? 'signup:' : 'whatsapp:') + href;
+    var now = Date.now();
+    if (lastFire.key === fireKey && (now - lastFire.ts) < REFIRE_WINDOW_MS) {
+      var again = isSignup ? decorateUrl(href, lastFire.eid) : href;
+      if (newTab) window.open(again, '_blank', 'noopener');
+      else window.location.href = again;
+      return;
+    }
+
+    var eventId = newEventId();
+    lastFire = { key: fireKey, ts: now, eid: eventId };
+
     if (isSignup) {
       // >>> EVENTO DE OTIMIZACAO DA CAMPANHA META <<<
       fireAndNavigate('Lead', {
         content_name: 'cta_cadastro',
         cta_label: (el.textContent || '').trim().slice(0, 60)
-      }, decorateUrl(href), newTab);
+      }, decorateUrl(href, eventId), newTab, eventId);
     } else {
       // Medicao apenas — mantem o zap vivo como canal de discovery.
       fireAndNavigate('Contact', {
         content_name: 'cta_whatsapp'
-      }, href, newTab);
+      }, href, newTab, eventId);
     }
   }, true);
 
