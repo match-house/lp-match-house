@@ -73,7 +73,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <img src="assets/logo-light.png" alt="match house" style="height:38px;display:block">
     <a href="{{ waHrefHeader }}" data-mh-cta="signup" style="color:#000000;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:8px" style-hover="color:#000f90"><i class="ph-fill ph-rocket-launch" style="font-size:17px"></i>Criar meu Smart Link</a>
   </div>
-  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:92px 32px 108px;align-items:start;min-height:64vh">
+  <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:clamp(44px,7vw,92px) 32px 108px;align-items:start;min-height:64vh">
     <div style="grid-column:span 1;max-width:760px">
       <div style="font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#000f90;margin:0 0 14px">Sua IA no link da bio →</div>
       <sc-for list="{{ c3PastLines }}" as="p" hint-placeholder-count="1">
@@ -85,7 +85,26 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
         </div>
       </sc-for>
       <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.2vw,54px);line-height:1.1;letter-spacing:-0.018em;color:#00073e;max-width:760px;min-height:130px">{{ c3Line }}<span style="{{ c3CaretStyle }}"></span></div>
-      <div style="margin:34px 0 0;min-height:64px">
+      <!--
+        O caminho curto, na primeira tela.
+
+        Medido em 22/09: de 17 a 20/09 a campanha da LP pagou 83 cliques, 22
+        pessoas chegaram no app e nenhuma se cadastrou — enquanto a campanha
+        que manda direto para o app converteu 5 de 60. A causa nao era a copia:
+        os dois botoes que dominavam a primeira tela eram as fichas da conversa,
+        e o botao de cadastro ficava a 4,7 telas de rolagem. Quem chega de um
+        anuncio precisa poder entrar agora; a conversa fica logo abaixo, para
+        quem quiser entender antes.
+      -->
+      <div style="margin:26px 0 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <!-- padding e corpo em clamp para o rotulo caber numa linha ate em tela de 320px -->
+        <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:16px clamp(18px,4.4vw,26px);font-weight:600;font-size:clamp(14.5px,4vw,15.5px);white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.45)" style-hover="background:#086b46;color:#ffffff"><i class="ph-fill ph-rocket-launch" style="font-size:19px"></i>Criar meu Smart Link agora</a>
+        <span style="color:#6c7081;font-size:12.5px">Sem cartão · Sem compromisso</span>
+      </div>
+      <div style="margin:30px 0 0;min-height:64px">
+        <sc-if value="{{ c3AtStart }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:12px;color:#969aaa;margin:0 0 12px">ou converse com a Match primeiro</div>
+        </sc-if>
         <div style="display:flex;gap:14px;flex-wrap:wrap">
           <sc-for list="{{ c3Chips }}" as="c" hint-placeholder-count="2">
             <span onClick="{{ c.onPick }}" style="cursor:pointer;background:#00efff;color:#00073e;border-radius:999px;padding:16px 30px;font-size:15.5px;font-weight:600;transition:all .2s;animation:mhGlowSoft 2.6s infinite" style-hover="background:#00073e;color:#00efff">{{ c.label }}</span>
@@ -560,6 +579,10 @@ class Component extends DCLogic {
       }
     }));
     const c3IsInput = s3 === 1 && done3;
+    // So no comeco: e o unico momento em que as fichas sao uma alternativa ao
+    // botao. Depois do primeiro toque a conversa ja e o caminho escolhido, e
+    // o rotulo viraria mentira.
+    const c3AtStart = s3 === 0;
     const c3Submit = () => {
       const raw = (this.state.c3Input || '').replace(/^@+/, '').trim();
       if (!raw) return;
@@ -600,7 +623,7 @@ class Component extends DCLogic {
 
     return {
       waHref, waHrefHeader, waHrefFinal, clock, notifItems,
-      c3Line, c3CaretStyle, c3PastLines, c3Chips, c3Done, c3IsInput,
+      c3Line, c3CaretStyle, c3PastLines, c3Chips, c3Done, c3IsInput, c3AtStart,
       c3Input: this.state.c3Input, onC3Input: e => this.setState({ c3Input: e.target.value }),
       onC3Key, c3Submit, c3NotifsVisible, c3PhoneVisible, c3RailEmpty,
       c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN, c3IaTitle,
