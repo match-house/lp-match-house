@@ -70,11 +70,14 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 
 ## Como entregar mensagem pronta para o Mateus (regra dele, 24/09)
 
-- **Toda mensagem que ele vai enviar — WhatsApp, e-mail, chamado — entrega
-  numa página com BOTÃO DE COPIAR.** Pedido explícito: "sempre que me mandar
-  uma mensagem deixar o botão de copiar me ajuda muito". Texto solto no chat
-  ele tem que selecionar à mão no celular, e no meio de dez conversas isso
-  trava o trabalho dele.
+- **Toda mensagem que ele vai enviar — WhatsApp, e-mail, chamado — sai em
+  BLOCO DE CÓDIGO (crase tripla) aqui no chat.** É o bloco de código que faz o
+  app desenhar o ícone de copiar; citação com `>` NÃO desenha, e foi
+  exatamente o que ele cobrou em 24/09: "cadê o ícone de copiar que te pedi?".
+  Nada de texto solto e nada de citação para mensagem que ele vai mandar.
+- Pedido original: "sempre que me mandar uma mensagem deixar o botão de copiar
+  me ajuda muito". Selecionar texto à mão no celular, no meio de dez conversas
+  abertas, trava o trabalho dele.
 - O formato que funcionou em 24/09 é um artifact: um cartão por destinatário,
   com nome, o que está errado, a mensagem inteira visível, botão "Copiar" e,
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
