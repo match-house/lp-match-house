@@ -44,6 +44,30 @@ Notas do projeto para agentes. Ler antes de mexer.
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - Qualquer alteração em campanha ativa (verba, lance, público, posicionamento, pausar/ativar) **exige aprovação direta do usuário antes** — nunca executar por conta própria, mesmo que pareça pequena.
 
+## Falar com corretor — que link mandar (regras de 24/09)
+
+Errei os três na mesma manhã. Ficam escritas para não repetir.
+
+- **Nunca mandar `matchhouse.co` para corretor.** A vitrine é a listagem geral,
+  não é onde ele conserta nada e não é o que ele deve receber. Para corrigir um
+  imóvel, o link é `app.smartli.ink/dashboard/imoveis/<id>/editar`, que abre
+  direto na tela de edição daquele imóvel.
+- **O primeiro link da mensagem é o que vira o card do WhatsApp.** Se a
+  mensagem começa por `app.smartli.ink`, o preview sai como "Crie seu Smart
+  Link" — o card de captação, mostrado para quem já é cliente. Então o link
+  público do corretor (`smartli.ink/<slug>`) vem **antes** do link do painel:
+  aí o card é o dele, com a foto e a IA dele. Confirmado na prática em 24/09.
+- **"Crie seu Smart Link" no perfil do corretor NÃO se tira.** A página de um
+  corretor é vista por outros corretores e é a porta de entrada mais barata que
+  existe — decisão do Mateus: "o objetivo é que outros corretores vejam e
+  baixem". Ela leva ao cadastro, marcada com `utm_source=smartli.ink` e
+  `utm_content=perfil-<slug>`, que é como se sabe qual corretor trouxe quem.
+- Telefone e e-mail de corretor saem do `contatos-ativacao-ACUMULADO.csv` no
+  Drive; imóvel, valor e corretor saem do `vitrine-imoveis-ACUMULADO.csv`, que
+  o export diário atualiza sozinho. Não levantar isso a print de novo.
+- A esteira de ativação manda **um e-mail por corretor por dia, 8h–21h**.
+  Disparo manual no mesmo dia pode dobrar na caixa de alguém.
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
