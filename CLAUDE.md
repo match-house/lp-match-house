@@ -68,6 +68,35 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 - A esteira de ativação manda **um e-mail por corretor por dia, 8h–21h**.
   Disparo manual no mesmo dia pode dobrar na caixa de alguém.
 
+## Como entregar mensagem pronta para o Mateus (regra dele, 24/09)
+
+- **Toda mensagem que ele vai enviar — WhatsApp, e-mail, chamado — entrega
+  numa página com BOTÃO DE COPIAR.** Pedido explícito: "sempre que me mandar
+  uma mensagem deixar o botão de copiar me ajuda muito". Texto solto no chat
+  ele tem que selecionar à mão no celular, e no meio de dez conversas isso
+  trava o trabalho dele.
+- O formato que funcionou em 24/09 é um artifact: um cartão por destinatário,
+  com nome, o que está errado, a mensagem inteira visível, botão "Copiar" e,
+  quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
+  texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
+- Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+
+## Mensagens de ajuda do app — elas dizem onde a pessoa travou
+
+`SUPPORT_MESSAGES` em `app/src/constants.ts` preenche o WhatsApp com uma frase
+escrita na voz da PESSOA, diferente por passo. Quem recebe sabe onde ela está
+sem precisar perguntar:
+
+| Frase que chega | Onde ela travou |
+|---|---|
+| "Estou criando meu Smart Link…" | primeira tela, criando a conta |
+| "Estou no passo do código por SMS…" | verificação por SMS |
+| "Estou escolhendo o meu link…" | escolhendo o slug |
+| "Meu telefone já está em outra conta…" | conta duplicada |
+| "Caí num link do Match House que não abre…" | link quebrado |
+
+O clique é medido como `support_click` (com `step`) no Amplitude.
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
