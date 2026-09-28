@@ -195,7 +195,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
         </div>
         <div style="display:flex;gap:14px;align-items:flex-start">
           <span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#000f90;flex:none;line-height:1.2">③</span>
-          <div style="font-size:14.5px;line-height:1.6;color:#2c3043"><strong style="color:#00073e">Vitrine de alto padrão.</strong> Descrições profissionais geradas por IA — seu primeiro imóvel no ar em ~2 minutos.</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#2c3043"><strong style="color:#00073e">Vitrine de alto padrão.</strong> Descrições profissionais geradas por IA — o imóvel entra colando o texto que você já tem.</div>
         </div>
       </div>
     </div>
@@ -303,7 +303,10 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
       <div style="height:2px;width:120px;background:#00efff;margin:22px 0 0;animation:mhPulse 2.4s infinite"></div>
       <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#00efff;margin:26px 0 0">Enquanto você dorme →</div>
       <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.4vw,52px);line-height:1.06;letter-spacing:-0.02em;color:#fff;margin:14px 0 0">Sua IA acabou de marcar uma visita.</h1>
-      <p style="color:rgba(255,255,255,.72);font-size:clamp(15px,1.6vw,17px);line-height:1.6;margin:16px 0 0;max-width:480px">O lead clicou no seu link da bio às 23h47. Foi atendido em 4 segundos, qualificado e entrou na sua agenda. Você fica sabendo no café da manhã.</p>
+      <!-- "na hora", e nao "em 4 segundos" (aqui e nas notificacoes): o tempo
+           de resposta da IA ainda nao foi medido. Se a medicao (mediana e
+           p90) sustentar os 4 s, o numero pode voltar. -->
+      <p style="color:rgba(255,255,255,.72);font-size:clamp(15px,1.6vw,17px);line-height:1.6;margin:16px 0 0;max-width:480px">O lead clicou no seu link da bio às 23h47. Foi atendido na hora, qualificado e entrou na sua agenda. Você fica sabendo no café da manhã.</p>
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:30px 0 0">
         <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:16px 26px;font-weight:600;font-size:15.5px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.45)" style-hover="background:#086b46;color:#ffffff"><i class="ph-fill ph-rocket-launch" style="font-size:19px"></i>Quero minha IA atendendo hoje →</a>
       </div>
@@ -334,7 +337,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
   <div style="max-width:1240px;margin:0 auto;padding:88px 32px 96px">
     <div style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">Match IA →</span></div>
     <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-0.015em;color:#00073e;margin:14px 0 0;max-width:720px">Smart Links assim já estão no ar — vendendo.</h2>
-    <p style="color:#494d5e;font-size:16.5px;line-height:1.6;margin:14px 0 0;max-width:560px">Corretores reais, com a Match IA respondendo cada clique em segundos. O próximo Smart Link no ar pode ser o seu — pronto em 5 minutos.</p>
+    <p style="color:#494d5e;font-size:16.5px;line-height:1.6;margin:14px 0 0;max-width:560px">Corretores reais, com a Match IA respondendo cada clique em segundos. O próximo Smart Link pode ser o seu — no ar em 5 minutos.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin:36px 0 0;max-width:920px">
       <a href="{{ waHref }}" data-mh-cta="signup" style="display:block;background:linear-gradient(135deg,rgba(0,239,255,.45) 0%,rgba(0,15,144,.5) 40%,rgba(255,255,255,.08) 100%);border-radius:26px;padding:1.5px;box-shadow:0 24px 60px rgba(0,5,43,.35);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,239,255,.3),0 32px 80px rgba(0,5,43,.5)">
         <span style="display:flex;flex-direction:column;height:100%;background:#00052b;border-radius:25px;overflow:hidden">
@@ -427,7 +430,7 @@ class Component extends DCLogic {
     'Lead qualificado: Marina P. · busca cobertura para investir',
     'Visita agendada: sáb, 10h · cobertura no Meireles',
     'Novo contato quente: Carlos R. · 3 quartos, à vista',
-    'Pergunta respondida em 4s: "Aceita permuta?"',
+    'Pergunta respondida na hora: "Aceita permuta?"',
     'Lead qualificado: Ana L. · procura para investir',
     'Visita agendada: dom, 9h30 · casa em condomínio'
   ];
@@ -449,7 +452,7 @@ class Component extends DCLogic {
       }
       case 4: return 'E é assim que o lead te encontra a partir de agora, ' + n + ':';
       case 5: return a[4] === 'Quanto custa?'
-        ? 'Menos que um cafezinho por dia — o valor exato você vê direto na plataforma, sem compromisso. E seu primeiro imóvel vai ao ar em 2 minutos.'
+        ? 'Menos que um cafezinho por dia — o valor exato você vê direto na plataforma, sem compromisso. E o seu link fica no ar em 5 minutos, sem cartão.'
         : 'Ótima decisão, ' + n + '. Em 5 minutos seu Smart Link está no ar — sem cartão, e o time te acompanha passo a passo.';
       default: return '';
     }
