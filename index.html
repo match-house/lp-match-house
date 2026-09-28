@@ -458,8 +458,8 @@ class Component extends DCLogic {
         return 'Então presta atenção: cada clique no seu link seria qualificado na hora — enquanto a gente conversa.';
       }
       case 4: return 'E é assim que o lead te encontra a partir de agora, ' + n + ':';
-      case 5: return a[4] === 'Quanto custa?'
-        ? 'Menos que um cafezinho por dia — o valor exato você vê direto na plataforma, sem compromisso. E o seu link fica no ar em 5 minutos, sem cartão.'
+      case 5: return a[4] === 'Como funciona?'
+        ? 'Você cria o seu link, coloca os seus imóveis e cola na bio. Daí em diante eu atendo, qualifico e agendo com o seu nome. O seu link fica no ar em 5 minutos, sem cartão.'
         : 'Ótima decisão, ' + n + '. Em 5 minutos seu Smart Link está no ar — sem cartão, e o time te acompanha passo a passo.';
       default: return '';
     }
@@ -482,7 +482,7 @@ class Component extends DCLogic {
       case 0: return ['Gostei. Continua →', 'Quem é você?'];
       case 2: return ['Lead que chega frio', 'Falta de tempo', 'Meu link não impressiona'];
       case 3: return ['Mostra mais →'];
-      case 4: return ['Quero esse link →', 'Quanto custa?'];
+      case 4: return ['Quero esse link →', 'Como funciona?'];
       default: return [];
     }
   }
