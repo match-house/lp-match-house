@@ -307,7 +307,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:30px 0 0">
         <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:16px 26px;font-weight:600;font-size:15.5px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.45)" style-hover="background:#086b46;color:#ffffff"><i class="ph-fill ph-rocket-launch" style="font-size:19px"></i>Quero minha IA atendendo hoje →</a>
       </div>
-      <div style="color:rgba(255,255,255,.45);font-size:12.5px;margin:14px 0 0">Sem cartão · Pronto em 5 minutos · +1.000 corretores</div>
+      <div style="color:rgba(255,255,255,.45);font-size:12.5px;margin:14px 0 0">Sem cartão · Seu link no ar em 5 minutos · Mais de 700 corretores já criaram o Smart Link</div>
     </div>
     <div style="display:flex;flex-direction:column;gap:12px;max-width:460px;justify-self:center;width:100%">
       <sc-for list="{{ notifItems }}" as="n" hint-placeholder-count="4">
@@ -319,42 +319,15 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
           </div>
         </div>
       </sc-for>
+      <div style="font-size:11px;color:rgba(255,255,255,.4);text-align:right">Exemplo ilustrativo</div>
     </div>
   </div>
 </div>
 
-<!-- ============ S4 · REDE AO VIVO ============ -->
-<div id="rede" data-screen-label="Rede ao vivo" style="background:#ffffff">
-  <div style="max-width:1240px;margin:0 auto;padding:88px 32px 88px">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
-      <div style="max-width:640px">
-        <div style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#000f90">Ao vivo · rede match house</span></div>
-        <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1.06;letter-spacing:-0.02em;color:#00073e;margin:14px 0 0">Enquanto você lê isto, a rede está atendendo.</h2>
-        <p style="color:#494d5e;font-size:16px;line-height:1.55;margin:12px 0 0">Cada linha é um lead que não esfriou.</p>
-      </div>
-      <div style="text-align:right;flex:none">
-        <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(44px,5vw,64px);line-height:1;color:#00073e;font-variant-numeric:tabular-nums">{{ leadsFmt }}</div>
-        <div style="font-size:12.5px;color:#6c7081;margin:6px 0 0">leads qualificados pela Match IA hoje</div>
-      </div>
-    </div>
-    <div style="background:#00052b;border:1px solid rgba(255,255,255,.08);border-radius:24px;margin:36px 0 0;overflow-x:auto;box-shadow:0 28px 64px rgba(0,5,43,.28)">
-      <div style="min-width:760px">
-        <div style="display:grid;grid-template-columns:92px 210px 1fr 84px;gap:18px;padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.1);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)">
-          <span>Quando</span><span>Evento</span><span>Corretor · detalhe</span><span></span>
-        </div>
-        <sc-for list="{{ flipItems }}" as="f" hint-placeholder-count="6">
-          <div style="{{ f.rowStyle }}">
-            <span style="font-family:var(--font-mono);font-size:12.5px;color:rgba(255,255,255,.5)">{{ f.time }}</span>
-            <span style="font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:.06em;color:#ffffff">{{ f.event }}</span>
-            <span style="font-size:13.5px;color:rgba(255,255,255,.72)"><strong style="color:#fff;font-weight:600">{{ f.who }}</strong> · {{ f.detail }}</span>
-            <span style="{{ f.badgeStyle }}">AGORA</span>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-    <div style="color:#969aaa;font-size:11.5px;margin:14px 0 0">Painel ilustrativo — os eventos representam o trabalho típico da IA na rede.</div>
-  </div>
-</div>
+<!-- S4 · "Rede ao vivo" saiu em 29/09 (LP0): o contador de leads subia com
+     numero aleatorio e a tabela mostrava eventos de exemplo como se fossem
+     da rede. Nada de numero inventado na pagina — prova social so com dado
+     real (hoje: "mais de 700 corretores", do backoffice em 28/09). -->
 
 <!-- ============ S5 · SMART LINKS REAIS ============ -->
 <div id="links-reais" data-screen-label="Smart Links reais" style="background:#f1f1f1;scroll-margin-top:24px">
@@ -448,7 +421,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;velocidadeDigitacao&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 65, &quot;min&quot;: 10, &quot;max&quot;: 300, &quot;step&quot;: 5, &quot;unit&quot;: &quot;ms&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Conversa&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;5527992268000&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contato&quot;}}">
 class Component extends DCLogic {
-  state = { clock: 33, notifN: 3, flipN: 6, leads: 1284, c3Step: 0, c3Typed: '', c3Ans: [], c3Name: '', c3Input: '' };
+  state = { clock: 33, notifN: 3, c3Step: 0, c3Typed: '', c3Ans: [], c3Name: '', c3Input: '' };
 
   notifScript = [
     'Lead qualificado: Marina P. · busca cobertura para investir',
@@ -459,24 +432,13 @@ class Component extends DCLogic {
     'Visita agendada: dom, 9h30 · casa em condomínio'
   ];
 
-  flipScript = [
-    { e: 'VISITA AGENDADA', w: '@ricardo.altopadrao', d: 'Meireles · sáb 10h' },
-    { e: 'LEAD QUALIFICADO', w: '@janaina.arins', d: 'busca casa em condomínio · até R$ 600 mil' },
-    { e: 'PERGUNTA RESPONDIDA', w: '@bernardo.vv', d: '"aceita permuta?" · em 4s' },
-    { e: 'NOVO LEAD QUENTE', w: '@ana.imoveis', d: '3 quartos · à vista' },
-    { e: 'VISITA AGENDADA', w: '@paulo.premium', d: 'cobertura · dom 9h30' },
-    { e: 'LEAD QUALIFICADO', w: '@marina.costa', d: 'investidor recorrente' },
-    { e: 'DESCRIÇÃO GERADA', w: '@ricardo.altopadrao', d: 'novo imóvel publicado em 2 min' },
-    { e: 'NOVO LEAD QUENTE', w: '@janaina.arins', d: 'casa em condomínio · financiado' }
-  ];
-
   c3Text(i) {
     const n = this.state.c3Name || 'corretor';
     const a = this.state.c3Ans;
     switch (i) {
       case 0: return 'Oi. Eu sou a Match — e esta página é uma conversa, não um folheto.';
       case 1: return a[0] === 'Quem é você?'
-        ? 'Sou a assistente que mora no link da bio de mais de 1.000 corretores — atendo, qualifico e agendo por eles, 24h. E você? Como posso te chamar?'
+        ? 'Sou a IA que mora no Smart Link — mais de 700 corretores já criaram o deles. Atendo, qualifico e agendo por eles, 24h. E você? Como posso te chamar?'
         : 'Melhor assim — direto ao ponto. Antes de tudo: como posso te chamar?';
       case 2: return 'Prazer, ' + n + '. Me diz: o que mais te faz perder negócio hoje?';
       case 3: {
@@ -521,8 +483,6 @@ class Component extends DCLogic {
     this._t = [
       setInterval(() => this.setState(s => ({ clock: s.clock + 1 })), 1000),
       setInterval(() => this.setState(s => ({ notifN: s.notifN + 1 })), 2600),
-      setInterval(() => this.setState(s => ({ flipN: s.flipN + 1 })), 2100),
-      setInterval(() => this.setState(s => ({ leads: s.leads + 1 + Math.floor(Math.random() * 2) })), 1600),
     ];
     this.scheduleTyping();
   }
@@ -605,29 +565,12 @@ class Component extends DCLogic {
     const c3AvM = g3 === 'm', c3AvF = g3 === 'f', c3AvN = g3 === 'n';
     const c3IaTitle = this.state.c3Name ? (g3 === 'm' ? 'o ' : 'a ') + c3First + ' IA' : 'a sua IA';
 
-    // rede ao vivo
-    const flipTimes = ['agora', 'há 14s', 'há 31s', 'há 58s', 'há 1min', 'há 2min'];
-    const fLen = this.flipScript.length;
-    const flipItems = [0, 1, 2, 3, 4, 5].map(k => {
-      const it = this.flipScript[(((this.state.flipN - k) % fLen) + fLen) % fLen];
-      return {
-        time: flipTimes[k], event: it.e, who: it.w, detail: it.d,
-        rowStyle: 'display:grid;grid-template-columns:92px 210px 1fr 84px;gap:18px;align-items:center;padding:16px 22px;border-bottom:1px solid rgba(255,255,255,.07);' +
-          (k === 0 ? 'transform-origin:50% 0;animation:mhFlipIn .5s cubic-bezier(0.2,0.7,0.2,1);background:rgba(0,239,255,.05);' : ''),
-        badgeStyle: k === 0
-          ? 'display:inline-flex;align-items:center;justify-content:center;background:rgba(0,239,255,.12);border:1px solid rgba(0,239,255,.45);border-radius:999px;padding:3px 10px;font-size:10px;font-weight:600;color:#00efff;letter-spacing:.08em'
-          : 'display:none'
-      };
-    });
-    const leadsFmt = this.state.leads.toLocaleString('pt-BR');
-
     return {
       waHref, waHrefHeader, waHrefFinal, clock, notifItems,
       c3Line, c3CaretStyle, c3PastLines, c3Chips, c3Done, c3IsInput, c3AtStart,
       c3Input: this.state.c3Input, onC3Input: e => this.setState({ c3Input: e.target.value }),
       onC3Key, c3Submit, c3NotifsVisible, c3PhoneVisible, c3RailEmpty,
-      c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN, c3IaTitle,
-      flipItems, leadsFmt
+      c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN, c3IaTitle
     };
   }
 }
