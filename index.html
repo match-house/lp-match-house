@@ -76,15 +76,20 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
   <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:clamp(44px,7vw,92px) 32px 108px;align-items:start;min-height:64vh">
     <div style="grid-column:span 1;max-width:760px">
       <div style="font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#000f90;margin:0 0 14px">Sua IA no link da bio →</div>
-      <sc-for list="{{ c3PastLines }}" as="p" hint-placeholder-count="1">
-        <div style="margin:0 0 20px">
-          <div style="font-family:var(--font-display);font-weight:700;font-size:20px;line-height:1.35;color:#969aaa;max-width:680px">{{ p.ia }}</div>
-          <sc-if value="{{ p.hasAns }}" hint-placeholder-val="{{ false }}">
-            <div style="margin:9px 0 0"><span style="display:inline-block;background:#00073e;color:#fff;border-radius:999px;padding:7px 16px;font-size:12.5px;font-weight:600">→ {{ p.ans }}</span></div>
-          </sc-if>
-        </div>
-      </sc-for>
-      <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.2vw,54px);line-height:1.1;letter-spacing:-0.018em;color:#00073e;max-width:760px;min-height:130px">{{ c3Line }}<span style="{{ c3CaretStyle }}"></span></div>
+      <!--
+        LP1 (29/09): a primeira tela repete o anuncio.
+
+        O anuncio que traz quase todo o trafego (5a Recibo) fala da pergunta
+        que chegou as 23h47; a pagina abria digitando "Oi. Eu sou a Match…",
+        que nao diz o que e o produto. Agora o titulo e fixo e igual ao
+        anuncio, e a conversa desce para logo abaixo do botao, na mesma
+        velocidade. Quem vem do anuncio 6g (utm_content com "6g") ve o titulo
+        do 6g — ver heroTitle em renderVals.
+        "Na hora", e nao "em 4 segundos": o tempo de resposta da IA ainda nao
+        foi medido.
+      -->
+      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.2vw,54px);line-height:1.1;letter-spacing:-0.018em;color:#00073e;max-width:760px;margin:0">{{ heroTitle }}</h1>
+      <p style="color:#494d5e;font-size:clamp(15.5px,1.5vw,18px);line-height:1.55;max-width:600px;margin:16px 0 0">O Smart Link da Match House atende, qualifica e agenda visitas pelo link da sua bio, com o seu nome, 24 horas por dia.</p>
       <!--
         O caminho curto, na primeira tela.
 
@@ -96,15 +101,17 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
         anuncio precisa poder entrar agora; a conversa fica logo abaixo, para
         quem quiser entender antes.
       -->
-      <div style="margin:26px 0 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="margin:26px 0 0">
         <!-- padding e corpo em clamp para o rotulo caber numa linha ate em tela de 320px -->
         <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:16px clamp(18px,4.4vw,26px);font-weight:600;font-size:clamp(14.5px,4vw,15.5px);white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.45)" style-hover="background:#086b46;color:#ffffff"><i class="ph-fill ph-rocket-launch" style="font-size:19px"></i>Criar meu Smart Link agora</a>
-        <span style="color:#6c7081;font-size:12.5px">Sem cartão · Sem compromisso</span>
+        <div style="color:#6c7081;font-size:12.5px;margin:12px 0 0">Sem cartão · Seu link no ar em 5 minutos</div>
       </div>
-      <div style="margin:30px 0 0;min-height:64px">
-        <sc-if value="{{ c3AtStart }}" hint-placeholder-val="{{ false }}">
-          <div style="font-size:12px;color:#969aaa;margin:0 0 12px">ou converse com a Match primeiro</div>
-        </sc-if>
+      <!-- a conversa: logo abaixo do botao, para quem quer entender antes -->
+      <div style="margin:36px 0 0;border-left:3px solid #00efff;padding:0 0 0 18px">
+        <div style="font-size:12px;color:#969aaa;margin:0 0 10px">{{ c3Label }}</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(19px,2vw,24px);line-height:1.35;color:#00073e;max-width:640px;min-height:60px">{{ c3Line }}<span style="{{ c3CaretStyle }}"></span></div>
+      </div>
+      <div style="margin:18px 0 0;min-height:64px">
         <div style="display:flex;gap:14px;flex-wrap:wrap">
           <sc-for list="{{ c3Chips }}" as="c" hint-placeholder-count="2">
             <span onClick="{{ c.onPick }}" style="cursor:pointer;background:#00efff;color:#00073e;border-radius:999px;padding:16px 30px;font-size:15.5px;font-weight:600;transition:all .2s;animation:mhGlowSoft 2.6s infinite" style-hover="background:#00073e;color:#00efff">{{ c.label }}</span>
@@ -302,7 +309,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
       <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(64px,9vw,104px);line-height:1;color:#ffffff;font-variant-numeric:tabular-nums;text-shadow:0 0 32px rgba(0,239,255,.3)">{{ clock }}</div>
       <div style="height:2px;width:120px;background:#00efff;margin:22px 0 0;animation:mhPulse 2.4s infinite"></div>
       <div style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#00efff;margin:26px 0 0">Enquanto você dorme →</div>
-      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.4vw,52px);line-height:1.06;letter-spacing:-0.02em;color:#fff;margin:14px 0 0">Sua IA acabou de marcar uma visita.</h1>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4.4vw,52px);line-height:1.06;letter-spacing:-0.02em;color:#fff;margin:14px 0 0">Sua IA acabou de marcar uma visita.</h2>
       <!-- "na hora", e nao "em 4 segundos" (aqui e nas notificacoes): o tempo
            de resposta da IA ainda nao foi medido. Se a medicao (mediana e
            p90) sustentar os 4 s, o numero pode voltar. -->
@@ -506,7 +513,22 @@ class Component extends DCLogic {
   renderVals() {
     this.startTimers();
 
-    const appHref = 'https://app.smartli.ink/';
+    // Titulo da primeira tela (LP1). Quem chega do anuncio 6g (utm_content
+    // com "6g", ex.: 6g-story-lp) ve o titulo do proprio anuncio. So a URL
+    // decide: sem parametro, titulo padrao. "6g" precisa vir no comeco ou
+    // depois de algo que nao seja numero, para "16g" nao cair aqui.
+    let utmContent = '';
+    try { utmContent = new URLSearchParams(window.location.search).get('utm_content') || ''; } catch (e) {}
+    const is6g = /(^|[^0-9])6g/i.test(utmContent);
+    const heroTitle = is6g
+      ? '07h15. Enquanto você dormia…'
+      : 'A pergunta chegou às 23h47. Sua IA respondeu na hora.';
+
+    // mh_v: versao da pagina que a pessoa viu, no link de cadastro. So para
+    // analise (o tracking.js acrescenta UTMs, mh_eid e mh_src por cima e nao
+    // mexe no que ja esta na URL). Nao trava nada e nao muda o evento Lead.
+    const mhV = is6g ? 'lp1-6g' : 'lp1';
+    const appHref = 'https://app.smartli.ink/?mh_v=' + mhV;
     const waHrefHeader = appHref;
     const waHref = appHref;
     const waHrefFinal = appHref;
@@ -531,8 +553,7 @@ class Component extends DCLogic {
     const t3 = this.c3Text(s3);
     const done3 = this.state.c3Typed.length >= t3.length;
     const c3Line = this.state.c3Typed;
-    const c3CaretStyle = 'display:inline-block;width:12px;height:42px;background:#00efff;margin-left:9px;vertical-align:-5px;' + (done3 ? 'animation:mhBlink 1.1s infinite;' : '');
-    const c3PastLines = [];
+    const c3CaretStyle = 'display:inline-block;width:8px;height:22px;background:#00efff;margin-left:6px;vertical-align:-4px;' + (done3 ? 'animation:mhBlink 1.1s infinite;' : '');
     const c3Chips = (done3 ? this.c3ChipList(s3) : []).map(label => ({
       label,
       onPick: () => {
@@ -542,10 +563,12 @@ class Component extends DCLogic {
       }
     }));
     const c3IsInput = s3 === 1 && done3;
-    // So no comeco: e o unico momento em que as fichas sao uma alternativa ao
-    // botao. Depois do primeiro toque a conversa ja e o caminho escolhido, e
-    // o rotulo viraria mentira.
+    // "ou converse primeiro" so no comeco: e o unico momento em que as fichas
+    // sao uma alternativa ao botao. Depois do primeiro toque a conversa ja e
+    // o caminho escolhido e o rotulo viraria mentira. Ele troca de texto em
+    // vez de sumir, para a conversa nao pular de lugar.
     const c3AtStart = s3 === 0;
+    const c3Label = c3AtStart ? 'ou converse com a Match primeiro' : 'conversa com a Match';
     const c3Submit = () => {
       const raw = (this.state.c3Input || '').replace(/^@+/, '').trim();
       if (!raw) return;
@@ -569,8 +592,8 @@ class Component extends DCLogic {
     const c3IaTitle = this.state.c3Name ? (g3 === 'm' ? 'o ' : 'a ') + c3First + ' IA' : 'a sua IA';
 
     return {
-      waHref, waHrefHeader, waHrefFinal, clock, notifItems,
-      c3Line, c3CaretStyle, c3PastLines, c3Chips, c3Done, c3IsInput, c3AtStart,
+      waHref, waHrefHeader, waHrefFinal, clock, notifItems, heroTitle,
+      c3Line, c3CaretStyle, c3Chips, c3Done, c3IsInput, c3Label,
       c3Input: this.state.c3Input, onC3Input: e => this.setState({ c3Input: e.target.value }),
       onC3Key, c3Submit, c3NotifsVisible, c3PhoneVisible, c3RailEmpty,
       c3Name, c3First, c3Initials, c3Slug, c3AvM, c3AvF, c3AvN, c3IaTitle
