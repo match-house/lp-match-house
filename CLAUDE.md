@@ -156,6 +156,26 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
 
+## O que dizer ao corretor — bio em toda resposta (regra do Mateus, 29/09)
+
+- Pedido dele: "em todas as mensagens falar para colocarem no link da bio, do
+  insta e das redes sociais. tirar duvidas sobre todas as funcionalidades,
+  divulgar, as métricas, e tudo mais".
+- **Toda resposta a corretor termina com o convite** para pôr o
+  `smartli.ink/<slug>` na bio do Instagram e nas redes. O caminho no app é o
+  botão "Cole o link na bio do Instagram", em Divulgar. Primeiro resolver a
+  dúvida dele; o convite fecha a mensagem.
+- Dúvida sobre qualquer tela do app (Divulgar, Métricas, IA & Leads, Imóveis,
+  Redes, Editar perfil) se responde pelo guia
+  **`ferramentas/guia-respostas-corretor.md`**. Ele foi levantado no código do
+  app, com o nome exato de cada botão, e traz o fecho padrão pronto.
+- **Não ensinar o que não está no guia sem conferir no código.** Em 29/09
+  dissemos à Juceli que dava para mudar a ordem das fotos arrastando. O app
+  não tem isso, apesar de a tela dizer "arraste aqui".
+- Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
+  continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
+  limpos).
+
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
 `SUPPORT_MESSAGES` em `app/src/constants.ts` preenche o WhatsApp com uma frase
