@@ -92,6 +92,21 @@ para aquela mensagem.
   custo. Não somar em custo mensal, ponto de equilíbrio, CAC nem projeção, e
   não citar nem como "saindo". Já saiu da área de custos.
 
+## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
+
+- Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
+  Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
+  páginas públicas que trazem outros corretores.
+- **Plano de entrada, sem cobrança:** link, até 100 imóveis, IA atendendo e
+  os **3 primeiros leads do mês** com nome e celular à mostra. Do 4º em
+  diante a IA continua atendendo (o cliente do corretor nunca fica sem
+  resposta); só o contato fica bloqueado até assinar.
+- **Pro, R$ 147/mês:** até **30 leads qualificados** por mês e 100 imóveis.
+- Ordem: primeiro contar os leads direito (conserto na API, 29/09), medir 30
+  dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
+  nem em mensagem para corretor até o Mateus liberar.
+- Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
