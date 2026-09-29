@@ -86,6 +86,12 @@ para aquela mensagem.
   (a mutation enableProperty da API liga o anúncio sem checar). Corrigir é
   decisão do Mateus, porque passa a barrar quem está em plano menor.
 
+## Custos da empresa — o que não entra mais
+
+- **Globalsys (House027) é passado** (Mateus, 29/09): não existe mais esse
+  custo. Não somar em custo mensal, ponto de equilíbrio, CAC nem projeção, e
+  não citar nem como "saindo". Já saiu da área de custos.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
