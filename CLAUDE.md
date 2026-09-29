@@ -70,6 +70,15 @@ lugar nenhum. As rotas estão em `api/src/modules/backoffice/*.controller.ts`.
 Leitura é livre; `POST /backoffice/messages/send` só com o "pode" do Mateus
 para aquela mensagem.
 
+- **Responder corretor pelo WhatsApp da esteira (27 99854-6800).** Ligado
+  em 29/09 (`BACKOFFICE_SEND_ENABLED=true` na revisão `matchhouse-back:17`
+  do ECS). Quem escreve no 6800 chega por e-mail ("WhatsApp de <nome>") e a
+  resposta sai do próprio 6800: primeiro `POST /backoffice/messages/preview`
+  (`{id_user, channel: "whatsapp", kind: "texto", text}`), que devolve um
+  código `confirmacao`; depois `POST /backoffice/messages/send` com o mesmo
+  corpo + `confirmacao`. Texto livre só até 24 h depois da última mensagem
+  da pessoa. Não mandar a pessoa para outro número.
+
 ## Limite de imóveis no ar: 100 (desde 29/09/2026)
 
 - Em 29/09, às 10h29, o Mateus subiu para 100 o limite do plano de entrada
