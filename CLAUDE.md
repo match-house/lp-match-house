@@ -42,7 +42,79 @@ Notas do projeto para agentes. Ler antes de mexer.
 
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
-- Qualquer alteração em campanha ativa (verba, lance, público, posicionamento, pausar/ativar) **exige aprovação direta do usuário antes** — nunca executar por conta própria, mesmo que pareça pequena.
+- **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
+  - **Teto de R$ 125/dia no Meta** somando as campanhas (hoje LP R$ 50 + app R$ 75). Redistribuir entre campanhas e anúncios pode; passar do total, não.
+  - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
+- Toda mudança feita com essa autonomia sai no relatório diário com o motivo e o número que a justificou.
+- Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília). Desde 29/09 isso é feito por rotina desta conversa, porque a regra automática do Meta parou de funcionar em 28/09 e o MCP não mexe em regras.
+- Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
+
+## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
+
+Tirar do funil, dos relatórios e de custo por cadastro (id_user):
+
+- Testes: 1011, 1014, 1033, 1095, 1096.
+- Internas: 980 (Leo Zeferino, equipe), 941 (testematheus), 937 (e-mail
+  @matchhouse), 999 (INMC Patrimonial, conta própria).
+- Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
+
+Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
+161 cadastros de julho a setembro em vez de 157.
+
+## Backoffice da API — como ler
+
+`https://api.matchhouse.com.br/backoffice/...` responde nas sessões do
+ambiente Default: a credencial "Backoffice Match House" do ambiente põe o
+cabeçalho `x-backoffice-token` sozinho. Não peça o token e não o escreva em
+lugar nenhum. As rotas estão em `api/src/modules/backoffice/*.controller.ts`.
+Leitura é livre; `POST /backoffice/messages/send` só com o "pode" do Mateus
+para aquela mensagem.
+
+- **Responder corretor pelo WhatsApp da esteira (27 99854-6800).** Ligado
+  em 29/09 (`BACKOFFICE_SEND_ENABLED=true` na revisão `matchhouse-back:17`
+  do ECS). Quem escreve no 6800 chega por e-mail ("WhatsApp de <nome>") e a
+  resposta sai do próprio 6800: primeiro `POST /backoffice/messages/preview`
+  (`{id_user, channel: "whatsapp", kind: "texto", text}`), que devolve um
+  código `confirmacao`; depois `POST /backoffice/messages/send` com o mesmo
+  corpo + `confirmacao`. Texto livre só até 24 h depois da última mensagem
+  da pessoa. Não mandar a pessoa para outro número.
+
+## Limite de imóveis no ar: 100 (desde 29/09/2026)
+
+- Em 29/09, às 10h29, o Mateus subiu para 100 o limite do plano de entrada
+  (id 1), que é o plano que todo cadastro recebe. Antes era 30, segundo a ata
+  de 23/07; o banco não guarda o valor antigo. A API lê o limite do plano na
+  hora de publicar, então os 100 valem para contas antigas e novas desse plano.
+- Em tudo que vai para cliente (LP, mensagens, modelos, roteiros de venda):
+  "até 100 imóveis no ar". Não escrever mais 30.
+- Exceção: quem ainda paga um plano antigo, já desativado, fica com o número
+  daquele plano até a assinatura acabar (10, 25, 30, 50 ou 60). Se um
+  corretor disser que travou antes de 100, é isso: confirmar com o Mateus
+  antes de responder.
+- Achado de 29/09: publicar pelo app.smartli.ink hoje não confere o limite
+  (a mutation enableProperty da API liga o anúncio sem checar). Corrigir é
+  decisão do Mateus, porque passa a barrar quem está em plano menor.
+
+## Custos da empresa — o que não entra mais
+
+- **Globalsys (House027) é passado** (Mateus, 29/09): não existe mais esse
+  custo. Não somar em custo mensal, ponto de equilíbrio, CAC nem projeção, e
+  não citar nem como "saindo". Já saiu da área de custos.
+
+## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
+
+- Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
+  Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
+  páginas públicas que trazem outros corretores.
+- **Plano de entrada, sem cobrança:** link, até 100 imóveis, IA atendendo e
+  os **3 primeiros leads do mês** com nome e celular à mostra. Do 4º em
+  diante a IA continua atendendo (o cliente do corretor nunca fica sem
+  resposta); só o contato fica bloqueado até assinar.
+- **Pro, R$ 147/mês:** até **30 leads qualificados** por mês e 100 imóveis.
+- Ordem: primeiro contar os leads direito (conserto na API, 29/09), medir 30
+  dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
+  nem em mensagem para corretor até o Mateus liberar.
+- Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
 
 ## Falar com corretor — que link mandar (regras de 24/09)
 
@@ -83,6 +155,26 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+
+## O que dizer ao corretor — bio em toda resposta (regra do Mateus, 29/09)
+
+- Pedido dele: "em todas as mensagens falar para colocarem no link da bio, do
+  insta e das redes sociais. tirar duvidas sobre todas as funcionalidades,
+  divulgar, as métricas, e tudo mais".
+- **Toda resposta a corretor termina com o convite** para pôr o
+  `smartli.ink/<slug>` na bio do Instagram e nas redes. O caminho no app é o
+  botão "Cole o link na bio do Instagram", em Divulgar. Primeiro resolver a
+  dúvida dele; o convite fecha a mensagem.
+- Dúvida sobre qualquer tela do app (Divulgar, Métricas, IA & Leads, Imóveis,
+  Redes, Editar perfil) se responde pelo guia
+  **`ferramentas/guia-respostas-corretor.md`**. Ele foi levantado no código do
+  app, com o nome exato de cada botão, e traz o fecho padrão pronto.
+- **Não ensinar o que não está no guia sem conferir no código.** Em 29/09
+  dissemos à Juceli que dava para mudar a ordem das fotos arrastando. O app
+  não tem isso, apesar de a tela dizer "arraste aqui".
+- Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
+  continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
+  limpos).
 
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
