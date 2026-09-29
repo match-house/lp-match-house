@@ -70,6 +70,22 @@ lugar nenhum. As rotas estão em `api/src/modules/backoffice/*.controller.ts`.
 Leitura é livre; `POST /backoffice/messages/send` só com o "pode" do Mateus
 para aquela mensagem.
 
+## Limite de imóveis no ar: 100 (desde 29/09/2026)
+
+- Em 29/09, às 10h29, o Mateus subiu para 100 o limite do plano de entrada
+  (id 1), que é o plano que todo cadastro recebe. Antes era 30, segundo a ata
+  de 23/07; o banco não guarda o valor antigo. A API lê o limite do plano na
+  hora de publicar, então os 100 valem para contas antigas e novas desse plano.
+- Em tudo que vai para cliente (LP, mensagens, modelos, roteiros de venda):
+  "até 100 imóveis no ar". Não escrever mais 30.
+- Exceção: quem ainda paga um plano antigo, já desativado, fica com o número
+  daquele plano até a assinatura acabar (10, 25, 30, 50 ou 60). Se um
+  corretor disser que travou antes de 100, é isso: confirmar com o Mateus
+  antes de responder.
+- Achado de 29/09: publicar pelo app.smartli.ink hoje não confere o limite
+  (a mutation enableProperty da API liga o anúncio sem checar). Corrigir é
+  decisão do Mateus, porque passa a barrar quem está em plano menor.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
