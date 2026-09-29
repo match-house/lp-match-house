@@ -49,6 +49,27 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília). Desde 29/09 isso é feito por rotina desta conversa, porque a regra automática do Meta parou de funcionar em 28/09 e o MCP não mexe em regras.
 - Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
 
+## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
+
+Tirar do funil, dos relatórios e de custo por cadastro (id_user):
+
+- Testes: 1011, 1014, 1033, 1095, 1096.
+- Internas: 980 (Leo Zeferino, equipe), 941 (testematheus), 937 (e-mail
+  @matchhouse), 999 (INMC Patrimonial, conta própria).
+- Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
+
+Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
+161 cadastros de julho a setembro em vez de 157.
+
+## Backoffice da API — como ler
+
+`https://api.matchhouse.com.br/backoffice/...` responde nas sessões do
+ambiente Default: a credencial "Backoffice Match House" do ambiente põe o
+cabeçalho `x-backoffice-token` sozinho. Não peça o token e não o escreva em
+lugar nenhum. As rotas estão em `api/src/modules/backoffice/*.controller.ts`.
+Leitura é livre; `POST /backoffice/messages/send` só com o "pode" do Mateus
+para aquela mensagem.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
