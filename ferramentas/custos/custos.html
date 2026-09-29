@@ -1,0 +1,402 @@
+<title>Custos Match House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: painel de uma coluna (máx. 1040px) — resumo do mês → alertas → por fornecedor → dia a dia → fixos → pendências → fontes */
+:root{
+  --bg:#f4f6fb; --surface:#ffffff; --ink:#0b1030; --ink2:#454b6b; --muted:#80859f;
+  --line:rgba(11,16,48,.10); --grid:#e2e5f0;
+  --brand:#010420; --accent:#0a8fa3; --accent-soft:#e2f5f8;
+  --good:#11763b; --good-bg:#e3f4e9; --warn:#935d00; --warn-bg:#fdf0d6; --bad:#b0302a; --bad-bg:#fbe4e2; --neu-bg:#eceef5;
+  --s-meta:#2f6fe0; --s-imp:#93b4ef; --s-google:#e09b18; --s-twilio:#d6453d; --s-whats:#1e9e5a; --s-aws:#8a5cd6;
+  --f-display:"Poppins",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#010420; --surface:#0a0f33; --ink:#eef1fb; --ink2:#bcc2dc; --muted:#8a90ad;
+  --line:rgba(255,255,255,.10); --grid:#1c2250;
+  --accent:#00d7e6; --accent-soft:#082a3d;
+  --good:#4fcf7e; --good-bg:#0f2e20; --warn:#f0b54a; --warn-bg:#35270b; --bad:#f17d74; --bad-bg:#3a1618; --neu-bg:#161c45;
+  --s-meta:#5b92f5; --s-imp:#3a5a95; --s-google:#f2b23c; --s-twilio:#ee6a61; --s-whats:#3cc57b; --s-aws:#a883f0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#010420; --surface:#0a0f33; --ink:#eef1fb; --ink2:#bcc2dc; --muted:#8a90ad;
+  --line:rgba(255,255,255,.10); --grid:#1c2250;
+  --accent:#00d7e6; --accent-soft:#082a3d;
+  --good:#4fcf7e; --good-bg:#0f2e20; --warn:#f0b54a; --warn-bg:#35270b; --bad:#f17d74; --bad-bg:#3a1618; --neu-bg:#161c45;
+  --s-meta:#5b92f5; --s-imp:#3a5a95; --s-google:#f2b23c; --s-twilio:#ee6a61; --s-whats:#3cc57b; --s-aws:#a883f0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:18px;padding-block:28px 64px;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--f-display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.15;font-weight:700}
+h2{font-size:1.2rem;font-weight:600}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600}
+.sub{color:var(--ink2);max-width:70ch}
+header{display:flex;flex-direction:column;gap:10px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+select,input,textarea{font:inherit;font-size:.92rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px}
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;flex-direction:column;gap:4px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi.total{background:var(--brand);border-color:var(--brand);color:#eef1fb}
+.kpi.total .l,.kpi.total .d{color:#bcc2dc}
+.kpi .v{font-family:var(--f-display);font-size:1.7rem;font-weight:700;line-height:1.15}
+.kpi .l{color:var(--ink2);font-size:.88rem}
+.kpi .d{color:var(--muted);font-size:.8rem}
+.alerts{display:flex;flex-direction:column;gap:8px}
+.alert{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;font-size:.92rem}
+.alert b{font-weight:600}
+.alert.bad{background:var(--bad-bg);color:var(--bad)}
+.alert.warn{background:var(--warn-bg);color:var(--warn)}
+.alert.ok{background:var(--good-bg);color:var(--good)}
+.alert .dot{flex:none;width:8px;height:8px;border-radius:50%;background:currentColor;margin-top:7px}
+.alert span{color:var(--ink)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+td.r,th.r{text-align:right;white-space:nowrap}
+tr.tot td{font-weight:600;border-bottom:none}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.fonte{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:99px;font-size:.74rem;font-weight:600;white-space:nowrap}
+.chip.exato{background:var(--good-bg);color:var(--good)}
+.chip.estimado{background:var(--warn-bg);color:var(--warn)}
+.chip.sem{background:var(--neu-bg);color:var(--ink2)}
+.chip.encerrando{background:var(--bad-bg);color:var(--bad)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.84rem;color:var(--ink2)}
+svg text{font-family:var(--f-body)}
+.chart{width:100%;height:auto;display:block}
+.note{font-size:.84rem;color:var(--muted)}
+.btn{font:inherit;font-size:.82rem;font-weight:600;border-radius:8px;padding:5px 10px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#01141a}
+.btn:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.edit{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.edit textarea{grid-column:1/-1;min-height:56px}
+.edit .acts{grid-column:1/-1;display:flex;gap:8px;align-items:center}
+.msg{font-size:.8rem;color:var(--muted)}
+ul.pend{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+ul.pend li span{color:var(--muted);font-size:.82rem}
+.empty{padding:28px;text-align:center;color:var(--ink2)}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.edit{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<main class="wrap">
+  <header>
+    <span class="eyebrow">Match House · área de custos</span>
+    <div class="head-row">
+      <h1 id="titulo">Custos do mês</h1>
+      <label class="note" for="mes">Mês <select id="mes" aria-label="Escolher o mês"></select></label>
+    </div>
+    <p class="sub" id="sub">Carregando os custos…</p>
+  </header>
+
+  <section aria-label="Resumo do mês">
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Alertas</h2></div>
+    <div class="alerts" id="alertas"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Por fornecedor</h2><p class="sub">Uso do mês até o último dia fechado. O dia de hoje ainda está correndo e fica de fora.</p></div>
+    <div class="panel scroll" style="padding:4px 8px"><table id="forn"></table></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Dia a dia</h2><p class="sub">Gasto variável por dia. Os custos fixos não entram aqui.</p></div>
+    <div class="panel">
+      <div class="legend" id="legend"></div>
+      <svg class="chart" id="chart" role="img" aria-label="Gasto variável por dia do mês"></svg>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Custos fixos por mês</h2><p class="sub">Assinaturas e serviços. Valor anual ou de vários meses aparece dividido por mês. Toque em Editar para informar um valor que falta.</p></div>
+    <div class="panel scroll" style="padding:4px 8px"><table id="fixos"></table></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>O que falta para fechar a conta</h2></div>
+    <div class="panel"><ul class="pend" id="pend"><li>Carregando…</li></ul></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>De onde vem cada número</h2></div>
+    <div class="panel" id="fontes"><p class="note">Carregando…</p></div>
+  </section>
+</main>
+
+<script>
+const ORDEM = ["meta_ads", "meta_impostos", "google_ads", "twilio", "whatsapp", "aws"];
+const COR = { meta_ads: "var(--s-meta)", meta_impostos: "var(--s-imp)", google_ads: "var(--s-google)", twilio: "var(--s-twilio)", whatsapp: "var(--s-whats)", aws: "var(--s-aws)" };
+const LIMITE_DIA = { meta_ads: 200, google_ads: 60, twilio: 10, whatsapp: 25, aws: 10 };
+const LIMITE_MES_TOTAL = 6000;
+const MESES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const brl = (v) => v == null ? "—" : new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v);
+const dm = (iso) => iso ? iso.slice(8, 10) + "/" + iso.slice(5, 7) : "";
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const NS = "http://www.w3.org/2000/svg";
+const el = (n, a = {}, p) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+
+const state = { meses: {}, fixos: [], pend: null, mesSel: null, db: null, editando: null, somenteLeitura: false, erro: "" };
+
+function acessoChip (a) {
+  if (a === "exato") return '<span class="chip exato">exato</span>';
+  if (a === "estimado") return '<span class="chip estimado">estimado</span>';
+  if (a === "encerrando") return '<span class="chip encerrando">encerrando</span>';
+  if (a === "a_confirmar") return '<span class="chip estimado">a confirmar</span>';
+  if (a === "confirmado") return '<span class="chip exato">confirmado</span>';
+  return '<span class="chip sem">sem dado</span>';
+}
+
+/** Linhas por fornecedor, calculadas do documento do mês. */
+function calcular (m) {
+  const F = m.fornecedores || {};
+  const fechado = m.fechado_ate || "";
+  const [ano, mes] = (m.mes || "2026-01").split("-").map(Number);
+  const diasNoMes = new Date(ano, mes, 0).getDate();
+  const diasFechados = fechado ? Number(fechado.slice(8, 10)) : 0;
+  const linhas = [];
+  for (const k of ORDEM) {
+    let f = F[k];
+    let dias = {};
+    if (k === "meta_impostos") {
+      const base = F.meta_ads; if (!base) continue;
+      const fator = Number(m.impostos_meta_fator || 0);
+      for (const [d, v] of Object.entries(base.dias || {})) dias[d] = v * fator;
+      f = { nome: "Impostos dos anúncios Meta", acesso: "estimado", fonte: `PIS, COFINS e ISS: ${(fator * 100).toFixed(2).replace(".", ",")}% sobre o gasto, como no recibo da Meta` };
+    } else {
+      if (!f) continue;
+      dias = f.dias || {};
+    }
+    const fechados = Object.entries(dias).filter(([d]) => d <= fechado);
+    const semDado = f.acesso === "sem_acesso";
+    const soma = semDado ? null : fechados.reduce((s, [, v]) => s + Number(v || 0), 0);
+    const ontem = semDado ? null : Number(dias[fechado] || 0);
+    const ult7 = [];
+    for (let i = 0; i < 7 && diasFechados - i >= 1; i++) {
+      const d = `${m.mes}-${String(diasFechados - i).padStart(2, "0")}`;
+      ult7.push(Number(dias[d] || 0));
+    }
+    const ritmo = semDado || !ult7.length ? null : ult7.reduce((a, b) => a + b, 0) / ult7.length;
+    const projecao = semDado ? null : soma + ritmo * Math.max(0, diasNoMes - diasFechados);
+    linhas.push({ k, nome: f.nome, acesso: semDado ? "sem_acesso" : f.acesso, fonte: f.fonte || "", obs: f.observacao || "", dias, soma, ontem, ritmo, projecao });
+  }
+  return { linhas, fechado, diasNoMes, diasFechados, ano, mes };
+}
+
+function fixosDoMes () {
+  const ativos = state.fixos.filter((f) => f.entra_no_total !== false);
+  const conhecidos = ativos.filter((f) => typeof f.valor_brl_mes === "number");
+  return { ativos, soma: conhecidos.reduce((s, f) => s + f.valor_brl_mes, 0), faltando: ativos.filter((f) => typeof f.valor_brl_mes !== "number") };
+}
+
+function render () {
+  const ids = Object.keys(state.meses).sort();
+  const sel = document.getElementById("mes");
+  const opts = ids.map((id) => `<option value="${id}"${id === state.mesSel ? " selected" : ""}>${MESES[Number(id.slice(5, 7)) - 1]} de ${id.slice(0, 4)}</option>`).join("");
+  if (sel.innerHTML !== opts) sel.innerHTML = opts;
+
+  const m = state.meses[state.mesSel];
+  if (!m) {
+    document.getElementById("sub").textContent = state.erro || (state.db === null ? "Esta visualização não consegue ler os dados de custos. Abra a página pelo claude.ai." : "Carregando os custos…");
+    return;
+  }
+  const c = calcular(m);
+  const fx = fixosDoMes();
+  const variavel = c.linhas.reduce((s, l) => s + (l.soma || 0), 0);
+  const projVar = c.linhas.reduce((s, l) => s + (l.projecao || 0), 0);
+  const nomeMes = MESES[c.mes - 1];
+  const semDado = c.linhas.filter((l) => l.acesso === "sem_acesso").map((l) => l.nome);
+
+  document.getElementById("titulo").textContent = `Custos de ${nomeMes} de ${c.ano}`;
+  const atual = m.atualizado_em ? new Date(m.atualizado_em) : null;
+  document.getElementById("sub").textContent =
+    `Uso fechado até ${dm(c.fechado)} (${c.diasFechados} de ${c.diasNoMes} dias). ` +
+    (atual ? `Atualizado em ${atual.toLocaleDateString("pt-BR")} às ${atual.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}. ` : "") +
+    `Câmbio usado: US$ 1 = R$ ${Number(m.cambio?.usd_brl || 0).toFixed(2).replace(".", ",")}.`;
+
+  const k = document.getElementById("kpis");
+  k.innerHTML = [
+    ["total", "Total até agora", brl(variavel + fx.soma), `uso até ${dm(c.fechado)} + fixos do mês`],
+    ["", "Uso até " + dm(c.fechado), brl(variavel), "anúncios, impostos, SMS e WhatsApp"],
+    ["", "Fixos do mês", brl(fx.soma), fx.faltando.length ? `${fx.faltando.length} sem valor ainda` : "todos com valor"],
+    ["", "Projeção do mês", brl(projVar + fx.soma), "no ritmo dos últimos 7 dias"],
+  ].map(([cls, l, v, d]) => `<div class="kpi ${cls}"><span class="l">${l}</span><span class="v num">${v}</span><span class="d">${esc(d)}</span></div>`).join("");
+
+  // Alertas: os limites de cada dia, o total projetado e os que a rotina diária deixou no mês.
+  const al = [];
+  for (const l of c.linhas) {
+    const lim = LIMITE_DIA[l.k];
+    if (lim && l.ontem != null && l.ontem > lim) al.push(["bad", `${l.nome}: ${brl(l.ontem)} em ${dm(c.fechado)}`, `acima do limite de ${brl(lim)} por dia`]);
+  }
+  if (projVar + fx.soma > LIMITE_MES_TOTAL) al.push(["warn", `Projeção do mês em ${brl(projVar + fx.soma)}`, `acima de ${brl(LIMITE_MES_TOTAL)}`]);
+  for (const a of (m.alertas || [])) al.push([a.nivel === "alto" ? "bad" : "warn", a.titulo || "", a.texto || ""]);
+  if (semDado.length) al.push(["warn", `Sem dado: ${semDado.join(", ")}`, "o total não inclui esse custo até o acesso ser liberado"]);
+  if (!al.length) al.push(["ok", "Nenhum custo fora do normal", `até ${dm(c.fechado)}`]);
+  document.getElementById("alertas").innerHTML = al.map(([n, t, d]) => `<div class="alert ${n}"><i class="dot"></i><div><b>${esc(t)}</b> <span>${esc(d)}</span></div></div>`).join("");
+
+  // Tabela por fornecedor.
+  const linhasTab = c.linhas.map((l) => `<tr>
+    <td><i class="sw" style="background:${COR[l.k]}"></i>${esc(l.nome)}<span class="fonte">${esc(l.fonte)}${l.obs ? " · " + esc(l.obs) : ""}</span></td>
+    <td>${acessoChip(l.acesso)}</td>
+    <td class="r num">${brl(l.ontem)}</td>
+    <td class="r num">${brl(l.soma)}</td>
+    <td class="r num">${l.ritmo == null ? "—" : brl(l.ritmo)}</td>
+    <td class="r num">${brl(l.projecao)}</td></tr>`).join("");
+  document.getElementById("forn").innerHTML = `<thead><tr><th>Fornecedor</th><th>Dado</th><th class="r">${dm(c.fechado)}</th><th class="r">Mês até ${dm(c.fechado)}</th><th class="r">Média 7 dias</th><th class="r">Projeção</th></tr></thead>
+    <tbody>${linhasTab}<tr class="tot"><td>Total do uso</td><td></td><td class="r num">${brl(c.linhas.reduce((s, l) => s + (l.ontem || 0), 0))}</td><td class="r num">${brl(variavel)}</td><td></td><td class="r num">${brl(projVar)}</td></tr></tbody>`;
+
+  desenharGrafico(c);
+  renderFixos(fx);
+  renderPend(m);
+}
+
+function desenharGrafico (c) {
+  const svg = document.getElementById("chart");
+  svg.innerHTML = "";
+  const series = c.linhas.filter((l) => l.acesso !== "sem_acesso");
+  document.getElementById("legend").innerHTML = series.map((l) => `<span><i class="sw" style="background:${COR[l.k]}"></i>${esc(l.nome)}</span>`).join("");
+  const W = 900, H = 260, L = 48, R = 8, T = 12, B = 28;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const totais = [];
+  for (let d = 1; d <= c.diasNoMes; d++) {
+    const iso = `${c.ano}-${String(c.mes).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    totais.push(series.reduce((s, l) => s + Number(l.dias[iso] || 0), 0));
+  }
+  const max = Math.max(50, ...totais);
+  const passo = max <= 100 ? 25 : max <= 250 ? 50 : 100;
+  const topo = Math.ceil(max / passo) * passo;
+  const y = (v) => T + (H - T - B) * (1 - v / topo);
+  for (let t = 0; t <= topo + 0.01; t += passo) {
+    el("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: t ? "var(--grid)" : "var(--muted)", "stroke-width": 1 }, svg);
+    const tx = el("text", { x: L - 6, y: y(t) + 4, "text-anchor": "end", "font-size": 11, fill: "var(--muted)" }, svg);
+    tx.textContent = "R$ " + t;
+  }
+  const bw = (W - L - R) / c.diasNoMes;
+  const barW = Math.max(4, bw - 5);
+  for (let d = 1; d <= c.diasNoMes; d++) {
+    const iso = `${c.ano}-${String(c.mes).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    const x = L + bw * (d - 1) + (bw - barW) / 2;
+    const fechado = iso <= c.fechado;
+    let acc = 0;
+    const partes = [];
+    for (const l of series) {
+      const v = Number(l.dias[iso] || 0);
+      if (v <= 0) continue;
+      const r = el("rect", { x, y: y(acc + v), width: barW, height: Math.max(0.5, y(acc) - y(acc + v)), fill: COR[l.k], "fill-opacity": fechado ? 1 : 0.35 }, svg);
+      const tt = el("title", {}, r); tt.textContent = `${dm(iso)} · ${l.nome}: ${brl(v)}`;
+      partes.push(`${l.nome} ${brl(v)}`);
+      acc += v;
+    }
+    if (d === 1 || d % 5 === 0 || d === c.diasNoMes) {
+      const tx = el("text", { x: L + bw * (d - 1) + bw / 2, y: H - 8, "text-anchor": "middle", "font-size": 11, fill: "var(--muted)" }, svg);
+      tx.textContent = String(d).padStart(2, "0");
+    }
+  }
+}
+
+function renderFixos (fx) {
+  const lista = [...state.fixos].sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
+  const linhas = lista.map((f) => {
+    const valor = typeof f.valor_brl_mes === "number" ? brl(f.valor_brl_mes) : "—";
+    const orig = f.moeda && f.moeda !== "BRL" && f.valor_original != null ? ` <span class="fonte">${f.moeda} ${Number(f.valor_original).toFixed(2).replace(".", ",")}</span>` : "";
+    const edit = state.editando === f.id ? formEdicao(f) : "";
+    const fora = f.entra_no_total === false ? '<span class="fonte">fora do total</span>' : "";
+    return `<tr><td>${esc(f.servico)}<span class="fonte">${esc(f.periodicidade || "")}${f.ultima_cobranca ? " · última cobrança " + dm(f.ultima_cobranca) : ""}${f.observacao ? " · " + esc(f.observacao) : ""}</span>${edit}</td>
+      <td>${acessoChip(f.status)}${fora}</td>
+      <td class="r num">${valor}${orig}</td>
+      <td class="r">${state.somenteLeitura || state.editando === f.id ? "" : `<button class="btn" data-editar="${esc(f.id)}">Editar</button>`}</td></tr>`;
+  }).join("");
+  document.getElementById("fixos").innerHTML = `<thead><tr><th>Serviço</th><th>Situação</th><th class="r">Por mês</th><th></th></tr></thead>
+    <tbody>${linhas || '<tr><td colspan="4" class="empty">Nenhum custo fixo cadastrado ainda.</td></tr>'}
+    <tr class="tot"><td>Total dos fixos com valor</td><td></td><td class="r num">${brl(fx.soma)}</td><td></td></tr></tbody>`;
+}
+
+function formEdicao (f) {
+  const v = typeof f.valor_brl_mes === "number" ? String(f.valor_brl_mes).replace(".", ",") : "";
+  return `<form class="edit" data-form="${esc(f.id)}">
+    <label class="note">Valor por mês (R$)<br><input id="v-${esc(f.id)}" name="valor" inputmode="decimal" value="${esc(v)}" placeholder="ex.: 49,90"></label>
+    <label class="note">Situação<br><select id="s-${esc(f.id)}" name="status">
+      ${["confirmado", "a_confirmar", "encerrando", "desconhecido"].map((s) => `<option value="${s}"${s === f.status ? " selected" : ""}>${{ confirmado: "confirmado", a_confirmar: "a confirmar", encerrando: "encerrando", desconhecido: "sem valor" }[s]}</option>`).join("")}
+    </select></label>
+    <textarea id="o-${esc(f.id)}" name="obs" placeholder="Observação">${esc(f.observacao || "")}</textarea>
+    <div class="acts"><button class="btn primary" type="submit">Salvar</button><button class="btn" type="button" data-cancelar="1">Cancelar</button><span class="msg" id="msg-${esc(f.id)}"></span></div>
+  </form>`;
+}
+
+function renderPend (m) {
+  const itens = (state.pend && state.pend.itens) || [];
+  document.getElementById("pend").innerHTML = itens.length
+    ? itens.map((p) => `<li>${esc(p.texto)}${p.quem ? ` <span>(${esc(p.quem)})</span>` : ""}</li>`).join("")
+    : "<li>Nada pendente.</li>";
+  const fontes = m.fontes || [];
+  document.getElementById("fontes").innerHTML = fontes.length
+    ? `<ul class="pend">${fontes.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
+    : '<p class="note">Sem notas de fonte para este mês.</p>';
+}
+
+document.addEventListener("change", (e) => {
+  if (e.target.id === "mes") { state.mesSel = e.target.value; render(); }
+});
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-editar]");
+  if (b) { state.editando = b.getAttribute("data-editar"); render(); return; }
+  if (e.target.closest("[data-cancelar]")) { state.editando = null; render(); }
+});
+document.addEventListener("submit", async (e) => {
+  const form = e.target.closest("[data-form]");
+  if (!form) return;
+  e.preventDefault();
+  const id = form.getAttribute("data-form");
+  const msg = document.getElementById("msg-" + id);
+  const bruto = form.valor.value.trim().replace(/\./g, "").replace(",", ".");
+  const valor = bruto === "" ? null : Number(bruto);
+  if (bruto !== "" && !Number.isFinite(valor)) { msg.textContent = "Valor inválido. Use só números, com vírgula nos centavos."; return; }
+  if (!state.db) { msg.textContent = "Não dá para salvar nesta visualização."; return; }
+  msg.textContent = "Salvando…";
+  try {
+    await state.db.doc("fixos/" + id).update({ valor_brl_mes: valor, status: form.status.value, observacao: form.obs.value.trim(), editado_em: new Date().toISOString(), editado_pela_pagina: true });
+    state.editando = null;
+    render();
+  } catch (err) {
+    if (err && err.code === "invalid_argument") { state.somenteLeitura = true; state.editando = null; render(); return; }
+    msg.textContent = "Não salvou. Tente de novo em instantes.";
+  }
+});
+
+async function start () {
+  render();
+  const c = window.claude;
+  const db = c && typeof c.use === "function" ? await c.use("db") : null;
+  state.db = db;
+  if (!db) { render(); return; }
+  db.collection("meses").onSnapshot((snap) => {
+    state.meses = Object.fromEntries(snap.docs.map((d) => [d.id, d.data()]));
+    const ids = Object.keys(state.meses).sort();
+    if (!state.mesSel || !state.meses[state.mesSel]) state.mesSel = ids[ids.length - 1] || null;
+    if (!ids.length) state.erro = "Ainda não há custos gravados. A rotina diária grava o primeiro mês.";
+    render();
+  }, () => { state.erro = "Não foi possível ler os custos agora. Recarregue a página."; render(); });
+  db.collection("fixos").onSnapshot((snap) => {
+    state.fixos = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    render();
+  }, () => {});
+  db.doc("painel/pendencias").onSnapshot((snap) => {
+    state.pend = snap.exists ? snap.data() : null;
+    render();
+  }, () => {});
+}
+start();
+</script>
