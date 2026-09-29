@@ -1,0 +1,3 @@
+token=presente 64
+http=erro: curl: (56) CONNECT tunnel failed, response 403
+formato=nao-json
