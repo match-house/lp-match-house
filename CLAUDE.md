@@ -42,7 +42,12 @@ Notas do projeto para agentes. Ler antes de mexer.
 
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
-- Qualquer alteração em campanha ativa (verba, lance, público, posicionamento, pausar/ativar) **exige aprovação direta do usuário antes** — nunca executar por conta própria, mesmo que pareça pequena.
+- **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
+  - **Teto de R$ 125/dia no Meta** somando as campanhas (hoje LP R$ 50 + app R$ 75). Redistribuir entre campanhas e anúncios pode; passar do total, não.
+  - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
+- Toda mudança feita com essa autonomia sai no relatório diário com o motivo e o número que a justificou.
+- Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília). Desde 29/09 isso é feito por rotina desta conversa, porque a regra automática do Meta parou de funcionar em 28/09 e o MCP não mexe em regras.
+- Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
 
 ## Falar com corretor — que link mandar (regras de 24/09)
 
