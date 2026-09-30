@@ -171,7 +171,9 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   app, com o nome exato de cada botão, e traz o fecho padrão pronto.
 - **Não ensinar o que não está no guia sem conferir no código.** Em 29/09
   dissemos à Juceli que dava para mudar a ordem das fotos arrastando. O app
-  não tem isso, apesar de a tela dizer "arraste aqui".
+  nunca teve arrastar; a tela dizia "arraste aqui" até 29/09. Desde 30/09 a
+  ordem se muda pelos botões "Tornar capa", setas e lixeira embaixo de cada
+  foto (PR app #103).
 - Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
