@@ -18,6 +18,7 @@
   // ── CONFIG ──────────────────────────────────────────────────
   var META_PIXEL_ID = '1159381878670820';
   var GA4_ID = 'G-HCDP75SR8J';
+  var OPENAI_PIXEL_ID = 'EqJwSP5pZNMp1ASfGkYnYQ'; // anúncios no ChatGPT
   // ────────────────────────────────────────────────────────────
 
   // ── 0. LIMPAR UTMs CORROMPIDOS DOS ANÚNCIOS ────────────────
@@ -118,6 +119,29 @@
   gtag('config', GA4_ID, {
     send_page_view: true,
   });
+
+  // ── 3. OPENAI ADS PIXEL (anúncios no ChatGPT) ─────────────
+  // Snippet oficial. O SDK lê o `oppref` (o "fbclid" da OpenAI) da URL do
+  // clique e o guarda num cookie DESTE domínio; o repasse para o app
+  // (app.smartli.ink) fica no decorateUrl, mais abaixo.
+  try {
+    (function (w, d, s, u) {
+      if (w.oaiq) return;
+      var q = function () {
+        q.q.push(arguments);
+      };
+      q.q = [];
+      w.oaiq = q;
+      var js = d.createElement(s);
+      js.async = true;
+      js.src = u;
+      var f = d.getElementsByTagName(s)[0];
+      f.parentNode.insertBefore(js, f);
+    })(window, document, 'script', 'https://bzrcdn.openai.com/sdk/oaiq.min.js');
+
+    oaiq('init', { pixelId: OPENAI_PIXEL_ID });
+    oaiq('measure', 'page_viewed', { type: 'contents' });
+  } catch (errOaiq) { /* pixel novo nunca pode derrubar o Meta/GA4 */ }
 })();
 
 
@@ -129,6 +153,11 @@
    - `Lead`    -> agora dispara no CTA de CADASTRO (evento de otimizacao Meta)
    - `Contact` -> agora dispara no CTA de WhatsApp (medicao, NAO otimizacao)
    - UTMs + fbclid + _fbp/_fbc sao repassados pra URL de cadastro (cross-domain)
+
+   SET/2026 — pixel da OpenAI (anuncios no ChatGPT):
+   - `lead_created` no CTA de cadastro (par do `Lead`); o cadastro concluido
+     (`registration_completed`) e medido no proprio app
+   - `oppref` (o clique do ChatGPT) vai na URL de cadastro, como o fbclid
 
    IMPORTANTE: nao renomeie o evento `Lead`. O conjunto
    "[07] Criativos Manual" otimiza por ele. Trocar o nome reseta o aprendizado.
@@ -168,7 +197,7 @@
 
   var ATTR_KEY = 'mh_attr';
   var ATTR_PARAMS = ['utm_source', 'utm_medium', 'utm_campaign',
-                     'utm_content', 'utm_term', 'fbclid', 'gclid'];
+                     'utm_content', 'utm_term', 'fbclid', 'gclid', 'oppref'];
 
   /* --------------------------------------------------------------------
      HELPERS
@@ -241,6 +270,17 @@
       var fbc = getCookie('_fbc');
       if (fbp && !u.searchParams.has('fbp')) u.searchParams.set('fbp', fbp);
       if (fbc && !u.searchParams.has('fbc')) u.searchParams.set('fbc', fbc);
+
+      // oppref: o clique do anuncio no ChatGPT. O app (outro dominio) nao
+      // enxerga o cookie que o pixel da OpenAI gravou aqui; sem o oppref na
+      // URL, o cadastro feito la nao e atribuido a campanha. Normalmente ele
+      // ja veio pela atribuicao acima; o cookie cobre quando ela foi trocada
+      // por uma visita posterior.
+      var oppref = getCookie('__oppref');
+      if (oppref && !u.searchParams.has('oppref')) {
+        try { oppref = decodeURIComponent(oppref); } catch (e) {}
+        u.searchParams.set('oppref', oppref);
+      }
 
       // mh_eid: MESMO id do evento `Lead` disparado aqui. O cadastro roda em
       // outro dominio (app.smartli.ink), entao este e o unico fio que liga
@@ -356,6 +396,21 @@
     if (typeof window.fbq === 'function') {
       try { window.fbq('track', eventName, params, { eventID: eventId }); }
       catch (e) {}
+    }
+
+    // OpenAI (anuncios no ChatGPT): cadastro -> `lead_created`, o par do
+    // `Lead`; WhatsApp -> evento proprio, so medicao. Mesmo eventID do Meta,
+    // pronto pra dedup quando o Conversions API entrar.
+    if (typeof window.oaiq === 'function') {
+      try {
+        if (eventName === 'Lead') {
+          window.oaiq('measure', 'lead_created', { type: 'customer_action' },
+            { event_id: eventId });
+        } else {
+          window.oaiq('measure', 'custom', { type: 'custom' },
+            { custom_event_name: 'whatsapp_click', event_id: eventId });
+        }
+      } catch (e) {}
     }
 
     // GA4 — esse sim tem eventCallback, entao navega assim que confirmar.
