@@ -69,6 +69,88 @@ def etapa(it: dict) -> int:
     return 4
 
 
+ETAPAS = [
+    ("login_pendente", "Entrou e não confirmou o celular"),
+    ("link_vazio", "Link no ar, sem imóvel"),
+    ("rascunho", "Imóvel em rascunho"),
+    ("publicado", "Publicou imóvel"),
+    ("ia_respondeu", "A IA já atendeu um cliente"),
+]
+
+
+def esteira(dias: int) -> dict:
+    url = f"https://api.matchhouse.com.br/backoffice/activation/whatsapp?days={dias}"
+    bruto = subprocess.run(["curl", "-sS", "--fail", "--max-time", "40", url],
+                           capture_output=True, text=True, check=True).stdout
+    return json.loads(bruto)
+
+
+def menos(a, b):
+    """a - b em cada número: days=N conta de N-1 dias atrás até agora."""
+    if isinstance(a, dict):
+        return {k: menos(v, (b or {}).get(k) if isinstance(b, dict) else None) for k, v in a.items()}
+    if isinstance(a, (int, float)) and not isinstance(a, bool):
+        return a - (b if isinstance(b, (int, float)) and not isinstance(b, bool) else 0)
+    return a
+
+
+def tabela_esteira(d: dict) -> str:
+    em, wa = d["emails"], d["whatsapp"]
+    head = ('<thead><tr><th>Etapa</th><th class="r">E-mails</th><th class="r">Erro</th>'
+            '<th class="r">WhatsApp</th><th class="r">Entregues</th><th class="r">Lidos</th>'
+            '<th class="r">Falhou</th></tr></thead>')
+    linhas = []
+    for chave, nome in ETAPAS + [("total", "Total")]:
+        e = em["total"] if chave == "total" else em["por_etapa"].get(chave, {})
+        w = wa["total"] if chave == "total" else wa["por_etapa"].get(chave, {})
+        falhou = (w.get("falhou", 0) or 0) + (w.get("erro", 0) or 0)
+        b = ("<b>", "</b>") if chave == "total" else ("", "")
+        linhas.append(
+            f'<tr><td>{b[0]}{nome}{b[1]}</td><td class="r num">{b[0]}{e.get("enviados", 0)}{b[1]}</td>'
+            f'<td class="r num">{e.get("erro", 0)}</td><td class="r num">{b[0]}{w.get("enviados", 0)}{b[1]}</td>'
+            f'<td class="r num">{w.get("entregues", 0)}</td><td class="r num">{w.get("lidos", 0)}</td>'
+            f'<td class="r num">{falhou}</td></tr>')
+    return f'<table>{head}<tbody>{"".join(linhas)}</tbody></table>'
+
+
+def respostas(d: dict) -> str:
+    r = d.get("respostas", {})
+    pausa = d.get("pausa_automatica", {}).get("houve")
+    return (f'Mensagens recebidas no WhatsApp: <b>{r.get("mensagens_recebidas", 0)}</b> · '
+            f'pediram SAIR: <b>{r.get("sair", 0)}</b> · VOLTAR: <b>{r.get("voltar", 0)}</b> · '
+            f'autorizaram pelo link: <b>{r.get("autorizaram_pelo_link", 0)}</b> · '
+            f'pausa automática: <b>{"sim" if pausa else "não"}</b>')
+
+
+def bloco_esteira(hoje: date) -> str:
+    try:
+        d1, d2, d8 = esteira(1), esteira(2), esteira(8)
+    except Exception as erro:  # a página sai mesmo se a esteira não responder
+        return f'<div class="panel"><p class="sub">A esteira não respondeu agora ({erro}).</p></div>'
+    ontem = menos(d2, d1)
+    semana = menos(d8, d1)
+    de, ate = hoje - timedelta(days=7), hoje - timedelta(days=1)
+    partes = [
+        f'<div class="panel scroll"><h3>Ontem, {ate:%d/%m}</h3>{tabela_esteira(ontem)}'
+        f'<p class="sub" style="margin-top:10px">{respostas(ontem)}</p></div>',
+        f'<div class="panel scroll"><h3>Últimos 7 dias fechados, {de:%d/%m} a {ate:%d/%m}</h3>{tabela_esteira(semana)}'
+        f'<p class="sub" style="margin-top:10px">{respostas(semana)}</p></div>',
+    ]
+    novidades = os.path.join(AQUI, "..", "novidades", "envios.json")
+    if os.path.exists(novidades):
+        reg = json.load(open(novidades))
+        env = [x for x in reg if x.get("status") == "enviado"]
+        pulados = {x["id_user"] for x in reg if x.get("status") != "enviado"} - {x["id_user"] for x in env}
+        por_grupo = {g: sum(1 for x in env if x.get("grupo") == g) for g in ("A", "B")}
+        partes.append(
+            '<div class="panel"><h3>E-mails de novidades (30/09 a 02/10)</h3><p class="sub">'
+            f'Enviados: <b>{len(env)}</b>, sendo <b>{por_grupo["A"]}</b> para quem tem imóvel (fotos: capa, ordem e '
+            f'remover) e <b>{por_grupo["B"]}</b> para quem tem link sem imóvel. Ainda não receberam: '
+            f'<b>{len(pulados)}</b> (a esteira já tinha mandado e-mail no dia ou o teto do dia chegou; '
+            'saem no lote seguinte).</p></div>')
+    return "\n  ".join(partes)
+
+
 def main() -> None:
     agora = datetime.now(BRT)
     hoje = agora.date()
@@ -131,6 +213,7 @@ def main() -> None:
         "__ULTIMA__": ultima,
         "__MESES_NOTA__": " Mostra os três últimos meses." if len(months) > 3 else "",
         "__MESES_OPT__": "".join(f'<option value="{m}">{n}</option>' for m, n, _ in months),
+        "__ESTEIRA__": bloco_esteira(hoje),
     }
     for chave, valor in trocas.items():
         assert html.count(chave) == 1, chave
