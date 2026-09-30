@@ -85,6 +85,8 @@ svg text{font-family:var(--f-body)}
 ul.pend{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
 ul.pend li span{color:var(--muted);font-size:.82rem}
 .empty{padding:28px;text-align:center;color:var(--ink2)}
+#cac th{white-space:normal;vertical-align:bottom;min-width:84px}
+#cac td:first-child,#cac th:first-child{white-space:nowrap}
 @media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.edit{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -111,6 +113,12 @@ ul.pend li span{color:var(--muted);font-size:.82rem}
   <section>
     <div class="sec-head"><h2>Por fornecedor</h2><p class="sub">Uso do mês até o último dia fechado. O dia de hoje ainda está correndo e fica de fora.</p></div>
     <div class="panel scroll" style="padding:4px 8px"><table id="forn"></table></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>CAC: quanto custa cada corretor</h2><p class="sub">Mídia é o gasto com anúncios: Meta com impostos, mais Google. Os cadastros não contam contas internas nem de teste. "Publicaram" são os cadastros do período que já publicaram imóvel; nos dias mais antigos, esse número ainda cresce.</p></div>
+    <div class="panel scroll" style="padding:4px 8px"><table id="cac"></table></div>
+    <p class="note" id="cac-nota"></p>
   </section>
 
   <section>
@@ -258,9 +266,47 @@ function render () {
   document.getElementById("forn").innerHTML = `<thead><tr><th>Fornecedor</th><th>Dado</th><th class="r">${dm(c.fechado)}</th><th class="r">Mês até ${dm(c.fechado)}</th><th class="r">Média 7 dias</th><th class="r">Projeção</th></tr></thead>
     <tbody>${linhasTab}<tr class="tot"><td>Total do uso</td><td></td><td class="r num">${brl(c.linhas.reduce((s, l) => s + (l.ontem || 0), 0))}</td><td class="r num">${brl(variavel)}</td><td></td><td class="r num">${brl(projVar)}</td></tr></tbody>`;
 
+  renderCac(m, c, fx, variavel);
   desenharGrafico(c);
   renderFixos(fx);
   renderPend(m);
+}
+
+/** CAC por período: mídia do período ÷ cadastros (e ÷ quem publicou) do mesmo período. */
+function renderCac (m, c, fx, variavel) {
+  const tab = document.getElementById("cac");
+  const nota = document.getElementById("cac-nota");
+  const fn = m.funil;
+  if (!fn || !fn.cadastros) {
+    tab.innerHTML = '<tbody><tr><td class="empty">Os cadastros do mês ainda não foram gravados. A rotina diária grava junto com os custos.</td></tr></tbody>';
+    nota.textContent = "";
+    return;
+  }
+  const F = m.fornecedores || {};
+  const fator = Number(m.impostos_meta_fator || 0);
+  const midiaDia = (d) => Number(F.meta_ads?.dias?.[d] || 0) * (1 + fator) + Number(F.google_ads?.dias?.[d] || 0);
+  const dias = [];
+  for (let i = 1; i <= c.diasFechados; i++) dias.push(`${m.mes}-${String(i).padStart(2, "0")}`);
+  const soma = (lista, obj) => lista.reduce((s, d) => s + Number((obj || {})[d] || 0), 0);
+  const div = (a, b) => b > 0 ? brl(a / b) : "—";
+  const periodos = [
+    [`Ontem, ${dm(c.fechado)}`, dias.slice(-1)],
+    ["Últimos 7 dias", dias.slice(-7)],
+    [`Mês até ${dm(c.fechado)}`, dias],
+  ];
+  const linhas = periodos.map(([nome, ds]) => {
+    const midia = ds.reduce((s, d) => s + midiaDia(d), 0);
+    const cad = soma(ds, fn.cadastros), pag = soma(ds, fn.pagos), pub = soma(ds, fn.publicaram);
+    return `<tr><td>${esc(nome)}</td><td class="r num"><b>${div(midia, cad)}</b></td>
+      <td class="r num"><b>${div(midia, pub)}</b></td><td class="r num">${brl(midia)}</td>
+      <td class="r num">${cad}</td><td class="r num">${pub}</td>
+      <td class="r num">${pag}</td><td class="r num">${div(midia, pag)}</td></tr>`;
+  }).join("");
+  tab.innerHTML = `<thead><tr><th>Período</th><th class="r">Por cadastro</th><th class="r">Por corretor que publicou</th><th class="r">Mídia</th><th class="r">Cadastros</th><th class="r">Publicaram</th><th class="r">Cadastros de anúncio</th><th class="r">Por cadastro de anúncio</th></tr></thead><tbody>${linhas}</tbody>`;
+  const pubMes = soma(dias, fn.publicaram);
+  const contado = fn.contado_em ? new Date(fn.contado_em) : null;
+  nota.textContent = (pubMes ? `Com todos os custos do mês (uso ${brl(variavel)} + fixos ${brl(fx.soma)}), cada corretor que publicou custou ${brl((variavel + fx.soma) / pubMes)}. ` : "") +
+    (contado ? `Cadastros contados em ${contado.toLocaleDateString("pt-BR")} às ${contado.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}.` : "");
 }
 
 function desenharGrafico (c) {
