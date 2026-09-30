@@ -190,20 +190,30 @@ Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar
 com IA" (ou "Reescrever com IA") e "Gerar com IA a partir do endereço". Só
 aparecem se a conta tiver IA. **No cadastro novo não aparecem.**
 
-**Fotos: como ensinar certo**
+**Fotos: como ensinar certo** (desde 30/09, PR app #103)
 
-- Toque num espaço → escolhe a foto do celular.
+- **Pôr foto:** tocar num espaço vazio e escolher a foto do celular. Sempre
+  sobra um espaço vazio para a próxima, até 20.
 - Num imóvel sem foto, **a primeira foto escolhida vira a capa**, qualquer
-  que seja o espaço tocado. Então: escolher primeiro a foto principal, depois
-  as outras, na ordem desejada.
-- **Não dá para mudar a ordem arrastando.** O texto "Foto de capa — arraste
-  aqui" aparece na tela, mas o app não tem essa função.
-  - Erramos isso com a Juceli em 29/09.
-  - Nunca prometer reordenar.
-- Tocar numa foto que ainda não foi salva troca a foto.
-- Trocar a capa **depois de salvar** não é simples: a foto nova vai para o
-  fim da galeria. Se o corretor pedir isso, olhar o caso antes de responder.
-- Não há botão de apagar uma foto.
+  que seja o espaço tocado.
+- **Embaixo de cada foto há botões:**
+  - **"Tornar capa"**: leva a foto para o primeiro lugar. Não aparece na
+    própria capa.
+  - **setas ← →**: movem a foto uma posição para antes ou para depois.
+  - **lixeira**: tira a foto.
+- **Tocar na foto** troca por outra no mesmo lugar. Capa trocada continua capa.
+- Nada disso vale antes de salvar: no fim, **"Salvar alterações →"** (ou
+  "Publicar imóvel →" no cadastro novo).
+- **Não existe arrastar**, nem no celular nem no computador; a ordem se muda
+  pelos botões. Até 29/09 a tela dizia "Foto de capa — arraste aqui"; desde
+  30/09 diz "Foto de capa — toque para escolher". Erramos isso com a Juceli em
+  29/09.
+
+Texto pronto para quem pergunta das fotos:
+
+```
+Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num espaço vazio para escolher cada foto do celular. Embaixo de cada foto tem "Tornar capa" para escolher a foto principal, as setas para mudar a ordem e a lixeira para tirar. No fim, toque em "Salvar alterações".
+```
 
 **Pegadinhas:**
 
