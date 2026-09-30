@@ -78,6 +78,20 @@ para aquela mensagem.
   código `confirmacao`; depois `POST /backoffice/messages/send` com o mesmo
   corpo + `confirmacao`. Texto livre só até 24 h depois da última mensagem
   da pessoa. Não mandar a pessoa para outro número.
+- **Código de cadastro pelo WhatsApp** (ligado em 30/09, 16h). Na tela do
+  código o corretor pode escolher "Receber por WhatsApp", e o código sai do
+  6800 como "Match House AI". O caminho é:
+  - Twilio: o Verify "Match House" usa o Messaging Service "Match House
+    WhatsApp", que tem o 6800 e "Defer to sender's webhook". Não trocar essa
+    opção: é ela que mantém as respostas dos corretores chegando.
+  - Meta: aprovou os modelos `verify_auto_created` em vários idiomas, com
+    português (BR).
+  - ECS: `TWILIO_VERIFY_WHATSAPP=true` na revisão `matchhouse-back:18`.
+  - Testado em 30/09 num número de fora da equipe; chegou em português em
+    menos de 1 minuto.
+  - Pela regra de sempre, o 27 99226-8000 não entra em teste de Twilio nem de
+    Meta.
+  - Medir no Amplitude pelo `otp_channel` com `channel=whatsapp`.
 
 ## Limite de imóveis no ar: 100 (desde 29/09/2026)
 
