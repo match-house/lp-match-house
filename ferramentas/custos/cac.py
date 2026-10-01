@@ -17,7 +17,14 @@ from datetime import date, datetime, timedelta, timezone
 BRT = timezone(timedelta(hours=-3))
 # Mesma lista do Funil Smart Link (confirmada pelo Mateus em 29/09; 993 é teste pelo nome).
 INTERNOS = {1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993}
-PAGOS = {"meta", "ig", "fb", "facebook", "instagram", "google"}
+PAGOS = {"meta", "ig", "fb", "facebook", "instagram", "google", "chatgpt", "openai"}
+# Cadastros que chegaram sem utm, com a origem achada no Amplitude em 01/10
+# (o utm aparece no auth_entry_viewed do mesmo aparelho, ou o clique veio com
+# oppref do ChatGPT). Corrigidos aqui até o app guardar a origem sozinho.
+ORIGEM_CORRIGIDA = {
+    1101: "meta", 1119: "meta", 1127: "meta", 1132: "meta", 1147: "meta",
+    1157: "chatgpt", 1159: "chatgpt", 1161: "chatgpt",
+}
 
 
 def buscar(de: date, ate: date) -> list:
@@ -53,7 +60,8 @@ def main() -> None:
             continue
         k = dia.isoformat()
         cad[k] = cad.get(k, 0) + 1
-        if (it.get("utm_source") or "").strip().lower() in PAGOS:
+        origem = (it.get("utm_source") or "").strip().lower() or ORIGEM_CORRIGIDA.get(it["id_user"], "")
+        if origem in PAGOS:
             pagos[k] = pagos.get(k, 0) + 1
         if (it.get("publicados") or 0) > 0:
             pub[k] = pub.get(k, 0) + 1
