@@ -256,6 +256,27 @@
 
   var attribution = loadAttribution();
 
+  // Origem de quem chegou à LP SEM anúncio (sem utm, sem gclid, sem oppref):
+  // vem do referrer. Sem isto o cadastro aparecia "sem origem" e não dava
+  // para separar Instagram orgânico, Google orgânico e quem digitou o
+  // endereço (17 de 98 cadastros de setembro). Os valores começam com
+  // "org-" de propósito: nunca colidem com as origens pagas (meta, ig, fb,
+  // google, chatgpt) que entram no CAC. Não vai para o pixel nem para o
+  // GA4: só para o link do cadastro.
+  function organicOrigin() {
+    var ref = '';
+    try { ref = (new URL(document.referrer)).hostname.toLowerCase(); } catch (e) {}
+    if (!ref || ref === window.location.hostname || /matchhouse\.com\.br$/.test(ref)) return 'direto';
+    if (/instagram\./.test(ref)) return 'org-instagram';
+    if (/(^|\.)(facebook|fb)\.(com|me)$|^lm\.facebook\.com$|^m\.facebook\.com$/.test(ref)) return 'org-facebook';
+    if (/(^|\.)google\./.test(ref)) return 'org-google';
+    if (/(^|\.)(bing|yahoo|duckduckgo)\./.test(ref)) return 'org-busca';
+    if (/chatgpt\.com$|openai\.com$/.test(ref)) return 'org-chatgpt';
+    if (/smartli\.ink$/.test(ref)) return 'org-smartlink';
+    if (/whatsapp|wa\.me$/.test(ref)) return 'org-whatsapp';
+    return 'org-' + ref.replace(/^www\./, '').slice(0, 40);
+  }
+
   // Anexa atribuição + cookies do Meta na URL de destino, pra que o
   // cadastro (outro domínio) saiba de onde a pessoa veio.
   function decorateUrl(href, eventId) {
@@ -265,6 +286,14 @@
       Object.keys(attribution).forEach(function (k) {
         if (!u.searchParams.has(k)) u.searchParams.set(k, attribution[k]);
       });
+
+      // Sem anúncio nenhum: manda a origem orgânica (ver organicOrigin).
+      // gclid e oppref ficam de fora: o app transforma em google/chatgpt.
+      if (!u.searchParams.has('utm_source') && !u.searchParams.has('gclid') &&
+          !u.searchParams.has('oppref') && !getCookie('__oppref')) {
+        u.searchParams.set('utm_source', organicOrigin());
+        if (!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium', 'organico');
+      }
 
       var fbp = getCookie('_fbp');
       var fbc = getCookie('_fbc');

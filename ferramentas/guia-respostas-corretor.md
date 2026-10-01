@@ -155,14 +155,14 @@ cai direto nesta tela, e quem ainda não tem imóvel publicado vê uma caixa só
 
 Quem já tem imóvel publicado vê direto os quatro jeitos.
 
-**Link pronto (para mandar ao corretor).** Quando ele mandar o link de um
-anúncio dele, responder com
-`https://app.smartli.ink/dashboard/imoveis/novo?link=` + o link do anúncio
-codificado (`encodeURIComponent`; sem isso, um `&` corta o endereço). O link
-abre o cadastro já importando aquele anúncio; ele confere e toca em
-"Publicar imóvel →". Funciona também depois do login, se a sessão tiver
-vencido. Lembrar da regra dos links: o `smartli.ink/<slug>` dele vem antes,
-para o card do WhatsApp ser o dele.
+**Não cadastrar imóvel pelo corretor (decisão do Mateus, 01/10).** Quem
+manda o link de um anúncio pede ajuda para publicar: a resposta ensina a
+fazer no app ("Imóveis" → colar o link na caixa → "Preencher com a IA" →
+conferir → "Publicar imóvel →"), não devolve cadastro pronto. Motivo dele:
+"o corretor deve mandar direto na aplicação e já publicar.. assim ele
+aprende e faz as próximas". O app aceita
+`/dashboard/imoveis/novo?link=<anúncio codificado>` (PR #106), mas esse
+link não é para mandar a corretor.
 
 Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar.
 
