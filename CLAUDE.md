@@ -134,7 +134,7 @@ para aquela mensagem.
   que faz plano de 30 dias virar mensal). Criar o plano não cobra
   ninguém: a cobrança (renovação, falha de pagamento, Pix) ainda está por fazer.
 
-## Ideia para depois: leads da IA como "matches" (Mateus, 01/10; NÃO é para agora)
+## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
 Ideia dele: aproveitar os matches que a API já tem (vêm do app antigo).
 Cada lead liberado gastaria um match. O plano daria os matches do mês. A
@@ -167,6 +167,33 @@ O que falta construir:
 - Consertar um defeito antes de usar indicação com imóveis.
   `addExtraProperties` (o benefício de imóveis extras) soma no **plano**,
   não no corretor: daria imóveis extras a todo mundo do mesmo plano.
+
+### Indicação com três prêmios: + imóveis, + matches (leads) e desconto (Mateus, 01/10)
+
+Ele quer estudar o plano de indicações dando três coisas: mais imóveis,
+mais matches (leads) e desconto na mensalidade. Também não é para agora.
+Ele achava que o desconto teria de ser construído; não precisa. Conferido no
+código em 01/10:
+
+- **Desconto na mensalidade: já existe.**
+  - Cada nível de indicação tem um `discount_percentage`.
+  - Quando o corretor sobe de nível, `applyIndicationDiscountCarryAfterLevelChange`
+    grava o percentual em `users.indication_discount_carry`.
+  - Na mesma hora, `syncIndicationStripeDiscountsForUser` põe o cupom
+    "Indicação X%" (id `mh_ind_pct_<X>`, para sempre) em todas as assinaturas
+    ativas dele no Stripe.
+  - Na compra, `resolveCheckoutDiscount` já cobra com o desconto.
+  - Falta só testar com o Pro e com o Pix Automático, quando a cobrança
+    existir.
+- **Mais matches (leads):** existe, como descrito acima. Falta ligar o gasto
+  ao lead da IA.
+- **Mais imóveis: é o que mais falta.**
+  - O nível tem `properties_bonus`, e o benefício `properties_extra` existe.
+  - Mas o bônus soma no plano inteiro: é o defeito de `addExtraProperties`.
+  - A regra que somaria o bônus por corretor (`BenefitAwarePropertyLimitGuard`)
+    está escrita, mas não é usada em lugar nenhum.
+  - O app novo não confere o limite ao publicar (achado de 29/09).
+  - Com todos em até 100 imóveis, esse prêmio vale pouco hoje.
 
 ## Falar com corretor — que link mandar (regras de 24/09)
 
