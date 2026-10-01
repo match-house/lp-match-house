@@ -54,7 +54,7 @@ Continuam valendo as regras de sempre:
 | Copiar o link / pôr na bio | Visão ou Divulgar → "Cole o link na bio do Instagram" | app.smartli.ink/dashboard/divulgar |
 | Arte pronta para postar | Divulgar | app.smartli.ink/dashboard/divulgar |
 | Cadastrar imóvel | Imóveis → "Cadastrar outro imóvel", ou Visão → "Publicar meu primeiro imóvel" | app.smartli.ink/dashboard/imoveis/novo |
-| Corrigir um imóvel, pôr fotos | Imóveis → lápis | app.smartli.ink/dashboard/imoveis/<id>/editar |
+| Corrigir um imóvel, pôr fotos | Imóveis → lápis, ou tocar no imóvel → "Editar imóvel" | app.smartli.ink/dashboard/imoveis/<id>/editar |
 | Ver visitas e cliques | Métricas | app.smartli.ink/dashboard/metricas |
 | Ver as conversas da IA | IA & Leads | app.smartli.ink/dashboard/ia |
 | Instagram, Facebook, site etc. no perfil | Redes → "Adicionar rede social" | app.smartli.ink/dashboard/social |
@@ -251,6 +251,10 @@ Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num 
 
 - Os publicados aparecem com "● Ativo" e três ícones: compartilhar, lápis
   (editar) e lixeira.
+- Tocar na foto ou no nome do imóvel abre a prévia do anúncio (como o
+  cliente vê). Desde 01/10 (PR app #109) ela tem o botão **"Editar
+  imóvel"** no rodapé, que leva à mesma tela do lápis. Antes não tinha, e
+  o Alex Santos não achou onde editar o imóvel publicado.
 - Os rascunhos aparecem em "Rascunhos", com o botão "Continuar".
 - O compartilhar do imóvel manda o link `smartli.ink/<slug>/perfil/<id>`.
 
