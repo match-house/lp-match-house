@@ -172,8 +172,13 @@ O que falta construir:
 
 Ele quer estudar o plano de indicações dando três coisas: mais imóveis,
 mais matches (leads) e desconto na mensalidade. Também não é para agora.
-Ele achava que o desconto teria de ser construído; não precisa. Conferido no
-código em 01/10:
+Ele achava que o desconto teria de ser construído; não precisa.
+
+**Decisão dele no mesmo dia:** a indicação começa só com **desconto + leads**,
+"que é o q move os negócios mesmo... e o corretor gosta". Imóvel extra é o
+menos importante e fica de fora do começo; não propor junto.
+
+Conferido no código em 01/10:
 
 - **Desconto na mensalidade: já existe.**
   - Cada nível de indicação tem um `discount_percentage`.
