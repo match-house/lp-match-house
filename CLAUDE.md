@@ -192,6 +192,18 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
 
+## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
+
+- Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
+  palavras dele: "o corretor ao invés de mandar o link para a gente deve
+  mandar direto na aplicação e já publicar.. assim ele aprende e faz as
+  próximas.. curva de aprendizado".
+- Quem pede ajuda para publicar recebe o caminho no app: depois de criar o
+  link ele já cai na tela do primeiro imóvel (PR app #106); cola o link do
+  anúncio ou o texto, toca em "Preencher com a IA", confere e publica.
+- O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
+  é para mandar a corretor.
+
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
 `SUPPORT_MESSAGES` em `app/src/constants.ts` preenche o WhatsApp com uma frase
