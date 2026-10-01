@@ -143,6 +143,27 @@ Limites:
 
 ### Cadastrar (app.smartli.ink/dashboard/imoveis/novo)
 
+**Primeiro imóvel (desde 01/10, PR app #106).** Quem acaba de escolher o link
+cai direto nesta tela, e quem ainda não tem imóvel publicado vê uma caixa só:
+
+- título "Seu link está no ar." / "Agora o primeiro imóvel — leva 1 minuto.";
+- a caixa "Cole aqui o link do anúncio ou o texto do imóvel" e o botão
+  **"Preencher com a IA"**: se for só um link, ele importa o anúncio; se for
+  texto, organiza o texto;
+- **"Prefiro mandar as fotos"**: o mesmo que "Subir fotos";
+- **"Ver outras formas (PDF, arquivo do CRM)"**: abre os quatro jeitos abaixo.
+
+Quem já tem imóvel publicado vê direto os quatro jeitos.
+
+**Link pronto (para mandar ao corretor).** Quando ele mandar o link de um
+anúncio dele, responder com
+`https://app.smartli.ink/dashboard/imoveis/novo?link=` + o link do anúncio
+codificado (`encodeURIComponent`; sem isso, um `&` corta o endereço). O link
+abre o cadastro já importando aquele anúncio; ele confere e toca em
+"Publicar imóvel →". Funciona também depois do login, se a sessão tiver
+vencido. Lembrar da regra dos links: o `smartli.ink/<slug>` dele vem antes,
+para o card do WhatsApp ser o dele.
+
 Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar.
 
 1. **"Descrever em texto":** colar o que ele tem (WhatsApp, anotação), até
