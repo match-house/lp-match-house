@@ -200,6 +200,37 @@ Conferido no código em 01/10:
   - O app novo não confere o limite ao publicar (achado de 29/09).
   - Com todos em até 100 imóveis, esse prêmio vale pouco hoje.
 
+## Ideia para depois: o corretor escolhe a IA e paga pelo modelo (Mateus, 01/10; só ideia)
+
+Pergunta dele: manter a mensalidade e deixar o corretor escolher o modelo de
+IA, pagando o preço de cada um, como uma revenda de tokens.
+
+Dá para fazer? Conferido em 01/10:
+
+- **IA do app (BFF):** já roda pelo OpenRouter, com o modelo padrão
+  `openai/gpt-4o-mini` em `OPENROUTER_MODEL`. O provider já aceita um modelo
+  por pedido (`req.model`). Por isso, a parte técnica de trocar de modelo por
+  corretor é pequena.
+- **IA que atende o cliente no smartli.ink:** é da Intelliway (EvaGPT), não
+  nossa. Escolher o modelo ali depende deles, ou de levar o atendimento para
+  o nosso lado.
+
+O que eu disse a ele: é possível, mas não vale como "revenda de token". Os
+motivos:
+
+- O corretor compra cliente, não token. Já decidimos cobrar por lead
+  qualificado.
+- Cobrança por uso pede saldo e recarga, e a conta muda todo mês. Isso gera
+  suporte e cancelamento.
+- A margem é pequena: o OpenRouter já tem a taxa dele, e o corretor compara
+  com o preço do ChatGPT.
+- Os termos dos provedores tratam de forma diferente usar o modelo dentro do
+  produto e revender o acesso ao modelo. Conferir antes.
+
+A versão que faz sentido: um **nível de IA dentro do plano** (o Pro, ou um
+complemento "IA avançada" a preço fixo). Nós escolhemos o modelo e ficamos
+com a margem. Antes, medir quanto custa cada conversa e cada lead.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
