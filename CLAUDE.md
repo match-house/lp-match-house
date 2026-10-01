@@ -231,6 +231,9 @@ A versão que faz sentido: um **nível de IA dentro do plano** (o Pro, ou um
 complemento "IA avançada" a preço fixo). Nós escolhemos o modelo e ficamos
 com a margem. Antes, medir quanto custa cada conversa e cada lead.
 
+**Mateus concordou (01/10):** nada de revenda de token. Se vier, é um nível de
+IA dentro do plano, a preço fixo.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
