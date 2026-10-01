@@ -46,7 +46,13 @@ Notas do projeto para agentes. Ler antes de mexer.
   - **Teto de R$ 125/dia no Meta** somando as campanhas (hoje LP R$ 50 + app R$ 75). Redistribuir entre campanhas e anúncios pode; passar do total, não.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
 - Toda mudança feita com essa autonomia sai no relatório diário com o motivo e o número que a justificou.
-- Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília). Desde 29/09 isso é feito por rotina desta conversa, porque a regra automática do Meta parou de funcionar em 28/09 e o MCP não mexe em regras.
+- Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília).
+  De 29/09 a 01/10 isso foi feito por rotina desta conversa, porque a regra
+  automática do Meta parou de funcionar em 28/09 e o MCP não mexe em regras.
+  **Em 01/10, às 20h50, o Mateus refez a regra no Gerenciador.** As rotinas
+  `trig_01GNLbMWdWC3DBgkeXWCuWzt` (pausa) e `trig_013D2UoHoJwwzqVjQLHzcuZZ`
+  (religar) foram desligadas, não apagadas, para não haver dois controles.
+  Se a regra falhar de novo, religar as duas rotinas e avisar o Mateus.
 - Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
 
 ## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
