@@ -54,7 +54,7 @@ Continuam valendo as regras de sempre:
 | Copiar o link / pôr na bio | Visão ou Divulgar → "Cole o link na bio do Instagram" | app.smartli.ink/dashboard/divulgar |
 | Arte pronta para postar | Divulgar | app.smartli.ink/dashboard/divulgar |
 | Cadastrar imóvel | Imóveis → "Cadastrar outro imóvel", ou Visão → "Publicar meu primeiro imóvel" | app.smartli.ink/dashboard/imoveis/novo |
-| Corrigir um imóvel, pôr fotos | Imóveis → lápis | app.smartli.ink/dashboard/imoveis/<id>/editar |
+| Corrigir um imóvel, pôr fotos | Imóveis → lápis, ou tocar no imóvel → "Editar imóvel" | app.smartli.ink/dashboard/imoveis/<id>/editar |
 | Ver visitas e cliques | Métricas | app.smartli.ink/dashboard/metricas |
 | Ver as conversas da IA | IA & Leads | app.smartli.ink/dashboard/ia |
 | Instagram, Facebook, site etc. no perfil | Redes → "Adicionar rede social" | app.smartli.ink/dashboard/social |
@@ -143,6 +143,27 @@ Limites:
 
 ### Cadastrar (app.smartli.ink/dashboard/imoveis/novo)
 
+**Primeiro imóvel (desde 01/10, PR app #106).** Quem acaba de escolher o link
+cai direto nesta tela, e quem ainda não tem imóvel publicado vê uma caixa só:
+
+- título "Seu link está no ar." / "Agora o primeiro imóvel — leva 1 minuto.";
+- a caixa "Cole aqui o link do anúncio ou o texto do imóvel" e o botão
+  **"Preencher com a IA"**: se for só um link, ele importa o anúncio; se for
+  texto, organiza o texto;
+- **"Prefiro mandar as fotos"**: o mesmo que "Subir fotos";
+- **"Ver outras formas (PDF, arquivo do CRM)"**: abre os quatro jeitos abaixo.
+
+Quem já tem imóvel publicado vê direto os quatro jeitos.
+
+**Não cadastrar imóvel pelo corretor (decisão do Mateus, 01/10).** Quem
+manda o link de um anúncio pede ajuda para publicar: a resposta ensina a
+fazer no app ("Imóveis" → colar o link na caixa → "Preencher com a IA" →
+conferir → "Publicar imóvel →"), não devolve cadastro pronto. Motivo dele:
+"o corretor deve mandar direto na aplicação e já publicar.. assim ele
+aprende e faz as próximas". O app aceita
+`/dashboard/imoveis/novo?link=<anúncio codificado>` (PR #106), mas esse
+link não é para mandar a corretor.
+
 Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar.
 
 1. **"Descrever em texto":** colar o que ele tem (WhatsApp, anotação), até
@@ -230,6 +251,10 @@ Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num 
 
 - Os publicados aparecem com "● Ativo" e três ícones: compartilhar, lápis
   (editar) e lixeira.
+- Tocar na foto ou no nome do imóvel abre a prévia do anúncio (como o
+  cliente vê). Desde 01/10 (PR app #109) ela tem o botão **"Editar
+  imóvel"** no rodapé, que leva à mesma tela do lápis. Antes não tinha, e
+  o Alex Santos não achou onde editar o imóvel publicado.
 - Os rascunhos aparecem em "Rascunhos", com o botão "Continuar".
 - O compartilhar do imóvel manda o link `smartli.ink/<slug>/perfil/<id>`.
 
