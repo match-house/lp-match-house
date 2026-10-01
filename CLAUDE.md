@@ -129,6 +129,44 @@ para aquela mensagem.
   dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
   nem em mensagem para corretor até o Mateus liberar.
 - Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
+- **Plano Pro criado** no backoffice em 01/10, às 19h57 (id_plan 21, ativo,
+  R$ 147 a cada 30 dias; o preço no Stripe foi criado depois do PR api #43,
+  que faz plano de 30 dias virar mensal). Criar o plano não cobra
+  ninguém: a cobrança (renovação, falha de pagamento, Pix) ainda está por fazer.
+
+## Ideia para depois: leads da IA como "matches" (Mateus, 01/10; NÃO é para agora)
+
+Ideia dele: aproveitar os matches que a API já tem (vêm do app antigo).
+Cada lead liberado gastaria um match. O plano daria os matches do mês. A
+indicação daria matches bônus a quem indicar. Só puxar o assunto quando ele
+retomar, ou quando chegar a hora de limitar os leads por plano (passo 2 de
+`api/docs/cobranca-pro.md`). Nesse caso, a ideia entra no lugar de criar um
+campo novo.
+
+O que já existe na API (conferido no código em 01/10):
+
+- No plano: `initial_amount_match`, `initial_amount_match_bonus` e
+  `duration_match`. Hoje valem 0 no Pro e no plano de entrada.
+- O saldo fica em `MatchRecharge`, por assinatura: `amount_match` mais
+  `amount_match_bonus`, com data de validade.
+  - `reduceMatchCount` gasta 1 match, primeiro do saldo normal e depois do bônus.
+  - `BenefitAwareMatchLimitGuard` bloqueia quando o saldo chega a 0.
+- Na indicação, quando ela é aprovada, o corretor sobe de nível e recebe os
+  benefícios do nível. Os benefícios `matches_extra` e `matches_bonus_extra`
+  criam uma recarga de 30 dias. O campo `IndicationLevel.matches_bonus`
+  existe, mas hoje só aparece na exportação: o bônus vem dos benefícios.
+
+O que falta construir:
+
+- Ligar o gasto ao lead. Hoje o match só é gasto quando o corretor aceita o
+  "like" de um comprador no app antigo (`agentLike`). O lead da IA, que
+  chega pelo `POST /external/leads`, não gasta nada.
+- Recarga mensal. Hoje a recarga só nasce quando alguém paga ou troca de
+  plano. Como o plano de entrada não paga, ele precisaria de uma rotina que
+  recarregue os 3 leads todo mês.
+- Consertar um defeito antes de usar indicação com imóveis.
+  `addExtraProperties` (o benefício de imóveis extras) soma no **plano**,
+  não no corretor: daria imóveis extras a todo mundo do mesmo plano.
 
 ## Falar com corretor — que link mandar (regras de 24/09)
 
