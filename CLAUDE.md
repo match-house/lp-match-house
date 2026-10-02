@@ -369,12 +369,15 @@ dos cinco repositórios e nos e-mails):
 - **No backoffice:** `leads_recebidos` mostra `visita_em` e
   `corretor_avisado_da_visita`.
 - **Pendências:**
-  1. A Intelliway ainda precisa mandar o lead e o `visit_at`. Isso vai pelo
-     chamado #1427, e o texto já foi passado ao Mateus. O teste é na conta
-     interna `inmcpatrimonial` (id_agent 804).
-  2. Alguém precisa criar o modelo `mh_visita_marcada` na Twilio: rodar
-     `node scripts/criar-modelos-whatsapp.mjs` em `api/mcp-backoffice`.
-     Depois, a Meta precisa aprovar.
+  1. A Intelliway ainda precisa mandar o lead e o `visit_at`. **O Mateus
+     enviou o pedido no chamado #1427 em 02/10.** O teste é na conta interna
+     `inmcpatrimonial` (id_agent 804). Quando ela responder, conferir o aviso
+     chegando nessa conta.
+  2. **Guardado para depois (Mateus, 02/10: "guarde para fazermos depois a
+     mensagem no whatsapp"):** criar o modelo `mh_visita_marcada` na Twilio,
+     rodando `npm run modelos` em `api/mcp-backoffice` no computador dele.
+     Depois a Meta precisa aprovar. Até lá, o aviso sai só por e-mail. Puxar
+     o assunto quando a Intelliway confirmar o envio da visita.
 - **Passo 2, não feito:** "Conectar Google Agenda" no app, para a IA
   oferecer só horários livres. Depende da verificação do Google e de a IA da
   Intelliway consultar a nossa API.
