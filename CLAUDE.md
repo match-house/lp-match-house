@@ -175,13 +175,25 @@ para aquela mensagem.
     "pode" do Mateus.
   - O aviso antes de cada débito do Pix é do banco do corretor, 3 dias antes.
     Não é nosso.
+  - **Tela no ar em 02/10 (app #110), aprovada pelo Mateus ("perfeito agora!").**
+    - Rota `/dashboard/pro`, com "Plano Pro" no menu e na visão geral, só
+      para quem a API libera.
+    - Copy aprovada:
+      - título "Libere até 30 clientes por mês.";
+      - benefícios: 30 clientes com nome e celular, IA que atende e marca
+        visitas, Smart Link com até 100 imóveis, redes sociais num só link.
+    - Pix no celular = "Copiar código Pix" (Copia e Cola); no computador, o QR.
+    - O código Pix vale **10 minutos** (pedido dele): tem contagem na tela e,
+      quando vence, o botão "Gerar novo código".
+    - A chave publicável do Stripe (pública, passada por ele) está no código
+      do app.
+  - **Quem assina: só a conta interna 999 (INMC)**, padrão da API desde a
+    api #49, sem mexer no ECS. Corretores não veem nada até `BILLING_MODE=on`.
   - Falta:
-    1. tela "Assinar o Pro" no app, com prévia ao Mateus antes;
-    2. chave publicável do Stripe no Vercel do app;
-    3. ativar o Pix no painel do Stripe;
-    4. teste com a conta interna 999;
-    5. voltar ao plano de entrada quando o Pro for cancelado;
-    6. textos dos avisos de pagamento.
+    1. ativar o Pix no painel do Stripe (o Mateus);
+    2. teste real com a conta 999, depois estorno e cancelamento;
+    3. voltar ao plano de entrada quando o Pro for cancelado;
+    4. textos dos avisos de pagamento.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
