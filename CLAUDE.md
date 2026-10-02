@@ -337,6 +337,34 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
+## Visita no calendário do corretor: NÃO existe (conferido em 02/10)
+
+A LP2 ("A IA tira as dúvidas e já marca a visita"), o topo do smartli.ink
+("já agendo a visita") e o texto do Divulgar ("visita agendada") prometem
+mais do que o produto faz hoje.
+
+- **Nenhum repositório fala com o Google Agenda** (api, app, BFF,
+  match-house, backoficce). O Google só aparece no login e na planilha do
+  funil.
+- **O agendamento do app antigo é outra coisa.** É a tabela `Schedule`
+  (visita ou reunião), presa ao `Match` comprador↔corretor, com aviso no
+  celular. Não usa o Google, e a IA do smartli.ink não grava nada nela.
+- **A rota de agenda para a IA ficou pela metade.** Em dez/2025 a Globalsys
+  fez `findAllScheduleByIdAgentExternal`, com o comentário "remover
+  permissão quando confirmar uso pela IA". Ela só lê essa agenda antiga,
+  não cria nada e pede login. Nunca foi ligada.
+- **Com a Intelliway, só a conversa de 02/04/2025.** A reunião "Agente IA"
+  tratou de "agendamento de visitas" e o Rodrigo ficou de "verificar a
+  disponibilidade dos horários do corretor". Não há e-mail de entrega.
+- **O lead não leva dia nem hora.** O `POST /external/leads` grava nome,
+  celular, imóvel e mensagem, sem campo de visita. Quando o lead chega, a API
+  não avisa o corretor; ele só vê a conversa em "IA & Leads".
+- **Não confundir com o que não é visita de cliente:**
+  - os e-mails "Novo compromisso … agendado!" de abr/2025 eram do
+    GoHighLevel: corretor marcando conversa com a Match House;
+  - o link `calendar.app.google/…` que o Mateus mandou ao Gideão em
+    19/02/2025 era uma página de agendamento do próprio Google Agenda.
+
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
 `SUPPORT_MESSAGES` em `app/src/constants.ts` preenche o WhatsApp com uma frase
