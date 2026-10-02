@@ -198,14 +198,18 @@ para aquela mensagem.
       Não". A conta aceita Pix avulso (R$ 0,50 a R$ 15.674,85), mas não o
       Pix Automático. Pela documentação do Stripe, Pix para empresa no Brasil
       é por convite.
-    - Caminho: pedir ao suporte do Stripe que libere o Pix Automático (texto
-      dado ao Mateus em 02/10). O cartão não depende disso.
+    - **Resposta do Stripe (02/10): conta brasileira só aceita Pix avulso.
+      O Pix Automático não existe para contas do Brasil e não há como
+      liberar.** Não pedir de novo nem tentar outra configuração.
+    - Cartão: testado na conta 999 em 02/10, 16h32. Passou e o Pro ligou
+      ("Válido até 01/11"). Na mesma hora o imóvel 888 da INMC saiu do ar
+      (disable_ad): investigar antes de abrir a cobrança.
     - Plano B, só com o "pode" dele: cobrar o Pix avulso todo mês por fatura
       (o corretor paga a cada mês; não é débito automático).
     - Não ativar o Pix na configuração "Billing Payments" nem mexer nas
       configurações "LeadConnector conta", que são de outro sistema.
   - Falta:
-    1. o Stripe liberar o Pix Automático (pedido ao suporte);
+    1. decidir o Pix: só cartão, ou Pix avulso todo mês por fatura;
     2. teste real com a conta 999, depois estorno e cancelamento;
     3. voltar ao plano de entrada quando o Pro for cancelado;
     4. textos dos avisos de pagamento.
