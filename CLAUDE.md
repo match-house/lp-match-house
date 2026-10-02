@@ -45,6 +45,9 @@ Notas do projeto para agentes. Ler antes de mexer.
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas (hoje LP R$ 50 + app R$ 75). Redistribuir entre campanhas e anúncios pode; passar do total, não.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
+    Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
+    tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
+    fica somente vc gerindo a campanha".
 - Toda mudança feita com essa autonomia sai no relatório diário com o motivo e o número que a justificou.
 - Pausa noturna: os dois conjuntos param às 23h13 e voltam às 07h13 (Brasília).
   De 29/09 a 01/10 isso foi feito por rotina desta conversa, porque a regra
