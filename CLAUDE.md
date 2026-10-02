@@ -67,6 +67,16 @@ Notas do projeto para agentes. Ler antes de mexer.
   (religar) foram desligadas, não apagadas, para não haver dois controles.
   Se a regra falhar de novo, religar as duas rotinas e avisar o Mateus.
 - Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
+- **ChatGPT (OpenAI Ads)**, fora do MCP e fora do teto do Meta; quem mexe é o
+  Mateus, no painel dele. Em 02/10 a conta mostrou que todos os 4 cadastros
+  completos (1166 a 1169) vieram da campanha "Smart Link - Registro completo"
+  (utm_campaign `chatgpt-registro-completo`): R$ 37,99, 12 cliques, R$ 9,50 por
+  cadastro. A "Campanha Smartlink", por clique, gastou R$ 227,97 com 81
+  cliques e 0 cadastros completos. Com o "concordo" dele, a verba passou para
+  a "Registro completo" e a campanha por clique foi pausada (feito por ele).
+  Pendente: o painel da OpenAI marca 0 conversões. Conferir em Fontes de
+  dados se chegam eventos `registration_completed` do pixel do
+  app.smartli.ink, e se a campanha usa esse pixel e esse evento.
 
 ## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
 
