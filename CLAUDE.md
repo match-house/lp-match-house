@@ -23,6 +23,11 @@ Notas do projeto para agentes. Ler antes de mexer.
 ## Estrutura
 
 - `index.html` — LP principal (a que está no ar). É um "design doc" (`<x-dc>` + `support.js`); o `<helmet>` é processado por JS.
+  - Desde 02/10 (aprovado pelo Mateus) o topo é a "LP2": título "Acorde com
+    visitas marcadas.", cartão de uma noite em três passos e botão logo abaixo;
+    só um exemplo de Smart Link, maior; botão de cadastro fixo no rodapé do
+    celular. Os cadastros chegam com `mh_v=lp2` (ou `lp2-barra`), contra
+    `lp1` da versão anterior: comparar depois de uns 7 dias.
 - `concept-a/b/c/d.html` — rascunhos de conceito, não são a página publicada.
 - `diagnostico/`, `politica-de-privacidade.html` — páginas auxiliares.
 - `favicon.png` — o "M" da marca (64×64). `logo.png`, `assets/logo-*.png` — logos.
@@ -43,7 +48,12 @@ Notas do projeto para agentes. Ler antes de mexer.
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
-  - **Teto de R$ 125/dia no Meta** somando as campanhas (hoje LP R$ 50 + app R$ 75). Redistribuir entre campanhas e anúncios pode; passar do total, não.
+  - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
+    com o "pode" do Mateus: **LP R$ 20 + app R$ 105** (antes LP 35 + app 90).
+    Motivo: de 16/09 a 01/10, R$ 131 por corretor que publicou pelo app contra
+    R$ 448 pela LP. Isto vale acima dos números antigos da rotina do
+    relatório diário. Redistribuir entre campanhas e anúncios pode; passar
+    do total, não.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
