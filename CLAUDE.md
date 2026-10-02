@@ -162,6 +162,26 @@ para aquela mensagem.
   R$ 147 a cada 30 dias; o preço no Stripe foi criado depois do PR api #43,
   que faz plano de 30 dias virar mensal). Criar o plano não cobra
   ninguém: a cobrança (renovação, falha de pagamento, Pix) ainda está por fazer.
+- **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
+  - O que entrou:
+    - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
+    - assinatura no Stripe com débito mensal autorizado até R$ 147, na API
+      `dahlia` só nessa chamada;
+    - renovação (`subscription_cycle`) estende o plano até o fim do período
+      + 10 dias de folga;
+    - `invoice.payment_failed` vai para o log.
+  - Quem assina: só os `id_user` de `BILLING_TEST_USER_IDS` (variável no
+    ECS, hoje vazia). Com `BILLING_MODE=on`, todos. Ligar `on` só com o
+    "pode" do Mateus.
+  - O aviso antes de cada débito do Pix é do banco do corretor, 3 dias antes.
+    Não é nosso.
+  - Falta:
+    1. tela "Assinar o Pro" no app, com prévia ao Mateus antes;
+    2. chave publicável do Stripe no Vercel do app;
+    3. ativar o Pix no painel do Stripe;
+    4. teste com a conta interna 999;
+    5. voltar ao plano de entrada quando o Pro for cancelado;
+    6. textos dos avisos de pagamento.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
