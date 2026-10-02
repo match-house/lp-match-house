@@ -214,6 +214,22 @@ para aquela mensagem.
       (o corretor paga a cada mês; não é débito automático).
     - Não ativar o Pix na configuração "Billing Payments" nem mexer nas
       configurações "LeadConnector conta", que são de outro sistema.
+  - **Cobrança continua desligada (decisão do Mateus, 02/10).** Motivo: em
+    setembro, 49 corretores com conversa somaram só 3 leads com nome e
+    celular, e nenhum passou de 3 no mês. O limite do plano de entrada nem
+    existe ainda. Ordem: leads da Intelliway chegando, medir 2 a 4 semanas,
+    depois o limite de 3 e o Pro juntos.
+  - **Lista de espera do Pro no ar desde 02/10, à noite** (api #51, app #112),
+    com o "pode" dele:
+    - na visão geral, quem ainda não pode assinar vê "Plano Pro · Em breve",
+      "Até 30 clientes por mês com nome e celular. A IA atende e marca
+      visitas. R$ 147 por mês." e o botão "Quero ser avisado";
+    - a lista sai em `GET /backoffice/pro/interesse`, e o toque vira o evento
+      `pro_waitlist_joined` no Amplitude;
+    - é para quem está nessa lista que se avisa primeiro quando o Pro abrir.
+  - Segunda, 05/10 (combinado com ele): Pix Automático do C6, cancelar o Pro
+    pelo app (voltando ao plano de entrada) e nota fiscal automática com a
+    prefeitura de Vitória.
   - Falta:
     1. Pix pelo C6: esperar a resposta do C6 (homologação e escopos);
     2. teste real com a conta 999, depois estorno e cancelamento;
