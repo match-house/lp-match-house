@@ -337,33 +337,47 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
-## Visita no calendário do corretor: NÃO existe (conferido em 02/10)
+## Visita marcada pela IA: passo 1 na API desde 02/10; falta a Intelliway
 
-A LP2 ("A IA tira as dúvidas e já marca a visita"), o topo do smartli.ink
-("já agendo a visita") e o texto do Divulgar ("visita agendada") prometem
-mais do que o produto faz hoje.
+**Decisão do Mateus em 02/10 (opção "a"):** a LP2 continua com "A IA tira as
+dúvidas e já marca a visita". A promessa fica de pé, e o passo 1 foi feito
+rápido para torná-la verdade.
 
-- **Nenhum repositório fala com o Google Agenda** (api, app, BFF,
-  match-house, backoficce). O Google só aparece no login e na planilha do
-  funil.
-- **O agendamento do app antigo é outra coisa.** É a tabela `Schedule`
-  (visita ou reunião), presa ao `Match` comprador↔corretor, com aviso no
-  celular. Não usa o Google, e a IA do smartli.ink não grava nada nela.
-- **A rota de agenda para a IA ficou pela metade.** Em dez/2025 a Globalsys
-  fez `findAllScheduleByIdAgentExternal`, com o comentário "remover
-  permissão quando confirmar uso pela IA". Ela só lê essa agenda antiga,
-  não cria nada e pede login. Nunca foi ligada.
-- **Com a Intelliway, só a conversa de 02/04/2025.** A reunião "Agente IA"
-  tratou de "agendamento de visitas" e o Rodrigo ficou de "verificar a
-  disponibilidade dos horários do corretor". Não há e-mail de entrega.
-- **O lead não leva dia nem hora.** O `POST /external/leads` grava nome,
-  celular, imóvel e mensagem, sem campo de visita. Quando o lead chega, a API
-  não avisa o corretor; ele só vê a conversa em "IA & Leads".
-- **Não confundir com o que não é visita de cliente:**
-  - os e-mails "Novo compromisso … agendado!" de abr/2025 eram do
-    GoHighLevel: corretor marcando conversa com a Match House;
-  - o link `calendar.app.google/…` que o Mateus mandou ao Gideão em
-    19/02/2025 era uma página de agendamento do próprio Google Agenda.
+**Antes de 02/10 a visita não chegava a lugar nenhum** (conferido no código
+dos cinco repositórios e nos e-mails):
+
+- Nada fala com o Google Agenda.
+- O `Schedule` do app antigo está preso ao `Match` comprador↔corretor. A
+  consulta `findAllScheduleByIdAgentExternal`, da Globalsys (dez/2025), só
+  lê essa agenda e nunca foi ligada.
+- A Intelliway só tratou de agenda na reunião de 02/04/2025, sem entrega.
+- Não confundir com o GoHighLevel ("Novo compromisso … agendado!", abr/2025)
+  nem com o `calendar.app.google/…` de 19/02/2025. Nenhum dos dois é visita
+  de cliente.
+
+**O passo 1, no ar desde o PR api #45** (`api/docs/visita-marcada.md`):
+
+- **O que muda no lead:** o `POST /external/leads` aceita `visit_at`, no
+  formato `AAAA-MM-DDTHH:MM` do horário de Brasília. Fica gravado em
+  `lead.visit_at`.
+- **Aviso ao corretor:**
+  - **e-mail** com o WhatsApp do cliente, o botão "Adicionar ao Google
+    Agenda" e o `visita.ics` anexo, para o iPhone e o Outlook;
+  - **WhatsApp** pelo 6800, com o modelo `mh_visita_marcada`. Até a Meta
+    aprovar, o aviso sai só por e-mail.
+  - Sai um aviso por visita. Se a data muda, sai "Visita remarcada".
+- **No backoffice:** `leads_recebidos` mostra `visita_em` e
+  `corretor_avisado_da_visita`.
+- **Pendências:**
+  1. A Intelliway ainda precisa mandar o lead e o `visit_at`. Isso vai pelo
+     chamado #1427, e o texto já foi passado ao Mateus. O teste é na conta
+     interna `inmcpatrimonial` (id_agent 804).
+  2. Alguém precisa criar o modelo `mh_visita_marcada` na Twilio: rodar
+     `node scripts/criar-modelos-whatsapp.mjs` em `api/mcp-backoffice`.
+     Depois, a Meta precisa aprovar.
+- **Passo 2, não feito:** "Conectar Google Agenda" no app, para a IA
+  oferecer só horários livres. Depende da verificação do Google e de a IA da
+  Intelliway consultar a nossa API.
 
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
