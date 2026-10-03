@@ -222,8 +222,9 @@ para aquela mensagem.
   - **Lista de espera do Pro no ar desde 02/10, à noite** (api #51, app #112),
     com o "pode" dele:
     - na visão geral, quem ainda não pode assinar vê "Plano Pro · Em breve",
-      "Até 30 clientes por mês com nome e celular. A IA atende e marca
-      visitas. R$ 147 por mês." e o botão "Quero ser avisado";
+      "Libere até 30 clientes por mês e outros benefícios." e "Quem está na
+      lista fica sabendo primeiro. R$ 147 por mês." (texto pedido por ele,
+      app #113), com o botão "Quero ser avisado";
     - a lista sai em `GET /backoffice/pro/interesse`, e o toque vira o evento
       `pro_waitlist_joined` no Amplitude;
     - é para quem está nessa lista que se avisa primeiro quando o Pro abrir.
@@ -231,7 +232,11 @@ para aquela mensagem.
     pelo app (voltando ao plano de entrada) e nota fiscal automática com a
     prefeitura de Vitória.
   - Falta:
-    1. Pix pelo C6: esperar a resposta do C6 (homologação e escopos);
+    1. Pix pelo C6: em 21/09 o C6 tinha cancelado a homologação antiga
+       (o roteiro de testes não foi enviado). Em 03/10 o Mateus refez o
+       cadastro no portal developers.c6bank.com.br e na segunda, 05/10, liga
+       para o gerente (pelo WhatsApp) para saber o retorno. Esperar essa
+       resposta (homologação e escopos) antes de montar;
     2. teste real com a conta 999, depois estorno e cancelamento;
     3. voltar ao plano de entrada quando o Pro for cancelado;
     4. textos dos avisos de pagamento.
