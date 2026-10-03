@@ -380,6 +380,17 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+- **Toda mensagem pronta vai com os links (Mateus, 03/10: "O link, lembra?
+  Salva isso").** Em 03/10 entreguei respostas sem link e ele cobrou duas vezes.
+  - **Dentro da mensagem, o link que a pessoa precisa.** Quem ainda não tem
+    cadastro recebe `https://app.smartli.ink` (o card do WhatsApp sai "Crie seu
+    Smart Link", que é o certo para ela). Quem já tem recebe primeiro o
+    `smartli.ink/<slug>` e depois o link do painel.
+  - **Fora da mensagem, para ele, o link de enviar:**
+    `https://wa.me/55DDDNUMERO?text=` + o texto codificado, um por pessoa. Ele
+    toca, abre a conversa dela com o texto pronto e só envia.
+  - Codificar com `jq -Rrs @uri arquivo.txt`. Não usar python para isso:
+    python pede aprovação a ele a cada vez.
 
 ## O que dizer ao corretor — bio em toda resposta (regra do Mateus, 29/09)
 
