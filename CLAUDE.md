@@ -487,6 +487,33 @@ sem precisar perguntar:
 
 O clique é medido como `support_click` (com `step`) no Amplitude.
 
+### Desde 04/10 o botão de ajuda vai para o 6800, e eu respondo
+
+- O botão verde de ajuda do app abre o **6800** (+55 27 99854-6800), não mais o
+  WhatsApp pessoal do Mateus. O rótulo passou a ser "Fale com a Match House"
+  (app #115).
+- **Resposta automática na hora** (api #52): cada frase da tabela acima recebe
+  do 6800, no mesmo segundo, o caminho daquela tela e o link
+  https://app.smartli.ink. Os 5 textos foram aprovados pelo Mateus em 04/10 e
+  ficam em `api/src/modules/activation/whatsapp-webhook.service.ts`. Vale a
+  trava de 1 resposta automática a cada 24 h por telefone. O e-mail "WhatsApp
+  de…" ganha a linha "Resposta automática enviada: <passo>".
+- **Autonomia nas conversas de ajuda** (Mateus, 04/10: "sim pode responder e me
+  avisa"): quando a pessoa continua a conversa com uma dúvida de uso ou de
+  cadastro, eu respondo pelo 6800 SEM pedir "pode" e aviso o Mateus depois,
+  com o que ela disse e o que eu respondi. Continuam precisando do "pode":
+  preço e planos, reclamação, cancelamento, promessa em nome da Match House e
+  qualquer mensagem fora da janela de 24 h.
+- **Quem ainda não tem conta** responde-se por `id_inbound`: POST
+  `/backoffice/messages/preview` e depois `/send` com
+  `{id_inbound, channel: "whatsapp", kind: "texto", text}` (+ `confirmacao` no
+  send). As mensagens recebidas sem cadastro estão em
+  `GET /backoffice/messages/received`, e o e-mail traz "Para responder pelo
+  backoffice: id_inbound <n>". Uma resposta por mensagem recebida, só até 24 h
+  depois dela. O telefone fica na API só essas 24 h.
+- O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
+  6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
