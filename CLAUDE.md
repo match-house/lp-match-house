@@ -514,6 +514,35 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
   6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
 
+## Direct do Instagram (@matchhouse.br) — automação nativa desde 04/10
+
+- Corretor também escreve no Direct da Match House. Em 02/10 a Luciene Matos
+  (corretoralucienematos) pediu "atendimento para entender como funciona" e
+  ficou 2 dias sem resposta: chegou como solicitação de mensagem.
+- Em 04/10 o Mateus ligou no Meta Business Suite (Caixa de entrada >
+  Automações), para Instagram e Messenger:
+  - **Resposta automática** (primeira mensagem de cada pessoa): quem somos, o
+    link `https://app.smartli.ink` e "escreva aqui que a gente responde".
+    Limite do campo: 500 caracteres.
+  - **Perguntas frequentes**, nesta ordem: "Como funciona o Smart Link?",
+    "Como eu crio o meu link?", "Não consegui entrar, e agora?" (Android:
+    Continuar no Chrome > CONTINUAR; código: "Receber por WhatsApp"; manda para
+    o 6800) e "Tenho outra dúvida". O Instagram aceita no máximo 4. Antes
+    estavam as 4 perguntas padrão da Meta (serviços, hora marcada, escritório,
+    horário), sem resposta.
+- Ninguém lê o Direct por API ainda: a automação completa (webhook na API,
+  e-mail de aviso, eu respondendo como no 6800) está na fila e depende de o
+  Mateus criar o app na Meta. O token vai na configuração do servidor, nunca
+  no chat.
+- **Mensagem no Direct: no máximo 1.000 caracteres** (o Instagram recusa com
+  "A mensagem é muito longa"). Resposta pronta para o Mateus colar no Direct
+  sai abaixo disso.
+- Não escrever "falar com uma pessoa": quem responde é a Match House (eu e o
+  Mateus). Ele pediu para trocar por "Tenho outra dúvida".
+- Link no Direct que trava numa tela branca do l.instagram.com é o Instagram
+  segurando o link (aconteceu até com google.com, num celular de login novo).
+  A saída: os três pontinhos (⋮) > "Abrir no Chrome".
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
