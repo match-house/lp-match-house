@@ -530,10 +530,36 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     o 6800) e "Tenho outra dúvida". O Instagram aceita no máximo 4. Antes
     estavam as 4 perguntas padrão da Meta (serviços, hora marcada, escritório,
     horário), sem resposta.
-- Ninguém lê o Direct por API ainda: a automação completa (webhook na API,
-  e-mail de aviso, eu respondendo como no 6800) está na fila e depende de o
-  Mateus criar o app na Meta. O token vai na configuração do servidor, nunca
-  no chat.
+- **Desde 04/10, 12h44, o Direct chega na API e eu respondo (api #53)**, como
+  no 6800:
+  - Cada mensagem vira o e-mail "Instagram de @usuario" para a caixa, com o
+    perfil (seguidores, se segue a Match House), o cadastro do Smart Link
+    quando o @ bate com o link de Instagram de alguém, o texto e o
+    `id_instagram`.
+  - Responder: `POST /backoffice/instagram/preview` com
+    `{id_instagram, text}`, depois `/backoffice/instagram/send` com o mesmo
+    corpo + `confirmacao`. Uma resposta por mensagem, só até 24 h.
+  - `GET /backoffice/instagram/received` lista as das últimas 24 h.
+    `respondida_pela_conta_em` com data = alguém já respondeu pelo app: não
+    responder de novo.
+  - Mesma autonomia do 6800 (dúvida de uso ou cadastro: respondo e aviso o
+    Mateus; preço, reclamação, cancelamento, promessa: pedir o "pode").
+  - A rotina de hora em hora já lê esses e-mails.
+- Como está montado (para não desmontar sem querer):
+  - App "Match House Direct" na Meta (id 2118385825737092, portfólio Match
+    House, publicado). Caso de uso do Instagram, "Configuração da API com
+    login do Instagram". O @matchhouse.br é testador do Instagram no app.
+  - Webhook: `https://api.matchhouse.com.br/webhook/instagram`, verificar token
+    `matchhouse-direct`, campo `messages` assinado e a chave "Assinatura do
+    webhook" do @matchhouse.br LIGADA. Foi ela, desligada, que segurou o
+    primeiro teste.
+  - Servidor: `INSTAGRAM_APP_SECRET` (a "Chave secreta do app do
+    Instagram", não a do app da Meta) e `INSTAGRAM_ACCESS_TOKEN` na revisão
+    `matchhouse-back:20` do ECS. Colados pelo Mateus direto na AWS; nunca
+    passam pelo chat.
+  - O token vale 60 dias e a API renova sozinha toda semana (tabela
+    `integration_token`). Se o envio der "token vencido", gerar outro no item 2
+    e trocar na AWS.
 - **Mensagem no Direct: no máximo 1.000 caracteres** (o Instagram recusa com
   "A mensagem é muito longa"). Resposta pronta para o Mateus colar no Direct
   sai abaixo disso.
