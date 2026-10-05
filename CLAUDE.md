@@ -542,8 +542,19 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - `GET /backoffice/instagram/received` lista as das últimas 24 h.
     `respondida_pela_conta_em` com data = alguém já respondeu pelo app: não
     responder de novo.
-  - Mesma autonomia do 6800 (dúvida de uso ou cadastro: respondo e aviso o
-    Mateus; preço, reclamação, cancelamento, promessa: pedir o "pode").
+  - **Autonomia total no Direct desde 05/10.** Nas palavras do Mateus: "vc
+    pode responder tudo e so me notificar por aqui o que foi resolvido nos
+    relatorios diários". Respondo tudo no Direct, sem pedir "pode" e sem
+    avisar na hora. Cada envio é anotado em `envios_instagram`
+    (`scratchpad/mensagens-vistas.json`), com o que ficou resolvido, e o
+    relatório diário mostra isso no bloco "Mensagens".
+    - As regras de conteúdo continuam: nada de preço do Pro (falar em plano
+      de entrada), nunca prometer recurso que não existe, sem "grátis" e
+      convite da bio no fim.
+    - No 6800 nada mudou: preço, reclamação, cancelamento e promessa ainda
+      pedem o "pode".
+    - Primeiro envio nessa regra: o @guilhermepicorelli (id_instagram 5), em
+      05/10.
   - A rotina de hora em hora já lê esses e-mails.
 - Como está montado (para não desmontar sem querer):
   - App "Match House Direct" na Meta (id 2118385825737092, portfólio Match
