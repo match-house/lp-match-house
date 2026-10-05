@@ -556,6 +556,18 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     - Primeiro envio nessa regra: o @guilhermepicorelli (id_instagram 5), em
       05/10.
   - A rotina de hora em hora já lê esses e-mails.
+  - **Vigia em tempo real desde 05/10.** O Mateus disse: "de hora em hora é mt
+    longo". Funciona assim:
+    - O `scratchpad/vigia.sh` roda em segundo plano nesta conversa e confere
+      a cada 60 s:
+      - o Direct, em `/backoffice/instagram/received`;
+      - o 6800, em `/backoffice/messages/received?com_cadastro=1` (api #56).
+        Essa rota lista também quem já tem conta.
+    - Quando chega mensagem nova, a vigia sai e a conversa acorda e responde
+      na hora. Sem novidade, sai sozinha em ~110 min.
+    - Reinício do servidor da conversa mata a vigia. A rotina de hora em hora
+      confere o batimento (`scratchpad/vigia.heartbeat`) e religa.
+    - Depois de responder, religar a vigia.
 - Como está montado (para não desmontar sem querer):
   - App "Match House Direct" na Meta (id 2118385825737092, portfólio Match
     House, publicado). Caso de uso do Instagram, "Configuração da API com
