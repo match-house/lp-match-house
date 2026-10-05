@@ -426,7 +426,7 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
-## Visita marcada pela IA: passo 1 na API desde 02/10; falta a Intelliway
+## Visita marcada pela IA: na API desde 02/10, agenda desde 05/10; falta a Intelliway
 
 **Decisão do Mateus em 02/10 (opção "a"):** a LP2 continua com "A IA tira as
 dúvidas e já marca a visita". A promessa fica de pé, e o passo 1 foi feito
@@ -467,9 +467,24 @@ dos cinco repositórios e nos e-mails):
      rodando `npm run modelos` em `api/mcp-backoffice` no computador dele.
      Depois a Meta precisa aprovar. Até lá, o aviso sai só por e-mail. Puxar
      o assunto quando a Intelliway confirmar o envio da visita.
-- **Passo 2, não feito:** "Conectar Google Agenda" no app, para a IA
-  oferecer só horários livres. Depende da verificação do Google e de a IA da
-  Intelliway consultar a nossa API.
+- **Agenda v1, no ar desde 05/10** (api #61 e app #117; Mateus: "Pode
+  construir assim"). Pergunta da Glaucia (Intelliway): "vai ter validação
+  se o horário está livre?". Agora tem:
+  - visitas de 1 hora, de hora em hora, das 8h às 19h (Brasília), com 1 hora
+    de antecedência; ocupado = outra visita do corretor a menos de 1 hora;
+  - `GET /external/agenda/livre?slug=|id_agent=&dia=|dias=` (mesma chave
+    dos leads): a IA consulta antes de oferecer;
+  - o `POST /external/leads` recusa horário ocupado: o lead entra, a visita
+    não, e a resposta traz até 3 `sugestoes`. O mesmo cliente remarcando
+    não esbarra na própria visita;
+  - no app, aba **Visitas** (`/dashboard/visitas`; no celular, pela entrada
+    em IA & Leads): lista por dia, "Chamar no WhatsApp" e "Cancelar visita",
+    que libera o horário (`lead.visit_cancelled_at`). O cliente não é
+    avisado pela API; a tela lembra o corretor de avisar.
+  - Fica de fora da v1: Google Agenda do corretor, horário de atendimento
+    de cada um ("Meus horários").
+  - Falta a Intelliway usar a consulta. Especificação em
+    `api/docs/visita-marcada.md`, seção "Agenda".
 
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
