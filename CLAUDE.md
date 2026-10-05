@@ -162,6 +162,16 @@ para aquela mensagem.
   R$ 147 a cada 30 dias; o preço no Stripe foi criado depois do PR api #43,
   que faz plano de 30 dias virar mensal). Criar o plano não cobra
   ninguém: a cobrança (renovação, falha de pagamento, Pix) ainda está por fazer.
+- **Pix Automático pelo C6: pronto e desligado** (06/10, api #65 e app #120,
+  com o "pode!" do Mateus). O corretor paga o 1º mês num QR que já autoriza
+  o débito dos meses seguintes, sem Stripe.
+  - Só liga com `C6_PIX_AUTOMATICO=on` no ECS. Mesmo ligado, vale a trava de
+    sempre: só a conta 999 até `BILLING_MODE=on`.
+  - Falta o C6 liberar o Pix Automático na chave da API (pedido do Mateus
+    em 05/10).
+  - Depois disso, ele põe no ECS a chave nova, `C6_CONTA` e `C6_AGENCIA`.
+    Os passos estão no Apêndice A de `api/docs/cobranca-pro.md`.
+  - Lembrete marcado para quarta, 07/10.
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
