@@ -431,6 +431,21 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
 
+## Follow-up: um "conseguiu?" antes de a janela fechar (regra do Mateus, 06/10)
+
+- Pedido dele: "torne isso regra de folow up", depois do "conseguiu subir o
+  imóvel?" ao Guilherme.
+- Quem nos escreveu travado ou com um problema (Direct ou 6800) e ficou em
+  silêncio depois da nossa resposta recebe **um** follow-up curto, quando
+  faltarem 8 h ou menos para fechar a janela de 24 h. Sempre entre 8h e 21h.
+- Antes, conferir no backoffice se já resolveu sozinho. Se resolveu, não mandar.
+- Só um por problema; sem resposta, não insistir. Robô (resposta automática
+  do WhatsApp Business), SAIR/PARAR e teste interno ficam de fora.
+- Direct: autonomia total. 6800: dúvida de uso fica na autonomia (manda e
+  avisa); o que já precisava do "pode" continua precisando.
+- O passo a passo está na rotina de hora em hora
+  (`trig_011xbCpFRdmNvYVj7cDrs1Xc`), e o registro em `mensagens-vistas.json`.
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
