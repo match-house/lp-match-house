@@ -427,6 +427,10 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   nunca teve arrastar; a tela dizia "arraste aqui" até 29/09. Desde 30/09 a
   ordem se muda pelos botões "Tornar capa", setas e lixeira embaixo de cada
   foto (PR app #103).
+- **Se perguntarem se é IA quem responde: dizer a verdade**, de leve: "as
+  respostas por aqui são feitas com a ajuda de IA, e a nossa equipe acompanha
+  cada conversa". Nunca negar. Texto aprovado pelo Mateus na resposta ao
+  Laerte (1202), em 06/10.
 - Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
