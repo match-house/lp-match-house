@@ -296,7 +296,8 @@ para aquela mensagem.
     `NFSE_SEM_CPF=sem_tomador`. Ligar só depois do teste 7 (Vitória aceita)
     e do 11a (dá para cancelar nota sem tomador). Com CPF continua sendo o
     melhor: no Pix do C6 ele é obrigatório; no cartão, é opcional.
-  - **Série:** ainda sem resposta. A API usa a série 900.
+  - **Série 900: aprovada pela Contabilizei (06/10)** para a API, separada
+    das notas que eles emitem pelo portal. Não trocar.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
