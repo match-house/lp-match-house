@@ -258,6 +258,34 @@ para aquela mensagem.
     3. voltar ao plano de entrada quando o Pro for cancelado;
     4. textos dos avisos de pagamento.
 
+## Nota fiscal (NFS-e) automática: emissão direta no Emissor Nacional (06/10)
+
+- **Decisão do Mateus (06/10):** emitir direto pela API do sistema nacional,
+  sem fornecedor pago ("precisamos estar enxutos no custo"). Quem constrói é
+  esta conversa; os devs dele não estão fazendo.
+- **O que a Contabilizei confirmou em 06/10:**
+  - Serviço: item 01.03 da LC 116 (processamento, armazenamento ou
+    hospedagem), CNAE 6311-9/00.
+  - Código de Tributação Nacional: 010301 (ou 010302). O 01.05 não está no
+    cadastro; usar exigiria alteração contratual.
+  - Tributação pelo Simples Nacional, ISS de 2,01% informado na nota.
+    Anexo III (Fator R), alíquota efetiva do DAS de 6,00%. Sem retenção de
+    ISS nem de tributos federais, para pessoa física ou jurídica.
+  - Inscrição municipal em Vitória: 1306713, ativa. A API autentica pelo
+    e-CNPJ A1, sem cadastro prévio na prefeitura.
+  - Pode emitir na data de cada pagamento.
+  - Descrição: "Disponibilização e acesso à plataforma de software de gestão
+    imobiliária Match House (SaaS), referente à assinatura mensal do plano.
+    Competência: [Mês/Ano]. Pagamento via [Cartão/Pix]."
+  - Certificado e-CNPJ A1: vem no plano da Contabilizei (Certisign), válido
+    até 29/11/2026. A renovação abre 30 dias antes, de graça, na plataforma
+    deles. Ao renovar, trocar o certificado no servidor (ECS).
+- **Todo mês, até o dia 5:** a Contabilizei não tem integração com a nossa
+  emissão. O Mateus confere na plataforma deles se todas as notas do mês
+  anterior foram importadas, para o DAS sair certo. Mandar a ele a lista das
+  notas do mês antes do dia 5.
+- O certificado nunca passa pelo chat: vai direto para o ECS.
+
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
 Ideia dele: aproveitar os matches que a API já tem (vêm do app antigo).
