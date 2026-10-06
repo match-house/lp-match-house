@@ -313,6 +313,24 @@ para aquela mensagem.
     melhor: no Pix do C6 ele é obrigatório; no cartão, é opcional.
   - **Série 900: aprovada pela Contabilizei (06/10)** para a API, separada
     das notas que eles emitem pelo portal. Não trocar.
+- **Certificado no servidor e testes na restrita (06/10)**:
+  - O A1 está em `s3://matchhouse-segredos/nfse/ecnpj.pfx`. Só a função da
+    tarefa lê (política `nfse-certificado-leitura`).
+  - Revisão 21 da `matchhouse-back`, com `NFSE_EMISSAO=restrita`, a senha e
+    `NFSE_EMAIL_DONO`. Nenhuma nota real sai.
+  - A API lê: MATCH HOUSE TECHNOLOGY LTDA, válido até 29/11/2026.
+  - Resultado dos testes, em `api/docs/nfse.md` (seção 6, api #74):
+    - os 2,01% são recusados pela Sefin (E0625), como previsto;
+    - nota sem CPF sai e cancela;
+    - na restrita a inscrição municipal não pode ir (E0120). Na primeira nota
+      de produção, conferir E0116/E0120.
+  - CPF dos testes: o do Mateus, com o aval dele. Nunca usar CPF de corretor.
+  - Lembrete da renovação: Google Agenda e esta conversa, em 30/10.
+  - Falta, antes de ligar `producao`:
+    - "sombra" na restrita com `NFSE_DESDE`;
+    - texto do e-mail ao corretor;
+    - `charge.refunded` no webhook do Stripe;
+    - "pode" do Mateus.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
