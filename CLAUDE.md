@@ -551,6 +551,13 @@ dos cinco repositórios e nos e-mails):
      enviou o pedido no chamado #1427 em 02/10.** O teste é na conta interna
      `inmcpatrimonial` (id_agent 804). Quando ela responder, conferir o aviso
      chegando nessa conta.
+     **Em 06/10 a Glaucia pediu a chave da API (14h10) e o Mateus mandou**
+     pelo WhatsApp, no privado. Antes da chave, ele mandou um texto com as
+     duas rotas e a conta de teste.
+     - A chave é o `x-api-key` das duas rotas, o mesmo valor de
+       `EXTERNAL_LEADS_TOKEN` no ECS (ele copiou da aba JSON da revisão 20).
+     - A chave nunca passa por esta conversa.
+     - Próximo passo: ela testar e eu conferir o lead e o aviso de visita.
   2. **Guardado para depois (Mateus, 02/10: "guarde para fazermos depois a
      mensagem no whatsapp"):** criar o modelo `mh_visita_marcada` na Twilio,
      rodando `npm run modelos` em `api/mcp-backoffice` no computador dele.
