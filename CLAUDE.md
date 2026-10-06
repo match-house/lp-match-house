@@ -158,6 +158,13 @@ para aquela mensagem.
   dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
   nem em mensagem para corretor até o Mateus liberar.
 - Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
+- **Quem volta do Pro ao plano de entrada no meio do mês** (decisão do Mateus,
+  06/10) **não ganha mais 3 leads naquele mês**.
+  - Os 3 são "os 3 primeiros do mês", e os leads recebidos como Pro também
+    contam.
+  - O que ele já recebeu continua com o contato à mostra.
+  - No mês seguinte ele volta a ter os 3.
+  - Está registrado como decisão 6 em `api/docs/cobranca-pro.md`.
 - **Plano Pro criado** no backoffice em 01/10, às 19h57 (id_plan 21, ativo,
   R$ 147 a cada 30 dias; o preço no Stripe foi criado depois do PR api #43,
   que faz plano de 30 dias virar mensal). Criar o plano não cobra
