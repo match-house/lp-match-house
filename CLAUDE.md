@@ -99,6 +99,21 @@ lugar nenhum. As rotas estão em `api/src/modules/backoffice/*.controller.ts`.
 Leitura é livre; `POST /backoffice/messages/send` só com o "pode" do Mateus
 para aquela mensagem.
 
+- **Excluir conta a pedido do titular** (api #73, 06/10). Só com o "pode"
+  do Mateus para aquela conta.
+  - Primeiro o e-mail de confirmação, porque a exclusão apaga o endereço.
+    Sem convite da bio.
+  - Depois `POST /backoffice/conta/excluir/preview` `{id_user}`, e
+    `POST /backoffice/conta/excluir` com o mesmo corpo + `confirmacao`.
+  - O que a exclusão faz:
+    - cancela o Stripe;
+    - anonimiza o cadastro;
+    - troca o link por `excluido-<id_agent>`;
+    - apaga foto (também no S3), redes, sessões e leads;
+    - derruba o login (401).
+  - Pagamento e nota fiscal ficam, sem nome.
+  - Depois, tirar a pessoa das nossas listas locais.
+  - Primeira: a conta 561, em 06/10.
 - **Responder corretor pelo WhatsApp da esteira (27 99854-6800).** Ligado
   em 29/09 (`BACKOFFICE_SEND_ENABLED=true` na revisão `matchhouse-back:17`
   do ECS). Quem escreve no 6800 chega por e-mail ("WhatsApp de <nome>") e a
