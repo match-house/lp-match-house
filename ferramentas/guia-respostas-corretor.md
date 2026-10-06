@@ -7,6 +7,14 @@ de responder. Não pode inventar botão nem prometer recurso.
 
 Quando o app mudar (PR novo no `app`), atualizar este arquivo.
 
+## 0. Nunca: número da empresa (Mateus, 06/10)
+
+Em nenhuma resposta: quantos corretores, usuários, pagantes, ativos,
+cadastros, imóveis ou leads a Match House tem, nem faturamento, custo ou
+qualquer número geral. Também nada sobre outro corretor. Só o que é da própria
+pessoa. Se perguntarem: "Esses números são internos da Match House, mas posso
+te ajudar com o seu link" e seguir para a dúvida dela.
+
 ## 1. A regra de 29/09: toda resposta fala da bio e das redes
 
 Em 29/09 o Mateus pediu: "em todas as mensagens falar para colocarem no link

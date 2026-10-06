@@ -158,10 +158,133 @@ para aquela mensagem.
   dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
   nem em mensagem para corretor até o Mateus liberar.
 - Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
+- **Quem volta do Pro ao plano de entrada no meio do mês** (decisão do Mateus,
+  06/10) **não ganha mais 3 leads naquele mês**.
+  - Os 3 são "os 3 primeiros do mês", e os leads recebidos como Pro também
+    contam.
+  - O que ele já recebeu continua com o contato à mostra.
+  - No mês seguinte ele volta a ter os 3.
+  - Está registrado como decisão 6 em `api/docs/cobranca-pro.md`.
 - **Plano Pro criado** no backoffice em 01/10, às 19h57 (id_plan 21, ativo,
   R$ 147 a cada 30 dias; o preço no Stripe foi criado depois do PR api #43,
   que faz plano de 30 dias virar mensal). Criar o plano não cobra
   ninguém: a cobrança (renovação, falha de pagamento, Pix) ainda está por fazer.
+- **Pix Automático pelo C6: pronto e desligado** (06/10, api #65 e app #120,
+  com o "pode!" do Mateus). O corretor paga o 1º mês num QR que já autoriza
+  o débito dos meses seguintes, sem Stripe.
+  - Só liga com `C6_PIX_AUTOMATICO=on` no ECS. Mesmo ligado, vale a trava de
+    sempre: só a conta 999 até `BILLING_MODE=on`.
+  - Falta o C6 liberar o Pix Automático na chave da API (pedido do Mateus
+    em 05/10).
+  - Depois disso, ele põe no ECS a chave nova, `C6_CONTA` e `C6_AGENCIA`.
+    Os passos estão no Apêndice A de `api/docs/cobranca-pro.md`.
+  - Lembrete marcado para quarta, 07/10.
+- **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
+  - O que entrou:
+    - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
+    - assinatura no Stripe com débito mensal autorizado até R$ 147, na API
+      `dahlia` só nessa chamada;
+    - renovação (`subscription_cycle`) estende o plano até o fim do período
+      + 10 dias de folga;
+    - `invoice.payment_failed` vai para o log.
+  - Quem assina: só os `id_user` de `BILLING_TEST_USER_IDS` (variável no
+    ECS, hoje vazia). Com `BILLING_MODE=on`, todos. Ligar `on` só com o
+    "pode" do Mateus.
+  - O aviso antes de cada débito do Pix é do banco do corretor, 3 dias antes.
+    Não é nosso.
+  - **Tela no ar em 02/10 (app #110), aprovada pelo Mateus ("perfeito agora!").**
+    - Rota `/dashboard/pro`, com "Plano Pro" no menu e na visão geral, só
+      para quem a API libera.
+    - Copy aprovada:
+      - título "Libere até 30 clientes por mês.";
+      - benefícios: 30 clientes com nome e celular, IA que atende e marca
+        visitas, Smart Link com até 100 imóveis, redes sociais num só link.
+    - Pix no celular = "Copiar código Pix" (Copia e Cola); no computador, o QR.
+    - O código Pix vale **10 minutos** (pedido dele): tem contagem na tela e,
+      quando vence, o botão "Gerar novo código".
+    - A chave publicável do Stripe (pública, passada por ele) está no código
+      do app.
+  - **Quem assina: só a conta interna 999 (INMC)**, padrão da API desde a
+    api #49, sem mexer no ECS. Corretores não veem nada até `BILLING_MODE=on`.
+  - **Teste de 02/10, 16h30: o Stripe recusou o Pix na assinatura.**
+    - O Mateus ativou o Pix na configuração "Default" (Sua conta).
+    - Mesmo assim, ao tocar em "Assinar com Pix", o Stripe respondeu "The
+      payment method type `pix` is invalid ... enabled for any preview
+      features".
+    - Motivo, no painel: o PIX da conta mostra "Pagamentos recorrentes:
+      Não". A conta aceita Pix avulso (R$ 0,50 a R$ 15.674,85), mas não o
+      Pix Automático. Pela documentação do Stripe, Pix para empresa no Brasil
+      é por convite.
+    - **02/10: conta brasileira só aceita Pix avulso; o Pix Automático não
+      existe para contas do Brasil.** Quem respondeu foi o assistente de IA
+      do painel do Stripe, não o suporte humano. Bate com o "Pagamentos
+      recorrentes: Não" do painel. Decisão do Mateus no mesmo dia: o Pix vai
+      pelo C6 (apêndice A de `api/docs/cobranca-pro.md`); a mensagem com as
+      perguntas foi dada a ele para mandar ao C6.
+    - Causa do imóvel fora do ar no teste do cartão: a INMC tinha uma
+      assinatura antiga "Plano Gratuito" no Stripe (a cada 180 dias), que foi
+      cancelada às 16h32 quando o Pro ficou ativo.
+    - Cartão: testado na conta 999 em 02/10, 16h32. Passou e o Pro ligou
+      ("Válido até 01/11"). Na mesma hora o imóvel 888 da INMC saiu do ar
+      (disable_ad): investigar antes de abrir a cobrança.
+    - Plano B, só com o "pode" dele: cobrar o Pix avulso todo mês por fatura
+      (o corretor paga a cada mês; não é débito automático).
+    - Não ativar o Pix na configuração "Billing Payments" nem mexer nas
+      configurações "LeadConnector conta", que são de outro sistema.
+  - **Cobrança continua desligada (decisão do Mateus, 02/10).** Motivo: em
+    setembro, 49 corretores com conversa somaram só 3 leads com nome e
+    celular, e nenhum passou de 3 no mês. O limite do plano de entrada nem
+    existe ainda. Ordem: leads da Intelliway chegando, medir 2 a 4 semanas,
+    depois o limite de 3 e o Pro juntos.
+  - **Lista de espera do Pro no ar desde 02/10, à noite** (api #51, app #112),
+    com o "pode" dele:
+    - na visão geral, quem ainda não pode assinar vê "Plano Pro · Em breve",
+      "Libere até 30 clientes por mês e outros benefícios." e "Quem está na
+      lista fica sabendo primeiro. R$ 147 por mês." (texto pedido por ele,
+      app #113), com o botão "Quero ser avisado";
+    - a lista sai em `GET /backoffice/pro/interesse`, e o toque vira o evento
+      `pro_waitlist_joined` no Amplitude;
+    - é para quem está nessa lista que se avisa primeiro quando o Pro abrir.
+  - Segunda, 05/10 (combinado com ele): Pix Automático do C6, cancelar o Pro
+    pelo app (voltando ao plano de entrada) e nota fiscal automática com a
+    prefeitura de Vitória.
+  - Falta:
+    1. Pix pelo C6: em 21/09 o C6 tinha cancelado a homologação antiga
+       (o roteiro de testes não foi enviado). Em 03/10 o Mateus refez o
+       cadastro no portal developers.c6bank.com.br e na segunda, 05/10, liga
+       para o gerente (pelo WhatsApp) para saber o retorno. Esperar essa
+       resposta (homologação e escopos) antes de montar;
+    2. teste real com a conta 999, depois estorno e cancelamento;
+    3. voltar ao plano de entrada quando o Pro for cancelado;
+    4. textos dos avisos de pagamento.
+
+## Nota fiscal (NFS-e) automática: emissão direta no Emissor Nacional (06/10)
+
+- **Decisão do Mateus (06/10):** emitir direto pela API do sistema nacional,
+  sem fornecedor pago ("precisamos estar enxutos no custo"). Quem constrói é
+  esta conversa; os devs dele não estão fazendo.
+- **O que a Contabilizei confirmou em 06/10:**
+  - Serviço: item 01.03 da LC 116 (processamento, armazenamento ou
+    hospedagem), CNAE 6311-9/00.
+  - Código de Tributação Nacional: 010301 (ou 010302). O 01.05 não está no
+    cadastro; usar exigiria alteração contratual.
+  - Tributação pelo Simples Nacional, ISS de 2,01% informado na nota.
+    Anexo III (Fator R), alíquota efetiva do DAS de 6,00%. Sem retenção de
+    ISS nem de tributos federais, para pessoa física ou jurídica.
+  - Inscrição municipal em Vitória: 1306713, ativa. A API autentica pelo
+    e-CNPJ A1, sem cadastro prévio na prefeitura.
+  - Pode emitir na data de cada pagamento.
+  - Descrição: "Disponibilização e acesso à plataforma de software de gestão
+    imobiliária Match House (SaaS), referente à assinatura mensal do plano.
+    Competência: [Mês/Ano]. Pagamento via [Cartão/Pix]."
+  - Certificado e-CNPJ A1: vem no plano da Contabilizei (Certisign), válido
+    até 29/11/2026. A renovação abre 30 dias antes, de graça, na plataforma
+    deles. Ao renovar, trocar o certificado no servidor (ECS).
+- **Todo mês, até o dia 5:** a Contabilizei não tem integração com a nossa
+  emissão. O Mateus confere na plataforma deles se todas as notas do mês
+  anterior foram importadas, para o DAS sair certo. Mandar a ele a lista das
+  notas do mês antes do dia 5.
+- O certificado nunca passa pelo chat: vai direto para o ECS.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
@@ -263,6 +386,26 @@ com a margem. Antes, medir quanto custa cada conversa e cada lead.
 **Mateus concordou (01/10):** nada de revenda de token. Se vier, é um nível de
 IA dentro do plano, a preço fixo.
 
+## Dado da empresa é sigiloso: nunca em mensagem nem e-mail (Mateus, 06/10)
+
+- Nas palavras dele: "informações da empresa, numero de usuários pagantes,
+  ativos ou qualquer informação em massa ou que nao seja do proprio usuário
+  nunca deve ser fornecida nos emails e mensagens. Sao sigilosas da empresa e
+  concorrentes ou curiosos podem perguntar."
+- Em resposta a corretor, cliente, parceiro ou qualquer pessoa de fora
+  (WhatsApp 6800, Direct, e-mail, chamado):
+  - nunca dizer quantos corretores, usuários, pagantes, ativos, cadastros,
+    imóveis, leads ou conversas a Match House tem;
+  - nunca dar faturamento, custo, CAC, verba de anúncio, conversão ou
+    qualquer número agregado;
+  - nunca falar de outro corretor ou cliente.
+- Só se fala do que é da própria pessoa: o link dela, os imóveis dela, as
+  conversas e os leads dela.
+- Se perguntarem, responder com educação que esses números são internos e
+  voltar para o que a pessoa precisa.
+- Os relatórios, a área de custos e os funis são só para o Mateus e não saem
+  daqui.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
@@ -302,6 +445,17 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+- **Toda mensagem pronta vai com os links (Mateus, 03/10: "O link, lembra?
+  Salva isso").** Em 03/10 entreguei respostas sem link e ele cobrou duas vezes.
+  - **Dentro da mensagem, o link que a pessoa precisa.** Quem ainda não tem
+    cadastro recebe `https://app.smartli.ink` (o card do WhatsApp sai "Crie seu
+    Smart Link", que é o certo para ela). Quem já tem recebe primeiro o
+    `smartli.ink/<slug>` e depois o link do painel.
+  - **Fora da mensagem, para ele, o link de enviar:**
+    `https://wa.me/55DDDNUMERO?text=` + o texto codificado, um por pessoa. Ele
+    toca, abre a conversa dela com o texto pronto e só envia.
+  - Codificar com `jq -Rrs @uri arquivo.txt`. Não usar python para isso:
+    python pede aprovação a ele a cada vez.
 
 ## O que dizer ao corretor — bio em toda resposta (regra do Mateus, 29/09)
 
@@ -321,9 +475,33 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   nunca teve arrastar; a tela dizia "arraste aqui" até 29/09. Desde 30/09 a
   ordem se muda pelos botões "Tornar capa", setas e lixeira embaixo de cada
   foto (PR app #103).
+- **Padrão da Match House: IA com acompanhamento da equipe** (Mateus, 06/10:
+  "a verdade sempre.. IA com acompanhamento da equipe Match House pode tornar
+  nosso padrão"). Quando a gente se apresenta ou alguém pergunta se é IA:
+  "Aqui é o atendimento da Match House: as respostas por aqui são feitas com a
+  ajuda de IA, e a nossa equipe acompanha cada conversa". Nunca negar que é IA
+  e nunca fingir ser uma pessoa. Primeira vez: resposta ao Laerte (1202).
+  Forma curta (Mateus, 06/10: "com acompanhamento de cada conversa"):
+  "IA com acompanhamento da equipe Match House em cada conversa". O
+  "cada conversa" não sai.
 - Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
+
+## Follow-up: um "conseguiu?" antes de a janela fechar (regra do Mateus, 06/10)
+
+- Pedido dele: "torne isso regra de folow up", depois do "conseguiu subir o
+  imóvel?" ao Guilherme.
+- Quem nos escreveu travado ou com um problema (Direct ou 6800) e ficou em
+  silêncio depois da nossa resposta recebe **um** follow-up curto, quando
+  faltarem 8 h ou menos para fechar a janela de 24 h. Sempre entre 8h e 21h.
+- Antes, conferir no backoffice se já resolveu sozinho. Se resolveu, não mandar.
+- Só um por problema; sem resposta, não insistir. Robô (resposta automática
+  do WhatsApp Business), SAIR/PARAR e teste interno ficam de fora.
+- Direct: autonomia total. 6800: dúvida de uso fica na autonomia (manda e
+  avisa); o que já precisava do "pode" continua precisando.
+- O passo a passo está na rotina de hora em hora
+  (`trig_011xbCpFRdmNvYVj7cDrs1Xc`), e o registro em `mensagens-vistas.json`.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
@@ -336,6 +514,66 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   anúncio ou o texto, toca em "Preencher com a IA", confere e publica.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
+
+## Visita marcada pela IA: na API desde 02/10, agenda desde 05/10; falta a Intelliway
+
+**Decisão do Mateus em 02/10 (opção "a"):** a LP2 continua com "A IA tira as
+dúvidas e já marca a visita". A promessa fica de pé, e o passo 1 foi feito
+rápido para torná-la verdade.
+
+**Antes de 02/10 a visita não chegava a lugar nenhum** (conferido no código
+dos cinco repositórios e nos e-mails):
+
+- Nada fala com o Google Agenda.
+- O `Schedule` do app antigo está preso ao `Match` comprador↔corretor. A
+  consulta `findAllScheduleByIdAgentExternal`, da Globalsys (dez/2025), só
+  lê essa agenda e nunca foi ligada.
+- A Intelliway só tratou de agenda na reunião de 02/04/2025, sem entrega.
+- Não confundir com o GoHighLevel ("Novo compromisso … agendado!", abr/2025)
+  nem com o `calendar.app.google/…` de 19/02/2025. Nenhum dos dois é visita
+  de cliente.
+
+**O passo 1, no ar desde o PR api #45** (`api/docs/visita-marcada.md`):
+
+- **O que muda no lead:** o `POST /external/leads` aceita `visit_at`, no
+  formato `AAAA-MM-DDTHH:MM` do horário de Brasília. Fica gravado em
+  `lead.visit_at`.
+- **Aviso ao corretor:**
+  - **e-mail** com o WhatsApp do cliente, o botão "Adicionar ao Google
+    Agenda" e o `visita.ics` anexo, para o iPhone e o Outlook;
+  - **WhatsApp** pelo 6800, com o modelo `mh_visita_marcada`. Até a Meta
+    aprovar, o aviso sai só por e-mail.
+  - Sai um aviso por visita. Se a data muda, sai "Visita remarcada".
+- **No backoffice:** `leads_recebidos` mostra `visita_em` e
+  `corretor_avisado_da_visita`.
+- **Pendências:**
+  1. A Intelliway ainda precisa mandar o lead e o `visit_at`. **O Mateus
+     enviou o pedido no chamado #1427 em 02/10.** O teste é na conta interna
+     `inmcpatrimonial` (id_agent 804). Quando ela responder, conferir o aviso
+     chegando nessa conta.
+  2. **Guardado para depois (Mateus, 02/10: "guarde para fazermos depois a
+     mensagem no whatsapp"):** criar o modelo `mh_visita_marcada` na Twilio,
+     rodando `npm run modelos` em `api/mcp-backoffice` no computador dele.
+     Depois a Meta precisa aprovar. Até lá, o aviso sai só por e-mail. Puxar
+     o assunto quando a Intelliway confirmar o envio da visita.
+- **Agenda v1, no ar desde 05/10** (api #61 e app #117; Mateus: "Pode
+  construir assim"). Pergunta da Glaucia (Intelliway): "vai ter validação
+  se o horário está livre?". Agora tem:
+  - visitas de 1 hora, de hora em hora, das 8h às 19h (Brasília), com 1 hora
+    de antecedência; ocupado = outra visita do corretor a menos de 1 hora;
+  - `GET /external/agenda/livre?slug=|id_agent=&dia=|dias=` (mesma chave
+    dos leads): a IA consulta antes de oferecer;
+  - o `POST /external/leads` recusa horário ocupado: o lead entra, a visita
+    não, e a resposta traz até 3 `sugestoes`. O mesmo cliente remarcando
+    não esbarra na própria visita;
+  - no app, aba **Visitas** (`/dashboard/visitas`; no celular, pela entrada
+    em IA & Leads): lista por dia, "Chamar no WhatsApp" e "Cancelar visita",
+    que libera o horário (`lead.visit_cancelled_at`). O cliente não é
+    avisado pela API; a tela lembra o corretor de avisar.
+  - Fica de fora da v1: Google Agenda do corretor, horário de atendimento
+    de cada um ("Meus horários").
+  - Falta a Intelliway usar a consulta. Especificação em
+    `api/docs/visita-marcada.md`, seção "Agenda".
 
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
@@ -352,6 +590,111 @@ sem precisar perguntar:
 | "Caí num link do Match House que não abre…" | link quebrado |
 
 O clique é medido como `support_click` (com `step`) no Amplitude.
+
+### Desde 04/10 o botão de ajuda vai para o 6800, e eu respondo
+
+- O botão verde de ajuda do app abre o **6800** (+55 27 99854-6800), não mais o
+  WhatsApp pessoal do Mateus. O rótulo passou a ser "Fale com a Match House"
+  (app #115).
+- **Resposta automática na hora** (api #52): cada frase da tabela acima recebe
+  do 6800, no mesmo segundo, o caminho daquela tela e o link
+  https://app.smartli.ink. Os 5 textos foram aprovados pelo Mateus em 04/10 e
+  ficam em `api/src/modules/activation/whatsapp-webhook.service.ts`. Vale a
+  trava de 1 resposta automática a cada 24 h por telefone. O e-mail "WhatsApp
+  de…" ganha a linha "Resposta automática enviada: <passo>".
+- **Autonomia nas conversas de ajuda** (Mateus, 04/10: "sim pode responder e me
+  avisa"): quando a pessoa continua a conversa com uma dúvida de uso ou de
+  cadastro, eu respondo pelo 6800 SEM pedir "pode" e aviso o Mateus depois,
+  com o que ela disse e o que eu respondi. Continuam precisando do "pode":
+  preço e planos, reclamação, cancelamento, promessa em nome da Match House e
+  qualquer mensagem fora da janela de 24 h.
+- **Quem ainda não tem conta** responde-se por `id_inbound`: POST
+  `/backoffice/messages/preview` e depois `/send` com
+  `{id_inbound, channel: "whatsapp", kind: "texto", text}` (+ `confirmacao` no
+  send). As mensagens recebidas sem cadastro estão em
+  `GET /backoffice/messages/received`, e o e-mail traz "Para responder pelo
+  backoffice: id_inbound <n>". Uma resposta por mensagem recebida, só até 24 h
+  depois dela. O telefone fica na API só essas 24 h.
+- O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
+  6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
+
+## Direct do Instagram (@matchhouse.br) — automação nativa desde 04/10
+
+- Corretor também escreve no Direct da Match House. Em 02/10 a Luciene Matos
+  (corretoralucienematos) pediu "atendimento para entender como funciona" e
+  ficou 2 dias sem resposta: chegou como solicitação de mensagem.
+- Em 04/10 o Mateus ligou no Meta Business Suite (Caixa de entrada >
+  Automações), para Instagram e Messenger:
+  - **Resposta automática** (primeira mensagem de cada pessoa): quem somos, o
+    link `https://app.smartli.ink` e "escreva aqui que a gente responde".
+    Limite do campo: 500 caracteres.
+  - **Perguntas frequentes**, nesta ordem: "Como funciona o Smart Link?",
+    "Como eu crio o meu link?", "Não consegui entrar, e agora?" (Android:
+    Continuar no Chrome > CONTINUAR; código: "Receber por WhatsApp"; manda para
+    o 6800) e "Tenho outra dúvida". O Instagram aceita no máximo 4. Antes
+    estavam as 4 perguntas padrão da Meta (serviços, hora marcada, escritório,
+    horário), sem resposta.
+- **Desde 04/10, 12h44, o Direct chega na API e eu respondo (api #53)**, como
+  no 6800:
+  - Cada mensagem vira o e-mail "Instagram de @usuario" para a caixa, com o
+    perfil (seguidores, se segue a Match House), o cadastro do Smart Link
+    quando o @ bate com o link de Instagram de alguém, o texto e o
+    `id_instagram`.
+  - Responder: `POST /backoffice/instagram/preview` com
+    `{id_instagram, text}`, depois `/backoffice/instagram/send` com o mesmo
+    corpo + `confirmacao`. Uma resposta por mensagem, só até 24 h.
+  - `GET /backoffice/instagram/received` lista as das últimas 24 h.
+    `respondida_pela_conta_em` com data = alguém já respondeu pelo app: não
+    responder de novo.
+  - **Autonomia total no Direct desde 05/10.** Nas palavras do Mateus: "vc
+    pode responder tudo e so me notificar por aqui o que foi resolvido nos
+    relatorios diários". Respondo tudo no Direct, sem pedir "pode" e sem
+    avisar na hora. Cada envio é anotado em `envios_instagram`
+    (`scratchpad/mensagens-vistas.json`), com o que ficou resolvido, e o
+    relatório diário mostra isso no bloco "Mensagens".
+    - As regras de conteúdo continuam: nada de preço do Pro (falar em plano
+      de entrada), nunca prometer recurso que não existe, sem "grátis" e
+      convite da bio no fim.
+    - No 6800 nada mudou: preço, reclamação, cancelamento e promessa ainda
+      pedem o "pode".
+    - Primeiro envio nessa regra: o @guilhermepicorelli (id_instagram 5), em
+      05/10.
+  - A rotina de hora em hora já lê esses e-mails.
+  - **Vigia em tempo real desde 05/10.** O Mateus disse: "de hora em hora é mt
+    longo". Funciona assim:
+    - O `scratchpad/vigia.sh` roda em segundo plano nesta conversa e confere
+      a cada 60 s:
+      - o Direct, em `/backoffice/instagram/received`;
+      - o 6800, em `/backoffice/messages/received?com_cadastro=1` (api #56).
+        Essa rota lista também quem já tem conta.
+    - Quando chega mensagem nova, a vigia sai e a conversa acorda e responde
+      na hora. Sem novidade, sai sozinha em ~110 min.
+    - Reinício do servidor da conversa mata a vigia. A rotina de hora em hora
+      confere o batimento (`scratchpad/vigia.heartbeat`) e religa.
+    - Depois de responder, religar a vigia.
+- Como está montado (para não desmontar sem querer):
+  - App "Match House Direct" na Meta (id 2118385825737092, portfólio Match
+    House, publicado). Caso de uso do Instagram, "Configuração da API com
+    login do Instagram". O @matchhouse.br é testador do Instagram no app.
+  - Webhook: `https://api.matchhouse.com.br/webhook/instagram`, verificar token
+    `matchhouse-direct`, campo `messages` assinado e a chave "Assinatura do
+    webhook" do @matchhouse.br LIGADA. Foi ela, desligada, que segurou o
+    primeiro teste.
+  - Servidor: `INSTAGRAM_APP_SECRET` (a "Chave secreta do app do
+    Instagram", não a do app da Meta) e `INSTAGRAM_ACCESS_TOKEN` na revisão
+    `matchhouse-back:20` do ECS. Colados pelo Mateus direto na AWS; nunca
+    passam pelo chat.
+  - O token vale 60 dias e a API renova sozinha toda semana (tabela
+    `integration_token`). Se o envio der "token vencido", gerar outro no item 2
+    e trocar na AWS.
+- **Mensagem no Direct: no máximo 1.000 caracteres** (o Instagram recusa com
+  "A mensagem é muito longa"). Resposta pronta para o Mateus colar no Direct
+  sai abaixo disso.
+- Não escrever "falar com uma pessoa": quem responde é a Match House (eu e o
+  Mateus). Ele pediu para trocar por "Tenho outra dúvida".
+- Link no Direct que trava numa tela branca do l.instagram.com é o Instagram
+  segurando o link (aconteceu até com google.com, num celular de login novo).
+  A saída: os três pontinhos (⋮) > "Abrir no Chrome".
 
 ## Rodar localmente
 
