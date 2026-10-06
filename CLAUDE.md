@@ -326,12 +326,21 @@ para aquela mensagem.
       de produção, conferir E0116/E0120.
   - CPF dos testes: o do Mateus, com o aval dele. Nunca usar CPF de corretor.
   - Lembrete da renovação: Google Agenda e esta conversa, em 30/10.
-  - Falta, antes de ligar `producao`:
-    - "sombra" na restrita com `NFSE_DESDE`;
-    - texto do e-mail ao corretor: aprovado em 06/10, com a menção ao Smart
-      Link (api #75). Liga com `NFSE_EMAIL_CORRETOR=on`, só em produção;
+  - **A Contabilizei aprovou tudo em 06/10:**
+    - 01.03 / 010301, ligado ao CNAE 6311-9/00;
+    - ME/EPP pelo Simples, sem retenção e sem alíquota na nota (E0625 ok:
+      o ISS vai no DAS);
+    - 6,00% no Anexo III (3,99% + 2,01% de ISS);
+    - série 900;
+    - nota sem CPF permitida em Vitória.
+  - Texto do e-mail ao corretor: aprovado em 06/10, com a menção ao Smart
+    Link (api #75). Liga com `NFSE_EMAIL_CORRETOR=on`, só em produção.
+  - Para ligar `producao`, falta:
+    - o "pode" do Mateus para a data;
     - `charge.refunded` no webhook do Stripe;
-    - "pode" do Mateus.
+    - no ECS: `NFSE_EMISSAO=producao`, `NFSE_DESDE` = a data,
+      `NFSE_SEM_CPF=sem_tomador` e `NFSE_EMAIL_CORRETOR=on`.
+    - Na primeira nota real, conferir a inscrição municipal (E0116/E0120).
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
