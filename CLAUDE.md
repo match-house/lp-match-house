@@ -84,7 +84,9 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
 
 - Testes: 1011, 1014, 1033, 1095, 1096.
 - Internas: 980 (Leo Zeferino, equipe), 941 (testematheus), 937 (e-mail
-  @matchhouse), 999 (INMC Patrimonial, conta própria).
+  @matchhouse), 999 (INMC Patrimonial, conta própria), 3 (Admin, admin-1)
+  e 56 (Match House, match-house-27). As duas últimas foram confirmadas
+  pelo Mateus em 06/10: "sim sao nossas".
 - Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
 
 Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
@@ -338,9 +340,13 @@ para aquela mensagem.
   - **Todo plano pago gera nota sozinho** (Mateus, 06/10: "sim, pode
     fazer" e "nao tem planos antigos. todos ja acabaram"; api #76 e #77).
     - Criou um plano pago, a nota sai. Plano sem cobrança, não.
-    - Se uma assinatura antiga renovar no cartão, também sai nota. O
-      backoffice ainda marca 5 contas com plano antigo ativo (Flow 20, Go 19,
-      teste 18): provavelmente marcação velha.
+    - Se uma assinatura antiga renovar no cartão, também sai nota.
+    - **Planos antigos zerados em 06/10** (api #78, com o "pode" do Mateus).
+      - As 5 contas que ainda tinham plano antigo marcado passaram para o
+        plano de entrada, sem tirar imóvel do ar: 3, 56, 741, 786 (9 imóveis)
+        e 920.
+      - Rotas: `GET /backoffice/plans/antigos` (lista) e
+        `POST /backoffice/plans/antigos/<id_user>/para-entrada`.
     - A nota e o e-mail dizem "mensal", "anual" etc. pela duração do plano.
     - Pix Automático do C6 só existe para o Pro: plano novo no Pix precisa
       de código.
@@ -348,7 +354,9 @@ para aquela mensagem.
     - o "pode" do Mateus para a data;
     - `charge.refunded` no webhook do Stripe;
     - no ECS: `NFSE_EMISSAO=producao`, `NFSE_DESDE` = a data,
-      `NFSE_SEM_CPF=sem_tomador` e `NFSE_EMAIL_CORRETOR=on`.
+      `NFSE_SEM_CPF=sem_tomador` e `NFSE_EMAIL_CORRETOR=on`. Também
+      acrescentar `3,56` em `NFSE_SEM_NOTA_USER_IDS`: as contas internas
+      confirmadas em 06/10.
     - Na primeira nota real, conferir a inscrição municipal (E0116/E0120).
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
