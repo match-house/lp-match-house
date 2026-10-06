@@ -433,6 +433,9 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   "Aqui é o atendimento da Match House: as respostas por aqui são feitas com a
   ajuda de IA, e a nossa equipe acompanha cada conversa". Nunca negar que é IA
   e nunca fingir ser uma pessoa. Primeira vez: resposta ao Laerte (1202).
+  Forma curta (Mateus, 06/10: "com acompanhamento de cada conversa"):
+  "IA com acompanhamento da equipe Match House em cada conversa". O
+  "cada conversa" não sai.
 - Isto muda o conteúdo das respostas, não quem envia: cada envio pelo 6800
   continua precisando do "pode" até ele decidir sobre a autonomia (10 envios
   limpos).
