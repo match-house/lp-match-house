@@ -335,10 +335,12 @@ para aquela mensagem.
     - nota sem CPF permitida em Vitória.
   - Texto do e-mail ao corretor: aprovado em 06/10, com a menção ao Smart
     Link (api #75). Liga com `NFSE_EMAIL_CORRETOR=on`, só em produção.
-  - **Planos novos geram nota sozinhos** (Mateus, 06/10: "sim, pode
-    fazer"; api #76).
-    - Vale para todo plano pago criado a partir de 06/10, 17h; os planos
-      antigos ficam fora até a Contabilizei decidir.
+  - **Todo plano pago gera nota sozinho** (Mateus, 06/10: "sim, pode
+    fazer" e "nao tem planos antigos. todos ja acabaram"; api #76 e #77).
+    - Criou um plano pago, a nota sai. Plano sem cobrança, não.
+    - Se uma assinatura antiga renovar no cartão, também sai nota. O
+      backoffice ainda marca 5 contas com plano antigo ativo (Flow 20, Go 19,
+      teste 18): provavelmente marcação velha.
     - A nota e o e-mail dizem "mensal", "anual" etc. pela duração do plano.
     - Pix Automático do C6 só existe para o Pro: plano novo no Pix precisa
       de código.
