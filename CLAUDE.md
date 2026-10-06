@@ -285,6 +285,18 @@ para aquela mensagem.
   anterior foram importadas, para o DAS sair certo. Mandar a ele a lista das
   notas do mês antes do dia 5.
 - O certificado nunca passa pelo chat: vai direto para o ECS.
+- **Segunda resposta da Contabilizei (06/10), a duas das três perguntas:**
+  - **Alíquota:** para eles, mesmo sem retenção a alíquota vai na nota. Só
+    que a validação da Sefin (regra E0625) recusa `pAliq` no nosso caso:
+    ME/EPP, ISS pelo Simples, Vitória conveniada, sem retenção. Quem decide
+    é o teste 6 na produção restrita (`aliq: 2.01`).
+    - Se a Sefin aceitar, a alíquota passa a ir na nota (mudança pequena).
+    - Se recusar, mandar a resposta da Sefin à Contabilizei.
+  - **Sem CPF:** pode sair como consumidor não identificado. Isso já existe:
+    `NFSE_SEM_CPF=sem_tomador`. Ligar só depois do teste 7 (Vitória aceita)
+    e do 11a (dá para cancelar nota sem tomador). Com CPF continua sendo o
+    melhor: no Pix do C6 ele é obrigatório; no cartão, é opcional.
+  - **Série:** ainda sem resposta. A API usa a série 900.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
