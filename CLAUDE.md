@@ -328,7 +328,8 @@ para aquela mensagem.
   - Lembrete da renovação: Google Agenda e esta conversa, em 30/10.
   - Falta, antes de ligar `producao`:
     - "sombra" na restrita com `NFSE_DESDE`;
-    - texto do e-mail ao corretor;
+    - texto do e-mail ao corretor: aprovado em 06/10, com a menção ao Smart
+      Link (api #75). Liga com `NFSE_EMAIL_CORRETOR=on`, só em produção;
     - `charge.refunded` no webhook do Stripe;
     - "pode" do Mateus.
 
