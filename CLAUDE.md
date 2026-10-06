@@ -386,6 +386,26 @@ com a margem. Antes, medir quanto custa cada conversa e cada lead.
 **Mateus concordou (01/10):** nada de revenda de token. Se vier, é um nível de
 IA dentro do plano, a preço fixo.
 
+## Dado da empresa é sigiloso: nunca em mensagem nem e-mail (Mateus, 06/10)
+
+- Nas palavras dele: "informações da empresa, numero de usuários pagantes,
+  ativos ou qualquer informação em massa ou que nao seja do proprio usuário
+  nunca deve ser fornecida nos emails e mensagens. Sao sigilosas da empresa e
+  concorrentes ou curiosos podem perguntar."
+- Em resposta a corretor, cliente, parceiro ou qualquer pessoa de fora
+  (WhatsApp 6800, Direct, e-mail, chamado):
+  - nunca dizer quantos corretores, usuários, pagantes, ativos, cadastros,
+    imóveis, leads ou conversas a Match House tem;
+  - nunca dar faturamento, custo, CAC, verba de anúncio, conversão ou
+    qualquer número agregado;
+  - nunca falar de outro corretor ou cliente.
+- Só se fala do que é da própria pessoa: o link dela, os imóveis dela, as
+  conversas e os leads dela.
+- Se perguntarem, responder com educação que esses números são internos e
+  voltar para o que a pessoa precisa.
+- Os relatórios, a área de custos e os funis são só para o Mateus e não saem
+  daqui.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
