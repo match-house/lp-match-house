@@ -939,20 +939,35 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - `POST decidir/preview` e `POST decidir`.
 - Quem gerencia é esta conversa, com a autonomia dada pelo Mateus (acima).
 
-### Níveis gravados em 07/10, por volta das 16h20
+### Níveis gravados em 07/10 (16h20; nova ordem das cores às 16h38)
 
-Com o "pode gravar os niveis, green, blue, black e partner" do Mateus.
+- 16h20: gravados com o "pode gravar os niveis, green, blue, black e
+  partner" do Mateus, na ordem Green → Blue → Black → Partner.
+- **Por volta das 16h35–16h40, ele mudou a ordem:** "vamos mudar uma coisa,
+  o noite pode ser o ultimo acima do black pq é nossa cor".
+  - O Blue (desenho "Noite") é a cor da marca, então passa a ser o PVC mais
+    alto: o último cartão de PVC, acima do Black.
+  - Gravado às 16h38 (Brasília). Mudaram só nome e descrição dos ids 5, 10,
+    11, 12, 13 e 14. Mínimos, descontos, `view_order`, 730 dias e ids ficaram
+    iguais. Conferido depois, campo a campo: OK.
+- **Os nomes ainda podem mudar** em 1 ou 2 dias: o Mateus está escolhendo
+  nomes novos. Se mudarem, regravar só `name` e `description` (prévia e
+  depois `PUT niveis`). Nenhum código da API nem do app escolhe a cor pelo
+  nome.
 
 | Nível | Colegas | Desconto guardado | id_level |
 |---|---|---|---|
 | Entrada | 0 | 0% | 6 |
 | Green · 10% a 40% | 1 a 4 | 10% por colega | 4, 7, 8, 9 |
-| Blue · 50% a 90% | 5 a 9 | 50% a 90% | 5, 10, 11, 12, 13 |
-| Black · 100% | 10 | 100% | 14 |
+| Black · 50% a 90% | 5 a 9 | 50% a 90% | 5, 10, 11, 12, 13 |
+| Blue · 100% (Noite) | 10 | 100% | 14 |
 | Partner · 100% | 11 ou mais | 100% | 15 |
 
 - São 12 níveis, um por degrau. O nome traz a cor e o desconto ("Green ·
   20%"). `view_order` = colegas + 1. Ninguém está em nível nenhum ainda.
+- Descrições: "N colegas ativos: X% guardado e cartão Black" (ids 5 e 10 a
+  13) e "10 colegas ativos: 100% guardado e cartão Blue (Noite)" (id 14).
+  Entrada, Green e Partner não mudaram.
 - O desconto vai para `indication_discount_carry` e fica guardado. Só vira
   cupom na fase 3, quando a cobrança ligar. Imóvel extra não entra (01/10).
 - Validade do nível: 730 dias. Quando vence, o corretor perde o nível (e o
@@ -964,12 +979,17 @@ Com o "pode gravar os niveis, green, blue, black e partner" do Mateus.
   ao Mateus se o desconto deve cair nesses casos.
 - `is_default` ficou false nos 12 (o PUT não grava esse campo). Nada na
   aprovação nem no checkout lê esse campo; marcar Entrada é opcional.
-- Arquivos de antes, da prévia e de depois: `scratchpad/niveis/`.
-- Pôr a gravação no relatório diário, com o "pode" do Mateus.
+- Arquivos de antes, da prévia e de depois: `scratchpad/niveis/` (a troca
+  das 16h38 nos `*-noite.json`).
+- Pôr as duas gravações no relatório diário, com a frase do Mateus.
 
 ### Cartão por nível
 
-- Green, Blue (o desenho "Noite"), Black e Partner (metal).
+- Ordem desde 07/10, 16h38: Green (PVC) → Black (PVC) → Blue, o desenho
+  "Noite" (PVC, o mais alto, por ser a cor da marca) → Partner (metal).
+- Os detalhes "premium" do desenho (chip metálico, nome prateado e grão)
+  hoje estão no Black. Podem passar ao Noite quando o Mateus mandar as
+  alterações do desenho.
 - O nome do nível é **"Partner"**. É o mesmo "Parceiro Match House" de cima.
 - Rótulos: "SMART LINK · GREEN", "SMART LINK · BLUE" e "SMART LINK · BLACK",
   com "Nº 0001". No Partner, "PARTNER MATCH HOUSE" e "Nº 001", com selo de
@@ -993,7 +1013,8 @@ Com o "pode gravar os niveis, green, blue, black e partner" do Mateus.
     o `mh_ind_pct_<X>` é `duration: 'forever'`, e a recorrência do C6
     também não tem fim. Tem de valer 6 meses;
   - 100% quebra o checkout do Pro (fatura de R$ 0 cancela e dá 502; no C6,
-    Pix de R$ 0). Black e Partner precisam de um caminho próprio;
+    Pix de R$ 0). Os níveis de 100% (Blue/Noite e Partner) precisam de um
+    caminho próprio;
   - o desconto guardado nunca vence no código. O combinado é até 90 dias
     depois que o Pro abrir;
   - quando o nível desce, o desconto vai a 0, não ao do nível de baixo
@@ -1008,7 +1029,7 @@ Com o "pode gravar os niveis, green, blue, black e partner" do Mateus.
 - **Não usar o motor antigo do admin** (`processIndicationConversion`,
   `updateUserIndicationLevel`, `updateIndication` para aprovada). Ele compara
   nível pelo id e aprova sem conferir a ativação. O painel antigo mostra só
-  10 níveis: Black e Partner não aparecem lá.
+  10 níveis: os ids 14 (Blue/Noite) e 15 (Partner) não aparecem lá.
 - O selo e o destaque do Partner ainda não existem. A descrição do nível já
   promete os dois: não mostrar essa descrição ao corretor até existirem.
 - A conta 56 (interna) tem 2 indicações antigas aprovadas, que contam para o
