@@ -673,6 +673,10 @@ dos cinco repositórios e nos e-mails):
      - A chave é o `x-api-key` das duas rotas, o mesmo valor de
        `EXTERNAL_LEADS_TOKEN` no ECS (ele copiou da aba JSON da revisão 20).
      - A chave nunca passa por esta conversa.
+     **Em 07/10 a Glaucia confirmou:** "Deu sim! Estamos trabalhando nessa
+     demanda. O prazo de entrega é até o dia 13/10." Em 13/10, conferir na
+     conta 804 se o lead e a visita chegaram e se o e-mail de visita saiu
+     (lembrete marcado).
      - Próximo passo: ela testar e eu conferir o lead e o aviso de visita.
   2. **Guardado para depois (Mateus, 02/10: "guarde para fazermos depois a
      mensagem no whatsapp"):** criar o modelo `mh_visita_marcada` na Twilio,
