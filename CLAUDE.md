@@ -874,14 +874,16 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - **Estrutura fechada com o Mateus em 07/10** ("Esta mt bom assim mesmo. 1 e
   2 OK!"):
   - **Agora, sem cobrança, o prêmio é o cartão.**
-    - O 1º colega que publicar dá o cartão Smart Link de presente (PVC, com
-      nome, CRECI e QR).
+    - O 1º colega que publicar dá o cartão Smart Link de presente (o Green,
+      de PVC, com nome, CRECI e QR).
     - Os 10 imóveis no ar também dão o cartão: dois caminhos, um cartão por
       corretor.
     - Cada colega soma 10% de **desconto guardado**, até 100%. Começa a
       contar já e vale até 90 dias depois que o Pro abrir.
-    - Quem passa de 10 colegas vira **Parceiro Match House**: cartão de metal,
-      selo e destaque.
+    - Com 5 colegas o cartão passa a ser o Blue (desde 07/10, 16h47).
+    - Quem passa de 10 colegas vira **Parceiro Match House**: cartão Blue
+      com "PARTNER" impresso, selo e destaque. Não é mais de metal: o
+      fornecedor não faz (ver "Cartão por nível").
   - **Depois, com o Pro: desconto + cartão.**
     - Cada colega vale 10% por 6 meses, até 100%.
     - O cartão continua sendo o 1º prêmio de quem entra.
@@ -906,12 +908,14 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     de conferência por mês. Ele chegou a pedir 11 e voltou para o 5.
   - **Parceiro Match House** (ideia aprovada por ele em 07/10): quem passar de
     10 colegas no total (não por mês) ganha o selo de parceiro no Smart Link,
-    o cartão de metal e destaque. O formato ainda vai ser desenhado.
+    destaque e o cartão Blue com "PARTNER" impresso. O selo e o destaque
+    ainda vão ser desenhados.
   - Desde o PR api #79 a indicação só é aprovada com a ativação do colega.
     O desconto "para sempre" do código ainda muda na fase 3 (ver pendências).
 - **Cartão Smart Link** (NFC + QR, vai de presente para o endereço do
   corretor), com prazo e não por quantidade (decisão dele):
-  - 10 imóveis válidos: cartão de PVC; 30 imóveis válidos: cartão de metal;
+  - 10 imóveis válidos: cartão Green (PVC). O cartão de metal por 30 imóveis
+    ficou guardado para depois: o fornecedor não faz metal (07/10);
   - **promoção por tempo limitado**, nunca "os primeiros 100", que exigiria
     autorização da SPA (Lei 5.768/71);
   - o CRECI vai no cartão (exigência do COFECI);
@@ -939,35 +943,46 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - `POST decidir/preview` e `POST decidir`.
 - Quem gerencia é esta conversa, com a autonomia dada pelo Mateus (acima).
 
-### Níveis gravados em 07/10 (16h20; nova ordem das cores às 16h38)
+### Níveis gravados em 07/10 (16h20; cores às 16h38; dois cartões às 16h47)
 
 - 16h20: gravados com o "pode gravar os niveis, green, blue, black e
   partner" do Mateus, na ordem Green → Blue → Black → Partner.
-- **Por volta das 16h35–16h40, ele mudou a ordem:** "vamos mudar uma coisa,
-  o noite pode ser o ultimo acima do black pq é nossa cor".
-  - O Blue (desenho "Noite") é a cor da marca, então passa a ser o PVC mais
-    alto: o último cartão de PVC, acima do Black.
-  - Gravado às 16h38 (Brasília). Mudaram só nome e descrição dos ids 5, 10,
-    11, 12, 13 e 14. Mínimos, descontos, `view_order`, 730 dias e ids ficaram
-    iguais. Conferido depois, campo a campo: OK.
+- 16h38: o Blue (desenho "Noite", a cor da marca) passou para cima do
+  Black ("vamos mudar uma coisa, o noite pode ser o ultimo acima do black
+  pq é nossa cor").
+- **16h47 (Brasília; `updated_at` 19:47:57Z): só dois cartões, Green e
+  Blue.** As três frases do Mateus, no fim da tarde:
+  - "me informaram aqui que nao tem o de metal.. podemos deixar ele para o
+    blue": o fornecedor não faz cartão de metal, então o Partner fica com
+    o Blue;
+  - "acho que no primeiro momento podemos manter 2 cartoes o green e o
+    blue... depois evoluimos": começar com dois cartões; o Black sai;
+  - perguntado sobre o degrau: "pode ser blue a partir de 5".
+  - Mudaram só nome e descrição dos ids 5 e 10 a 13, e só a descrição dos
+    ids 14 e 15. Mínimos, descontos, `view_order`, 730 dias e ids ficaram
+    iguais. Conferido depois num GET à parte, campo a campo: OK. O
+    `POST verificar` com `simular: true` rodou sem erro.
 - **Os nomes ainda podem mudar** em 1 ou 2 dias: o Mateus está escolhendo
   nomes novos. Se mudarem, regravar só `name` e `description` (prévia e
   depois `PUT niveis`). Nenhum código da API nem do app escolhe a cor pelo
   nome.
 
-| Nível | Colegas | Desconto guardado | id_level |
-|---|---|---|---|
-| Entrada | 0 | 0% | 6 |
-| Green · 10% a 40% | 1 a 4 | 10% por colega | 4, 7, 8, 9 |
-| Black · 50% a 90% | 5 a 9 | 50% a 90% | 5, 10, 11, 12, 13 |
-| Blue · 100% (Noite) | 10 | 100% | 14 |
-| Partner · 100% | 11 ou mais | 100% | 15 |
+| Nível | Colegas | Desconto guardado | Cartão | id_level |
+|---|---|---|---|---|
+| Entrada | 0 | 0% | nenhum | 6 |
+| Green · 10% a 40% | 1 a 4 | 10% por colega | Green | 4, 7, 8, 9 |
+| Blue · 50% a 100% | 5 a 10 | 50% a 100% | Blue | 5, 10, 11, 12, 13, 14 |
+| Partner · 100% | 11 ou mais | 100% | Blue com "PARTNER" impresso | 15 |
 
-- São 12 níveis, um por degrau. O nome traz a cor e o desconto ("Green ·
-  20%"). `view_order` = colegas + 1. Ninguém está em nível nenhum ainda.
-- Descrições: "N colegas ativos: X% guardado e cartão Black" (ids 5 e 10 a
-  13) e "10 colegas ativos: 100% guardado e cartão Blue (Noite)" (id 14).
-  Entrada, Green e Partner não mudaram.
+- São 12 níveis, um por degrau. O nome traz a cor e o desconto ("Blue ·
+  60%"). `view_order` = colegas + 1. Ninguém está em nível nenhum ainda.
+- Descrições: "N colegas ativos: X% guardado e cartão Green" (ids 4, 7, 8
+  e 9), "N colegas ativos: X% guardado e cartão Blue" (ids 5 e 10 a 14) e
+  "11 ou mais colegas ativos: 100% guardado e cartão Blue com PARTNER
+  impresso" (id 15). Nenhum nome ou descrição fala mais em metal, Black,
+  Noite ou selo.
+- O Green também sai para quem tem 10 imóveis no ar. Essa regra fica fora
+  dos níveis e continua valendo: um cartão por corretor.
 - O desconto vai para `indication_discount_carry` e fica guardado. Só vira
   cupom na fase 3, quando a cobrança ligar. Imóvel extra não entra (01/10).
 - Validade do nível: 730 dias. Quando vence, o corretor perde o nível (e o
@@ -980,27 +995,64 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - `is_default` ficou false nos 12 (o PUT não grava esse campo). Nada na
   aprovação nem no checkout lê esse campo; marcar Entrada é opcional.
 - Arquivos de antes, da prévia e de depois: `scratchpad/niveis/` (a troca
-  das 16h38 nos `*-noite.json`).
-- Pôr as duas gravações no relatório diário, com a frase do Mateus.
+  das 16h38 nos `*-noite.json`; a das 16h47 nos `*-2cartoes.json`, com a
+  conferência em `verif-indep.json` e `verif-simular-indep.json`).
+- Pôr as três gravações no relatório diário, com as frases do Mateus.
 
-### Cartão por nível
+### Cartão por nível e fornecedor
 
-- Ordem desde 07/10, 16h38: Green (PVC) → Black (PVC) → Blue, o desenho
-  "Noite" (PVC, o mais alto, por ser a cor da marca) → Partner (metal).
+- **Desde 07/10, 16h47: dois cartões, os dois de PVC.**
+  - **Green:** de 1 a 4 colegas ativos, e também com 10 imóveis no ar
+    (regra fora dos níveis, que continua).
+  - **Blue**, o desenho "Noite" (cor da marca): a partir de 5 colegas.
+  - **Partner** (11 colegas ou mais): o mesmo cartão Blue, com "PARTNER"
+    impresso. É o mesmo "Parceiro Match House" de cima.
+- **Black e Metal ficaram guardados para depois** ("depois evoluimos").
+  Não oferecer a corretor nem pôr em orçamento até o Mateus retomar. Os
+  desenhos estão em `scratchpad/cartao-design/descartados/`
+  (`Frente-Black`, `Verso-Black`, `Frente-Metal` e `Verso-Metal`, mais o
+  quadro de antes em `canvas.antes-2cartoes.json`).
 - Os detalhes "premium" do desenho (chip metálico, nome prateado e grão)
-  hoje estão no Black. Podem passar ao Noite quando o Mateus mandar as
-  alterações do desenho.
-- O nome do nível é **"Partner"**. É o mesmo "Parceiro Match House" de cima.
-- Rótulos: "SMART LINK · GREEN", "SMART LINK · BLUE" e "SMART LINK · BLACK",
-  com "Nº 0001". No Partner, "PARTNER MATCH HOUSE" e "Nº 001", com selo de
-  verificado grafite (posto na revisão; sai se o Mateus não quiser).
-- A cor do cartão sai do nome do nível (ou do mínimo de colegas).
-- Arquivos em `scratchpad/cartao-design/project/`, PNGs em
-  `scratchpad/cartao-design/render-revisao/`. Nada publicado.
+  estavam no Black, agora guardado. Podem passar ao Blue quando o Mateus
+  mandar as alterações do desenho.
+- Rótulos na frente: "SMART LINK · GREEN" e "SMART LINK · BLUE", com
+  "Nº 0001". No Partner, "SMART LINK · PARTNER" e "Nº 001"; o verso é
+  igual ao do Blue.
+- A cor do cartão sai do mínimo de colegas (1 a 4 Green; 5 ou mais Blue;
+  11 ou mais, Blue com PARTNER), não do nome do nível, que pode mudar.
+- Arquivos em `scratchpad/cartao-design/project/`: Green frente e verso,
+  Blue frente (`Main.dc.html`) e verso (`Verso-Noite.dc.html`), Partner
+  frente. Os PNGs mais novos, em `render-respiro-rev/`, ainda têm o Black.
+- **Fornecedor: Vixcard (Victor e Thaisa).**
+  - **Orçamento nº 32481, de 07/10:** chip Mifare 1K com gravação do ID.
+    Por cartão: 100 un. R$ 9,89; 250 un. R$ 8,99; 500 un. R$ 6,99. Frete
+    R$ 0, 7 dias úteis, pagamento à vista, validade de 30 dias.
+  - **O Mifare 1K provavelmente não abre link no iPhone.** O iPhone abre
+    sozinho, só aproximando, o NTAG213/215; o Mifare Classic, não. Com ele,
+    o cartão não faz o que promete para quem usa iPhone.
+  - **Pedido de novo orçamento** (mensagem dada ao Mateus para a Thaisa):
+    - chip NTAG213 ou NTAG215, com um link diferente gravado em cada cartão
+      e a gravação travada;
+    - dados variáveis vindos de planilha: nome, CRECI, número do cartão e
+      QR;
+    - 2 artes no mesmo pedido (Green e Blue);
+    - PVC fosco, impressão colorida frente e verso, 100, 250 e 500
+      unidades;
+    - amostra antes de fechar, para testar na visita num iPhone e num
+      Android, só aproximando, sem aplicativo.
+  - Seguiram mais duas mensagens para ela, também dadas ao Mateus: pedir o
+    NTAG213 escrito no orçamento e uma amostra gravada; e, depois de um
+    vídeo dela em que o cartão abriu num Samsung (o app mostrava Mifare
+    Classic 1k), pedir o mesmo teste num iPhone e o NTAG213 no mesmo preço
+    se não abrir. Fecha se a amostra abrir o link no iPhone e no Android.
+  - O orçamento de metal pedido ao Victor caiu: eles não fazem metal.
+  - **Nenhum dado de corretor vai para o fornecedor.** A amostra sai com a
+    conta interna.
 
 ### Pendências do Indique e Ganhe (revisão de 07/10)
 
-- **"Ganhe 5 imóveis adicionais" continua ligado aos níveis 4 e 5.**
+- **"Ganhe 5 imóveis adicionais" continua ligado aos níveis de id 4 (Green
+  · 10%) e 5 (Blue · 50%).** Já estava antes; a troca das 16h47 não mexeu.
   - Nenhum corretor vê. Aparece só no painel admin antigo, no
     `GET /backoffice/indicacao/niveis` e no GraphQL de admin.
   - Quem chegar ao nível 4 ou 5 ganha só um registro no histórico, sem
@@ -1013,8 +1065,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     o `mh_ind_pct_<X>` é `duration: 'forever'`, e a recorrência do C6
     também não tem fim. Tem de valer 6 meses;
   - 100% quebra o checkout do Pro (fatura de R$ 0 cancela e dá 502; no C6,
-    Pix de R$ 0). Os níveis de 100% (Blue/Noite e Partner) precisam de um
-    caminho próprio;
+    Pix de R$ 0). Os níveis de 100% (Blue · 100%, id 14, e Partner, id 15)
+    precisam de um caminho próprio;
   - o desconto guardado nunca vence no código. O combinado é até 90 dias
     depois que o Pro abrir;
   - quando o nível desce, o desconto vai a 0, não ao do nível de baixo
@@ -1029,9 +1081,14 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - **Não usar o motor antigo do admin** (`processIndicationConversion`,
   `updateUserIndicationLevel`, `updateIndication` para aprovada). Ele compara
   nível pelo id e aprova sem conferir a ativação. O painel antigo mostra só
-  10 níveis: os ids 14 (Blue/Noite) e 15 (Partner) não aparecem lá.
-- O selo e o destaque do Partner ainda não existem. A descrição do nível já
-  promete os dois: não mostrar essa descrição ao corretor até existirem.
+  10 níveis: os ids 14 (Blue · 100%) e 15 (Partner) não aparecem lá.
+- O selo e o destaque do Partner no Smart Link ainda não existem. Desde
+  16h47 a descrição do id 15 fala só do cartão Blue com PARTNER, sem selo
+  nem destaque. Não prometer os dois ao corretor até existirem.
+- **Cartão:** não há cartão de metal nem Black no começo, só Green e Blue
+  (o Partner é o Blue com PARTNER). Com a Vixcard, fechar só com chip NTAG
+  e a amostra abrindo o link no iPhone e no Android (ver "Cartão por nível
+  e fornecedor").
 - A conta 56 (interna) tem 2 indicações antigas aprovadas, que contam para o
   nível. A trava de conta interna só vale para as novas.
 
