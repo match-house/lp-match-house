@@ -198,6 +198,11 @@ para aquela mensagem.
 - **Globalsys (House027) é passado** (Mateus, 29/09): não existe mais esse
   custo. Não somar em custo mensal, ponto de equilíbrio, CAC nem projeção, e
   não citar nem como "saindo". Já saiu da área de custos.
+- Conferido com o Mateus em 07/10:
+  - **HostGator** (plano P, R$ 438,79 por ano) continua em uso: a LP
+    matchhouse.com.br está lá. Migrar é ideia para depois, não agora.
+  - **Claude Max 5x** (R$ 550 por mês) já era pago em julho.
+  - A NF 734 da Intelliway (agosto) foi paga.
 
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
