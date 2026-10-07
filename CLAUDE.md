@@ -883,7 +883,7 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     - Com 5 colegas o cartão passa a ser o Blue (desde 07/10, 16h47).
     - Quem passa de 10 colegas vira **Parceiro Match House**: cartão Blue
       com "PARTNER" impresso, selo e destaque. Não é mais de metal: o
-      fornecedor não faz (ver "Cartão por nível").
+      fornecedor não faz (ver "Cartão por nível e fornecedor").
   - **Depois, com o Pro: desconto + cartão.**
     - Cada colega vale 10% por 6 meses, até 100%.
     - O cartão continua sendo o 1º prêmio de quem entra.
