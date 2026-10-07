@@ -869,8 +869,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   juntos muito nisso ainda e senao vc fica travado, quero que vc tenha muita
   autonomia".
   - Quem configura os níveis e acompanha as indicações é o agente.
-  - A configuração é feita por rotas do backoffice REST, que estão sendo
-    construídas (branch `claude/indicacao-fase1` da api).
+  - A configuração é feita por rotas do backoffice REST, no ar desde 07/10
+    (PR api #79). Ver "API da fase 1", abaixo.
 - **Estrutura fechada com o Mateus em 07/10** ("Esta mt bom assim mesmo. 1 e
   2 OK!"):
   - **Agora, sem cobrança, o prêmio é o cartão.**
@@ -907,8 +907,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - **Parceiro Match House** (ideia aprovada por ele em 07/10): quem passar de
     10 colegas no total (não por mês) ganha o selo de parceiro no Smart Link,
     o cartão de metal e destaque. O formato ainda vai ser desenhado.
-  - Hoje o código aprova a indicação no cadastro e dá desconto "para sempre":
-    as duas coisas mudam antes de abrir.
+  - Desde o PR api #79 a indicação só é aprovada com a ativação do colega.
+    O desconto "para sempre" do código ainda muda na fase 3 (ver pendências).
 - **Cartão Smart Link** (NFC + QR, vai de presente para o endereço do
   corretor), com prazo e não por quantidade (decisão dele):
   - 10 imóveis válidos: cartão de PVC; 30 imóveis válidos: cartão de metal;
@@ -923,6 +923,96 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   pela prévia do Mateus antes de ir ao ar.
 - **Referência: Taggo** (taggo.one), cartão de visita NFC genérico, pago uma
   vez só. Alguns corretores usam o taggo.one como link da bio.
+
+### API da fase 1: no ar desde 07/10 (PR api #79)
+
+- A indicação nasce "a conferir" (PENDING). Vira aprovada quando o colega tem
+  celular verificado e um imóvel no ar há 7 dias ou mais.
+  - Rodada diária às 06h15 (Brasília). A primeira aprovação pode sair por
+    volta de 14/10.
+  - Quem indicou: código REF ou utm do perfil (`utm_content=perfil-<slug>`).
+- Gestão por `/backoffice/indicacao/*`. O que grava passa por prévia e código
+  de confirmação:
+  - `GET niveis`, `POST niveis/preview` e `PUT niveis`;
+  - `GET indicacoes` e `GET corretor`;
+  - `POST verificar` (com `simular: true` não grava nada);
+  - `POST decidir/preview` e `POST decidir`.
+- Quem gerencia é esta conversa, com a autonomia dada pelo Mateus (acima).
+
+### Níveis gravados em 07/10, por volta das 16h20
+
+Com o "pode gravar os niveis, green, blue, black e partner" do Mateus.
+
+| Nível | Colegas | Desconto guardado | id_level |
+|---|---|---|---|
+| Entrada | 0 | 0% | 6 |
+| Green · 10% a 40% | 1 a 4 | 10% por colega | 4, 7, 8, 9 |
+| Blue · 50% a 90% | 5 a 9 | 50% a 90% | 5, 10, 11, 12, 13 |
+| Black · 100% | 10 | 100% | 14 |
+| Partner · 100% | 11 ou mais | 100% | 15 |
+
+- São 12 níveis, um por degrau. O nome traz a cor e o desconto ("Green ·
+  20%"). `view_order` = colegas + 1. Ninguém está em nível nenhum ainda.
+- O desconto vai para `indication_discount_carry` e fica guardado. Só vira
+  cupom na fase 3, quando a cobrança ligar. Imóvel extra não entra (01/10).
+- Validade do nível: 730 dias. Quando vence, o corretor perde o nível (e o
+  cartão), mas não o desconto guardado. A validade só se renova quando o
+  nível muda. Mudar os dias depois só vale para quem chegar ao nível dali em
+  diante.
+- Para o código, "colegas" são as indicações aprovadas de todos os tempos.
+  Quem tira os imóveis do ar ou apaga a conta continua contando. Perguntar
+  ao Mateus se o desconto deve cair nesses casos.
+- `is_default` ficou false nos 12 (o PUT não grava esse campo). Nada na
+  aprovação nem no checkout lê esse campo; marcar Entrada é opcional.
+- Arquivos de antes, da prévia e de depois: `scratchpad/niveis/`.
+- Pôr a gravação no relatório diário, com o "pode" do Mateus.
+
+### Cartão por nível
+
+- Green, Blue (o desenho "Noite"), Black e Partner (metal).
+- O nome do nível é **"Partner"**. É o mesmo "Parceiro Match House" de cima.
+- Rótulos: "SMART LINK · GREEN", "SMART LINK · BLUE" e "SMART LINK · BLACK",
+  com "Nº 0001". No Partner, "PARTNER MATCH HOUSE" e "Nº 001", com selo de
+  verificado grafite (posto na revisão; sai se o Mateus não quiser).
+- A cor do cartão sai do nome do nível (ou do mínimo de colegas).
+- Arquivos em `scratchpad/cartao-design/project/`, PNGs em
+  `scratchpad/cartao-design/render-revisao/`. Nada publicado.
+
+### Pendências do Indique e Ganhe (revisão de 07/10)
+
+- **"Ganhe 5 imóveis adicionais" continua ligado aos níveis 4 e 5.**
+  - Nenhum corretor vê. Aparece só no painel admin antigo, no
+    `GET /backoffice/indicacao/niveis` e no GraphQL de admin.
+  - Quem chegar ao nível 4 ou 5 ganha só um registro no histórico, sem
+    imóvel.
+  - Desligar antes de o cartão do app ler benefícios. Não há rota no
+    backoffice: o Mateus, no painel antigo, tira o benefício dos dois
+    níveis ou desativa o benefício.
+- **Fase 3 (cobrança):**
+  - com `BILLING_MODE=on`, o desconto não pode virar cupom "forever". Hoje
+    o `mh_ind_pct_<X>` é `duration: 'forever'`, e a recorrência do C6
+    também não tem fim. Tem de valer 6 meses;
+  - 100% quebra o checkout do Pro (fatura de R$ 0 cancela e dá 502; no C6,
+    Pix de R$ 0). Black e Partner precisam de um caminho próprio;
+  - o desconto guardado nunca vence no código. O combinado é até 90 dias
+    depois que o Pro abrir;
+  - quando o nível desce, o desconto vai a 0, não ao do nível de baixo
+    (`indication-discount.util.ts`). Consertar antes.
+- **Antes da primeira aprovação (~14/10):** o `createPayment` antigo
+  (GraphQL) não confere `canSubscribe` e poria o desconto como cupom
+  "forever" em qualquer plano com preço, o Pro inclusive. Conferir se o app
+  antigo ainda compra plano; se comprar, travar.
+- **Fase 2:** o app ainda não manda o slug no cadastro, e a tela de
+  progresso no app ainda não existe.
+- **Prova de SMS no `updateUser`**: ficou de fora do PR #79.
+- **Não usar o motor antigo do admin** (`processIndicationConversion`,
+  `updateUserIndicationLevel`, `updateIndication` para aprovada). Ele compara
+  nível pelo id e aprova sem conferir a ativação. O painel antigo mostra só
+  10 níveis: Black e Partner não aparecem lá.
+- O selo e o destaque do Partner ainda não existem. A descrição do nível já
+  promete os dois: não mostrar essa descrição ao corretor até existirem.
+- A conta 56 (interna) tem 2 indicações antigas aprovadas, que contam para o
+  nível. A trava de conta interna só vale para as novas.
 
 ## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
 
