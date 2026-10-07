@@ -63,6 +63,7 @@ Continuam valendo as regras de sempre:
 | Arte pronta para postar | Divulgar | app.smartli.ink/dashboard/divulgar |
 | Cadastrar imóvel | Imóveis → "Cadastrar outro imóvel", ou Visão → "Publicar meu primeiro imóvel" | app.smartli.ink/dashboard/imoveis/novo |
 | Corrigir um imóvel, pôr fotos | Imóveis → lápis, ou tocar no imóvel → "Editar imóvel" | app.smartli.ink/dashboard/imoveis/<id>/editar |
+| QR para placa, panfleto, cartão (seção 10) | Imóveis → ícone de QR; Divulgar → "Ver QR code" | app.smartli.ink/dashboard/imoveis |
 | Ver visitas e cliques | Métricas | app.smartli.ink/dashboard/metricas |
 | Ver as conversas da IA | IA & Leads | app.smartli.ink/dashboard/ia |
 | Instagram, Facebook, site etc. no perfil | Redes → "Adicionar rede social" | app.smartli.ink/dashboard/social |
@@ -80,6 +81,9 @@ Continuam valendo as regras de sempre:
   este texto:
   "Meu atendimento agora é 24/7: imóveis selecionados, resposta na hora e
   visita agendada — tudo num único link. Fale com minha IA: smartli.ink/<slug>"
+- **Em Divulgar, cartão "QR do seu Smart Link"** (desde 07/10) → botão
+  **"Ver QR code"**. Fica entre "Legenda pronta" e o checklist. Detalhes na
+  seção 10.
 - **Em Divulgar, checklist "Onde seu link precisa estar":**
   - É o próprio corretor que marca cada item. O app não confere nada.
   - Os itens e os pontos: "Bio do Instagram" (+40), "Destaque dos Stories"
@@ -249,16 +253,20 @@ Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num 
 - **"Salvar rascunho" num imóvel publicado tira ele do ar**: o imóvel volta
   para "Rascunhos". Para corrigir imóvel publicado, o botão certo é "Salvar
   alterações →".
-- Ao editar um imóvel publicado, o selo do topo mostra "● Rascunho" mesmo ele
-  estando no ar. Se ele estranhar, é isso; o imóvel continua no ar.
+- Desde 07/10 (PR app #122), o selo do topo mostra "● Publicado" quando o
+  imóvel está no ar, e "● Rascunho" quando não está. Antes mostrava
+  "● Rascunho" mesmo no ar.
+- No topo de um imóvel publicado fica também o botão **"QR para placa"**
+  (seção 10).
 - Nada é obrigatório para publicar, mas quanto mais completo, melhor a IA
   responde. O app diz: "Quanto mais completo o cadastro, melhor sua IA atende
   e qualifica cada lead."
 
 ### Lista (app.smartli.ink/dashboard/imoveis)
 
-- Os publicados aparecem com "● Ativo" e três ícones: compartilhar, lápis
-  (editar) e lixeira.
+- Os publicados aparecem com "● Ativo" e quatro ícones: QR (redondo, ciano,
+  o primeiro; seção 10), compartilhar, lápis (editar) e lixeira. Imóvel sem
+  nome não tem o ícone de QR.
 - Tocar na foto ou no nome do imóvel abre a prévia do anúncio (como o
   cliente vê). Desde 01/10 (PR app #109) ela tem o botão **"Editar
   imóvel"** no rodapé, que leva à mesma tela do lápis. Antes não tinha, e
@@ -285,3 +293,89 @@ Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num 
 - A frase que chega indica onde a pessoa travou (tabela no CLAUDE.md).
 - Se o corretor não achar um botão, mandar o link direto da tela (tabela da
   seção 2), sempre depois do `smartli.ink/<slug>`.
+
+## 10. QR code do imóvel e do Smart Link
+
+No ar desde 07/10 (PR app #122, `main` em 1c0988f). Levantado no código.
+
+**Para que serve:** o corretor imprime o QR na placa de "Vende-se" ou
+"Aluga-se", no panfleto ou no cartão de visita. Quem aponta a câmera do
+celular abre a página no smartli.ink e fala com a IA dele.
+
+Há dois QRs:
+
+| QR | Onde fica | Botão | Quem aponta a câmera cai em |
+|---|---|---|---|
+| Do imóvel | Imóveis → ícone redondo de QR; ou no topo da tela de editar o imóvel | "QR para placa" | a página daquele imóvel no Smart Link, com a IA |
+| Do Smart Link | Divulgar → cartão "QR do seu Smart Link" | "Ver QR code" | o `smartli.ink/<slug>`, com todos os imóveis e a IA |
+
+**Onde fica cada um:**
+
+- **Lista de Imóveis:** o ícone de QR é redondo, ciano, e vem primeiro, antes
+  de compartilhar, lápis e lixeira. O nome dele é "QR para placa" (no
+  computador aparece ao passar o mouse).
+- **Editar imóvel:** botão **"QR para placa"** no topo, ao lado do selo
+  "● Publicado". No celular aparece só o ícone; no computador, ícone e texto.
+- **Divulgar:** cartão "QR do seu Smart Link", entre "Legenda pronta" e "Onde
+  seu link precisa estar". O texto do cartão: "Para o cartão de visita, o
+  panfleto e a placa. Quem aponta a câmera do celular cai no seu link e fala
+  com a sua IA." Botão **"Ver QR code"**.
+
+**O QR do imóvel só aparece em imóvel publicado e visível:**
+
+- "Anúncio ativo" ligado e "Ocultar anúncio" desligado;
+- com nome. Imóvel sem nome ("Rascunho #N") não aparece no link, então não
+  tem QR;
+- rascunho não tem QR, nem em "Rascunhos" nem na edição;
+- no cadastro novo o botão não aparece. Depois de publicar, o QR fica na lista
+  de Imóveis.
+
+Se ele não acha o QR de um imóvel, é uma dessas coisas: está em rascunho,
+falta o nome, ou o anúncio está inativo ou oculto.
+
+**A janela do QR:**
+
+- Título "QR para placa" (com o nome do imóvel embaixo) ou "QR do seu Smart
+  Link".
+- O QR grande e, embaixo, a frase e o link curto. Saem iguais na imagem:
+  - imóvel: "Aponte a câmera para ver o imóvel e falar com a IA";
+  - Smart Link: "Aponte a câmera para ver os imóveis e falar com a IA";
+  - nos dois, o `smartli.ink/<slug>` escrito, para quem não consegue ler o QR
+    digitar. No QR do imóvel, o texto escrito também é o link do corretor, não
+    o do imóvel.
+- Botões:
+  - **"Compartilhar"**: só aparece quando o celular deixa compartilhar
+    imagem. Abre o compartilhar do celular: dá para mandar à gráfica pelo
+    WhatsApp ou salvar. Depois aparece "Pronto. Mande para a gráfica ou
+    guarde para imprimir."
+  - **"Baixar imagem"**: salva a imagem. Depois aparece "Imagem salva nos
+    downloads do aparelho." (celular) ou "Imagem salva na pasta de
+    downloads." (computador).
+  - Se der erro: "Não foi possível gerar o QR. Toque em "Tentar de novo"." e
+    o botão **"Tentar de novo"**.
+- O arquivo se chama `qr-imovel-<id>.png` ou `qr-smartlink-<slug>.png`.
+
+**Tamanho para impressão:** PNG em alta resolução, perto de 1700 x 2000 px; o
+QR sozinho tem uns 1500 px de lado. Dá para imprimir o QR com 12 cm de lado
+em qualidade de gráfica, ou com até 25 cm numa placa. QR preto em fundo
+branco. Quando não há "Compartilhar", a tela diz: "A imagem sai em alta
+resolução, pronta para imprimir."
+
+**Não existe (não prometer):**
+
+- QR com logo, cor ou foto;
+- impressão pelo app: o corretor baixa a imagem e leva à gráfica dele;
+- QR de rascunho, de imóvel sem nome ou de imóvel oculto;
+- contar no app quantas pessoas leram o QR: a tela Métricas não separa quem
+  veio pelo QR;
+- trocar o imóvel de um QR já impresso. Cada QR de imóvel é daquele imóvel.
+  Para uma placa que vai servir a vários imóveis, o certo é o "QR do seu
+  Smart Link".
+
+Texto pronto para "como faço o QR do imóvel?" (trocar `<slug>`):
+
+```
+Para fazer o QR do imóvel: no app, abra "Imóveis" e toque no ícone redondo de QR, o primeiro ao lado do imóvel. Ou abra o imóvel para editar e toque em "QR para placa", no topo. Depois toque em "Baixar imagem", ou em "Compartilhar" para mandar direto para a gráfica. A imagem sai em alta resolução, pronta para a placa, o panfleto ou o cartão. Quem apontar a câmera do celular abre o imóvel e fala com a sua IA. O QR aparece em imóvel publicado e com nome.
+
+Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram. Quem abrir o link é atendido pela sua IA, a qualquer hora.
+```

@@ -631,6 +631,43 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
+## QR code por imóvel (no ar desde 07/10)
+
+- PR app #122 (merge 1c0988f). O corretor gera um QR para imprimir na placa
+  de "Vende-se" ou "Aluga-se", no panfleto e no cartão de visita. Quem aponta
+  a câmera do celular abre a página no smartli.ink e fala com a IA dele.
+- Dois QRs:
+  - **do imóvel:** ícone redondo de QR (ciano), o primeiro da linha em
+    Imóveis, e botão "QR para placa" no topo da tela de editar. Só em imóvel
+    publicado, visível e com nome;
+  - **do Smart Link:** cartão "QR do seu Smart Link" em Divulgar, botão
+    "Ver QR code".
+- Na janela: "Compartilhar" (quando o celular deixa) e "Baixar imagem".
+- Tudo o que ensinar ao corretor (condições, mensagens da tela, tamanho para
+  imprimir, o que não existe, texto pronto) está na **seção 10 do
+  `ferramentas/guia-respostas-corretor.md`**.
+- Endereços (`app/src/shared/utils/qr-code.utils.ts`):
+  - imóvel: `smartli.ink/<slug>/<id>?utm_source=qr&utm_medium=placa&utm_content=imovel-<id>`.
+    Sem o `/perfil`; o botão de compartilhar continua com `/perfil/<id>`;
+  - Smart Link: `smartli.ink/<slug>?utm_source=qr&utm_medium=cartao`.
+  - Quem chegou pelo QR aparece no site com `utm_source=qr`. É isso que mostra
+    que o QR foi impresso e lido.
+- Eventos no Amplitude (e no GA4), em `app/src/lib/analytics.ts`:
+  - `qr_aberto`: `tipo` (imovel ou link), `onde` (lista, edicao ou
+    divulgar) e `id_imovel`;
+  - `qr_baixado`: os mesmos, mais `acao` (baixou ou compartilhou) e
+    `fallback` (unsupported ou blocked), quando o compartilhar não abriu e a
+    imagem foi baixada.
+- No mesmo PR, o selo do topo da edição passou a mostrar "● Publicado" com o
+  imóvel no ar. Antes mostrava "● Rascunho" mesmo no ar.
+- **Regra: em comunicado e resposta a corretor, citar o QR como mais um
+  benefício** (placa, panfleto, cartão de visita). Só o que o app faz hoje.
+  - Texto livre muda direto: respostas no 6800 e no Direct, e-mail da
+    reativação.
+  - Modelo de WhatsApp já aprovado (`mh_reativacao_1`, os `mh_*` da esteira)
+    não muda de texto: pôr o QR pede nome novo e nova aprovação da Meta. Os
+    e-mails da esteira andam junto com o modelo do mesmo passo.
+
 ## Visita marcada pela IA: na API desde 02/10, agenda desde 05/10; falta a Intelliway
 
 **Decisão do Mateus em 02/10 (opção "a"):** a LP2 continua com "A IA tira as
@@ -878,9 +915,10 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - o CRECI vai no cartão (exigência do COFECI);
   - o endereço é pedido só a quem bateu a meta, e apagado 30 dias depois da
     entrega.
-- **QR por imóvel** (aprovado) e **"Crie seu Smart Link" maior** no perfil e em
-  cada imóvel (aprovado). As duas mudanças passam pela prévia do Mateus antes de
-  ir ao ar.
+- **QR por imóvel**: no ar desde 07/10 (PR app #122). Ver a seção "QR code
+  por imóvel".
+- **"Crie seu Smart Link" maior** no perfil e em cada imóvel (aprovado). Passa
+  pela prévia do Mateus antes de ir ao ar.
 - **Referência: Taggo** (taggo.one), cartão de visita NFC genérico, pago uma
   vez só. Alguns corretores usam o taggo.one como link da bio.
 
