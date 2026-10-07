@@ -832,6 +832,24 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - Quem configura os níveis e acompanha as indicações é o agente.
   - A configuração é feita por rotas do backoffice REST, que estão sendo
     construídas (branch `claude/indicacao-fase1` da api).
+- **Estrutura fechada com o Mateus em 07/10** ("Esta mt bom assim mesmo. 1 e
+  2 OK!"):
+  - **Agora, sem cobrança, o prêmio é o cartão.**
+    - O 1º colega que publicar dá o cartão Smart Link de presente (PVC, com
+      nome, CRECI e QR).
+    - Os 10 imóveis no ar também dão o cartão: dois caminhos, um cartão por
+      corretor.
+    - Cada colega soma 10% de **desconto guardado**, até 100%. Começa a
+      contar já e vale até 90 dias depois que o Pro abrir.
+    - Quem passa de 10 colegas vira **Parceiro Match House**: cartão de metal,
+      selo e destaque.
+  - **Depois, com o Pro: desconto + cartão.**
+    - Cada colega vale 10% por 6 meses, até 100%.
+    - O cartão continua sendo o 1º prêmio de quem entra.
+  - **Para o corretor, sempre em %, nunca em R$**: em reais, o preço do Pro
+    apareceria (10% = R$ 14,70).
+  - **A tela no app mostra:** "Seu cartão: falta 1 colega", "Desconto
+    guardado: 30%" e "Faltam 7 colegas para virar Parceiro".
 - **Desconto progressivo** (ideia dele: 1 colega = 10%, até 100%):
   - recomendação: 10% por colega, até 100%, cada 10% válido por 6 meses;
   - o colega indicado também ganha 10% por 6 meses;
