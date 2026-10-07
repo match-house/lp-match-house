@@ -236,6 +236,9 @@ para aquela mensagem.
     sempre: só a conta 999 até `BILLING_MODE=on`.
   - Falta o C6 liberar o Pix Automático na chave da API (pedido do Mateus
     em 05/10).
+  - **07/10, 17h36: o C6 validou o roteiro de testes** (caso 202699692292,
+    e-mail de homologacaoapi@c6bank.com). O time deles vai ligar ou chamar
+    no WhatsApp do Mateus para seguir com a liberação.
   - Depois disso, ele põe no ECS a chave nova, `C6_CONTA` e `C6_AGENCIA`.
     Os passos estão no Apêndice A de `api/docs/cobranca-pro.md`.
   - Lembrete marcado para quarta, 07/10.
