@@ -27,7 +27,18 @@ Notas do projeto para agentes. Ler antes de mexer.
     visitas marcadas.", cartão de uma noite em três passos e botão logo abaixo;
     só um exemplo de Smart Link, maior; botão de cadastro fixo no rodapé do
     celular. Os cadastros chegam com `mh_v=lp2` (ou `lp2-barra`), contra
-    `lp1` da versão anterior: comparar depois de uns 7 dias.
+    `lp1` da versão anterior.
+  - **Leitura de 07/10: não deu para concluir.**
+    - Pelos anúncios da Meta, a LP1 trouxe 21 cadastros (16/09 a 01/10) e a
+      LP2 trouxe 2 (02 a 06/10).
+    - Visita → cadastro: 4,1% na LP1 e 2,4% na LP2. A diferença cabe no acaso.
+    - Nas duas versões, cerca de 1 em cada 5 visitantes da Meta chega ao app.
+    - A LP foi pausada em 07/10 pelo custo por corretor que publicou: R$ 448
+      com imposto na LP1.
+    - O detalhe está em `scratchpad/teste-lp/leitura.md`, nos arquivos desta
+      conversa.
+    - O `mh_v` não fica gravado no cadastro: a API só guarda utm, fbclid e
+      gclid. Ele aparece só no GA4, na URL de chegada ao app.
 - `concept-a/b/c/d.html` — rascunhos de conceito, não são a página publicada.
 - `diagnostico/`, `politica-de-privacidade.html` — páginas auxiliares.
 - `favicon.png` — o "M" da marca (64×64). `logo.png`, `assets/logo-*.png` — logos.
