@@ -839,7 +839,14 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - o prazo final (6 meses ou 1 ano) ainda está com ele.
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
-    há 7 dias, até 5 por mês.
+    há 7 dias.
+  - Não há limite de quantos colegas o corretor indica. Até 10 aprovações
+    por mês valem sozinhas. A partir do 11º colega no mês (decisão do
+    Mateus, 07/10), a indicação fica "a conferir": o agente aprova se for
+    real e não conta se for conta falsa. O corretor não vê bloqueio.
+  - **Parceiro Match House** (ideia aprovada por ele em 07/10): quem passa de
+    10 colegas ganha o selo de parceiro no Smart Link, o cartão de metal e
+    destaque. O formato ainda vai ser desenhado.
   - Hoje o código aprova a indicação no cadastro e dá desconto "para sempre":
     as duas coisas mudam antes de abrir.
 - **Cartão Smart Link** (NFC + QR, vai de presente para o endereço do
