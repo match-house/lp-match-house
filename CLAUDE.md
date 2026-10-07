@@ -79,6 +79,12 @@ Notas do projeto para agentes. Ler antes de mexer.
       às 07h13. Não religar a LP sem o Mateus.
     - Google segue até o fim de outubro. A verba do ChatGPT sobe pelo painel
       dele.
+    - **07/10, ~10h50:** o Mateus subiu o ChatGPT ("Smart Link - Registro
+      completo") para **R$ 75/dia**. Antes era cerca de R$ 53/dia, pela média
+      das faturas.
+    - No mesmo dia ele ligou o conector `openai_ads` no Windsor (conta 976,
+      "Match House GPT") e tirou o GA4. O gasto do Google por dia não vem
+      mais: ele passa o número uma vez por semana.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
