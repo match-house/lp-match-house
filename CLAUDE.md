@@ -823,6 +823,39 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   segurando o link (aconteceu até com google.com, num celular de login novo).
   A saída: os três pontinhos (⋮) > "Abrir no Chrome".
 
+## Indique e Ganhe, cartão Smart Link e QR por imóvel (decisões de 07/10)
+
+- **Indique e Ganhe: autonomia total do agente.** Nas palavras do Mateus:
+  "mesmo estando no backoffice, prefiro que vc gerencie pq vamos evoluir
+  juntos muito nisso ainda e senao vc fica travado, quero que vc tenha muita
+  autonomia".
+  - Quem configura os níveis e acompanha as indicações é o agente.
+  - A configuração é feita por rotas do backoffice REST, que estão sendo
+    construídas (branch `claude/indicacao-fase1` da api).
+- **Desconto progressivo** (ideia dele: 1 colega = 10%, até 100%):
+  - recomendação: 10% por colega, até 100%, cada 10% válido por 6 meses;
+  - o colega indicado também ganha 10% por 6 meses;
+  - o desconto fica guardado até o Pro abrir e vale até 90 dias depois disso;
+  - o prazo final (6 meses ou 1 ano) ainda está com ele.
+  - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
+  - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
+    há 7 dias, até 5 por mês.
+  - Hoje o código aprova a indicação no cadastro e dá desconto "para sempre":
+    as duas coisas mudam antes de abrir.
+- **Cartão Smart Link** (NFC + QR, vai de presente para o endereço do
+  corretor), com prazo e não por quantidade (decisão dele):
+  - 10 imóveis válidos: cartão de PVC; 30 imóveis válidos: cartão de metal;
+  - **promoção por tempo limitado**, nunca "os primeiros 100", que exigiria
+    autorização da SPA (Lei 5.768/71);
+  - o CRECI vai no cartão (exigência do COFECI);
+  - o endereço é pedido só a quem bateu a meta, e apagado 30 dias depois da
+    entrega.
+- **QR por imóvel** (aprovado) e **"Crie seu Smart Link" maior** no perfil e em
+  cada imóvel (aprovado). As duas mudanças passam pela prévia do Mateus antes de
+  ir ao ar.
+- **Referência: Taggo** (taggo.one), cartão de visita NFC genérico, pago uma
+  vez só. Alguns corretores usam o taggo.one como link da bio.
+
 ## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
 
 - Pedido dele: "inclua nas duas planilhas o receberam leads na conversa da
