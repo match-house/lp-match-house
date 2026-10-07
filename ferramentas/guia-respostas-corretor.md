@@ -63,7 +63,7 @@ Continuam valendo as regras de sempre:
 | Arte pronta para postar | Divulgar | app.smartli.ink/dashboard/divulgar |
 | Cadastrar imóvel | Imóveis → "Cadastrar outro imóvel", ou Visão → "Publicar meu primeiro imóvel" | app.smartli.ink/dashboard/imoveis/novo |
 | Corrigir um imóvel, pôr fotos | Imóveis → lápis, ou tocar no imóvel → "Editar imóvel" | app.smartli.ink/dashboard/imoveis/<id>/editar |
-| QR para placa, panfleto, cartão (seção 10) | Imóveis → ícone de QR; Divulgar → "Ver QR code" | app.smartli.ink/dashboard/imoveis |
+| QR para placa, panfleto, cartão (seção 10) | Imóveis → ícone de QR; Divulgar → "Ver QR code" | app.smartli.ink/dashboard/imoveis ou app.smartli.ink/dashboard/divulgar |
 | Ver visitas e cliques | Métricas | app.smartli.ink/dashboard/metricas |
 | Ver as conversas da IA | IA & Leads | app.smartli.ink/dashboard/ia |
 | Instagram, Facebook, site etc. no perfil | Redes → "Adicionar rede social" | app.smartli.ink/dashboard/social |
@@ -375,7 +375,7 @@ resolução, pronta para imprimir."
 Texto pronto para "como faço o QR do imóvel?" (trocar `<slug>`):
 
 ```
-Para fazer o QR do imóvel: no app, abra "Imóveis" e toque no ícone redondo de QR, o primeiro ao lado do imóvel. Ou abra o imóvel para editar e toque em "QR para placa", no topo. Depois toque em "Baixar imagem", ou em "Compartilhar" para mandar direto para a gráfica. A imagem sai em alta resolução, pronta para a placa, o panfleto ou o cartão. Quem apontar a câmera do celular abre o imóvel e fala com a sua IA. O QR aparece em imóvel publicado e com nome.
+Para fazer o QR do imóvel: no app, abra "Imóveis" e toque no ícone redondo de QR, o primeiro ao lado do imóvel. Ou abra o imóvel para editar e toque no ícone de QR, no topo. Depois toque em "Baixar imagem", ou em "Compartilhar" para mandar direto para a gráfica. A imagem sai em alta resolução, pronta para a placa, o panfleto ou o cartão. Quem apontar a câmera do celular abre o imóvel e fala com a sua IA. O QR aparece em imóvel publicado e com nome.
 
 Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram. Quem abrir o link é atendido pela sua IA, a qualquer hora.
 ```

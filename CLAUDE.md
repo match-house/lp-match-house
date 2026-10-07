@@ -665,8 +665,10 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   - Texto livre muda direto: respostas no 6800 e no Direct, e-mail da
     reativação.
   - Modelo de WhatsApp já aprovado (`mh_reativacao_1`, os `mh_*` da esteira)
-    não muda de texto: pôr o QR pede nome novo e nova aprovação da Meta. Os
-    e-mails da esteira andam junto com o modelo do mesmo passo.
+    não muda de texto: pôr o QR pede nome novo e nova aprovação da Meta.
+  - E-mails da esteira: o PR api #80 põe o QR em rascunho 1, publicado 1,
+    ia_respondeu e link_vazio 2. É exceção à regra de o e-mail andar junto
+    com o modelo do mesmo passo: o WhatsApp desses passos fica sem o QR.
 
 ## Visita marcada pela IA: na API desde 02/10, agenda desde 05/10; falta a Intelliway
 
