@@ -105,9 +105,16 @@ Notas do projeto para agentes. Ler antes de mexer.
   cadastro. A "Campanha Smartlink", por clique, gastou R$ 227,97 com 81
   cliques e 0 cadastros completos. Com o "concordo" dele, a verba passou para
   a "Registro completo" e a campanha por clique foi pausada (feito por ele).
-  Pendente: o painel da OpenAI marca 0 conversões. Conferir em Fontes de
-  dados se chegam eventos `registration_completed` do pixel do
-  app.smartli.ink, e se a campanha usa esse pixel e esse evento.
+  **Resolvido em 07/10:** o painel e o Windsor marcam 22 conversões até
+  06/10, o mesmo número de cadastros concluídos do ChatGPT no backoffice.
+  O pixel chega.
+  - Gasto real pelo conector, de 30/09 a 06/10: R$ 538,04. As faturas somam
+    R$ 476,32, e faltava faturar R$ 61,72.
+  - "Registro completo": R$ 310, 28 cadastros, 22 concluídos e 6 publicaram
+    (R$ 11 por cadastro, R$ 52 por corretor que publicou).
+  - "Campanha Smartlink" (por clique, pausada em 02/10): R$ 228, com 3
+    cadastros e nenhum concluído.
+  - Detalhe em `scratchpad/openai-ads/resumo.md`.
 
 ## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
 
