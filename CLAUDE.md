@@ -54,6 +54,20 @@ Notas do projeto para agentes. Ler antes de mexer.
     R$ 448 pela LP. Isto vale acima dos números antigos da rotina do
     relatório diário. Redistribuir entre campanhas e anúncios pode; passar
     do total, não.
+  - **Desde 07/10, às 9h35 (decisão do Mateus): LP pausada e app em R$ 100.**
+    Nas palavras dele: "pausa a LP, vamos manter o google mais esse mes,
+    coloca a campanha do app no meta em 100,00. Vou hj plugar e aumentar a
+    verba do chatgpt".
+    - Motivo, de 01 a 06/10:
+      - ChatGPT: R$ 316 em faturas, 29 cadastros e 6 publicaram (R$ 53 por
+        corretor que publicou).
+      - Meta app: cerca de R$ 600 com imposto, 16 cadastros e 4 publicaram.
+      - LP: cerca de R$ 150, 2 cadastros e nenhum publicou.
+    - Pausados o conjunto da LP (120251646674340445) e os anúncios 5a e 7b.
+      Os anúncios ficam pausados porque a regra noturna religa os conjuntos
+      às 07h13. Não religar a LP sem o Mateus.
+    - Google segue até o fim de outubro. A verba do ChatGPT sobe pelo painel
+      dele.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
