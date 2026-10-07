@@ -814,6 +814,36 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   segurando o link (aconteceu até com google.com, num celular de login novo).
   A saída: os três pontinhos (⋮) > "Abrir no Chrome".
 
+## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
+
+- Pedido dele: "inclua nas duas planilhas o receberam leads na conversa da
+  IA". Entraram duas etapas depois de "4. Cadastraram imóvel":
+  - "5. Receberam conversa na IA": o cliente do corretor escreveu para a IA
+    do Smart Link (`visitante_escreveu`);
+  - "6. Receberam leads da IA": lead = nome + celular válido, pelo critério
+    do `/backoffice/leads`.
+- **Fonte:** a aba "Leads IA" do Painel do Funil PRO (sheetId 902212).
+  - Tem uma linha por corretor e por semana, de segunda a domingo, desde
+    13/07. L2:R agrupa por id_usuario.
+  - O Comparativo de Rotas v2 importa L2:Q por IMPORTRANGE (aba "Leads IA",
+    sheetId 826142310).
+- **Atualização:** rotina `trig_011zZvcgNN73kVfWyPypb1dc`, às 06h47, com o
+  script `scratchpad/leads-ia/atualiza.sh`. Ela regrava as duas últimas
+  semanas. O `/backoffice/leads` às vezes responde 500 ou fica incompleto: o
+  script repete. Leia por semana, nunca o período inteiro, que para em 1.000
+  conversas.
+- **Não mover no Painel do PRO:**
+  - L3:M5 (etapas 1 a 3): a aba oculta "Base dos gráficos" lê M3:M5 fixo;
+  - os rótulos que o robô do export procura (`sync-panels-from-csv.mjs`, na
+    branch `claude/post-deploy-api-export-csv-2qpvzq` da api, disparado
+    todo dia).
+  - Os dois gráficos de ativação são do robô: ele reescreve o estilo todo
+    dia. Pode mudar só a posição deles.
+- Números de 07/10, desde 14/07, contando as contas internas que estão no
+  PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
+  1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
+  usuário) e da 27 (interna).
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
