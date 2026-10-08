@@ -59,8 +59,6 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 @keyframes mhFlipIn{from{opacity:0;transform:perspective(600px) rotateX(-70deg)}to{opacity:1;transform:perspective(600px) rotateX(0)}}
 @keyframes mhDown{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @keyframes mhGlowSoft{0%,100%{box-shadow:0 0 0 0 rgba(0,239,255,.30),0 6px 18px rgba(0,7,62,.08)}50%{box-shadow:0 0 0 6px rgba(0,239,255,.10),0 6px 18px rgba(0,7,62,.08)}}
-.mh-pc{display:none}
-@media (min-width:800px){.mh-pc{display:block}.mh-cel{display:none}}
 @keyframes mhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 </style>
 </helmet>
@@ -77,68 +75,36 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
   </div>
   <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:56px;padding:clamp(44px,7vw,92px) 32px 108px;align-items:start;min-height:64vh">
     <div style="grid-column:span 1;max-width:760px">
+      <div style="font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#000f90;margin:0 0 14px">Sua IA no link da bio →</div>
       <!--
-        LP2 (aprovado pelo Mateus em 02/10): o topo mostra o RESULTADO, nao o produto.
-        A promessa e uma so (acordar com a visita marcada) e o cartao ao lado
-        prova em tres passos como ela acontece: a pergunta que chegou de
-        noite, a IA respondendo na hora com o nome do corretor e a visita
-        marcada. Botao logo abaixo do titulo, porque quem vem de anuncio
-        precisa poder entrar ja (medido em 22/09).
+        LP1 (29/09): a primeira tela repete o anuncio.
+
+        O anuncio que traz quase todo o trafego (5a Recibo) fala da pergunta
+        que chegou as 23h47; a pagina abria digitando "Oi. Eu sou a Match…",
+        que nao diz o que e o produto. Agora o titulo e fixo e igual ao
+        anuncio, e a conversa desce para logo abaixo do botao, na mesma
+        velocidade. Quem vem do anuncio 6g (utm_content com "6g") ve o titulo
+        do 6g — ver heroTitle em renderVals.
+        "Na hora", e nao "em 4 segundos": o tempo de resposta da IA ainda nao
+        foi medido.
       -->
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#ffffff;border:1px solid rgba(0,15,144,.12);border-radius:999px;padding:7px 14px 7px 10px;box-shadow:0 4px 14px rgba(0,7,62,.06)">
-        <span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span>
-        <span style="font-size:12px;font-weight:600;color:#00073e">IA no link da bio · feita para corretor</span>
-      </div>
-      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(38px,6vw,68px);line-height:1.02;letter-spacing:-0.03em;color:#00073e;max-width:720px;margin:18px 0 0">Acorde com<br>visitas <span style="background:linear-gradient(transparent 62%, rgba(0,239,255,.55) 62%);padding:0 4px;margin:0 -4px">marcadas.</span></h1>
-      <p style="color:#494d5e;font-size:clamp(16px,1.6vw,19px);line-height:1.55;max-width:540px;margin:18px 0 0">Quem chega pelo seu Instagram é atendido na hora, com o seu nome. A IA tira as dúvidas e já marca a visita. Você só aparece para mostrar o imóvel.</p>
-      <div style="margin:26px 0 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:17px clamp(20px,4.4vw,28px);font-weight:600;font-size:clamp(15px,4vw,16px);white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.40)" style-hover="background:#086b46;color:#ffffff">Criar meu Smart Link <span style="font-size:18px">→</span></a>
-        <div style="color:#6c7081;font-size:12.5px;line-height:1.5">Sem cartão · No ar em 5 minutos<br>Mais de 700 corretores já criaram</div>
-      </div>
+      <h1 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.2vw,54px);line-height:1.1;letter-spacing:-0.018em;color:#00073e;max-width:760px;margin:0">{{ heroTitle }}</h1>
+      <p style="color:#494d5e;font-size:clamp(15.5px,1.5vw,18px);line-height:1.55;max-width:600px;margin:16px 0 0">O Smart Link da Match House atende, qualifica e agenda visitas pelo link da sua bio, com o seu nome, 24 horas por dia.</p>
+      <!--
+        O caminho curto, na primeira tela.
 
-      <!-- a prova: uma noite, do jeito que acontece -->
-      <div class="mh-cel" style="position:relative;margin:34px 0 0;max-width:520px">
-        <div style="position:absolute;inset:-18px -14px -18px -14px;background:radial-gradient(60% 60% at 70% 40%, rgba(0,239,255,.22) 0%, rgba(0,239,255,0) 70%);pointer-events:none"></div>
-        <div style="position:relative;background:#00052b;border-radius:26px;padding:18px 18px 16px;box-shadow:0 30px 70px rgba(0,7,62,.28),0 0 0 1px rgba(0,239,255,.18)">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 4px 14px;border-bottom:1px solid rgba(255,255,255,.08)">
-            <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:linear-gradient(110deg,#001a8a 0%,#0a3fd0 50%,#00d4ff 100%);display:inline-flex;align-items:center;justify-content:center"><i class="ph-fill ph-sparkle" style="color:#fff;font-size:15px"></i></span><span style="font-weight:600;font-size:13.5px;color:#ffffff;white-space:nowrap">Ontem à noite</span></span>
-            <span style="white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:rgba(0,239,255,.12);border:1px solid rgba(0,239,255,.35);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:600;color:#00efff"><i class="ph-fill ph-moon" style="font-size:12px"></i>você dormindo</span>
-          </div>
-
-          <div style="position:relative;padding:16px 4px 4px 4px">
-            <div style="position:absolute;left:60px;top:30px;bottom:48px;width:2px;background:linear-gradient(#2a3a8a,#00efff)"></div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <span style="font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.55);width:38px;flex:none;padding-top:9px">23:47</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00052b;border:2px solid #6c7cff;flex:none;margin-top:10px;position:relative"></span>
-              <div style="flex:1;min-width:0">
-                <div style="font-size:11px;color:rgba(255,255,255,.5);margin:0 0 5px">Cliente, pelo link da sua bio</div>
-                <div style="background:rgba(255,255,255,.08);color:#ffffff;border-radius:4px 16px 16px 16px;padding:10px 13px;font-size:14px;line-height:1.45">Oi! Esse apê de 2 quartos aceita financiamento?</div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start;margin:14px 0 0">
-              <span style="font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.55);width:38px;flex:none;padding-top:9px">23:47</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00052b;border:2px solid #38c8ff;flex:none;margin-top:10px"></span>
-              <div style="flex:1;min-width:0">
-                <div style="font-size:11px;color:#7fdcff;margin:0 0 5px">Sua IA, na hora, com o seu nome</div>
-                <div style="background:linear-gradient(110deg,#0a3fd0 0%,#0091c7 100%);color:#ffffff;border-radius:4px 16px 16px 16px;padding:10px 13px;font-size:14px;line-height:1.45">Aceita sim! Quer ver por dentro? Tenho sábado às 10h.</div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start;margin:14px 0 0">
-              <span style="font-family:var(--font-mono);font-size:12px;color:#00efff;width:38px;flex:none;padding-top:13px">23:49</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00efff;flex:none;margin-top:14px;box-shadow:0 0 0 5px rgba(0,239,255,.18)"></span>
-              <div style="flex:1;min-width:0;background:#ffffff;border-radius:16px;padding:11px 14px;display:flex;align-items:center;gap:12px">
-                <span style="width:36px;height:36px;border-radius:11px;background:#e6fbf3;display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-calendar-check" style="color:#0a8a5b;font-size:20px"></i></span>
-                <span style="min-width:0"><span style="display:block;font-family:var(--font-display);font-weight:800;font-size:15.5px;color:#00073e">Visita marcada</span><span style="display:block;font-size:12.5px;color:#494d5e;margin-top:1px">Sábado, 10h · Marina P. · quer financiar</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:8px;margin:14px 4px 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:rgba(255,255,255,.75)"><i class="ph-fill ph-coffee" style="color:#00efff;font-size:16px"></i>07:15 · você fica sabendo no café da manhã.</div>
-        </div>
-        <div style="font-size:11px;color:#969aaa;margin:10px 0 0 4px">Exemplo ilustrativo de como a IA atende.</div>
+        Medido em 22/09: de 17 a 20/09 a campanha da LP pagou 83 cliques, 22
+        pessoas chegaram no app e nenhuma se cadastrou — enquanto a campanha
+        que manda direto para o app converteu 5 de 60. A causa nao era a copia:
+        os dois botoes que dominavam a primeira tela eram as fichas da conversa,
+        e o botao de cadastro ficava a 4,7 telas de rolagem. Quem chega de um
+        anuncio precisa poder entrar agora; a conversa fica logo abaixo, para
+        quem quiser entender antes.
+      -->
+      <div style="margin:26px 0 0">
+        <!-- padding e corpo em clamp para o rotulo caber numa linha ate em tela de 320px -->
+        <a href="{{ waHref }}" data-mh-cta="signup" style="background:#0a8a5b;color:#ffffff;border-radius:16px;padding:16px clamp(18px,4.4vw,26px);font-weight:600;font-size:clamp(14.5px,4vw,15.5px);white-space:nowrap;display:inline-flex;align-items:center;gap:10px;box-shadow:0 18px 48px rgba(6,95,63,.45)" style-hover="background:#086b46;color:#ffffff"><i class="ph-fill ph-rocket-launch" style="font-size:19px"></i>Criar meu Smart Link agora</a>
+        <div style="color:#6c7081;font-size:12.5px;margin:12px 0 0">Sem cartão · Seu link no ar em 5 minutos</div>
       </div>
       <!-- a conversa: logo abaixo do botao, para quem quer entender antes -->
       <div style="margin:36px 0 0;border-left:3px solid #00efff;padding:0 0 0 18px">
@@ -176,51 +142,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
 
     <!-- trilho de provas -->
     <div style="display:flex;flex-direction:column;gap:14px;max-width:420px;width:100%;justify-self:center">
-      <!-- a prova: uma noite, do jeito que acontece -->
-      <div class="mh-pc" style="position:relative;margin:40px 0 0;max-width:520px">
-        <div style="position:absolute;inset:-18px -14px -18px -14px;background:radial-gradient(60% 60% at 70% 40%, rgba(0,239,255,.22) 0%, rgba(0,239,255,0) 70%);pointer-events:none"></div>
-        <div style="position:relative;background:#00052b;border-radius:26px;padding:18px 18px 16px;box-shadow:0 30px 70px rgba(0,7,62,.28),0 0 0 1px rgba(0,239,255,.18)">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 4px 14px;border-bottom:1px solid rgba(255,255,255,.08)">
-            <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:30px;height:30px;border-radius:50%;background:linear-gradient(110deg,#001a8a 0%,#0a3fd0 50%,#00d4ff 100%);display:inline-flex;align-items:center;justify-content:center"><i class="ph-fill ph-sparkle" style="color:#fff;font-size:15px"></i></span><span style="font-weight:600;font-size:13.5px;color:#ffffff;white-space:nowrap">Ontem à noite</span></span>
-            <span style="white-space:nowrap;display:inline-flex;align-items:center;gap:6px;background:rgba(0,239,255,.12);border:1px solid rgba(0,239,255,.35);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:600;color:#00efff"><i class="ph-fill ph-moon" style="font-size:12px"></i>você dormindo</span>
-          </div>
-
-          <div style="position:relative;padding:16px 4px 4px 4px">
-            <div style="position:absolute;left:60px;top:30px;bottom:48px;width:2px;background:linear-gradient(#2a3a8a,#00efff)"></div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <span style="font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.55);width:38px;flex:none;padding-top:9px">23:47</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00052b;border:2px solid #6c7cff;flex:none;margin-top:10px;position:relative"></span>
-              <div style="flex:1;min-width:0">
-                <div style="font-size:11px;color:rgba(255,255,255,.5);margin:0 0 5px">Cliente, pelo link da sua bio</div>
-                <div style="background:rgba(255,255,255,.08);color:#ffffff;border-radius:4px 16px 16px 16px;padding:10px 13px;font-size:14px;line-height:1.45">Oi! Esse apê de 2 quartos aceita financiamento?</div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start;margin:14px 0 0">
-              <span style="font-family:var(--font-mono);font-size:12px;color:rgba(255,255,255,.55);width:38px;flex:none;padding-top:9px">23:47</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00052b;border:2px solid #38c8ff;flex:none;margin-top:10px"></span>
-              <div style="flex:1;min-width:0">
-                <div style="font-size:11px;color:#7fdcff;margin:0 0 5px">Sua IA, na hora, com o seu nome</div>
-                <div style="background:linear-gradient(110deg,#0a3fd0 0%,#0091c7 100%);color:#ffffff;border-radius:4px 16px 16px 16px;padding:10px 13px;font-size:14px;line-height:1.45">Aceita sim! Quer ver por dentro? Tenho sábado às 10h.</div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:12px;align-items:flex-start;margin:14px 0 0">
-              <span style="font-family:var(--font-mono);font-size:12px;color:#00efff;width:38px;flex:none;padding-top:13px">23:49</span>
-              <span style="width:14px;height:14px;border-radius:50%;background:#00efff;flex:none;margin-top:14px;box-shadow:0 0 0 5px rgba(0,239,255,.18)"></span>
-              <div style="flex:1;min-width:0;background:#ffffff;border-radius:16px;padding:11px 14px;display:flex;align-items:center;gap:12px">
-                <span style="width:36px;height:36px;border-radius:11px;background:#e6fbf3;display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-calendar-check" style="color:#0a8a5b;font-size:20px"></i></span>
-                <span style="min-width:0"><span style="display:block;font-family:var(--font-display);font-weight:800;font-size:15.5px;color:#00073e">Visita marcada</span><span style="display:block;font-size:12.5px;color:#494d5e;margin-top:1px">Sábado, 10h · Marina P. · quer financiar</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div style="display:flex;align-items:center;gap:8px;margin:14px 4px 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:rgba(255,255,255,.75)"><i class="ph-fill ph-coffee" style="color:#00efff;font-size:16px"></i>07:15 · você fica sabendo no café da manhã.</div>
-        </div>
-        <div style="font-size:11px;color:#969aaa;margin:10px 0 0 4px">Exemplo ilustrativo de como a IA atende.</div>
-      </div>
-            <sc-if value="{{ c3PhoneVisible }}" hint-placeholder-val="{{ false }}">
+      <sc-if value="{{ c3PhoneVisible }}" hint-placeholder-val="{{ false }}">
         <div style="animation:mhFadeUp .5s cubic-bezier(0.2,0.7,0.2,1);margin-top:6px">
           <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6c7081;margin:0 0 10px">Prévia do seu Smart Link ↘</div>
           <div style="position:relative;background:#020824;border-radius:22px;overflow:hidden;width:420px;max-width:100%;box-shadow:0 0 0 3px rgba(0,239,255,.25),0 24px 60px rgba(0,15,144,.25)">
@@ -423,9 +345,7 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
     <div style="display:inline-flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6c7081">Match IA →</span></div>
     <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.1;letter-spacing:-0.015em;color:#00073e;margin:14px 0 0;max-width:720px">Smart Links assim já estão no ar — vendendo.</h2>
     <p style="color:#494d5e;font-size:16.5px;line-height:1.6;margin:14px 0 0;max-width:560px">Corretores reais, com a Match IA respondendo cada clique em segundos. O próximo Smart Link pode ser o seu — no ar em 5 minutos.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin:36px 0 0;max-width:560px">
-      <!-- 02/10 (Mateus): um exemplo so, maior. Eram dois cartoes pequenos
-           (Bernardo e Janaina); no celular viravam duas telas de rolagem. -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;margin:36px 0 0;max-width:920px">
       <a href="{{ waHref }}" data-mh-cta="signup" style="display:block;background:linear-gradient(135deg,rgba(0,239,255,.45) 0%,rgba(0,15,144,.5) 40%,rgba(255,255,255,.08) 100%);border-radius:26px;padding:1.5px;box-shadow:0 24px 60px rgba(0,5,43,.35);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,239,255,.3),0 32px 80px rgba(0,5,43,.5)">
         <span style="display:flex;flex-direction:column;height:100%;background:#00052b;border-radius:25px;overflow:hidden">
           <span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px">
@@ -435,23 +355,54 @@ a{color:#000f90;text-decoration:none}a:hover{color:#00073e}
           <span style="display:block;padding:0 14px">
             <span style="position:relative;display:block;background:#020824;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;padding:18px 18px 20px">
               <span style="position:absolute;inset:0;background:radial-gradient(75% 55% at 50% 22%, rgba(0,90,200,.25) 0%, rgba(2,8,36,0) 70%)"></span>
-              <span style="position:relative;display:block;height:170px">
+              <span style="position:relative;display:block;height:116px">
                 <span style="position:absolute;left:0;right:0;top:0;bottom:0;display:block"><span style="position:absolute;left:calc(50% - 36%);top:calc(67.88px);transform:translate(-50%,-50%);display:flex;width:19.84px;height:19.84px;border-radius:50%;background:#0A66C2;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(10,102,194,.4)"><i class="ph-fill ph-linkedin-logo" style="color:#fff;font-size:7.25px"></i></span><span style="position:absolute;left:calc(50% - 25%);top:calc(31.92px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.4)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:13px"></i></span><span style="position:absolute;left:calc(50% + 0.0px);top:calc(14.56px);transform:translate(-50%,-50%);display:flex;width:24.8px;height:24.8px;border-radius:50%;background:#ffffff;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(255,255,255,.16)"><img src="favicon.png" alt="" style="width:14px;height:14px;display:block"></span><span style="position:absolute;left:calc(50% + 25%);top:calc(31.92px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(214,36,159,.4)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:13px"></i></span><span style="position:absolute;left:calc(50% + 36%);top:calc(66.64px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:#FF0000;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(255,0,0,.35)"><i class="ph-fill ph-youtube-logo" style="color:#fff;font-size:13px"></i></span></span>
-                <img src="assets/avatar-corretor-real.jpg" alt="" style="position:absolute;left:50%;top:84px;transform:translateX(-50%);width:78px;height:78px;border-radius:50%;object-fit:cover;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 18px rgba(0,120,255,.35)">
+                <img src="assets/avatar-corretor-real.jpg" alt="" style="position:absolute;left:50%;top:58px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 18px rgba(0,120,255,.35)">
               </span>
-              <span style="position:relative;display:block;text-align:center;font-family:var(--font-display);font-weight:800;font-size:19px;white-space:nowrap;color:#ffffff;margin:10px 0 0">Oi! Eu sou o Bernardo IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:14px;vertical-align:-2px"></i></span>
-              <span style="position:relative;display:block;text-align:center;font-size:14px;line-height:1.5;color:rgba(255,255,255,.62);margin:8px auto 0;max-width:320px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</span>
+              <span style="position:relative;display:block;text-align:center;font-family:var(--font-display);font-weight:800;font-size:16.5px;color:#ffffff;margin:8px 0 0">Oi! Eu sou o Bernardo IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:14px;vertical-align:-2px"></i></span>
+              <span style="position:relative;display:block;text-align:center;font-size:10.5px;line-height:1.5;color:rgba(255,255,255,.6);margin:5px auto 0;max-width:240px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</span>
               <span style="position:relative;display:flex;align-items:center;gap:8px;background:rgba(4,16,51,.75);border:1px solid rgba(0,180,255,.45);border-radius:999px;padding:5px 6px 5px 14px;margin:12px 0 0;box-shadow:0 0 16px rgba(0,140,255,.16)">
-                <span style="flex:1;font-size:14px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+                <span style="flex:1;font-size:10.5px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
                 <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:11px"></i></span>
               </span>
-              <span style="position:relative;display:block;text-align:center;font-weight:600;font-size:14px;color:#38c8ff;margin:16px 0 0">Prefere ver meus imóveis?</span>
+              <span style="position:relative;display:block;text-align:center;font-weight:600;font-size:10.5px;color:#38c8ff;margin:12px 0 0">Prefere ver meus imóveis?</span>
             </span>
           </span>
           <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 20px 18px;margin-top:auto">
             <span style="display:block">
               <span style="display:block;font-weight:600;font-size:15px;color:#ffffff">Bernardo V.</span>
               <span style="display:block;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">CRECI ativo · a IA dele responde em segundos</span>
+            </span>
+            <span style="flex:none;font-weight:600;font-size:13px;color:#00efff;border-bottom:1.5px solid rgba(0,239,255,.4);padding-bottom:2px;white-space:nowrap">Quero o meu assim →</span>
+          </span>
+        </span>
+      </a>
+      <a href="{{ waHref }}" data-mh-cta="signup" style="display:block;background:linear-gradient(135deg,rgba(0,239,255,.45) 0%,rgba(0,15,144,.5) 40%,rgba(255,255,255,.08) 100%);border-radius:26px;padding:1.5px;box-shadow:0 24px 60px rgba(0,5,43,.35);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,239,255,.3),0 32px 80px rgba(0,5,43,.5)">
+        <span style="display:flex;flex-direction:column;height:100%;background:#00052b;border-radius:25px;overflow:hidden">
+          <span style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px">
+            <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.6)">Smart Link real · no ar agora</span>
+            <span style="display:inline-flex;align-items:center;gap:7px"><span style="width:6px;height:6px;border-radius:50%;background:#00efff;animation:mhPulse 1.8s infinite"></span><span style="font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.16em;color:#00efff">LIVE · 24/7</span></span>
+          </span>
+          <span style="display:block;padding:0 14px">
+            <span style="position:relative;display:block;background:#020824;border-radius:14px;border:1px solid rgba(255,255,255,.08);overflow:hidden;padding:18px 18px 20px">
+              <span style="position:absolute;inset:0;background:radial-gradient(75% 55% at 50% 22%, rgba(0,90,200,.25) 0%, rgba(2,8,36,0) 70%)"></span>
+              <span style="position:relative;display:block;height:116px">
+                <span style="position:absolute;left:0;right:0;top:0;bottom:0;display:block"><span style="position:absolute;left:calc(50% - 36%);top:calc(67.88px);transform:translate(-50%,-50%);display:flex;width:19.84px;height:19.84px;border-radius:50%;background:#0A66C2;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(10,102,194,.4)"><i class="ph-fill ph-linkedin-logo" style="color:#fff;font-size:7.25px"></i></span><span style="position:absolute;left:calc(50% - 25%);top:calc(31.92px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:#25D366;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.4)"><i class="ph-fill ph-whatsapp-logo" style="color:#fff;font-size:13px"></i></span><span style="position:absolute;left:calc(50% + 0.0px);top:calc(14.56px);transform:translate(-50%,-50%);display:flex;width:24.8px;height:24.8px;border-radius:50%;background:#ffffff;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(255,255,255,.16)"><img src="favicon.png" alt="" style="width:14px;height:14px;display:block"></span><span style="position:absolute;left:calc(50% + 25%);top:calc(31.92px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:radial-gradient(circle at 28% 110%, #fdf497 0%, #fd5949 42%, #d6249f 62%, #285AEB 92%);align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(214,36,159,.4)"><i class="ph-fill ph-instagram-logo" style="color:#fff;font-size:13px"></i></span><span style="position:absolute;left:calc(50% + 36%);top:calc(66.64px);transform:translate(-50%,-50%);display:flex;width:22.32px;height:22.32px;border-radius:50%;background:#FF0000;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(255,0,0,.35)"><i class="ph-fill ph-youtube-logo" style="color:#fff;font-size:13px"></i></span></span>
+                <img src="assets/avatar-corretora-real.jpg" alt="" style="position:absolute;left:50%;top:58px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(90,120,255,.7);box-shadow:0 0 18px rgba(0,120,255,.35)">
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-family:var(--font-display);font-weight:800;font-size:16.5px;color:#ffffff;margin:8px 0 0">Oi! Eu sou a Janaina IA <i class="ph-fill ph-seal-check" style="color:#38c8ff;font-size:14px;vertical-align:-2px"></i></span>
+              <span style="position:relative;display:block;text-align:center;font-size:10.5px;line-height:1.5;color:rgba(255,255,255,.6);margin:5px auto 0;max-width:240px">Me conta como você quer viver. Eu não durmo enquanto não encontrar.</span>
+              <span style="position:relative;display:flex;align-items:center;gap:8px;background:rgba(4,16,51,.75);border:1px solid rgba(0,180,255,.45);border-radius:999px;padding:5px 6px 5px 14px;margin:12px 0 0;box-shadow:0 0 16px rgba(0,140,255,.16)">
+                <span style="flex:1;font-size:10.5px;color:rgba(255,255,255,.45)">Como posso ajudar na sua busca?</span>
+                <span style="width:24px;height:24px;border-radius:50%;background:rgba(0,120,200,.35);border:1px solid rgba(0,200,255,.4);display:inline-flex;align-items:center;justify-content:center;flex:none"><i class="ph-fill ph-paper-plane-right" style="color:#7fdcff;font-size:11px"></i></span>
+              </span>
+              <span style="position:relative;display:block;text-align:center;font-weight:600;font-size:10.5px;color:#38c8ff;margin:12px 0 0">Prefere ver meus imóveis?</span>
+            </span>
+          </span>
+          <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding:16px 20px 18px;margin-top:auto">
+            <span style="display:block">
+              <span style="display:block;font-weight:600;font-size:15px;color:#ffffff">Janaina A.</span>
+              <span style="display:block;font-family:var(--font-mono);font-size:11px;color:rgba(255,255,255,.45);margin-top:4px">CRECI ativo · a IA dela responde em segundos</span>
             </span>
             <span style="flex:none;font-weight:600;font-size:13px;color:#00efff;border-bottom:1.5px solid rgba(0,239,255,.4);padding-bottom:2px;white-space:nowrap">Quero o meu assim →</span>
           </span>
@@ -576,7 +527,7 @@ class Component extends DCLogic {
     // mh_v: versao da pagina que a pessoa viu, no link de cadastro. So para
     // analise (o tracking.js acrescenta UTMs, mh_eid e mh_src por cima e nao
     // mexe no que ja esta na URL). Nao trava nada e nao muda o evento Lead.
-    const mhV = is6g ? 'lp2-6g' : 'lp2';
+    const mhV = is6g ? 'lp1-6g' : 'lp1';
     const appHref = 'https://app.smartli.ink/?mh_v=' + mhV;
     const waHrefHeader = appHref;
     const waHref = appHref;
@@ -650,18 +601,5 @@ class Component extends DCLogic {
   }
 }
 </script>
-
-<!-- 02/10 (Mateus): botao de cadastro fixo no rodape, so no celular, depois
-     que a pessoa rola um pouco (para nao cobrir o topo). Antes o botao so
-     existia no topo e no fim da pagina. data-mh-cta="signup": o tracking.js
-     pega o clique (evento Lead + UTMs), igual aos outros botoes. mh_v=lp2-barra
-     separa no cadastro quem entrou por ele. -->
-<style>
-#mh-barra{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);box-shadow:0 -6px 24px rgba(0,7,62,.12);display:none}
-#mh-barra a{display:flex;align-items:center;justify-content:center;gap:10px;background:#0a8a5b;color:#fff;border-radius:14px;padding:14px;font-weight:600;font-size:15.5px;font-family:'Poppins',system-ui,sans-serif;text-decoration:none}
-@media (max-width:720px){ body.mh-rolou #mh-barra{display:block} }
-</style>
-<div id="mh-barra"><a href="https://app.smartli.ink/?mh_v=lp2-barra" data-mh-cta="signup">Criar meu Smart Link agora →</a></div>
-<script>addEventListener('scroll',function(){document.body.classList.toggle('mh-rolou',scrollY>700)},{passive:true})</script>
 </body>
 </html>

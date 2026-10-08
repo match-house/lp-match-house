@@ -23,11 +23,16 @@ Notas do projeto para agentes. Ler antes de mexer.
 ## Estrutura
 
 - `index.html` — LP principal (a que está no ar). É um "design doc" (`<x-dc>` + `support.js`); o `<helmet>` é processado por JS.
-  - Desde 02/10 (aprovado pelo Mateus) o topo é a "LP2": título "Acorde com
-    visitas marcadas.", cartão de uma noite em três passos e botão logo abaixo;
-    só um exemplo de Smart Link, maior; botão de cadastro fixo no rodapé do
-    celular. Os cadastros chegam com `mh_v=lp2` (ou `lp2-barra`), contra
-    `lp1` da versão anterior.
+  - **Desde 08/10 a página voltou à "LP1"** (Mateus: "quero voltar a LP para o
+    modelo anterior"). Título "A pergunta chegou às 23h47. Sua IA respondeu na
+    hora."; o `index.html` é o mesmo do commit 35c9b0f (28/09), que já tinha a
+    regra sem preço e sem "grátis". Os cadastros voltam a chegar com
+    `mh_v=lp1` (ou `lp1-6g`).
+  - De 02/10 a 08/10 o topo foi a "LP2": título "Acorde com visitas
+    marcadas.", cartão de uma noite em três passos e botão logo abaixo; só um
+    exemplo de Smart Link, maior; botão de cadastro fixo no rodapé do celular;
+    `mh_v=lp2` (ou `lp2-barra`). Está nos commits 84adc65 e 9801315, se ele
+    quiser de volta.
   - **Leitura de 07/10: não deu para concluir.**
     - Pelos anúncios da Meta, a LP1 trouxe 21 cadastros (16/09 a 01/10) e a
       LP2 trouxe 2 (02 a 06/10).
