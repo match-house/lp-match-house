@@ -714,6 +714,17 @@ quando quem cortou foi o nosso limite (app #125).
   08/10 ("Ficou certo agora!"): 17 fotos, todas do anúncio. Ele avisou o
   José Luiz (1195) do WhatsApp dele; ver no relatório se o José publicou.
 
+## Fila de 09/10 (manhã)
+
+- **Mensagens do Instagram "como utilitário"** (Mateus, 08/10 à noite: "vamos
+  depois colocar as mensagens no insta como utilitário.. coloca na fila para
+  amanha de manha"). Confirmar com ele o que quer dizer: responder no Direct
+  depois das 24 h (etiqueta HUMAN_AGENT da Meta, até 7 dias) ou mensagens de
+  categoria utilitário, como os modelos do WhatsApp. Lembrete marcado para
+  09/10, 8h40.
+- **Loteamento** (pedido dele em 08/10): em andamento. Quando estiver no ar,
+  avisar a Bárbara (1226, imóvel 988) que dá para marcar como loteamento.
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
