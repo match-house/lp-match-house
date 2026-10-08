@@ -452,6 +452,12 @@ O que falta construir:
   `addExtraProperties` (o benefício de imóveis extras) soma no **plano**,
   não no corretor: daria imóveis extras a todo mundo do mesmo plano.
 
+**08/10:** o benefício "Ganhe 5 imóveis adicionais" (id_benefit 7) saiu dos
+níveis Green · 10% (4) e Blue · 50% (5), pela rota nova do backoffice
+`POST /backoffice/indicacao/niveis/beneficios/desvincular` (prévia +
+confirmação, api #83). Nada mais mudou nos níveis; o benefício continua
+cadastrado. Nomes dos níveis mantidos: Green, Blue e Partner.
+
 ### Indicação com três prêmios: + imóveis, + matches (leads) e desconto (Mateus, 01/10)
 
 Ele quer estudar o plano de indicações dando três coisas: mais imóveis,
@@ -634,6 +640,21 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   avisa); o que já precisava do "pode" continua precisando.
 - O passo a passo está na rotina de hora em hora
   (`trig_011xbCpFRdmNvYVj7cDrs1Xc`), e o registro em `mensagens-vistas.json`.
+
+## Nome do imóvel: até 255 caracteres (desde 08/10)
+
+- Em 07/10 o corretor 1218 (Rodrigo) tentou publicar 8 vezes um imóvel com
+  nome de 88 caracteres e só via erro. A coluna `property.name` era
+  VARCHAR(80); o app e a IA deixavam 100. Desde 17/09 foram 17 erros iguais.
+- Decisão do Mateus (08/10): "Pode fazer com 255 caracteres e na mensagem tb".
+  No ar em 08/10: api #82 (coluna em 255, erro `PROPERTY_NAME_TOO_LONG_ERROR`
+  antes do banco, P2000 vira `VALUE_TOO_LONG_ERROR`) e app #123 (campo,
+  contador e importação em 255; mensagem "O nome do imóvel pode ter no máximo
+  255 caracteres."). O "Gerar nome com IA" continua em 100.
+- A migration tenta de novo se a tabela estiver presa (4 vezes de 5 s). Se um
+  dia falhar, nenhum container novo da API sobe até rodar, numa task avulsa
+  do ECS: `npx prisma migrate resolve --rolled-back <nome da migration>`.
+- O backoffice antigo (`backoficce`) ainda limita o nome a 80 na digitação.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
