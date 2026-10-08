@@ -209,7 +209,7 @@ Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar
   - "Valor de venda" (ou "Valor do aluguel");
   - "Condomínio (mensal)", "IPTU (anual)".
 - **"Fotos e mídia":**
-  - até 20 fotos; a primeira é a capa;
+  - até 30 fotos (desde 08/10; antes 20); a primeira é a capa;
   - "Vídeo (YouTube ou link direto)" e "Tour virtual 360°".
 - **"Publicação":** chaves "Anúncio ativo" e "Ocultar anúncio".
 
@@ -226,7 +226,7 @@ aparecem se a conta tiver IA. **No cadastro novo não aparecem.**
 **Fotos: como ensinar certo** (desde 30/09, PR app #103)
 
 - **Pôr foto:** tocar num espaço vazio e escolher a foto do celular. Sempre
-  sobra um espaço vazio para a próxima, até 20.
+  sobra um espaço vazio para a próxima, até 30.
 - Num imóvel sem foto, **a primeira foto escolhida vira a capa**, qualquer
   que seja o espaço tocado.
 - **Embaixo de cada foto há botões:**

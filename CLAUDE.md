@@ -656,6 +656,12 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   do ECS: `npx prisma migrate resolve --rolled-back <nome da migration>`.
 - O backoffice antigo (`backoficce`) ainda limita o nome a 80 na digitação.
 
+**Fotos: até 30 por imóvel (desde 08/10, app #126; antes 20).** O 20 não tinha
+motivo técnico. Com o "pode" do Mateus subiu para 30, que é o que a importação
+por link já traz. No mesmo dia: a importação deixou de trazer a mesma foto em
+vários tamanhos (BFF #8) e o aviso parou de dizer que "o site não liberou"
+quando quem cortou foi o nosso limite (app #125).
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
