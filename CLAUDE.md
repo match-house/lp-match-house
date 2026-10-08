@@ -683,13 +683,31 @@ quando quem cortou foi o nosso limite (app #125).
   - Falta ele escolher a cor do smartli.ink/nome no criativo branco: #0085ff
     (recomendado, lê no papel) ou #00efff (o ciano do azul). A cor é a
     constante LINK_COLOR em app/src/lib/qr-code.ts.
+  - 08/10 à noite: "depois vamos corrigir o qr code, tem ajustes". Perguntar
+    quais antes de mexer.
 - **Tela "Estamos publicando seu imóvel":**
   - Pedido: botão "Parar", que volta à revisão com o imóvel em rascunho;
     título com fonte 40% menor; fotos subindo 3 de cada vez, com contador.
+  - 08/10 à noite, a mais: "se travar ter como ele reinicializar e publicar o
+    imóvel novamente". Depois do Parar, um botão para tentar publicar de novo
+    (sem perder o que já foi preenchido nem duplicar o imóvel).
   - O workflow foi parado a pedido dele (créditos). Retomar com o
     resumeFromRunId wf_bd9ba871-a0b, script publicar-parar-e-rapido.
   - Medido em 08/10: 30 fotos grandes (site da Pirâmide de BH) levaram 4 min;
     as fotos menores de SJC, 12 s.
+- **Comodidades (tela Novo imóvel, passo 5), pedido de 08/10:**
+  - Voltar o campo para o corretor digitar a comodidade que não está no
+    catálogo: um em "Área privativa" e um em "Áreas comuns do condomínio".
+    Ele cria quantas quiser.
+  - Títulos "ÁREA PRIVATIVA" e "ÁREAS COMUNS DO CONDOMÍNIO" com mais
+    destaque. Hoje são cinza, pequenos e espaçados; somem entre os botões.
+  - Antes de mexer: conferir no app por que o campo sumiu e se a API ainda
+    aceita comodidade digitada.
+- **Importação da Pirâmide SJC:** corrigida em 08/10 (BFF #10). A página
+  real (Next.js, da Arbo) não põe a galeria em <img>: ela vem no
+  __NEXT_DATA__, e as <img> são de outros imóveis. Fotos agora pelo código
+  do anúncio no endereço (AP13251_PIRQ). Falta o Mateus testar de novo na
+  conta INMC; depois avisar o José Luiz (1195) que pode tentar de novo.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
