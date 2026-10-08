@@ -170,6 +170,11 @@ para aquela mensagem.
   código `confirmacao`; depois `POST /backoffice/messages/send` com o mesmo
   corpo + `confirmacao`. Texto livre só até 24 h depois da última mensagem
   da pessoa. Não mandar a pessoa para outro número.
+  - Em 08/10 o Mateus trocou o nome "Match House Twilio" da conta do
+    WhatsApp do 6800 (WABA 28349208018063806, Configurações do negócio >
+    Contas do WhatsApp) para "Match House". A Twilio usa o id da conta, não
+    o nome. Na mesma lista já havia outra conta chamada "Match House" (a do
+    aplicativo WhatsApp Business): a do 6800 é a de id 28349208018063806.
 - **Código de cadastro pelo WhatsApp** (ligado em 30/09, 16h). Na tela do
   código o corretor pode escolher "Receber por WhatsApp", e o código sai do
   6800 como "Match House AI". O caminho é:
