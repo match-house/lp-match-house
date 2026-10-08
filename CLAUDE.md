@@ -23,16 +23,19 @@ Notas do projeto para agentes. Ler antes de mexer.
 ## Estrutura
 
 - `index.html` — LP principal (a que está no ar). É um "design doc" (`<x-dc>` + `support.js`); o `<helmet>` é processado por JS.
-  - **Desde 08/10 a página voltou à "LP1"** (Mateus: "quero voltar a LP para o
-    modelo anterior"). Título "A pergunta chegou às 23h47. Sua IA respondeu na
-    hora."; o `index.html` é o mesmo do commit 35c9b0f (28/09), que já tinha a
-    regra sem preço e sem "grátis". Os cadastros voltam a chegar com
-    `mh_v=lp1` (ou `lp1-6g`).
-  - De 02/10 a 08/10 o topo foi a "LP2": título "Acorde com visitas
-    marcadas.", cartão de uma noite em três passos e botão logo abaixo; só um
-    exemplo de Smart Link, maior; botão de cadastro fixo no rodapé do celular;
-    `mh_v=lp2` (ou `lp2-barra`). Está nos commits 84adc65 e 9801315, se ele
-    quiser de volta.
+  - **Desde 08/10 a página voltou à "LP0", a de antes de 28/09** (Mateus:
+    "quero voltar a LP para o modelo anterior" e depois "1 versao anterior a
+    essa ainda.."). O topo é a própria conversa ("Oi. Eu sou a Match — e esta
+    página é uma conversa…") com o botão logo abaixo. O `index.html` é o do
+    commit 3ee0753 (LP0, já sem números e prazos que não dá para comprovar)
+    com a correção de 35c9b0f: a conversa oferece "Como funciona?" e não fala
+    de preço. Sem `mh_v` nos links (ele nasceu com a LP1).
+  - As outras versões, se ele quiser de volta:
+    - "LP1" (28/09 a 02/10): título "A pergunta chegou às 23h47. Sua IA
+      respondeu na hora."; `index.html` do commit 35c9b0f; `mh_v=lp1`.
+    - "LP2" (02/10 a 08/10): título "Acorde com visitas marcadas.", um exemplo
+      só e botão fixo no rodapé do celular; commits 84adc65 e 9801315;
+      `mh_v=lp2`.
   - **Leitura de 07/10: não deu para concluir.**
     - Pelos anúncios da Meta, a LP1 trouxe 21 cadastros (16/09 a 01/10) e a
       LP2 trouxe 2 (02 a 06/10).
