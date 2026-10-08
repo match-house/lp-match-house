@@ -682,14 +682,13 @@ quando quem cortou foi o nosso limite (app #125).
 
 ## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
 
-- **QR no Divulgar + "Powered by Match House": PR app #124, pronto, sem merge.**
-  - O criativo azul ficou sem logo e sem "Atendimento 24/7", com o nome
-    centralizado sobre o QR.
-  - Falta ele escolher a cor do smartli.ink/nome no criativo branco: #0085ff
-    (recomendado, lê no papel) ou #00efff (o ciano do azul). A cor é a
-    constante LINK_COLOR em app/src/lib/qr-code.ts.
-  - 08/10 à noite: "depois vamos corrigir o qr code, tem ajustes". Perguntar
-    quais antes de mexer.
+- **QR no Divulgar + "Powered by Match House": no ar desde 08/10 à noite (app #124, merge 62d204a, com o "pode" do Mateus).**
+  - Arte azul v5: QR menor (quadro em 52% da largura), mais respiro, nome do
+    corretor menor (4,7cqw), sem logo e sem "Atendimento 24/7".
+  - Imagens brancas (QR do Smart Link e do imóvel): frase "Aponte a câmera…" e
+    smartli.ink/<slug> em azul escuro #000f90 (pedido dele: contraste no papel).
+  - Junto: as 5 artes do Divulgar baixadas no celular agora saem na Poppins
+    (antes saíam na fonte de reserva do aparelho). Falta conferir num iPhone.
 - **Tela "Estamos publicando seu imóvel":**
   - Pedido: botão "Parar", que volta à revisão com o imóvel em rascunho;
     título com fonte 40% menor; fotos subindo 3 de cada vez, com contador.
