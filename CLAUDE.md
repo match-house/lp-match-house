@@ -973,10 +973,11 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     ids 14 e 15. Mínimos, descontos, `view_order`, 730 dias e ids ficaram
     iguais. Conferido depois num GET à parte, campo a campo: OK. O
     `POST verificar` com `simular: true` rodou sem erro.
-- **Os nomes ainda podem mudar** em 1 ou 2 dias: o Mateus está escolhendo
-  nomes novos. Se mudarem, regravar só `name` e `description` (prévia e
-  depois `PUT niveis`). Nenhum código da API nem do app escolhe a cor pelo
-  nome.
+- **Os nomes ficam Green, Blue e Partner** (Mateus, 08/10: "por enquanto
+  vamos manter os nomes que ja criamos Green, blue e Partner"). Não sugerir
+  nomes novos de novo. Se um dia mudarem, regravar só `name` e
+  `description` (prévia e depois `PUT niveis`). Nenhum código da API nem do
+  app escolhe a cor pelo nome.
 
 | Nível | Colegas | Desconto guardado | Cartão | id_level |
 |---|---|---|---|---|
