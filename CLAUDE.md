@@ -318,6 +318,11 @@ para aquela mensagem.
       "Libere até 30 clientes por mês e outros benefícios." e "Quem está na
       lista fica sabendo primeiro. R$ 147 por mês." (texto pedido por ele,
       app #113), com o botão "Quero ser avisado";
+    - **desde 08/10 (app #127, pedido dele: "retirar a menção a leads e a
+      quantidade.. deixar so um isca para curiosidade")** a frase grande é
+      "O próximo nível do seu Smart Link está chegando." O resto fica igual,
+      com o preço. No cartão não se fala em lead, cliente nem número além do
+      preço. A página /dashboard/pro continua dizendo o que o plano inclui;
     - a lista sai em `GET /backoffice/pro/interesse`, e o toque vira o evento
       `pro_waitlist_joined` no Amplitude;
     - é para quem está nessa lista que se avisa primeiro quando o Pro abrir.
