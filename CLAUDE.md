@@ -662,6 +662,19 @@ por link já traz. No mesmo dia: a importação deixou de trazer a mesma foto em
 vários tamanhos (BFF #8) e o aviso parou de dizer que "o site não liberou"
 quando quem cortou foi o nosso limite (app #125).
 
+## Autonomia nos atendimentos (Mateus, 08/10)
+
+- Nas palavras dele: "Pode enviar, vc já tem autonomia para os atendimentos".
+  Respondo os atendimentos (6800 e Direct) sem pedir "pode" e mostro a ele a
+  mensagem enviada ("mas me mostre a mensagem").
+- Primeiro caso: Enio Volmar (id_user 196). A conta antiga dele tem e-mail
+  Yahoo, e o app só entra por Google ou Apple. Ele criou a 1240 com Gmail, e o
+  telefone barrou. Respondido em 08/10 (mensagem 676), com a promessa de ligar
+  o Gmail à conta antiga.
+- Falta para cumprir: criar uma rota no backoffice para trocar o e-mail da
+  196 e excluir a 1240. Outras contas antigas com Yahoo ou Hotmail devem ter o
+  mesmo problema.
+
 ## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
 
 - **QR no Divulgar + "Powered by Match House": PR app #124, pronto, sem merge.**
