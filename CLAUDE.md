@@ -816,6 +816,16 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     o 6800) e "Tenho outra dúvida". O Instagram aceita no máximo 4. Antes
     estavam as 4 perguntas padrão da Meta (serviços, hora marcada, escritório,
     horário), sem resposta.
+    - As perguntas frequentes valem só para o Instagram: na automação, a
+      caixinha do Messenger fica desmarcada e a aba Messenger não tem
+      perguntas (conferido pelo Mateus em 08/10). Não precisa preencher.
+    - Em 08/10 o Mateus trocou a resposta de "Como funciona o Smart Link?"
+      pela versão com o parágrafo do QR por imóvel ("Cada imóvel publicado
+      ganha também um QR code para a placa de Vende-se ou Aluga-se..."). A
+      resposta automática (primeira mensagem) não mudou.
+    - Caminho: Meta Business Suite > Caixa de entrada > ícone das Automações
+      na barra de cima (à direita de "Criar anúncio de mensagens") >
+      Perguntas frequentes > aba Instagram.
 - **Desde 04/10, 12h44, o Direct chega na API e eu respondo (api #53)**, como
   no 6800:
   - Cada mensagem vira o e-mail "Instagram de @usuario" para a caixa, com o
