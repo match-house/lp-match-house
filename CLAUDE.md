@@ -706,8 +706,9 @@ quando quem cortou foi o nosso limite (app #125).
 - **Importação da Pirâmide SJC:** corrigida em 08/10 (BFF #10). A página
   real (Next.js, da Arbo) não põe a galeria em <img>: ela vem no
   __NEXT_DATA__, e as <img> são de outros imóveis. Fotos agora pelo código
-  do anúncio no endereço (AP13251_PIRQ). Falta o Mateus testar de novo na
-  conta INMC; depois avisar o José Luiz (1195) que pode tentar de novo.
+  do anúncio no endereço (AP13251_PIRQ). Testado pelo Mateus na INMC em
+  08/10 ("Ficou certo agora!"): 17 fotos, todas do anúncio. Ele avisou o
+  José Luiz (1195) do WhatsApp dele; ver no relatório se o José publicou.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
