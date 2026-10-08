@@ -757,6 +757,18 @@ dos cinco repositórios e nos e-mails):
   - Falta a Intelliway usar a consulta. Especificação em
     `api/docs/visita-marcada.md`, seção "Agenda".
 
+## Amplitude: achar a sessão de um corretor (para a semana de 13/10)
+
+- O app grava 100% das sessões (Session Replay, `sampleRate: 1` em
+  `app/src/lib/amplitude.ts`). Elas ficam em "Repetições e Zoneamento".
+- A lista mostra só as mais recentes. Para chegar nas outras: data no topo,
+  "+ Filtro" > Evento (ex.: `support_click`) ou, num funil, clicar na etapa >
+  "Ver repetições de sessão".
+- **Falta, guardado para a semana de 13/10** (Mateus, 08/10: "Guarde para
+  fazermos depois o Amplitude.. na proxima semana"): o app não manda o id do
+  corretor ao Amplitude (`setUserId`). Por isso não dá para buscar a sessão
+  pelo id_user. Lembrete marcado para terça, 13/10.
+
 ## Mensagens de ajuda do app — elas dizem onde a pessoa travou
 
 `SUPPORT_MESSAGES` em `app/src/constants.ts` preenche o WhatsApp com uma frase
