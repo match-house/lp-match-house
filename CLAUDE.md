@@ -662,6 +662,22 @@ por link já traz. No mesmo dia: a importação deixou de trazer a mesma foto em
 vários tamanhos (BFF #8) e o aviso parou de dizer que "o site não liberou"
 quando quem cortou foi o nosso limite (app #125).
 
+## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
+
+- **QR no Divulgar + "Powered by Match House": PR app #124, pronto, sem merge.**
+  - O criativo azul ficou sem logo e sem "Atendimento 24/7", com o nome
+    centralizado sobre o QR.
+  - Falta ele escolher a cor do smartli.ink/nome no criativo branco: #0085ff
+    (recomendado, lê no papel) ou #00efff (o ciano do azul). A cor é a
+    constante LINK_COLOR em app/src/lib/qr-code.ts.
+- **Tela "Estamos publicando seu imóvel":**
+  - Pedido: botão "Parar", que volta à revisão com o imóvel em rascunho;
+    título com fonte 40% menor; fotos subindo 3 de cada vez, com contador.
+  - O workflow foi parado a pedido dele (créditos). Retomar com o
+    resumeFromRunId wf_bd9ba871-a0b, script publicar-parar-e-rapido.
+  - Medido em 08/10: 30 fotos grandes (site da Pirâmide de BH) levaram 4 min;
+    as fotos menores de SJC, 12 s.
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
