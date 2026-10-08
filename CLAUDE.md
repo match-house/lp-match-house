@@ -1073,6 +1073,22 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     Classic 1k), pedir o mesmo teste num iPhone e o NTAG213 no mesmo preço
     se não abrir. Fecha se a amostra abrir o link no iPhone e no Android.
   - O orçamento de metal pedido ao Victor caiu: eles não fazem metal.
+  - **Atualização de 07–08/10:**
+    - A Thaisa mandou um vídeo de um iPhone abrindo o link só aproximando um
+      cartão Mifare 1K deles: eles configuram o chip para se comportar como
+      NTAG213. A suspeita acima não se confirmou; a prova final é a amostra.
+    - 08/10: o Mateus mandou por e-mail a arte da amostra (PDF com Green e
+      Blue, frente e verso, dados da INMC) e o LEIA-ME com o link do chip
+      (`smartli.ink/inmcpatrimonial?utm_source=nfc&utm_medium=cartao`; o QR
+      leva `utm_source=qr`). Amostra em 3 dias úteis; com o feriado de 12/10,
+      terça 13 ou quarta 14. Lembrete marcado para 13/10 às 9h07.
+    - A Vixcard **não faz carta-berço** ("Somente com a confecção dos
+      cartões"), e o envio para cada cliente ficou sem resposta (provável
+      que não façam). Plano: carta-berço numa gráfica e envio rastreado
+      postado por nós (Correios ou plataforma de etiqueta). Modelo de
+      referência: a embalagem da C6 Tag (luva com meia-lua para puxar e
+      cartela que desliza com a peça presa por cortes, sem cola); fotos no
+      e-mail "Carta berço" do Mateus, 08/10.
   - **Nenhum dado de corretor vai para o fornecedor.** A amostra sai com a
     conta interna.
 
