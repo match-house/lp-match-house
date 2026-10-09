@@ -738,6 +738,29 @@ quando quem cortou foi o nosso limite (app #125).
   - Falta o Mateus mandar à Intelliway o aviso de que existe o subtipo
     "Loteamento" (texto pronto no relatório do loteamento).
 
+## Tipo do imóvel: Residencial, Comercial e Rural (decisões do Mateus, 09/10)
+
+- Pedido dele: "podemos usar o residencial, comercial e rural … como era no
+  app antigo". O banco já tem esse catálogo (3 Comercial, 4 Residencial,
+  5 Rural); só a tela do app novo mostra "Imóvel | Terreno".
+- Defeito achado na avaliação: editar e salvar um dos 23 imóveis Comercial ou
+  Rural (todos do app antigo) os gravava como Residencial, sem aviso. A
+  correção (PR A do app) guarda os ids gravados e os devolve quando o
+  corretor não troca o Tipo nem o Subtipo.
+- As 3 respostas dele, no mesmo dia:
+  1. **Lançamento, Em Construção e Pronto para morar ficam.** Nas palavras
+     dele: "o lancamento pode estar em fase de construcao ou pronto para
+     morar depois de entregue sera um imovel novo, e pode ser lancamento de
+     casas, lotes, apartemento, galpões, etc". Não propor tirar de novo.
+  2. **Subtipo obrigatório para publicar: "vamos testar exigir".** Medir no
+     Amplitude quantos param nessa trava.
+  3. **Não corrigir o banco.** Os corretores ajustam: primeiro e-mail; se não
+     resolver, WhatsApp. Só mandar depois que a tela nova estiver no ar
+     (antes disso não há como escolher Comercial ou Rural).
+- Ideia dele para avaliar: uma caixa de conversa sempre aberta, com um "+",
+  onde o corretor manda tudo (links, fotos, texto) e a IA prepara o anúncio
+  para ele revisar.
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
