@@ -760,6 +760,37 @@ quando quem cortou foi o nosso limite (app #125).
 - Ideia dele para avaliar: uma caixa de conversa sempre aberta, com um "+",
   onde o corretor manda tudo (links, fotos, texto) e a IA prepara o anúncio
   para ele revisar.
+  - Avaliação entregue em 09/10. Ele pediu para conversar na **quarta, 14/10**;
+    há um lembrete marcado para as 9h (`trig_012YZ4KGTXzf1CSLVD7aUFVw`).
+  - Custo de hoje, pelo print do OpenRouter dele (semana de 09/10): tudo no
+    GPT-4o-mini, US$ 0,04 com 59 pedidos e 234,2 mil tokens. Levar na quarta
+    o custo por anúncio feito pela caixa, com fotos e PDF.
+- **Fase do imóvel (09/10):** Lançamento, Em construção e Pronto viram um
+  campo "Fase", opcional e separado do Subtipo. Duas respostas dele no mesmo
+  dia:
+  - o rótulo é só **"Pronto"**, em todos os tipos. Não usar "Pronto para
+    morar" na Fase;
+  - a Fase aparece **também no Rural**.
+  - A ordem é API (coluna `construction_phase`, sobe à noite), depois site,
+    app (depois do PR dos tipos) e BFF.
+
+## Entrar no app pelo Instagram no iPhone (decisões do Mateus, 09/10)
+
+- Números de 02 a 08/10: 36 pessoas abriram o app dentro do Instagram no
+  iPhone. 10 tocaram para entrar: 5 entraram pela Apple ali mesmo e 5
+  falharam. Ninguém chegou a 2 falhas, então o socorro (o gesto do ··· e o
+  botão do WhatsApp) não apareceu para ninguém.
+- "Pode fazer o 2 e o 3", com um ajuste dele no 3:
+  - **Item 2:** quem volta da Apple sem entrar vê "A Apple não confirmou o
+    login. Toque de novo para concluir.", com o botão da Apple em destaque, e
+    a falha conta na hora (antes só contava no toque seguinte).
+  - **Item 3:** o socorro aparece depois da **primeira** falha (antes, da
+    segunda). Não aparece logo de cara, porque atrapalharia quem entra
+    direto pela Apple.
+  - Em andamento desde 09/10, na branch `claude/login-apple-volta-1-falha` do
+    app.
+- O login só pelo telefone (item 5) não foi aprovado ainda: ele não falou
+  dele.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
