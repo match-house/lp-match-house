@@ -265,7 +265,8 @@ para aquela mensagem.
     4. tarifas;
     5. conta e agência.
   - **Lembrete na quarta, 14/10, às 9h30** (`trig_012FxwNJL9vW28JpSEnyAP9r`).
-    Ele disse: "se chegar na terça te aviso".
+    Ele disse: "se chegar na terça te aviso". Em 09/10 ele já tinha chamado
+    o gerente do C6 ("Ja chamei.. rs").
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
