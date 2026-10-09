@@ -689,24 +689,29 @@ quando quem cortou foi o nosso limite (app #125).
     smartli.ink/<slug> em azul escuro #000f90 (pedido dele: contraste no papel).
   - Junto: as 5 artes do Divulgar baixadas no celular agora saem na Poppins
     (antes saíam na fonte de reserva do aparelho). Falta conferir num iPhone.
-- **Tela "Estamos publicando seu imóvel":**
-  - Pedido: botão "Parar", que volta à revisão com o imóvel em rascunho;
-    título com fonte 40% menor; fotos subindo 3 de cada vez, com contador.
-  - 08/10 à noite, a mais: "se travar ter como ele reinicializar e publicar o
-    imóvel novamente". Depois do Parar, um botão para tentar publicar de novo
-    (sem perder o que já foi preenchido nem duplicar o imóvel).
-  - O workflow foi parado a pedido dele (créditos). Retomar com o
-    resumeFromRunId wf_bd9ba871-a0b, script publicar-parar-e-rapido.
-  - Medido em 08/10: 30 fotos grandes (site da Pirâmide de BH) levaram 4 min;
-    as fotos menores de SJC, 12 s.
-- **Comodidades (tela Novo imóvel, passo 5), pedido de 08/10:**
-  - Voltar o campo para o corretor digitar a comodidade que não está no
-    catálogo: um em "Área privativa" e um em "Áreas comuns do condomínio".
-    Ele cria quantas quiser.
-  - Títulos "ÁREA PRIVATIVA" e "ÁREAS COMUNS DO CONDOMÍNIO" com mais
-    destaque. Hoje são cinza, pequenos e espaçados; somem entre os botões.
-  - Antes de mexer: conferir no app por que o campo sumiu e se a API ainda
-    aceita comodidade digitada.
+- **Prontos, esperando o "pode" do Mateus (09/10 de madrugada), todos com a main
+  (loteamento) já dentro e verificados juntos:**
+  - **Tela de publicar, app #128** (head 42002c1): Parar; "Tentar de novo" só
+    com a subida presa (25 s sem bytes, por XHR); "Sua internet está lenta"
+    quando anda devagar; 3 fotos por vez; rascunho reaproveitado sem
+    duplicar; reparo só da capa; título 40% menor. Prints em
+    scratchpad/d1008/prints-publicar.
+  - **Comodidades:** API #84 (efc36bd; migration 20261009200000, coluna
+    amenities.id_agent + índice único parcial; grafia EXATA por corretor, um
+    imóvel nunca muda o nome no outro), app #129 (62ec336; campo "Escreva
+    aqui" em cada grupo, títulos em ciano com "N marcadas", aviso de erro
+    visível no celular, XML só liga catálogo) e site #225 (d8c287b; lista
+    única sem repetidos, melhor grafia, nome longo não estoura). O site NÃO
+    divide por grupo: o app antigo gravou muitos itens no grupo errado.
+  - **Ordem:** #128 → API #84 (conferir a migration no deploy) → novo merge da
+    main no #129 (conflito em usePropertyRegistrationFlow.ts e no tipo
+    SavePropertyParams; no saveProperty a ordem é trava do Loteamento,
+    depois createAgentAmenities, depois throwIfStopped/rascunho) → app #129
+    → site #225 a qualquer momento.
+- **Menores anotados (não urgentes):** o aviso "Não foi possível gravar o
+  Loteamento" fica no pé do formulário (igual aos outros erros); a 320 px o
+  card do loteamento corta "A partir de R$ 600.000…" e "Novo imóvel" cobre o
+  selo "RASCUNHO"; "Terreno" sem subtipo grava imóvel sem tipo (974).
 - **Importação da Pirâmide SJC:** corrigida em 08/10 (BFF #10). A página
   real (Next.js, da Arbo) não põe a galeria em <img>: ela vem no
   __NEXT_DATA__, e as <img> são de outros imóveis. Fotos agora pelo código
