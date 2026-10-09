@@ -323,6 +323,10 @@ para aquela mensagem.
       "O próximo nível do seu Smart Link está chegando." O resto fica igual,
       com o preço. No cartão não se fala em lead, cliente nem número além do
       preço. A página /dashboard/pro continua dizendo o que o plano inclui;
+    - **desde 09/10 o cartão não mostra o preço** (app #135; Mateus viu "R$ 147
+      por mês" na conta pessoal dele e pediu: "checa se nao está aparecendo
+      preço do plano pro"). Nenhum preço do Pro aparece para corretor; só a
+      tela de assinar, de quem a API libera (hoje a 999), mostra o valor;
     - a lista sai em `GET /backoffice/pro/interesse`, e o toque vira o evento
       `pro_waitlist_joined` no Amplitude;
     - é para quem está nessa lista que se avisa primeiro quando o Pro abrir.
@@ -795,10 +799,11 @@ quando quem cortou foi o nosso limite (app #125).
       (o texto está no resultado do workflow e no PR).
     - Não voltar a API para uma imagem anterior depois que site, app ou
       Intelliway pedirem o campo.
-- **Tela nova dos tipos (PR B do app):** pronta em 09/10 (d7cc9bc, sem push).
-  Prints mandados ao Mateus; esperando o "pode".
-  - Junto vai o PR do site que esconde "Andar 0" e "Mobiliado" de Terreno e
-    Área.
+- **Tela nova dos tipos: no ar desde 09/10, 12h20 (Brasília)**, com o "pode"
+  do Mateus (app #134, merge 10cf8af; site #226, merge 16a7d67).
+  - Residencial, Comercial e Rural, com os subtipos de cada um.
+  - O subtipo é obrigatório para publicar (medir `property_publish_blocked`).
+  - O site esconde "Andar 0" e "Mobiliado" de Terreno e Área.
   - Depois de publicada, saem as mensagens aos corretores dos imóveis com
     tipo errado, primeiro por e-mail.
 
