@@ -727,6 +727,18 @@ quando quem cortou foi o nosso limite (app #125).
   depois das 24 h (etiqueta HUMAN_AGENT da Meta, até 7 dias) ou mensagens de
   categoria utilitário, como os modelos do WhatsApp. Lembrete marcado para
   09/10, 8h40.
+  - **Pesquisa feita em 09/10.** No Instagram não existe "utilitário". Não há
+    modelos, e a empresa só responde até 24 h depois da última mensagem da
+    pessoa. HUMAN_AGENT (até 7 dias) exige texto escrito por pessoa e a
+    revisão do app pela Meta. Não serve para respostas da IA.
+  - Perguntado a ele qual das três:
+    1. passar para "utilidade" 2 avisos da esteira do WhatsApp (publicou;
+       a IA atendeu), uns R$ 25 por mês a menos (recomendado);
+    2. avisos pelo Direct (não dá);
+    3. mensagem no Direct para quem comenta no anúncio (1 por comentário,
+       até 7 dias; testar antes se o comentário de anúncio chega na API).
+  - A esteira inteira hoje é MARKETING. `mh_alerta_atendimento_v2` foi
+    declarado UTILITY e a Meta reclassificou para MARKETING.
 - **Loteamento: no ar desde 09/10, 0h15 (Brasília).** API #85 (subtipo 25
   "Loteamento" em Residencial, migration que nunca trava o deploy, GET
   /backoffice/catalogo), app #130, site #224 e BFF #11.
@@ -773,6 +785,22 @@ quando quem cortou foi o nosso limite (app #125).
   - a Fase aparece **também no Rural**.
   - A ordem é API (coluna `construction_phase`, sobe à noite), depois site,
     app (depois do PR dos tipos) e BFF.
+  - **API pronta em 09/10: PR api #86** (head e274b95), sem merge.
+    - Merge só à noite, com o Mateus por perto e com acesso à AWS. O merge
+      dispara o deploy no ECS, e a migration roda quando o container sobe.
+    - Se travar (P3018 ou P3009): rodar uma task avulsa com
+      `npx prisma migrate resolve --rolled-back 20261009150000_fase_do_imovel`
+      e depois rodar de novo o deploy. Os passos estão no PR.
+    - Depois do deploy, o Mateus manda à Glaucia o aviso do campo e do filtro
+      (o texto está no resultado do workflow e no PR).
+    - Não voltar a API para uma imagem anterior depois que site, app ou
+      Intelliway pedirem o campo.
+- **Tela nova dos tipos (PR B do app):** pronta em 09/10 (d7cc9bc, sem push).
+  Prints mandados ao Mateus; esperando o "pode".
+  - Junto vai o PR do site que esconde "Andar 0" e "Mobiliado" de Terreno e
+    Área.
+  - Depois de publicada, saem as mensagens aos corretores dos imóveis com
+    tipo errado, primeiro por e-mail.
 
 ## Entrar no app pelo Instagram no iPhone (decisões do Mateus, 09/10)
 
@@ -787,8 +815,17 @@ quando quem cortou foi o nosso limite (app #125).
   - **Item 3:** o socorro aparece depois da **primeira** falha (antes, da
     segunda). Não aparece logo de cara, porque atrapalharia quem entra
     direto pela Apple.
-  - Em andamento desde 09/10, na branch `claude/login-apple-volta-1-falha` do
-    app.
+  - **No ar desde 09/10, 11h (Brasília)** (app #133, merge 65a25b6). A
+    frase espera 2 s depois da volta (`APPLE_RETURN_GRACE_MS`) e não apaga a
+    ida, para um login que deu certo ainda entrar.
+  - Medir no `auth_completed` (`mode: "redirect"`):
+    - `detectado: "foco"` ou `"toque"`;
+    - `pagina_saiu`;
+    - `apos_falha_no_foco: true`, o alarme falso: se aparecer, subir os 2 s
+      para 3 ou 4;
+    - `ja_contada_no_foco`: tirar das falhas.
+  - Falta o teste num iPhone de verdade (pedido ao Mateus): fechar a folha
+    sem entrar, e entrar com Face ID no 4G sem a frase piscar.
 - O login só pelo telefone (item 5) não foi aprovado ainda: ele não falou
   dele.
 - **Origem no Safari do iPhone: conserto no ar desde 09/10, 9h30 (Brasília)**
