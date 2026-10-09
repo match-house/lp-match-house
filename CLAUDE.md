@@ -254,7 +254,18 @@ para aquela mensagem.
     no WhatsApp do Mateus para seguir com a liberação.
   - Depois disso, ele põe no ECS a chave nova, `C6_CONTA` e `C6_AGENCIA`.
     Os passos estão no Apêndice A de `api/docs/cobranca-pro.md`.
-  - Lembrete marcado para quarta, 07/10.
+  - Até 09/10 o C6 ainda não tinha ligado. Nesse dia o Mateus reabriu o
+    e-mail de 07/10 e recebeu a lista do que pedir na ligação:
+    1. escopos do Pix Automático na chave de produção (`rec.write`,
+       `cobr.write`, `payloadlocationrec.write`, `webhookrec.write`,
+       `webhookcobr.write`);
+    2. credenciais e certificado de produção, com o certificado atual
+       revogado (vão direto para o ECS, nunca pelo chat);
+    3. a antecedência da cobrança do mês (usamos 8 dias; pode ser de 2 a 10);
+    4. tarifas;
+    5. conta e agência.
+  - **Lembrete na quarta, 14/10, às 9h30** (`trig_012FxwNJL9vW28JpSEnyAP9r`).
+    Ele disse: "se chegar na terça te aviso".
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
