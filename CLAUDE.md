@@ -789,16 +789,22 @@ quando quem cortou foi o nosso limite (app #125).
   - a Fase aparece **também no Rural**.
   - A ordem é API (coluna `construction_phase`, sobe à noite), depois site,
     app (depois do PR dos tipos) e BFF.
-  - **API pronta em 09/10: PR api #86** (head e274b95), sem merge.
-    - Merge só à noite, com o Mateus por perto e com acesso à AWS. O merge
-      dispara o deploy no ECS, e a migration roda quando o container sobe.
-    - Se travar (P3018 ou P3009): rodar uma task avulsa com
-      `npx prisma migrate resolve --rolled-back 20261009150000_fase_do_imovel`
-      e depois rodar de novo o deploy. Os passos estão no PR.
-    - Depois do deploy, o Mateus manda à Glaucia o aviso do campo e do filtro
-      (o texto está no resultado do workflow e no PR).
+  - **API no ar desde 09/10, 16h48 (Brasília)** (api #86, merge 67ae2d0),
+    com o "pode subir agora" do Mateus e ele por perto. A migration entrou
+    sem travar.
+    - Conferido depois do deploy:
+      - `fase` no backoffice (agente 640: 677, 678, 681 e 682 "Em
+        construção"; 679 e 680 "Lançamento");
+      - `construction_phase` na busca externa (agente 427: 472, 474, 476 e
+        485 "lancamento"; sem fase sai "", nunca null);
+      - o filtro `construction_phase: "em_construcao"` (640: só os 4).
+    - **Aviso à Intelliway: só quando a Fase estiver no app** (Mateus, 09/10:
+      "acho q nao deverá ter alterações com a Inteliway"). Nada quebra, e
+      hoje o lançamento antigo ainda está no subtipo, que a IA já lê. O texto
+      está no PR api #86.
     - Não voltar a API para uma imagem anterior depois que site, app ou
       Intelliway pedirem o campo.
+    - Próximos: site (selo da fase), app (linha "Fase (opcional)") e BFF.
 - **Tela nova dos tipos: no ar desde 09/10, 12h20 (Brasília)**, com o "pode"
   do Mateus (app #134, merge 10cf8af; site #226, merge 16a7d67).
   - Residencial, Comercial e Rural, com os subtipos de cada um.
