@@ -791,6 +791,17 @@ quando quem cortou foi o nosso limite (app #125).
     app.
 - O login só pelo telefone (item 5) não foi aprovado ainda: ele não falou
   dele.
+- **Origem no Safari do iPhone: conserto no ar desde 09/10, 9h30 (Brasília)**
+  (app #132, merge 3fd0294).
+  - O Safari do iOS 26 apagava o localStorage e o cookie `mh_attr` antes do
+    primeiro toque, e a conta Apple nascia sem utm. Foram 11 contas, corrigidas
+    à mão no `cac.py`.
+  - Agora a campanha fica também na memória da página, e a ida à Apple a leva.
+    A memória não regrava o armazenamento.
+  - Quando é a memória que salva a campanha, os eventos levam `attr_memoria`.
+  - Conferir nos próximos dias se as contas Apple de anúncio chegam com utm.
+    Se a campanha sumir sem `attr_memoria`, a perda foi um recarregamento ou
+    uma página nova, que a memória não cobre.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
@@ -890,11 +901,25 @@ dos cinco repositórios e nos e-mails):
      conta 804 se o lead e a visita chegaram e se o e-mail de visita saiu
      (lembrete marcado).
      - Próximo passo: ela testar e eu conferir o lead e o aviso de visita.
+     **Em 08/10, às 17h57, a Glaucia avisou que concluiu** (chamado #1427
+     solucionado às 17h54).
+     - Testes na conta 804: 3 leads com visita. Só 1 tinha celular válido, e
+       só ele gerou o aviso (visita 13/10, 9h, imóvel 975). O Mateus
+       encaminhou o e-mail em 09/10. Os outros 2 não geraram aviso por regra
+       (`lead-visit.service.ts`: sem nome e celular válidos, não avisa).
+     - Às 18h03 o Mateus perguntou se o agente consulta a agenda livre antes
+       de oferecer horário e se está ligado para todos os corretores ou só na
+       INMC. Às 18h13 ela respondeu só "Sim!". A segunda pergunta ficou sem
+       resposta clara; em 09/10 dei a ele um texto para confirmar.
+     - A API não registra as consultas à agenda livre. O sinal de que está
+       ligado para todos é a primeira visita de um corretor de verdade em
+       `/backoffice/leads`.
   2. **Guardado para depois (Mateus, 02/10: "guarde para fazermos depois a
      mensagem no whatsapp"):** criar o modelo `mh_visita_marcada` na Twilio,
      rodando `npm run modelos` em `api/mcp-backoffice` no computador dele.
      Depois a Meta precisa aprovar. Até lá, o aviso sai só por e-mail. Puxar
-     o assunto quando a Intelliway confirmar o envio da visita.
+     o assunto quando a Intelliway confirmar o envio da visita. **Puxado em
+     09/10**, depois da entrega da Intelliway; a decisão é dele.
 - **Agenda v1, no ar desde 05/10** (api #61 e app #117; Mateus: "Pode
   construir assim"). Pergunta da Glaucia (Intelliway): "vai ter validação
   se o horário está livre?". Agora tem:
