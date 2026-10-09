@@ -722,8 +722,16 @@ quando quem cortou foi o nosso limite (app #125).
   depois das 24 h (etiqueta HUMAN_AGENT da Meta, até 7 dias) ou mensagens de
   categoria utilitário, como os modelos do WhatsApp. Lembrete marcado para
   09/10, 8h40.
-- **Loteamento** (pedido dele em 08/10): em andamento. Quando estiver no ar,
-  avisar a Bárbara (1226, imóvel 988) que dá para marcar como loteamento.
+- **Loteamento: no ar desde 09/10, 0h15 (Brasília).** API #85 (subtipo 25
+  "Loteamento" em Residencial, migration que nunca trava o deploy, GET
+  /backoffice/catalogo), app #130, site #224 e BFF #11.
+  - Em produção os tipos são 3 Comercial, 4 Residencial e 5 Rural, e não
+    "Imovel"/"Terreno" como o app mostra. Quem escolhe "Terreno" sem subtipo
+    grava o imóvel sem tipo (caso do 974): defeito antigo, na fila.
+  - Aviso à Bárbara (1226, imóvel 988) marcado para 09/10, 8h05, pelo 6800
+    (texto em scratchpad/msgs/barbara-1226-e.txt).
+  - Falta o Mateus mandar à Intelliway o aviso de que existe o subtipo
+    "Loteamento" (texto pronto no relatório do loteamento).
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 

@@ -203,6 +203,13 @@ Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar
 - **"Essencial":**
   - "Finalidade": Venda ou Aluguel;
   - "Tipo", "Subtipo", "Nome", "Descrição".
+  - "Subtipo" tem "Casa", "Apartamento" e, desde 09/10 (app #130),
+    **"Loteamento"**. Com Loteamento marcado:
+    - em "Detalhes", um campo só, **"Lotes a partir de (m²)"** (o menor
+      lote); a faixa ("lotes de 450 a 900 m²") vai na "Descrição";
+    - somem Quartos, Suítes, Banheiros, Vagas, Andar e "Mobiliado";
+    - em "Valores", o rótulo vira **"Valor a partir de"** (o lote mais barato);
+    - no site sai "Lotes a partir de 450 m²" e "A partir de R$ ...".
 - **"Localização":** "Digite o CEP e o resto vem sozinho". Tem "Bairro",
   "Cidade" etc.
 - **"Valores":**
