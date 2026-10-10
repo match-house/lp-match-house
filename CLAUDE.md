@@ -142,6 +142,28 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
 Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
 161 cadastros de julho a setembro em vez de 157.
 
+### Higiene da lista: sempre (regra do Mateus, 10/10)
+
+- Nas palavras dele: "Vamos fazer sempre essa higiene na nossa lista".
+- Conta duplicada é a segunda conta de quem já tem uma. Exemplos: um
+  cadastro com outro Gmail, ou pelo "Crie seu Smart Link" do próprio perfil.
+  Costuma travar em "telefone já está em outra conta", e a pessoa segue
+  usando a principal.
+- Só conta como duplicada quando valem as duas coisas:
+  - a conta principal da pessoa está identificada e em uso (imóveis, login,
+    conversas);
+  - a duplicada está vazia: sem celular confirmado, sem link e sem imóvel.
+- Achou uma? Sem precisar pedir:
+  1. tirar da esteira (`/backoffice/activation/sair`, prévia e confirmação);
+  2. pôr na lista "Duplicadas" acima e nos scripts do relatório, para sair
+     do funil, dos relatórios e do custo por cadastro;
+  3. contar no relatório diário: a conta, de quem é, a principal e a prova.
+- Conta de teste nova da equipe recebe o mesmo tratamento, na lista de
+  testes.
+- Na dúvida, perguntar ao Mateus antes. Exemplos: a segunda conta tem
+  imóvel, ou é ela que a pessoa usa.
+- O relatório diário procura duplicadas entre os cadastros do dia anterior.
+
 ## Backoffice da API — como ler
 
 `https://api.matchhouse.com.br/backoffice/...` responde nas sessões do
@@ -193,8 +215,9 @@ para aquela mensagem.
   - Pela regra de sempre, o 27 99226-8000 não entra em teste de Twilio nem de
     Meta.
   - Medir no Amplitude pelo `otp_channel` com `channel=whatsapp`.
-- **Tirar uma conta da esteira** (api #87, no ar desde 10/10). Só com o
-  "pode" do Mateus para aquela conta.
+- **Tirar uma conta da esteira** (api #87, no ar desde 10/10). Com o "pode"
+  do Mateus para aquela conta. Exceção: duplicada confirmada ou teste nova
+  da equipe sai sem pedir, pela regra de higiene da lista.
   - Primeiro `POST /backoffice/activation/sair/preview` com `{id_user}`: mostra
     a conta, a situação na esteira e os avisos. Aviso de imóvel no ar quer
     dizer que pode ser a conta principal de alguém: parar.
