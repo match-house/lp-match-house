@@ -134,6 +134,10 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   e 56 (Match House, match-house-27). As duas últimas foram confirmadas
   pelo Mateus em 06/10: "sim sao nossas".
 - Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
+- Duplicadas: 1240 (segunda conta do Enio; a principal é a 196) e 1241 e
+  1242 (segundas contas da Bárbara; a principal é a 1226). Todas vazias,
+  criadas em 08/10. Mateus, 10/10: "Pode tirar as 3 do funil claro". As
+  principais continuam nos números.
 
 Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
 161 cadastros de julho a setembro em vez de 157.
