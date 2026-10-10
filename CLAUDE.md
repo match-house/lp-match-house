@@ -842,13 +842,16 @@ quando quem cortou foi o nosso limite (app #125).
       - `property_publish_blocked` e `property_persist_completed` levam
         `fase`.
     - Se a API recusar o campo, site e app repetem a consulta sem ele.
-  - Próximos, com o "pode" dele:
-    - o aviso à Intelliway (texto entregue no chat em 09/10);
-    - as mensagens aos corretores dos imóveis antigos de fase (12
-      corretores, 19 publicados), juntando com a dos tipos errados quando
-      for o mesmo corretor.
-    - Nas revendas gravadas como "Pronto para morar" (388, 396, 397),
-      sugerir deixar a fase vazia.
+  - Aviso à Intelliway: texto entregue ao Mateus no chat em 09/10; quem
+    manda é ele.
+  - **E-mails aos 9 corretores com imóvel antigo de fase no ar** (19
+    anúncios): aprovados pelo Mateus em 09/10 ("Pode mandar amanha").
+    - Saem em 10/10 às 9h (`trig_01Xdx9NQ5t5RTyDioaPMfpnA`).
+    - Pedidos prontos em `scratchpad/d1010/fase-msgs/envio/`.
+    - Ninguém da lista recebeu o e-mail dos tipos errados.
+    - Nas revendas gravadas como "Pronto para morar" (388, 396, 397), o
+      e-mail sugere desmarcar a Fase.
+    - Ficam de fora os desativados 540 e 733 e o rascunho vazio 529.
 - **Tela nova dos tipos: no ar desde 09/10, 12h20 (Brasília)**, com o "pode"
   do Mateus (app #134, merge 10cf8af; site #226, merge 16a7d67).
   - Residencial, Comercial e Rural, com os subtipos de cada um.
