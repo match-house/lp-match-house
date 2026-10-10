@@ -816,7 +816,39 @@ quando quem cortou foi o nosso limite (app #125).
       está no PR api #86.
     - Não voltar a API para uma imagem anterior depois que site, app ou
       Intelliway pedirem o campo.
-    - Próximos: site (selo da fase), app (linha "Fase (opcional)") e BFF.
+  - **Site, BFF e app no ar em 09/10 à noite**, com o "Pode colocar a fase"
+    do Mateus:
+    - **BFF #12**, às 20h30. A IA de importação (link, fotos, PDF e texto) e
+      o XML preenchem a fase só para imóvel novo de construtora. "Pronto
+      para morar" sozinho não conta, porque revenda usa a frase.
+      - A mensagem à IA começa com "DATA DE HOJE".
+      - O texto colado vai sob "TEXTO DO CORRETOR:".
+      - Os prompts novos não foram rodados contra o modelo de verdade:
+        acompanhar as importações.
+    - **Site #227**, às 20h33. Selo da fase no card do Smart Link e da
+      vitrine, e etiqueta no detalhe: "VENDA · RESIDENCIAL · APARTAMENTO ·
+      LANÇAMENTO".
+      - Junto entrou o conserto de um defeito que estava no ar desde 11/08:
+        a lista "Imóveis selecionados" não tinha altura. Com 5 imóveis ou
+        mais, o título e o "Fechar" ficavam fora da tela, sem rolagem.
+      - Agora a altura é teto (92% no celular): lista curta continua
+        compacta, lista longa rola.
+    - **App #136**, às 21h09. A linha "Fase (opcional)" fica logo abaixo do
+      Subtipo.
+      - O imóvel antigo de fase abre com a Fase marcada, o Subtipo em
+        branco e o aviso "“Lançamento” agora fica na Fase, abaixo. Escolha
+        aqui o que o imóvel é.".
+      - O lembrete de completar passou a cobrar "subtipo".
+      - `property_publish_blocked` e `property_persist_completed` levam
+        `fase`.
+    - Se a API recusar o campo, site e app repetem a consulta sem ele.
+  - Próximos, com o "pode" dele:
+    - o aviso à Intelliway (texto entregue no chat em 09/10);
+    - as mensagens aos corretores dos imóveis antigos de fase (12
+      corretores, 19 publicados), juntando com a dos tipos errados quando
+      for o mesmo corretor.
+    - Nas revendas gravadas como "Pronto para morar" (388, 396, 397),
+      sugerir deixar a fase vazia.
 - **Tela nova dos tipos: no ar desde 09/10, 12h20 (Brasília)**, com o "pode"
   do Mateus (app #134, merge 10cf8af; site #226, merge 16a7d67).
   - Residencial, Comercial e Rural, com os subtipos de cada um.
