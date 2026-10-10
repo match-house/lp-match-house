@@ -189,6 +189,19 @@ para aquela mensagem.
   - Pela regra de sempre, o 27 99226-8000 não entra em teste de Twilio nem de
     Meta.
   - Medir no Amplitude pelo `otp_channel` com `channel=whatsapp`.
+- **Tirar uma conta da esteira** (api #87, no ar desde 10/10). Só com o
+  "pode" do Mateus para aquela conta.
+  - Primeiro `POST /backoffice/activation/sair/preview` com `{id_user}`: mostra
+    a conta, a situação na esteira e os avisos. Aviso de imóvel no ar quer
+    dizer que pode ser a conta principal de alguém: parar.
+  - Depois `POST /backoffice/activation/sair` com `{id_user, confirmacao}`
+    (10 min). Grava só `activation_opt_out_at`: param os e-mails e os
+    WhatsApps da esteira. A conta não é apagada.
+  - Não há volta. E o envio manual pelo backoffice para esse `id_user` passa
+    a ser recusado ("pediu para não receber"): falar pela conta principal.
+  - Em 10/10, às 19h37, saíram assim as duplicadas 1240 (Enio; a principal é
+    a 196) e 1241 e 1242 (Bárbara; a principal é a 1226). Foi pedido do
+    Mateus, não delas. As principais não mudaram.
 
 ## Limite de imóveis no ar: 100 (desde 29/09/2026)
 
