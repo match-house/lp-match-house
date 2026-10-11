@@ -369,6 +369,19 @@ para aquela mensagem.
         geram conversa e a origem do cliente. As métricas de hoje continuam
         para todos.
       - A oferta só cita o que já estiver no ar e testado.
+      - Respostas dele à noite de 11/10 (desenho em
+        `scratchpad/pro-16/recursos/desenho.md`):
+        - o aviso e a planilha saem das conversas da IA (EvaGPT, lidas pela
+          API com a regra do `/backoffice/leads`). Por isso entram na
+          abertura sem esperar a Intelliway, se passarem no teste na 999. A
+          mensagem à Glaucia de 14/10 continua, por causa do preço acima da
+          franquia;
+        - no mês sem nenhuma conversa, o relatório vira um e-mail curto,
+          sem PDF, com 3 dicas: bio, QR do imóvel na placa e link nos
+          anúncios;
+        - do 31º cliente do mês em diante, enquanto o limite de 3 do plano
+          de entrada não ligar, o Pro continua avisando e listando todos. O
+          "até 30" fica como referência.
     - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
       renovação, cancelamento e devolução do anual), aviso de cartão
       recusado, volta ao plano de entrada, o nome certo do plano de entrada
