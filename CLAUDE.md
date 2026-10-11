@@ -311,6 +311,27 @@ para aquela mensagem.
          período pago (decisão 5 de `cobranca-pro.md`).
       4. A oferta vai por e-mail, com o texto aprovado por ele antes, e pela
          tela do Pro no app, com preço e botão de assinar.
+    - Mais respostas dele, no fim da tarde de 11/10 (plano em
+      `scratchpad/pro-16/plano.md`):
+      5. **O que o Pro tem a mais (D1):** aviso por e-mail na hora em que um
+         cliente deixa nome e celular, e a planilha dos leads para baixar,
+         os dois só no Pro. A tela diz que hoje o plano de entrada também
+         mostra todos os contatos (`lead.liberado` é sempre true). Depende de
+         a Intelliway mandar o lead de todos os corretores: perguntar por
+         escrito até 22/10. Se ela não mandar, não vender esses recursos.
+      6. **Anual (D2): só mensal no começo.** O anual (R$ 1.470, com a
+         devolução dos meses que faltam) entra depois da régua de 17/11.
+      7. **Quem entra (D4): 18 contas.** Os 16 mais 1278 (Clarice D'Urso) e
+         1279 (wanderson klay), que entraram na lista de espera em 11/10. O
+         cartão promete "Quem está na lista fica sabendo primeiro". O 1267
+         espera a régua.
+      8. **Abertura em 3 levas a partir de 03/11:** primeiro a lista de
+         espera, depois quem tem cliente real, depois o resto. Cada leva
+         precisa do "pode" para o e-mail.
+      9. Nas dúvidas dessas contas no 6800 e no Direct, posso responder com
+         o preço do e-mail aprovado, só depois de conferir que é uma conta
+         liberada. Desistência, devolução e reclamação continuam com o
+         "pode".
     - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
       renovação, cancelamento e devolução do anual), aviso de cartão
       recusado, volta ao plano de entrada, o nome certo do plano de entrada
