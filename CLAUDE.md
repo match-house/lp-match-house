@@ -337,11 +337,24 @@ para aquela mensagem.
       e que ele tem que colocar na bio".
       - A IA é o assistente do corretor (um SDR): atende quem chega pelo
         link, tira as dúvidas e cadastra o cliente com nome e celular.
-      - O Pro é "até 30 cadastros de clientes por mês".
+      - O Pro é "até 30 clientes seus cadastrados por mês".
       - A bio entra como condição: a IA só cadastra quem chega pelo link.
       - Fica a linha de transparência: hoje o plano de entrada ainda mostra
         todos os cadastros, e o limite de 3 tem aviso de 15 dias.
-      - Textos em `scratchpad/pro-16/textos-v2.md`.
+      - **Nunca "30 leads" sozinho.** Mateus, 11/10: "se escrever
+        simplesmente 30 leads, eles vão achar que a plataforma vai trazer
+        leads para ele de algum outro lugar [...] a gente é um motor que vai
+        qualificar, que vai atender [...] os leads dele, que ele já gera.
+        Porque o problema dele não é gerar leads, o problema dele é atender
+        bem os leads e vender mais para a base que ele já tem."
+        - A Match House não traz clientes de fora. A IA atende os que já
+          chegam ao corretor: pelo Instagram, pelos anúncios, pela placa e
+          por indicação.
+        - O valor é atender todos na hora e não perder nenhum, para vender
+          mais a quem já procura o corretor.
+        - Vale para a oferta, a tela, os e-mails e as respostas no 6800 e no
+          Direct.
+      - Textos em `scratchpad/pro-16/textos-v3.md`.
     - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
       renovação, cancelamento e devolução do anual), aviso de cartão
       recusado, volta ao plano de entrada, o nome certo do plano de entrada
