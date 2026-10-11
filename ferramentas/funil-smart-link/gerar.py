@@ -26,10 +26,16 @@ INTERNOS = {
     937: "teste (e-mail @matchhouse)",
     999: "conta própria (INMC Patrimonial)",
     993: "teste (nome \"yuri teste\"), a confirmar",
-    # 1240, 1241, 1242: contas duplicadas (Enio e Bárbara), fora dos números desde 10/10 (Mateus).
+    # Duplicadas, fora dos números pela regra de higiene da lista (Mateus): 1240, 1241, 1242 (10/10) e 836, 1103, 1128, 1187, 1196, 1238 (varredura de 11/10).
     1240: "conta duplicada (2ª conta; a principal é a 196)",
     1241: "conta duplicada (2ª conta; a principal é a 1226)",
     1242: "conta duplicada (3ª conta; a principal é a 1226)",
+    836: "conta duplicada (a principal é a 722)",
+    1103: "conta duplicada (1ª tentativa; a principal é a 1104)",
+    1128: "conta duplicada (2ª conta; a principal é a 1126)",
+    1187: "conta duplicada (2ª conta; a principal é a 1137)",
+    1196: "conta duplicada (2ª conta; a principal é a 560)",
+    1238: "conta duplicada (2ª conta; a principal é a 756)",
 }
 
 MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
