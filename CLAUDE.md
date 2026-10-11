@@ -138,6 +138,17 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   1242 (segundas contas da Bárbara; a principal é a 1226). Todas vazias,
   criadas em 08/10. Mateus, 10/10: "Pode tirar as 3 do funil claro". As
   principais continuam nos números.
+  - Achadas na varredura de 11/10 e tiradas pela regra de higiene, sem
+    precisar pedir (esteira e números). A principal vem entre parênteses:
+    836 (722), 1103 (1104), 1128 (1126), 1187 (1137), 1196 (560) e
+    1238 (756).
+  - Com elas, setembro fecha em 96 cadastros e 21 publicaram (eram 98).
+  - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
+    1164 (998). A pessoa é a mesma e a segunda conta está vazia, mas a
+    principal só tem o link, sem imóvel. Até ele responder, continuam nos
+    números.
+  - O detalhe da varredura (provas e as que não são duplicadas) está em
+    `scratchpad/contas-fora/varredura-1011.md`, nos arquivos desta conversa.
 
 Em 29/09 um relatório de funil saiu sem tirar 1014, 1033, 1095 e 1096: deu
 161 cadastros de julho a setembro em vez de 157.
