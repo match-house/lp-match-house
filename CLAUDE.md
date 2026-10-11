@@ -268,6 +268,15 @@ para aquela mensagem.
     matchhouse.com.br está lá. Migrar é ideia para depois, não agora.
   - **Claude Max 5x** (R$ 550 por mês) já era pago em julho.
   - A NF 734 da Intelliway (agosto) foi paga.
+- **Pró-labore** (Mateus, 11/10): "Tem pro labore mas so pago qd tem receita".
+  Hoje não é pago e não entra nos custos.
+  - Quando a cobrança ligar, ele volta. Para a empresa ficar no Anexo III
+    (6%), o Fator R pede folha (pró-labore incluído) de pelo menos 28% da
+    receita dos últimos 12 meses. Abaixo disso, vai para o Anexo V (15,5%).
+  - O INSS de 11% sai do pró-labore dele. A CPP já está no DAS.
+  - Em projeção e ponto de equilíbrio, mostrar com o pró-labore de 28% e
+    sem ele. Em 11/10 ficou com ele a pergunta à Contabilizei sobre o
+    valor mínimo.
 
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
