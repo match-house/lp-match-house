@@ -355,6 +355,20 @@ para aquela mensagem.
         - Vale para a oferta, a tela, os e-mails e as respostas no 6800 e no
           Direct.
       - Textos em `scratchpad/pro-16/textos-v3.md`.
+    - **O que o Pro tem na abertura (Mateus, 11/10: "Sim, segue assim"):**
+      1. até 30 clientes seus cadastrados por mês;
+      2. aviso na hora de cada cadastro, por e-mail. Vai para o WhatsApp
+         quando a Meta aprovar o modelo, que custa por mensagem;
+      3. botão "Baixar meus clientes", em planilha Excel. Sai das conversas
+         que IA & Leads já mostra (EvaGPT pelo BFF), sem depender do POST
+         da Intelliway;
+      4. relatório do mês, "O que a sua IA fez por você", em PDF e por
+         e-mail.
+      - Métricas novas só no Pro entram ao longo de novembro: conversas e
+        cadastros, atendimento à noite e no fim de semana, imóveis que mais
+        geram conversa e a origem do cliente. As métricas de hoje continuam
+        para todos.
+      - A oferta só cita o que já estiver no ar e testado.
     - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
       renovação, cancelamento e devolução do anual), aviso de cartão
       recusado, volta ao plano de entrada, o nome certo do plano de entrada
