@@ -291,6 +291,31 @@ para aquela mensagem.
 - Ordem: primeiro contar os leads direito (conserto na API, 29/09), medir 30
   dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
   nem em mensagem para corretor até o Mateus liberar.
+  - **Exceção desde 11/10: os 16.** O Mateus disse "pode mostrar o Pro aos
+    16", depois do estudo de cobrança (página "Equilíbrio da Match House",
+    https://claude.ai/artifact/P6ohCKyhNaDkxQCi267msz; arquivos em
+    `scratchpad/monetizacao/estudo/`).
+    - Os 16 são os 5 da lista de espera do Pro e os 13 engajados que já
+      tiveram comprador escrevendo; 2 estão nos dois grupos. A lista fica em
+      `scratchpad/pro-16/os16.json`.
+    - Só eles veem o preço e assinam, liberados um a um. BILLING_MODE
+      continua desligado, e nenhum outro corretor vê preço.
+    - Isso muda três decisões: preço a corretor, cobrar antes de medir os
+      leads e vender o Pro pelas ferramentas, e não pelos leads.
+    - Respostas dele no mesmo dia:
+      1. Anual a R$ 1.470 à vista (10 mensalidades), sem preço de fundador.
+         Responde à pergunta 3 de `api/docs/cobranca-pro.md`.
+      2. Devolução do anual depois dos 7 dias de arrependimento: devolve o
+         valor dos meses inteiros que ainda não começaram.
+      3. Quem cancela o Pro volta sozinho ao plano de entrada no fim do
+         período pago (decisão 5 de `cobranca-pro.md`).
+      4. A oferta vai por e-mail, com o texto aprovado por ele antes, e pela
+         tela do Pro no app, com preço e botão de assinar.
+    - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
+      renovação, cancelamento e devolução do anual), aviso de cartão
+      recusado, volta ao plano de entrada, o nome certo do plano de entrada
+      e o cupom da indicação com prazo. A meta é abrir em 03/11, ou antes,
+      se tudo estiver pronto.
 - Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
 - **Quem volta do Pro ao plano de entrada no meio do mês** (decisão do Mateus,
   06/10) **não ganha mais 3 leads naquele mês**.
