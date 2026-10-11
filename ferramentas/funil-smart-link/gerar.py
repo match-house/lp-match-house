@@ -26,6 +26,10 @@ INTERNOS = {
     937: "teste (e-mail @matchhouse)",
     999: "conta própria (INMC Patrimonial)",
     993: "teste (nome \"yuri teste\"), a confirmar",
+    # 1240, 1241, 1242: contas duplicadas (Enio e Bárbara), fora dos números desde 10/10 (Mateus).
+    1240: "conta duplicada (2ª conta; a principal é a 196)",
+    1241: "conta duplicada (2ª conta; a principal é a 1226)",
+    1242: "conta duplicada (3ª conta; a principal é a 1226)",
 }
 
 MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
@@ -197,8 +201,8 @@ def main() -> None:
           f"{ABREV[int(meses[-1][5:]) - 1].lower()} {hoje.year}")
     sub = (f"Todos os cadastros de 1º/07 a {hoje:%d/%m/%Y} (horário de Brasília), acompanhados até a "
            f"publicação do primeiro imóvel. Dados de {hoje:%d/%m} às {agora:%Hh%M}"
-           f"{'' if fecha_hoje else f'; {ultimo_mes} ainda não fechou'}. {internos} contas internas ou de "
-           f"teste ficaram fora dos números e estão listadas no fim da página.")
+           f"{'' if fecha_hoje else f'; {ultimo_mes} ainda não fechou'}. {internos} contas internas, de teste "
+           f"ou duplicadas ficaram fora dos números e estão listadas no fim da página.")
     ultima = "" if dias_ultima == 7 else (
         " A última semana tem só um dia." if dias_ultima == 1 else f" A última semana tem só {dias_ultima} dias.")
     meta = {"periodo": f"1º/07 a {hoje:%d/%m}", "semanas": semanas, "parcial": dias_ultima < 7}

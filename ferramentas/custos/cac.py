@@ -16,7 +16,8 @@ from datetime import date, datetime, timedelta, timezone
 
 BRT = timezone(timedelta(hours=-3))
 # Mesma lista do Funil Smart Link (confirmada pelo Mateus em 29/09; 993 é teste pelo nome).
-INTERNOS = {1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993}
+# 1240, 1241, 1242: contas duplicadas (Enio e Bárbara), fora dos números desde 10/10 (Mateus).
+INTERNOS = {1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993, 1240, 1241, 1242}
 PAGOS = {"meta", "ig", "fb", "facebook", "instagram", "google", "chatgpt", "openai"}
 # Cadastros que chegaram sem utm, com a origem achada no Amplitude em 01/10
 # (o utm aparece no auth_entry_viewed do mesmo aparelho, ou o clique veio com
@@ -24,6 +25,34 @@ PAGOS = {"meta", "ig", "fb", "facebook", "instagram", "google", "chatgpt", "open
 ORIGEM_CORRIGIDA = {
     1101: "meta", 1119: "meta", 1127: "meta", 1132: "meta", 1147: "meta",
     1157: "chatgpt", 1159: "chatgpt", 1161: "chatgpt",
+    # 04/10 23h10 UTC: viu a entrada com utm chatgpt, entrou pela Apple
+    # (redirect) e a conta nasceu sem utm.
+    1194: "chatgpt",
+    # 05/10 19h28 UTC: in_app_browser_instagram com utm meta/6g-story-app,
+    # entrou pela Apple (redirect) às 19h29 e a conta nasceu sem utm.
+    1198: "meta",
+    # 06/10 06h42 UTC: auth_clicked Apple com utm chatgpt (ad_6abe5b39...),
+    # auth_completed redirect/onboarding 06:42:21 = cadastro da 1202 (Laerte),
+    # que nasceu sem utm.
+    1202: "chatgpt",
+    # 07/10 12h47 UTC: auth_clicked Apple com utm chatgpt (ad_6abe5b39...),
+    # auth_completed redirect/onboarding 12:48:10 = cadastro da 1219, sem utm.
+    1219: "chatgpt",
+    # 07/10 19h11 UTC: navegador do Instagram com utm meta/6g-story-app,
+    # auth_completed redirect/onboarding 19:12:11 = cadastro da 1224, sem utm.
+    1224: "meta",
+    # 03/10 01h08 UTC: navegador do Instagram com utm meta/6g-story-app,
+    # Apple (redirect/onboarding) às 01:09:10 = cadastro da 1185, que nasceu
+    # sem utm. Achado em 08/10 na conferência da tabela por campanha.
+    1185: "meta",
+    # 08/10 (UTC), todas pela Apple em redirect, com utm chatgpt (ad_6abe5b39...)
+    # no auth_clicked e conta nascida sem utm (achado em 09/10, Amplitude bruto):
+    # 1227: auth_completed onboarding 03:55:18 (cadastro 03:55:20);
+    # 1228: 2a tentativa, onboarding 06:02:17 (cadastro 06:02:17);
+    # 1229: onboarding 09:02:16 (cadastro 09:02:16);
+    # 1231: onboarding 10:36:07 (cadastro 10:36:07);
+    # 1236: pela folha, onboarding 13:55:23 (cadastro 13:55:22).
+    1227: "chatgpt", 1228: "chatgpt", 1229: "chatgpt", 1231: "chatgpt", 1236: "chatgpt",
 }
 
 
@@ -68,7 +97,7 @@ def main() -> None:
 
     print(json.dumps({"funil": {
         "cadastros": cad, "pagos": pagos, "publicaram": pub,
-        "fonte": "backoffice /signups; sem contas internas e de teste; publicaram = coorte do dia, contada no dia da atualização",
+        "fonte": "backoffice /signups; sem contas internas, de teste e duplicadas; publicaram = coorte do dia, contada no dia da atualização",
         "contado_em": datetime.now(BRT).isoformat(timespec="minutes"),
     }}, ensure_ascii=False))
 
