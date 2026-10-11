@@ -332,6 +332,16 @@ para aquela mensagem.
          o preço do e-mail aprovado, só depois de conferir que é uma conta
          liberada. Desistência, devolução e reclamação continuam com o
          "pode".
+    - **Como falar do Pro (Mateus, 11/10):** "são 30 cadastros de clientes,
+      pq o corretor tem que entender que é como um assistente dele, um SDR,
+      e que ele tem que colocar na bio".
+      - A IA é o assistente do corretor (um SDR): atende quem chega pelo
+        link, tira as dúvidas e cadastra o cliente com nome e celular.
+      - O Pro é "até 30 cadastros de clientes por mês".
+      - A bio entra como condição: a IA só cadastra quem chega pelo link.
+      - Fica a linha de transparência: hoje o plano de entrada ainda mostra
+        todos os cadastros, e o limite de 3 tem aviso de 15 dias.
+      - Textos em `scratchpad/pro-16/textos-v2.md`.
     - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
       renovação, cancelamento e devolução do anual), aviso de cartão
       recusado, volta ao plano de entrada, o nome certo do plano de entrada
