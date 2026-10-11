@@ -722,6 +722,26 @@ IA dentro do plano, a preço fixo.
 - Os relatórios, a área de custos e os funis são só para o Mateus e não saem
   daqui.
 
+## Segurança e LGPD em toda a aplicação (Mateus, 11/10)
+
+- Nas palavras dele: "Precisamos de segurança em toda aplicação,
+  notadamente nessa parte de LGPD, dados dos clientes e de pagamento."
+- Vale para todo PR, em qualquer repositório:
+  - conferir o dono pelo login, nunca por um id que vem na chamada;
+  - nada de dado de cliente, de corretor ou de pagamento a quem não é dono
+    nem admin;
+  - nada de segredo no código nem em log;
+  - nada de dado pessoal em log, URL ou analytics.
+- Furo de segurança nunca se testa em produção com dado de outra pessoa:
+  prova-se com teste automatizado e leitura de código.
+- Achados de 11/10, ainda sendo corrigidos:
+  - o BFF aceitava o slug de outro corretor;
+  - uma consulta pública devolvia e-mail e telefone de corretor;
+  - o cadastro público aceitava o perfil de admin;
+  - o perfil de corretor tinha permissão de mudar plano, ver pagamentos
+    de todos e cancelar assinatura alheia.
+- A auditoria completa fica em `scratchpad/seguranca/` (plano e achados).
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
