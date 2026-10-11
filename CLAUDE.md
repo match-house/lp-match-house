@@ -142,7 +142,8 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
     precisar pedir (esteira e números). A principal vem entre parênteses:
     836 (722), 1103 (1104), 1128 (1126), 1187 (1137), 1196 (560) e
     1238 (756).
-  - Com elas, setembro fecha em 96 cadastros e 21 publicaram (eram 98).
+  - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
+    muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
     1164 (998). A pessoa é a mesma e a segunda conta está vazia, mas a
     principal só tem o link, sem imóvel. Até ele responder, continuam nos
