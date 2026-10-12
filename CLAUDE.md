@@ -13,6 +13,18 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Só parar para perguntar quando a mudança for **ambígua, grande ou arriscada** (ex.: reescrita, mudança de conteúdo/preço, algo que afete conversão). Ajuste visual/layout/cópia pequena: executar direto.
 - Ao mexer em algo, **não regredir o que já estava corrigido** (ex.: não alterar a velocidade de digitação da conversa — `velocidadeDigitacao`, hoje 65ms — nem quebrar os grids responsivos de mobile).
 
+## Consumo de créditos: poucos agentes (Mateus, 12/10)
+
+- Ele migrou para o plano 20x e os créditos continuavam acabando. De 08 a
+  11/10 o consumo foi cerca de 5x o do começo do mês, e mais de 80% vinha dos
+  grupos de agentes (workflows com construtor, 2 revisores e até 3 rodadas).
+- Decisão dele ("Menos agentes"): **workflow com vários agentes só em
+  segurança e pagamento.** No resto (app, site, LP, relatórios, planilhas,
+  mensagens), eu faço sozinho e peço **uma** revisão a um agente quando for
+  código que vai ao ar. No máximo 2 rodadas de correção.
+- Rotinas, conversa nova e arquivo de regras enxuto foram oferecidos e ele
+  não escolheu agora: não insistir, só lembrar se o consumo voltar a apertar.
+
 ## Deploy / Publicação (IMPORTANTE)
 
 - O site em produção — **https://www.matchhouse.com.br** — é servido a partir da branch **`main`**.
