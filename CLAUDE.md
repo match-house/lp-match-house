@@ -133,6 +133,11 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   @matchhouse), 999 (INMC Patrimonial, conta própria), 3 (Admin, admin-1)
   e 56 (Match House, match-house-27). As duas últimas foram confirmadas
   pelo Mateus em 06/10: "sim sao nossas".
+  - 39 (smartli.ink/matchhouse, id_agent 820): confirmada pelo Mateus em
+    12/10, depois de publicar nela uma casa de teste e conversar com a IA:
+    "sim, é nossa, pode tirar". Fora do funil, dos relatórios, do CAC e das
+    contagens de conversas e leads da IA. Não saiu da esteira (ele não
+    pediu, e não há volta).
 - Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
 - Duplicadas: 1240 (segunda conta do Enio; a principal é a 196) e 1241 e
   1242 (segundas contas da Bárbara; a principal é a 1226). Todas vazias,
