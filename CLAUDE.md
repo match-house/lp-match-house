@@ -868,6 +868,14 @@ quando quem cortou foi o nosso limite (app #125).
 - Falta para cumprir: criar uma rota no backoffice para trocar o e-mail da
   196 e excluir a 1240. Outras contas antigas com Yahoo ou Hotmail devem ter o
   mesmo problema.
+- **Só se fala do app e do Smart Link** (Mateus, 12/10: "a gente só fala
+  sobre o app ... Não tem como a gente responder nada além disso").
+  - Mensagem fora disso não recebe resposta: assunto pessoal, saúde,
+    conversa mandada por engano. Anotar em `ignorados_sem_acao` e seguir.
+  - Se a pessoa mistura um assunto pessoal com uma dúvida do app, responder
+    só a parte do app.
+  - Caso que gerou a regra: Leandro (1193), 12/10 às 2h33, "Preciso passar
+    no médico tenho problema de estômago". Não foi respondido.
 
 ## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
 
