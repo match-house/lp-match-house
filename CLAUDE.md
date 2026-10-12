@@ -868,14 +868,23 @@ quando quem cortou foi o nosso limite (app #125).
 - Falta para cumprir: criar uma rota no backoffice para trocar o e-mail da
   196 e excluir a 1240. Outras contas antigas com Yahoo ou Hotmail devem ter o
   mesmo problema.
-- **Só se fala do app e do Smart Link** (Mateus, 12/10: "a gente só fala
-  sobre o app ... Não tem como a gente responder nada além disso").
-  - Mensagem fora disso não recebe resposta: assunto pessoal, saúde,
-    conversa mandada por engano. Anotar em `ignorados_sem_acao` e seguir.
-  - Se a pessoa mistura um assunto pessoal com uma dúvida do app, responder
-    só a parte do app.
-  - Caso que gerou a regra: Leandro (1193), 12/10 às 2h33, "Preciso passar
-    no médico tenho problema de estômago". Não foi respondido.
+- **Mensagem fora do app: no máximo duas respostas** (Mateus, 12/10).
+  - Nas palavras dele: "a gente pode responder assim uma vez, somente uma
+    vez ... desejando melhoras e mandando as coisas do app para ele abrir.
+    Se caso a pessoa retornar com a mesma conversa que não é referente ao
+    app, aí a gente pode mandar uma última mensagem falando que a gente só
+    pode conversar sobre isso ... e daí sim, já não responde mais".
+  - 1ª mensagem fora do app (assunto pessoal, saúde, engano): uma resposta
+    curta e gentil (ex.: "desejamos melhoras") e o próximo passo dele no
+    app, com o link.
+  - Se ela voltar com assunto fora do app: uma última mensagem dizendo que
+    por aqui só conseguimos falar do app e do Smart Link.
+  - Depois disso, assunto fora do app não recebe mais resposta: só anotar
+    em `ignorados_sem_acao`. Dúvida do app continua sendo respondida.
+  - Contar em `mensagens-vistas.json` (`fora_do_app`, por id_user) quantas
+    respostas fora do app a pessoa já recebeu.
+  - Primeiro caso: Leandro (1193), 12/10 às 2h33, "Preciso passar no médico
+    tenho problema de estômago".
 
 ## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
 
