@@ -17,7 +17,8 @@ from datetime import date, datetime, timedelta, timezone
 BRT = timezone(timedelta(hours=-3))
 # Mesma lista do Funil Smart Link (confirmada pelo Mateus em 29/09; 993 é teste pelo nome).
 # Duplicadas, fora dos números pela regra de higiene da lista (Mateus): 1240, 1241, 1242 (10/10) e 836, 1103, 1128, 1187, 1196, 1238 (varredura de 11/10).
-INTERNOS = {1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993, 1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238}
+# 39: conta interna (smartli.ink/matchhouse, confirmada pelo Mateus em 12/10: "sim, é nossa, pode tirar").
+INTERNOS = {1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993, 39, 1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238}
 PAGOS = {"meta", "ig", "fb", "facebook", "instagram", "google", "chatgpt", "openai"}
 # Cadastros que chegaram sem utm, com a origem achada no Amplitude em 01/10
 # (o utm aparece no auth_entry_viewed do mesmo aparelho, ou o clique veio com
