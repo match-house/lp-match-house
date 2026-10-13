@@ -13,6 +13,18 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Só parar para perguntar quando a mudança for **ambígua, grande ou arriscada** (ex.: reescrita, mudança de conteúdo/preço, algo que afete conversão). Ajuste visual/layout/cópia pequena: executar direto.
 - Ao mexer em algo, **não regredir o que já estava corrigido** (ex.: não alterar a velocidade de digitação da conversa — `velocidadeDigitacao`, hoje 65ms — nem quebrar os grids responsivos de mobile).
 
+## Consumo de créditos: poucos agentes (Mateus, 12/10)
+
+- Ele migrou para o plano 20x e os créditos continuavam acabando. De 08 a
+  11/10 o consumo foi cerca de 5x o do começo do mês, e mais de 80% vinha dos
+  grupos de agentes (workflows com construtor, 2 revisores e até 3 rodadas).
+- Decisão dele ("Menos agentes"): **workflow com vários agentes só em
+  segurança e pagamento.** No resto (app, site, LP, relatórios, planilhas,
+  mensagens), eu faço sozinho e peço **uma** revisão a um agente quando for
+  código que vai ao ar. No máximo 2 rodadas de correção.
+- Rotinas, conversa nova e arquivo de regras enxuto foram oferecidos e ele
+  não escolheu agora: não insistir, só lembrar se o consumo voltar a apertar.
+
 ## Deploy / Publicação (IMPORTANTE)
 
 - O site em produção — **https://www.matchhouse.com.br** — é servido a partir da branch **`main`**.
@@ -93,6 +105,14 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia ele ligou o conector `openai_ads` no Windsor (conta 976,
       "Match House GPT") e tirou o GA4. O gasto do Google por dia não vem
       mais: ele passa o número uma vez por semana.
+  - **Desde 13/10, às 14h22: app no Meta em R$ 75/dia** (antes R$ 100).
+    Nas palavras do Mateus: "Vamos reduzir a meta para 75 por dia e aumentar
+    o chat GPT em 100 por dia."
+    - Campanha 120252349246370445 ("[09] Match IA · Recibo v2 — App"),
+      orçamento da campanha 7500. Conferido no Windsor logo depois.
+    - O ChatGPT ele sobe no painel dele. A leitura é R$ 100/dia (de 75 para
+      100), o que mantém a soma Meta + ChatGPT em R$ 175/dia.
+    - O teto de R$ 125/dia continua valendo para o Meta.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
@@ -133,6 +153,11 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   @matchhouse), 999 (INMC Patrimonial, conta própria), 3 (Admin, admin-1)
   e 56 (Match House, match-house-27). As duas últimas foram confirmadas
   pelo Mateus em 06/10: "sim sao nossas".
+  - 39 (smartli.ink/matchhouse, id_agent 820): confirmada pelo Mateus em
+    12/10, depois de publicar nela uma casa de teste e conversar com a IA:
+    "sim, é nossa, pode tirar". Fora do funil, dos relatórios, do CAC e das
+    contagens de conversas e leads da IA. Não saiu da esteira (ele não
+    pediu, e não há volta).
 - Ainda não confirmadas: 955 e 993. Perguntar uma vez, sem insistir.
 - Duplicadas: 1240 (segunda conta do Enio; a principal é a 196) e 1241 e
   1242 (segundas contas da Bárbara; a principal é a 1226). Todas vazias,
@@ -268,6 +293,15 @@ para aquela mensagem.
     matchhouse.com.br está lá. Migrar é ideia para depois, não agora.
   - **Claude Max 5x** (R$ 550 por mês) já era pago em julho.
   - A NF 734 da Intelliway (agosto) foi paga.
+- **Pró-labore** (Mateus, 11/10): "Tem pro labore mas so pago qd tem receita".
+  Hoje não é pago e não entra nos custos.
+  - Quando a cobrança ligar, ele volta. Para a empresa ficar no Anexo III
+    (6%), o Fator R pede folha (pró-labore incluído) de pelo menos 28% da
+    receita dos últimos 12 meses. Abaixo disso, vai para o Anexo V (15,5%).
+  - O INSS de 11% sai do pró-labore dele. A CPP já está no DAS.
+  - Em projeção e ponto de equilíbrio, mostrar com o pró-labore de 28% e
+    sem ele. Em 11/10 ficou com ele a pergunta à Contabilizei sobre o
+    valor mínimo.
 
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
@@ -282,6 +316,102 @@ para aquela mensagem.
 - Ordem: primeiro contar os leads direito (conserto na API, 29/09), medir 30
   dias de leads por corretor, depois ligar a cobrança. Nada de preço na LP
   nem em mensagem para corretor até o Mateus liberar.
+  - **Exceção desde 11/10: os 16.** O Mateus disse "pode mostrar o Pro aos
+    16", depois do estudo de cobrança (página "Equilíbrio da Match House",
+    https://claude.ai/artifact/P6ohCKyhNaDkxQCi267msz; arquivos em
+    `scratchpad/monetizacao/estudo/`).
+    - Os 16 são os 5 da lista de espera do Pro e os 13 engajados que já
+      tiveram comprador escrevendo; 2 estão nos dois grupos. A lista fica em
+      `scratchpad/pro-16/os16.json`.
+    - Só eles veem o preço e assinam, liberados um a um. BILLING_MODE
+      continua desligado, e nenhum outro corretor vê preço.
+    - Isso muda três decisões: preço a corretor, cobrar antes de medir os
+      leads e vender o Pro pelas ferramentas, e não pelos leads.
+    - Respostas dele no mesmo dia:
+      1. Anual a R$ 1.470 à vista (10 mensalidades), sem preço de fundador.
+         Responde à pergunta 3 de `api/docs/cobranca-pro.md`.
+      2. Devolução do anual depois dos 7 dias de arrependimento: devolve o
+         valor dos meses inteiros que ainda não começaram.
+      3. Quem cancela o Pro volta sozinho ao plano de entrada no fim do
+         período pago (decisão 5 de `cobranca-pro.md`).
+      4. A oferta vai por e-mail, com o texto aprovado por ele antes, e pela
+         tela do Pro no app, com preço e botão de assinar.
+    - Mais respostas dele, no fim da tarde de 11/10 (plano em
+      `scratchpad/pro-16/plano.md`):
+      5. **O que o Pro tem a mais (D1):** aviso por e-mail na hora em que um
+         cliente deixa nome e celular, e a planilha dos leads para baixar,
+         os dois só no Pro. A tela diz que hoje o plano de entrada também
+         mostra todos os contatos (`lead.liberado` é sempre true). Depende de
+         a Intelliway mandar o lead de todos os corretores: perguntar por
+         escrito até 22/10. Se ela não mandar, não vender esses recursos.
+      6. **Anual (D2): só mensal no começo.** O anual (R$ 1.470, com a
+         devolução dos meses que faltam) entra depois da régua de 17/11.
+      7. **Quem entra (D4): 18 contas.** Os 16 mais 1278 (Clarice D'Urso) e
+         1279 (wanderson klay), que entraram na lista de espera em 11/10. O
+         cartão promete "Quem está na lista fica sabendo primeiro". O 1267
+         espera a régua.
+      8. **Abertura em 3 levas a partir de 03/11:** primeiro a lista de
+         espera, depois quem tem cliente real, depois o resto. Cada leva
+         precisa do "pode" para o e-mail.
+      9. Nas dúvidas dessas contas no 6800 e no Direct, posso responder com
+         o preço do e-mail aprovado, só depois de conferir que é uma conta
+         liberada. Desistência, devolução e reclamação continuam com o
+         "pode".
+    - **Como falar do Pro (Mateus, 11/10):** "são 30 cadastros de clientes,
+      pq o corretor tem que entender que é como um assistente dele, um SDR,
+      e que ele tem que colocar na bio".
+      - A IA é o assistente do corretor (um SDR): atende quem chega pelo
+        link, tira as dúvidas e cadastra o cliente com nome e celular.
+      - O Pro é "até 30 clientes seus cadastrados por mês".
+      - A bio entra como condição: a IA só cadastra quem chega pelo link.
+      - Fica a linha de transparência: hoje o plano de entrada ainda mostra
+        todos os cadastros, e o limite de 3 tem aviso de 15 dias.
+      - **Nunca "30 leads" sozinho.** Mateus, 11/10: "se escrever
+        simplesmente 30 leads, eles vão achar que a plataforma vai trazer
+        leads para ele de algum outro lugar [...] a gente é um motor que vai
+        qualificar, que vai atender [...] os leads dele, que ele já gera.
+        Porque o problema dele não é gerar leads, o problema dele é atender
+        bem os leads e vender mais para a base que ele já tem."
+        - A Match House não traz clientes de fora. A IA atende os que já
+          chegam ao corretor: pelo Instagram, pelos anúncios, pela placa e
+          por indicação.
+        - O valor é atender todos na hora e não perder nenhum, para vender
+          mais a quem já procura o corretor.
+        - Vale para a oferta, a tela, os e-mails e as respostas no 6800 e no
+          Direct.
+      - Textos em `scratchpad/pro-16/textos-v3.md`.
+    - **O que o Pro tem na abertura (Mateus, 11/10: "Sim, segue assim"):**
+      1. até 30 clientes seus cadastrados por mês;
+      2. aviso na hora de cada cadastro, por e-mail. Vai para o WhatsApp
+         quando a Meta aprovar o modelo, que custa por mensagem;
+      3. botão "Baixar meus clientes", em planilha Excel. Sai das conversas
+         que IA & Leads já mostra (EvaGPT pelo BFF), sem depender do POST
+         da Intelliway;
+      4. relatório do mês, "O que a sua IA fez por você", em PDF e por
+         e-mail.
+      - Métricas novas só no Pro entram ao longo de novembro: conversas e
+        cadastros, atendimento à noite e no fim de semana, imóveis que mais
+        geram conversa e a origem do cliente. As métricas de hoje continuam
+        para todos.
+      - A oferta só cita o que já estiver no ar e testado.
+      - Respostas dele à noite de 11/10 (desenho em
+        `scratchpad/pro-16/recursos/desenho.md`):
+        - o aviso e a planilha saem das conversas da IA (EvaGPT, lidas pela
+          API com a regra do `/backoffice/leads`). Por isso entram na
+          abertura sem esperar a Intelliway, se passarem no teste na 999. A
+          mensagem à Glaucia de 14/10 continua, por causa do preço acima da
+          franquia;
+        - no mês sem nenhuma conversa, o relatório vira um e-mail curto,
+          sem PDF, com 3 dicas: bio, QR do imóvel na placa e link nos
+          anúncios;
+        - do 31º cliente do mês em diante, enquanto o limite de 3 do plano
+          de entrada não ligar, o Pro continua avisando e listando todos. O
+          "até 30" fica como referência.
+    - Antes da primeira venda: termos do Pro (arrependimento de 7 dias,
+      renovação, cancelamento e devolução do anual), aviso de cartão
+      recusado, volta ao plano de entrada, o nome certo do plano de entrada
+      e o cupom da indicação com prazo. A meta é abrir em 03/11, ou antes,
+      se tudo estiver pronto.
 - Nunca escrever "gratuito" ou "grátis": é "plano de entrada".
 - **Quem volta do Pro ao plano de entrada no meio do mês** (decisão do Mateus,
   06/10) **não ganha mais 3 leads naquele mês**.
@@ -617,6 +747,22 @@ IA dentro do plano, a preço fixo.
 - Os relatórios, a área de custos e os funis são só para o Mateus e não saem
   daqui.
 
+## Segurança e LGPD em toda a aplicação (Mateus, 11/10)
+
+- Nas palavras dele: "Precisamos de segurança em toda aplicação,
+  notadamente nessa parte de LGPD, dados dos clientes e de pagamento."
+- Vale para todo PR, em qualquer repositório:
+  - conferir o dono pelo login, nunca por um id que vem na chamada;
+  - nada de dado de cliente, de corretor ou de pagamento a quem não é dono
+    nem admin;
+  - nada de segredo no código nem em log;
+  - nada de dado pessoal em log, URL ou analytics.
+- Furo de segurança nunca se testa em produção com dado de outra pessoa:
+  prova-se com teste automatizado e leitura de código.
+- Este repositório é público até o Mateus fechar. Achado de segurança,
+  furo aberto, número da empresa e dado de corretor não entram aqui: ficam
+  só em `scratchpad/seguranca/` (plano e achados), nos arquivos da conversa.
+
 ## Falar com corretor — que link mandar (regras de 24/09)
 
 Errei os três na mesma manhã. Ficam escritas para não repetir.
@@ -747,6 +893,23 @@ quando quem cortou foi o nosso limite (app #125).
 - Falta para cumprir: criar uma rota no backoffice para trocar o e-mail da
   196 e excluir a 1240. Outras contas antigas com Yahoo ou Hotmail devem ter o
   mesmo problema.
+- **Mensagem fora do app: no máximo duas respostas** (Mateus, 12/10).
+  - Nas palavras dele: "a gente pode responder assim uma vez, somente uma
+    vez ... desejando melhoras e mandando as coisas do app para ele abrir.
+    Se caso a pessoa retornar com a mesma conversa que não é referente ao
+    app, aí a gente pode mandar uma última mensagem falando que a gente só
+    pode conversar sobre isso ... e daí sim, já não responde mais".
+  - 1ª mensagem fora do app (assunto pessoal, saúde, engano): uma resposta
+    curta e gentil (ex.: "desejamos melhoras") e o próximo passo dele no
+    app, com o link.
+  - Se ela voltar com assunto fora do app: uma última mensagem dizendo que
+    por aqui só conseguimos falar do app e do Smart Link.
+  - Depois disso, assunto fora do app não recebe mais resposta: só anotar
+    em `ignorados_sem_acao`. Dúvida do app continua sendo respondida.
+  - Contar em `mensagens-vistas.json` (`fora_do_app`, por id_user) quantas
+    respostas fora do app a pessoa já recebeu.
+  - Primeiro caso: Leandro (1193), 12/10 às 2h33, "Preciso passar no médico
+    tenho problema de estômago".
 
 ## Pendente para sábado ou sexta à noite, com o Mateus (08/10)
 
@@ -1505,6 +1668,25 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
   usuário) e da 27 (interna).
+
+## Se o scratchpad voltar vazio (aconteceu em 13/10, 20h08)
+
+- O servidor desta conversa reiniciou do zero e a pasta de trabalho
+  (scratchpad) voltou vazia. Perderam-se os arquivos que só existiam lá.
+- As ferramentas que as rotinas usam têm cópia em `ferramentas/`, na
+  branch `claude/cheque-campanha-numeros-ivhccq`. Para voltar com elas:
+  `git show origin/claude/cheque-campanha-numeros-ivhccq:ferramentas/<arquivo>`.
+  - `vigia/vigia.sh`: a vigia do Direct e do 6800 (vai em `scratchpad/vigia.sh`).
+  - `leads-ia/atualiza.sh`: a aba "Leads IA" (rotina das 06h47).
+  - `custos/cac.py` e `custos/aws_dias.py`: CAC e AWS do relatório.
+  - `funil-smart-link/gerar.py` e `template.html`: o "Funil Smart Link".
+  - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
+- A página do funil diário volta pelo Artifact (`read` com `path`
+  index.html), tirando o esqueleto `<!doctype…<body>` e o `</body></html>`.
+- O registro das mensagens (`scratchpad/mensagens-vistas.json`) não pode ir
+  para o repositório, que é público: tem nome de corretor. Se sumir,
+  recriar pelo histórico da conversa e pelo `/backoffice/messages`.
+- Ao mudar uma dessas ferramentas no scratchpad, atualizar a cópia na branch.
 
 ## Rodar localmente
 
