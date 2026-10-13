@@ -105,6 +105,14 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia ele ligou o conector `openai_ads` no Windsor (conta 976,
       "Match House GPT") e tirou o GA4. O gasto do Google por dia não vem
       mais: ele passa o número uma vez por semana.
+  - **Desde 13/10, às 14h22: app no Meta em R$ 75/dia** (antes R$ 100).
+    Nas palavras do Mateus: "Vamos reduzir a meta para 75 por dia e aumentar
+    o chat GPT em 100 por dia."
+    - Campanha 120252349246370445 ("[09] Match IA · Recibo v2 — App"),
+      orçamento da campanha 7500. Conferido no Windsor logo depois.
+    - O ChatGPT ele sobe no painel dele. A leitura é R$ 100/dia (de 75 para
+      100), o que mantém a soma Meta + ChatGPT em R$ 175/dia.
+    - O teto de R$ 125/dia continua valendo para o Meta.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
