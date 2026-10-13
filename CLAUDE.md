@@ -1669,6 +1669,25 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
   usuário) e da 27 (interna).
 
+## Se o scratchpad voltar vazio (aconteceu em 13/10, 20h08)
+
+- O servidor desta conversa reiniciou do zero e a pasta de trabalho
+  (scratchpad) voltou vazia. Perderam-se os arquivos que só existiam lá.
+- As ferramentas que as rotinas usam têm cópia em `ferramentas/`, na
+  branch `claude/cheque-campanha-numeros-ivhccq`. Para voltar com elas:
+  `git show origin/claude/cheque-campanha-numeros-ivhccq:ferramentas/<arquivo>`.
+  - `vigia/vigia.sh`: a vigia do Direct e do 6800 (vai em `scratchpad/vigia.sh`).
+  - `leads-ia/atualiza.sh`: a aba "Leads IA" (rotina das 06h47).
+  - `custos/cac.py` e `custos/aws_dias.py`: CAC e AWS do relatório.
+  - `funil-smart-link/gerar.py` e `template.html`: o "Funil Smart Link".
+  - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
+- A página do funil diário volta pelo Artifact (`read` com `path`
+  index.html), tirando o esqueleto `<!doctype…<body>` e o `</body></html>`.
+- O registro das mensagens (`scratchpad/mensagens-vistas.json`) não pode ir
+  para o repositório, que é público: tem nome de corretor. Se sumir,
+  recriar pelo histórico da conversa e pelo `/backoffice/messages`.
+- Ao mudar uma dessas ferramentas no scratchpad, atualizar a cópia na branch.
+
 ## Rodar localmente
 
 `npx serve -p 3456 .` (config em `.claude/launch.json`).
