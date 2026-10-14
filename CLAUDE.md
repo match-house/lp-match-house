@@ -1144,7 +1144,8 @@ quando quem cortou foi o nosso limite (app #125).
     A lista fica em `scratchpad/demo/fotos/CREDITOS-unsplash.txt`.
   - Não trocar por um corretor real sem a autorização dele.
   - Página do exemplo: https://claude.ai/artifact/9kCrTj1mBbuQsW9b6Gvcw1.
-  - Pendente: reservar o link `smartli.ink/camiladuarte` com uma conta nossa.
+  - O link `smartli.ink/camiladuarte` está reservado na API desde 14/10
+    (api #99, `RESERVED_SLUGS` em `validate-slug.function.ts`).
 - Na rede do ambiente, `unsplash.com` e `images.unsplash.com` foram liberados
   pelo Mateus em 14/10.
   - A busca do Unsplash tem checagem anti-robô e não deve ser contornada.
