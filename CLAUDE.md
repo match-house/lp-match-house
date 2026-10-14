@@ -31,6 +31,14 @@ Notas do projeto para agentes. Ler antes de mexer.
 - **Toda alteração que precisa ir ao ar tem que chegar na `main`.** Commitar só numa branch de feature NÃO muda o site publicado.
 - Depois do push na `main`, se a publicação não for automática, é preciso acionar o "publish" do site para a versão nova subir.
 - Cache é agressivo (principalmente favicon). Depois de publicar, testar com hard refresh (Ctrl+Shift+R).
+- **A branch de trabalho não vai inteira para a `main`.** Ela tem
+  `ferramentas/`, `anuncios/` e `.claude/settings.json`, que não vão para
+  o site. Os custos e os funis são só do Mateus.
+  - Para levar só uma nota à `main`, commitar numa branch criada da `main`
+    (`git checkout -b x origin/main`).
+  - Nunca `git push origin HEAD:main` a partir da branch de trabalho. Em
+    14/10 isso levou as ferramentas para a `main`; foi desfeito no mesmo
+    minuto (7c1c5be).
 
 ## Estrutura
 
