@@ -1113,6 +1113,49 @@ quando quem cortou foi o nosso limite (app #125).
     Se a campanha sumir sem `attr_memoria`, a perda foi um recarregamento ou
     uma página nova, que a memória não cobre.
 
+## Teste A/B da tela de entrada do app (desde 14/10)
+
+- Código em `app/src/lib/tela-entrada.ts`.
+  - O sorteio só roda em produção e é meio a meio entre as versões de
+    `VERSOES_NO_SORTEIO`.
+  - A versão fica guardada em `mh_tela_entrada` e vai no endereço como
+    `?mh_tela=`.
+  - Quem já tem conta no aparelho fica fora do teste.
+  - Para encerrar: `isTesteLigado = false`, ou trocar a lista pela vencedora.
+- **"a"** (14/10, 11h, app #141, a pedido do Mateus): abre com a promessa do
+  anúncio do ChatGPT e mostra os botões por extenso ("Continuar com Google").
+- **"b" no lugar da "a"** (14/10, à tarde, app #142, merge 21370f2). Mateus:
+  "B no lugar da A" e "Pode publicar".
+  - A "b" é a "a" com o exemplo. O celular desenhado mostra a Camila (fictícia)
+    e o selo "Ver um exemplo". O toque abre um vídeo de 34 s do Smart Link,
+    com os botões embaixo.
+  - O sorteio agora é hoje contra "b". Quem já tinha a "a" continua nela.
+  - Contar a "b" a partir da entrada dela.
+- **Leitura em ~2 semanas (perto de 28/10)**, por `tela`:
+  - `auth_entry_viewed`, `auth_clicked`, `auth_completed`, cadastro concluído
+    e primeiro imóvel publicado;
+  - da "b": `exemplo_aberto` (`video`), `exemplo_fechado` (`segundos`, `viu`),
+    `auth_clicked` com `surface: "exemplo"` e `exemplo_viu` no
+    `auth_entry_left`.
+- **O exemplo é fictício, sempre com o selo "Exemplo".**
+  - Corretora, imóveis e conversa são de mentira. Nunca vai para o site
+    público, onde geraria lead falso.
+  - As fotos são do Unsplash, cuja licença permite uso comercial sem crédito.
+    A lista fica em `scratchpad/demo/fotos/CREDITOS-unsplash.txt`.
+  - Não trocar por um corretor real sem a autorização dele.
+  - Página do exemplo: https://claude.ai/artifact/9kCrTj1mBbuQsW9b6Gvcw1.
+  - Pendente: reservar o link `smartli.ink/camiladuarte` com uma conta nossa.
+- Na rede do ambiente, `unsplash.com` e `images.unsplash.com` foram liberados
+  pelo Mateus em 14/10.
+  - A busca do Unsplash tem checagem anti-robô e não deve ser contornada.
+  - Para achar fotos: baixar miniaturas de IDs conhecidos por
+    `images.unsplash.com` e olhar.
+- No mesmo PR, o aceite (Política de Privacidade e avisos pelo WhatsApp) foi
+  também para as folhas de entrar, que não o mostravam.
+- No site, desde 14/10 (site #230): a IA se apresenta como "Oi! Eu sou a IA
+  de Camila", e o campo diz "Responder à IA de Camila…". Antes era "o Camila
+  IA" para toda corretora.
+
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
 - Não cadastrar imóvel pelo corretor nem mandar cadastro pronto. Nas
