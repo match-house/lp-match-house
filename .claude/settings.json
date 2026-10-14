@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Windsor_ai__get_data",
+      "mcp__Windsor_ai__get_fields",
+      "mcp__Windsor_ai__get_connectors",
+      "mcp__Gmail__search_threads",
+      "mcp__Gmail__get_thread",
+      "mcp__Gmail__get_message",
+      "mcp__github__actions_list",
+      "mcp__github__actions_get",
+      "mcp__github__pull_request_read",
+      "mcp__github__search_code",
+      "mcp__Claude_Code_Remote__get_trigger",
+      "mcp__Vercel__list_deployments",
+      "mcp__Google_Drive__read_file_content",
+      "mcp__Google_Drive__search_files",
+      "mcp__Google_Sheets__get_values",
+      "Bash(git fetch *)",
+      "Bash(curl -sS \"https://api.matchhouse.com.br/backoffice/signups*)",
+      "Bash(curl -sS \"https://api.matchhouse.com.br/backoffice/agent*)",
+      "Bash(curl -sS \"https://api.matchhouse.com.br/backoffice/activation/whatsapp*)",
+      "Bash(curl -sS \"https://api.matchhouse.com.br/backoffice/leads*)",
+      "Bash(curl -sS \"https://api.matchhouse.com.br/backoffice/pro/interesse*)"
+    ]
+  }
+}
