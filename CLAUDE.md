@@ -1727,6 +1727,17 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     ("Funil completo — Smart Link + Imóveis (ativação)") lê C2:C7, e o de
     cima ("Funil — do login ao lead da IA", feito à mão) lê C1:C7, com o
     cabeçalho. Não mudar o texto de C1.
+- **Pizzas até o lead da IA (Mateus, 15/10: "coloque a etapa 5 e 6 nos
+  gráficos").** As fatias não se sobrepõem: há corretor com conversa na IA
+  sem imóvel, então "com imóvel, sem conversa" desconta só quem tem os dois.
+  - "Onde cada pessoa parou" (feita à mão) lê o bloco "Situação atual" do
+    Painel, L10:M16: só entraram, pararam no SMS, completaram sem imóvel
+    nem conversa, com imóvel sem conversa, conversa sem lead, lead. Somam
+    o total de logins. O bloco "Etapa do funil — Google Ads" desceu para
+    L18 (o robô o acha pelo título).
+  - "Ativação — corretores com × sem imóvel" (do robô, api e9dd7b6) lê a
+    Base A8:B11, as mesmas 4 fatias de quem completou o cadastro. B12 é a
+    linha de apoio (conversa e imóvel juntos) e B13, imóveis no total.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
