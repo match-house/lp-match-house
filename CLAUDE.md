@@ -118,14 +118,17 @@ Notas do projeto para agentes. Ler antes de mexer.
     o chat GPT em 100 por dia."
     - Campanha 120252349246370445 ("[09] Match IA · Recibo v2 — App"),
       orçamento da campanha 7500. Conferido no Windsor logo depois.
-    - O ChatGPT ele sobe no painel dele. A leitura é R$ 100/dia (de 75 para
-      100), o que mantém a soma Meta + ChatGPT em R$ 175/dia.
+    - O ChatGPT ele sobe no painel dele. O plano era ir de 75 para R$ 100/dia,
+      mas o painel ficou em R$ 75 até 15/10 (Windsor: R$ 76,06 em 13/10 e
+      R$ 70,94 em 14/10).
     - O teto de R$ 125/dia continua valendo para o Meta.
   - **Desde 15/10, às 16h38: app no Meta em R$ 50/dia** (antes R$ 75).
     Nas palavras do Mateus: "vamos reduzir para 50,00 por dia".
     - Mesma campanha 120252349246370445, orçamento 5000. Conferido no
       Windsor logo depois. O dia 15/10 mistura R$ 75 e R$ 50.
-    - Ele não falou do ChatGPT: a leitura continua R$ 100/dia.
+    - **ChatGPT em R$ 100/dia desde 15/10, ~16h45.** Nas palavras dele:
+      "estava em 75,00 o chat, acabei de subir para 100,00 agora". Soma
+      Meta + ChatGPT: R$ 150/dia.
     - A rotina do relatório diário foi atualizada no mesmo minuto (verba
       configurada 5000).
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
