@@ -1741,6 +1741,9 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - A cor vem da ordem das fatias (a API não pinta fatia): 1ª azul, 2ª
     vermelha, 3ª amarela, 4ª verde. Mateus, 15/10: "o vermelho deve ser sem
     imóvel e sem conversa, e o azul imóvel publicado". Não reordenar.
+  - O nome de cada fatia leva a % dela ("Sem imóvel nem conversa · 63%").
+    A API não escreve texto dentro da fatia: `pieSliceText` é ignorado sem
+    erro (testado em 15/10). Dentro da fatia, só pelo editor do gráfico.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
