@@ -1723,10 +1723,22 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O robô (api 2044960) grava a Base em A1:C10: etapas 1 a 6 em A2:B7,
     o rótulo "pessoas · % da etapa anterior" (ex.: "44 · 54%") em C2:C7 e
     a pizza em A8:B9.
-  - Os dois gráficos de barras do Painel usam esse rótulo: o do robô
-    ("Funil completo — Smart Link + Imóveis (ativação)") lê C2:C7, e o de
-    cima ("Funil — do login ao lead da IA", feito à mão) lê C1:C7, com o
-    cabeçalho. Não mudar o texto de C1.
+  - O gráfico de barras do robô ("Funil completo — Smart Link + Imóveis
+    (ativação)") lê esse rótulo em C2:C7. Não mudar o texto de C1.
+  - **O de cima, "Funil — do login ao lead da IA", é um funil em
+    triângulo invertido desde 15/10** (Mateus: "faça ele em forma de funil
+    mesmo triangulo invertido com as porcentagens ao lado e melhore as
+    cores").
+    - Ele lê a aba oculta "Base do funil (não editar)" (sheetId 966467095),
+      que é minha e fica fora do robô. Lá, A2:A7 são os nomes curtos
+      ("1. Login" … "6. Lead da IA"), que cabem numa linha. C2:C7 lê o
+      Painel M3:M8, e E2:E7 é o rótulo "pessoas · %".
+    - É um gráfico de barras empilhadas: B é o espaço da esquerda, em
+      branco, (maior − valor)/2, para centralizar. C é a barra, num degradê
+      do azul-marinho ao ciano, uma cor por etapa. D é o espaço da direita,
+      em branco, com o rótulo de E dentro (INSIDE_BASE), logo ao lado da
+      barra.
+    - Os números do eixo de baixo ficam: a API não os esconde.
 - **Pizzas até o lead da IA (Mateus, 15/10: "coloque a etapa 5 e 6 nos
   gráficos").** As fatias não se sobrepõem: há corretor com conversa na IA
   sem imóvel, então "com imóvel, sem conversa" desconta só quem tem os dois.
