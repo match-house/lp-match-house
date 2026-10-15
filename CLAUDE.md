@@ -1731,13 +1731,16 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   gráficos").** As fatias não se sobrepõem: há corretor com conversa na IA
   sem imóvel, então "com imóvel, sem conversa" desconta só quem tem os dois.
   - "Onde cada pessoa parou" (feita à mão) lê o bloco "Situação atual" do
-    Painel, L10:M16: só entraram, pararam no SMS, completaram sem imóvel
-    nem conversa, com imóvel sem conversa, conversa sem lead, lead. Somam
+    Painel, L10:M16: com imóvel sem conversa, completaram sem imóvel nem
+    conversa, conversa sem lead, lead, só entraram e pararam no SMS. Somam
     o total de logins. O bloco "Etapa do funil — Google Ads" desceu para
     L18 (o robô o acha pelo título).
   - "Ativação — corretores com × sem imóvel" (do robô, api e9dd7b6) lê a
     Base A8:B11, as mesmas 4 fatias de quem completou o cadastro. B12 é a
     linha de apoio (conversa e imóvel juntos) e B13, imóveis no total.
+  - A cor vem da ordem das fatias (a API não pinta fatia): 1ª azul, 2ª
+    vermelha, 3ª amarela, 4ª verde. Mateus, 15/10: "o vermelho deve ser sem
+    imóvel e sem conversa, e o azul imóvel publicado". Não reordenar.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
