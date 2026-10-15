@@ -121,6 +121,13 @@ Notas do projeto para agentes. Ler antes de mexer.
     - O ChatGPT ele sobe no painel dele. A leitura é R$ 100/dia (de 75 para
       100), o que mantém a soma Meta + ChatGPT em R$ 175/dia.
     - O teto de R$ 125/dia continua valendo para o Meta.
+  - **Desde 15/10, às 16h38: app no Meta em R$ 50/dia** (antes R$ 75).
+    Nas palavras do Mateus: "vamos reduzir para 50,00 por dia".
+    - Mesma campanha 120252349246370445, orçamento 5000. Conferido no
+      Windsor logo depois. O dia 15/10 mistura R$ 75 e R$ 50.
+    - Ele não falou do ChatGPT: a leitura continua R$ 100/dia.
+    - A rotina do relatório diário foi atualizada no mesmo minuto (verba
+      configurada 5000).
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
