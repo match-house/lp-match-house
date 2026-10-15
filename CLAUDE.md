@@ -1723,30 +1723,35 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O robô (api 2044960) grava a Base em A1:C10: etapas 1 a 6 em A2:B7,
     o rótulo "pessoas · % da etapa anterior" (ex.: "44 · 54%") em C2:C7 e
     a pizza em A8:B9.
-  - O gráfico de barras do robô ("Funil completo — Smart Link + Imóveis
-    (ativação)") lê esse rótulo em C2:C7. Não mudar o texto de C1.
-  - **O de cima, "Funil — do login ao lead da IA", é um funil em
-    triângulo invertido desde 15/10** (Mateus: "faça ele em forma de funil
-    mesmo triangulo invertido com as porcentagens ao lado e melhore as
-    cores").
-    - Ele lê a aba oculta "Base do funil (não editar)" (sheetId 966467095),
-      que é minha e fica fora do robô. Lá, A2:A7 são os nomes curtos
-      ("1. Login" … "6. Lead da IA"), que cabem numa linha. C2:C7 lê o
-      Painel M3:M8, e E2:E7 é o rótulo "pessoas · %".
-    - É um gráfico de barras empilhadas: B é o espaço da esquerda, em
-      branco, (maior − valor)/2, para centralizar. C é a barra, num degradê
-      do azul-marinho ao ciano, uma cor por etapa. D é o espaço da direita,
-      em branco, com o rótulo de E dentro (INSIDE_BASE), logo ao lado da
-      barra.
-    - Os números do eixo de baixo ficam: a API não os esconde.
+  - Os dois gráficos de barras do Painel usam esse rótulo: o do robô
+    ("Funil completo — Smart Link + Imóveis (ativação)") lê C2:C7, e o de
+    cima ("Funil — do login ao lead da IA", feito à mão) lê C1:C7, com o
+    cabeçalho. Não mudar o texto de C1.
+  - Em 15/10 o de cima virou um funil de barras empilhadas e voltou ao
+    que era no mesmo dia (Mateus: "nao era isso, volte o grafico ao que
+    era"). Não refazer. O spec antigo fica em
+    `ferramentas/painel-pro/old-chart-1609832849.json`.
 - **Pizzas até o lead da IA (Mateus, 15/10: "coloque a etapa 5 e 6 nos
   gráficos").** As fatias não se sobrepõem: há corretor com conversa na IA
   sem imóvel, então "com imóvel, sem conversa" desconta só quem tem os dois.
-  - "Onde cada pessoa parou" (feita à mão) lê o bloco "Situação atual" do
-    Painel, L10:M16: com imóvel sem conversa, completaram sem imóvel nem
-    conversa, conversa sem lead, lead, só entraram e pararam no SMS. Somam
-    o total de logins. O bloco "Etapa do funil — Google Ads" desceu para
-    L18 (o robô o acha pelo título).
+  - **"Onde cada pessoa parou" virou um funil desenhado nas células em
+    15/10** (Mateus: "no outro o pizza vc transforma em funil mas use um
+    bom modelo"). Não é gráfico: fica em H11:K26 do Painel.
+    - Cada etapa ocupa duas linhas. Em H:I (mescladas) vai uma barra
+      SPARKLINE centrada, com largura proporcional às pessoas e mínimo de
+      3% para o lead não sumir. Em K vão o nome e o número, em negrito, e
+      embaixo "% passaram · N pararam aqui".
+    - O "pararam aqui" sai do bloco "Situação atual" (L11:M16) e soma o
+      total de logins. As etapas saem de M3:M8. Tudo é fórmula e se
+      atualiza sozinho; o robô não mexe ali.
+    - As cores vão do azul-marinho ao ciano. Locale pt-BR: nas matrizes da
+      SPARKLINE, coluna é "\" e decimal é ",".
+    - A pizza antiga foi apagada; o spec está em
+      `ferramentas/painel-pro/pizza-1302843605.json`. O gerador dos
+      pedidos é `ferramentas/painel-pro/gera-funil.mjs`.
+    - O bloco "Situação atual" (L10:M16) continua: o funil lê dele. O
+      bloco "Etapa do funil — Google Ads" desceu para L18 (o robô o acha
+      pelo título).
   - "Ativação — corretores com × sem imóvel" (do robô, api e9dd7b6) lê a
     Base A8:B11, as mesmas 4 fatias de quem completou o cadastro. B12 é a
     linha de apoio (conversa e imóvel juntos) e B13, imóveis no total.

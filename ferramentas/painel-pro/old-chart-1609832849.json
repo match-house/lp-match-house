@@ -1,0 +1,190 @@
+{
+  "chartId": 1609832849,
+  "position": {
+    "overlayPosition": {
+      "anchorCell": {
+        "columnIndex": 1,
+        "rowIndex": 10,
+        "sheetId": 711315663
+      },
+      "heightPixels": 310,
+      "widthPixels": 470
+    }
+  },
+  "spec": {
+    "basicChart": {
+      "axis": [
+        {
+          "position": "BOTTOM_AXIS",
+          "viewWindowOptions": {}
+        },
+        {
+          "position": "LEFT_AXIS",
+          "viewWindowOptions": {}
+        }
+      ],
+      "chartType": "BAR",
+      "domains": [
+        {
+          "domain": {
+            "sourceRange": {
+              "sources": [
+                {
+                  "endColumnIndex": 12,
+                  "endRowIndex": 8,
+                  "sheetId": 711315663,
+                  "startColumnIndex": 11,
+                  "startRowIndex": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "headerCount": 1,
+      "legendPosition": "NO_LEGEND",
+      "series": [
+        {
+          "color": {
+            "blue": 0.9098039,
+            "green": 0.4509804,
+            "red": 0.101960786
+          },
+          "colorStyle": {
+            "rgbColor": {
+              "blue": 0.9098039,
+              "green": 0.4509804,
+              "red": 0.101960786
+            }
+          },
+          "dataLabel": {
+            "customLabelData": {
+              "sourceRange": {
+                "sources": [
+                  {
+                    "endColumnIndex": 3,
+                    "endRowIndex": 7,
+                    "sheetId": 1406384778,
+                    "startColumnIndex": 2,
+                    "startRowIndex": 0
+                  }
+                ]
+              }
+            },
+            "placement": "OUTSIDE_END",
+            "textFormat": {
+              "bold": true,
+              "fontFamily": "Roboto",
+              "fontSize": 10
+            },
+            "type": "CUSTOM"
+          },
+          "series": {
+            "sourceRange": {
+              "sources": [
+                {
+                  "endColumnIndex": 13,
+                  "endRowIndex": 8,
+                  "sheetId": 711315663,
+                  "startColumnIndex": 12,
+                  "startRowIndex": 1
+                }
+              ]
+            }
+          },
+          "styleOverrides": [
+            {
+              "color": {
+                "blue": 0.2,
+                "green": 0.4509804,
+                "red": 0.07450981
+              },
+              "colorStyle": {
+                "rgbColor": {
+                  "blue": 0.2,
+                  "green": 0.4509804,
+                  "red": 0.07450981
+                }
+              },
+              "index": 3
+            },
+            {
+              "color": {
+                "blue": 0.8901961,
+                "green": 0.24313726,
+                "red": 0.47843137
+              },
+              "colorStyle": {
+                "rgbColor": {
+                  "blue": 0.8901961,
+                  "green": 0.24313726,
+                  "red": 0.47843137
+                }
+              },
+              "index": 4
+            },
+            {
+              "color": {
+                "blue": 0.8901961,
+                "green": 0.24313726,
+                "red": 0.47843137
+              },
+              "colorStyle": {
+                "rgbColor": {
+                  "blue": 0.8901961,
+                  "green": 0.24313726,
+                  "red": 0.47843137
+                }
+              },
+              "index": 5
+            }
+          ],
+          "targetAxis": "BOTTOM_AXIS"
+        }
+      ]
+    },
+    "fontName": "Roboto",
+    "hiddenDimensionStrategy": "SHOW_ALL",
+    "subtitle": "pessoas em cada etapa, desde 14/07 · % = quanto passou da etapa anterior",
+    "subtitleTextFormat": {
+      "fontFamily": "Roboto",
+      "fontSize": 10,
+      "foregroundColor": {
+        "blue": 0.40784314,
+        "green": 0.38431373,
+        "red": 0.37254903
+      },
+      "foregroundColorStyle": {
+        "rgbColor": {
+          "blue": 0.40784314,
+          "green": 0.38431373,
+          "red": 0.37254903
+        }
+      }
+    },
+    "subtitleTextPosition": {
+      "horizontalAlignment": "LEFT"
+    },
+    "title": "Funil — do login ao lead da IA",
+    "titleTextFormat": {
+      "bold": true,
+      "fontFamily": "Roboto",
+      "fontSize": 13,
+      "foregroundColor": {
+        "blue": 0.24313726,
+        "green": 0.105882354,
+        "red": 0.039215688
+      },
+      "foregroundColorStyle": {
+        "rgbColor": {
+          "blue": 0.24313726,
+          "green": 0.105882354,
+          "red": 0.039215688
+        }
+      }
+    },
+    "titleTextPosition": {
+      "horizontalAlignment": "LEFT"
+    }
+  }
+}
