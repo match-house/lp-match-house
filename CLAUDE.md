@@ -1710,12 +1710,23 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   script repete. Leia por semana, nunca o período inteiro, que para em 1.000
   conversas.
 - **Não mover no Painel do PRO:**
-  - L3:M5 (etapas 1 a 3): a aba oculta "Base dos gráficos" lê M3:M5 fixo;
+  - L3:M8 (etapas 1 a 6): a aba oculta "Base dos gráficos" lê M3:M5 e
+    M7:M8 fixos;
   - os rótulos que o robô do export procura (`sync-panels-from-csv.mjs`, na
     branch `claude/post-deploy-api-export-csv-2qpvzq` da api, disparado
     todo dia).
-  - Os dois gráficos de ativação são do robô: ele reescreve o estilo todo
-    dia. Pode mudar só a posição deles.
+  - Os dois gráficos de ativação são do robô: ele reescreve o spec inteiro
+    todo dia. Pode mudar só a posição deles; o resto muda no script.
+- **Gráfico com as etapas da IA e as % (Mateus, 15/10):** "queria colocar
+  no gráfico as conversas por IA e os leads por IA" e "com as porcentagens
+  dessa etapa".
+  - O robô (api 2044960) grava a Base em A1:C10: etapas 1 a 6 em A2:B7,
+    o rótulo "pessoas · % da etapa anterior" (ex.: "44 · 54%") em C2:C7 e
+    a pizza em A8:B9.
+  - Os dois gráficos de barras do Painel usam esse rótulo: o do robô
+    ("Funil completo — Smart Link + Imóveis (ativação)") lê C2:C7, e o de
+    cima ("Funil — do login ao lead da IA", feito à mão) lê C1:C7, com o
+    cabeçalho. Não mudar o texto de C1.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
