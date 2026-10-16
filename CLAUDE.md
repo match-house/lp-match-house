@@ -136,6 +136,18 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No conjunto do app ficam o 10a e os criativos 11a a 11d, no ar desde
       16/10 por volta das 07h05. Artes em `anuncios/` da branch de trabalho.
     - Isto vale acima do que a rotina do relatório diário ainda diz do 6g.
+    - **Feed 4x5 desde 16/10, ~07h40** (Mateus: "faz versões 4x5 para o
+      feed também"). Em outubro, 81% do gasto do app foi no Feed do
+      Instagram (R$ 1.040 de R$ 1.287), e as artes 9:16 apareciam cortadas.
+      - Cada criativo virou UM anúncio com Feed em 4x5 e Stories/Reels em
+        9:16 (personalização por posicionamento): 11a 120252806121310445,
+        11b 120252806124520445, 11c 120252806126270445 e 11d
+        120252806128330445. O utm_content segue 11a…11d-story-app.
+      - Os primeiros, só com 9:16, ficaram pausados: 120252805971390445,
+        120252805974640445, 120252805975400445 e 120252805977490445. Estes
+        ids valem acima dos que a rotina do relatório diário cita.
+      - Critério: quando cada um somar uns R$ 30, comparar custo por
+        cadastro e por corretor que publicou, e pausar o pior.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
