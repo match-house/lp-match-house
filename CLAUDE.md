@@ -503,6 +503,12 @@ para aquela mensagem.
   - **Lembrete na quarta, 14/10, às 9h30** (`trig_012FxwNJL9vW28JpSEnyAP9r`).
     Ele disse: "se chegar na terça te aviso". Em 09/10 ele já tinha chamado
     o gerente do C6 ("Ja chamei.. rs").
+  - **16/10:** o C6 respondeu (caso 202699631714) que a Match House ainda
+    está em homologação e que o contato é só pelo homologacaoapi@c6bank.com.
+    No mesmo dia o Mateus mandou para lá o pedido de liberação com os 5
+    itens acima e mais um: se a produção exige cadastrar o IP de origem.
+    - O IP de saída do ECS muda a cada tarefa nova. Se o C6 exigir o
+      cadastro, é preciso um IP fixo de saída.
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
