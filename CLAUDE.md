@@ -1650,14 +1650,19 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - Os detalhes "premium" do desenho (chip metálico, nome prateado e grão)
   estavam no Black, agora guardado. Podem passar ao Blue quando o Mateus
   mandar as alterações do desenho.
-- Rótulos na frente: "SMART LINK · GREEN" e "SMART LINK · BLUE", com
-  "Nº 0001". No Partner, "SMART LINK · PARTNER" e "Nº 001"; o verso é
-  igual ao do Blue.
+- Rótulos na frente, na amostra de 08/10: "MATCH HOUSE · GREEN" e
+  "MATCH HOUSE · BLUE", com "Nº 0001". O Partner fica "MATCH HOUSE ·
+  PARTNER" e "Nº 001", com o verso igual ao do Blue.
 - A cor do cartão sai do mínimo de colegas (1 a 4 Green; 5 ou mais Blue;
   11 ou mais, Blue com PARTNER), não do nome do nível, que pode mudar.
-- Arquivos em `scratchpad/cartao-design/project/`: Green frente e verso,
-  Blue frente (`Main.dc.html`) e verso (`Verso-Noite.dc.html`), Partner
-  frente. Os PNGs mais novos, em `render-respiro-rev/`, ainda têm o Black.
+- **Arquivos: `ferramentas/cartao/` da branch de trabalho** (desde 16/10;
+  os do scratchpad se perderam em 13/10).
+  - O HTML editável das 4 faces vem com a Camila (exemplo, com "EXEMPLO"
+    e CRECI 00000-F), junto com o PDF de impressão, as prévias, o gerador
+    do QR e o LEIA-ME com as medidas para a gráfica.
+  - O PDF da amostra da INMC enviado à Vixcard está em `original/`.
+  - Remontado em 16/10. Mateus: "ele ja remontou la com dados da camila..
+    mas pode fazer tb e salve aqui".
 - **Fornecedor: Vixcard (Victor e Thaisa).**
   - **Orçamento nº 32481, de 07/10:** chip Mifare 1K com gravação do ID.
     Por cartão: 100 un. R$ 9,89; 250 un. R$ 8,99; 500 un. R$ 6,99. Frete
@@ -1830,6 +1835,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - `custos/cac.py` e `custos/aws_dias.py`: CAC e AWS do relatório.
   - `funil-smart-link/gerar.py` e `template.html`: o "Funil Smart Link".
   - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
+  - `cartao/`: o cartão Smart Link (Green e Blue), com o HTML, o PDF e o
+    LEIA-ME.
 - A página do funil diário volta pelo Artifact (`read` com `path`
   index.html), tirando o esqueleto `<!doctype…<body>` e o `</body></html>`.
 - O registro das mensagens (`scratchpad/mensagens-vistas.json`) não pode ir

@@ -1,0 +1,14 @@
+{
+  "name": "cartao-smart-link",
+  "private": true,
+  "type": "module",
+  "description": "Cartão Smart Link (NFC + QR), Green e Blue: HTML de origem e scripts que geram o PDF de impressão.",
+  "scripts": {
+    "qr": "node qr.mjs",
+    "pdf": "node render.mjs && node caixas.mjs"
+  },
+  "dependencies": {
+    "pdf-lib": "1.17.1",
+    "qrcode": "1.5.4"
+  }
+}
