@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Criativos 11</title>
+<style>
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+
+  :root { --navy: #00073e; --blue: #000f90; --cyan: #00efff; --ink: #0b1030; --muted: #5d6385; --line: #e4e7f2; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; font-family: P, sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; }
+
+  .art { width: 1080px; height: 1350px; position: relative; overflow: hidden; color: #fff;
+         background: radial-gradient(120% 70% at 85% 0%, #0b1fa8 0%, #00073e 55%, #00031f 100%);
+         padding: 0 84px; }
+  .top { position: absolute; left: 84px; right: 84px; top: 76px; }
+  .logo { height: 58px; display: block; }
+  .eyebrow { margin-top: 36px; font-weight: 700; font-size: 31px; letter-spacing: .22em; color: var(--cyan); text-transform: uppercase; }
+  h1 { margin-top: 22px; font-weight: 800; font-size: 88px; line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  h1 .c { color: var(--cyan); }
+  .sub { margin-top: 22px; font-weight: 500; font-size: 37px; line-height: 1.3; color: #c9cff5; text-wrap: pretty; }
+  .sub b { color: #fff; font-weight: 700; }
+  .foot { position: absolute; left: 84px; right: 84px; bottom: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .foot .t { font-weight: 600; font-size: 34px; color: #fff; }
+  .foot .t span { color: var(--cyan); }
+  .foot .u { font-weight: 500; font-size: 30px; color: #9aa3e0; margin-top: 6px; }
+  .tag { display: inline-block; font-weight: 700; font-size: 22px; letter-spacing: .2em; text-transform: uppercase;
+         color: var(--navy); background: var(--cyan); padding: 8px 18px; border-radius: 999px; }
+
+  /* card de conversa */
+  .chat { position: absolute; left: 84px; right: 84px; background: #fff; border-radius: 44px; color: var(--ink);
+          box-shadow: 0 40px 90px rgba(0,0,0,.45); padding: 34px 36px 40px; }
+  .chat .hd { display: flex; align-items: center; gap: 22px; padding-bottom: 26px; border-bottom: 2px solid var(--line); }
+  .av { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, #0b1fa8, #00073e); color: #fff;
+        display: grid; place-items: center; font-weight: 800; font-size: 30px; position: relative; flex: none; }
+  .av::after { content: ""; position: absolute; right: 2px; bottom: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--cyan); border: 4px solid #fff; }
+  .nm { font-weight: 700; font-size: 36px; line-height: 1.1; }
+  .nm i { font-style: normal; color: var(--blue); }
+  .lk { font-weight: 500; font-size: 26px; color: var(--muted); margin-top: 4px; }
+  .chat .ex { margin-left: auto; align-self: flex-start; }
+  .msgs { display: flex; flex-direction: column; gap: 20px; padding-top: 30px; }
+  .b { max-width: 82%; font-weight: 500; font-size: 35px; line-height: 1.3; padding: 22px 28px; border-radius: 30px; }
+  .b small { display: block; font-size: 22px; font-weight: 600; opacity: .65; margin-top: 8px; }
+  .cli { align-self: flex-end; background: var(--blue); color: #fff; border-bottom-right-radius: 10px; }
+  .ia { align-self: flex-start; background: #eef1fb; border-bottom-left-radius: 10px; border-left: 6px solid var(--cyan); }
+
+  /* 11b placa */
+  .foto { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,7,62,.96) 0%, rgba(0,7,62,.88) 38%, rgba(0,7,62,.35) 62%, rgba(0,3,31,.92) 100%); }
+  .placa { position: absolute; left: 110px; right: 110px; top: 590px; background: #fff; border-radius: 18px; color: var(--navy);
+           box-shadow: 0 40px 90px rgba(0,0,0,.5); padding: 36px 40px; display: grid; grid-template-columns: 1fr 230px; gap: 28px; align-items: center;
+           border: 10px solid #fff; outline: 6px solid var(--navy); outline-offset: -22px; }
+  .placa .v { font-weight: 800; font-size: 80px; letter-spacing: -.02em; line-height: .95; color: #c8102e; }
+  .placa .n { font-weight: 700; font-size: 30px; margin-top: 18px; }
+  .placa .n span { color: var(--blue); }
+  .placa .a { font-weight: 600; font-size: 24px; color: var(--muted); margin-top: 10px; line-height: 1.25; }
+  .placa .qr { width: 230px; height: 230px; }
+  .placa .qr svg { width: 100%; height: 100%; display: block; }
+  .poste { position: absolute; top: 900px; width: 26px; height: 230px; background: linear-gradient(90deg, #b9bed6, #f1f1f1, #9aa0bf); }
+  .bal { position: absolute; left: 290px; top: 950px; background: #fff; color: var(--ink); border-radius: 30px; border-bottom-left-radius: 10px;
+         padding: 22px 28px; font-weight: 600; font-size: 32px; line-height: 1.25; max-width: 470px; box-shadow: 0 24px 60px rgba(0,0,0,.45); border-left: 6px solid var(--cyan); }
+  .bal small { display: block; font-size: 22px; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+
+  /* 11c lista */
+  .lista { position: absolute; left: 84px; right: 84px; top: 610px; background: #fff; border-radius: 44px; color: var(--ink); padding: 30px 36px 18px;
+           box-shadow: 0 40px 90px rgba(0,0,0,.45); }
+  .lista .hd { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18px; }
+  .lista .hd b { font-weight: 700; font-size: 32px; }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 24px 0; border-top: 2px solid var(--line); }
+  .row .o { font-weight: 700; font-size: 24px; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); }
+  .row .q { font-weight: 500; font-size: 34px; margin-top: 4px; }
+  .ok { font-weight: 700; font-size: 25px; color: #064e3b; background: #d6f7ea; padding: 10px 18px; border-radius: 999px; white-space: nowrap; }
+
+  /* 11d importar */
+  .campo { position: absolute; left: 84px; right: 84px; top: 610px; background: #fff; border-radius: 30px; padding: 24px 30px; color: var(--ink);
+           box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+  .campo .l { font-weight: 700; font-size: 24px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .campo .u { font-weight: 500; font-size: 32px; margin-top: 8px; color: var(--blue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .seta { position: absolute; left: 50%; top: 755px; transform: translateX(-50%); font-weight: 700; font-size: 26px; color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; text-align: center; }
+  .seta::after { content: ""; display: block; width: 4px; height: 44px; margin: 10px auto 0; background: var(--cyan); }
+  .imovel { position: absolute; left: 150px; right: 150px; top: 850px; background: #fff; border-radius: 34px; overflow: hidden; color: var(--ink);
+            box-shadow: 0 40px 90px rgba(0,0,0,.5); }
+  .imovel .f { height: 180px; background-size: cover; background-position: center 60%; position: relative; }
+  .imovel .f .tag { position: absolute; left: 22px; top: 22px; }
+  .imovel .d { padding: 22px 28px 26px; }
+  .imovel .tt { font-weight: 700; font-size: 34px; line-height: 1.2; }
+  .imovel .mt { font-weight: 500; font-size: 26px; color: var(--muted); margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<!-- 11a · a promessa do anúncio do ChatGPT -->
+<section class="art" id="a11">
+  <div class="top">
+    <img class="logo" src="logo-dark.png" alt="">
+    <div class="eyebrow">IA para corretores de imóveis</div>
+    <h1>Sua IA responde seus clientes 24h, <span class="c">com o seu nome.</span></h1>
+  </div>
+  <div class="chat" style="top: 560px">
+    <div class="hd">
+      <div class="av">CD</div>
+      <div><div class="nm">IA de <i>Camila</i></div><div class="lk">smartli.ink/camiladuarte</div></div>
+      <span class="tag ex">Exemplo</span>
+    </div>
+    <div class="msgs">
+      <div class="b cli">Boa noite! Esse apartamento ainda está disponível?<small>23h47</small></div>
+      <div class="b ia">Está, sim! São 3 quartos e 2 vagas. Quer que eu marque uma visita?<small>23h47</small></div>
+    </div>
+  </div>
+  <div class="foot">
+    <div><div class="t">Smart Link com IA <span>no link da sua bio</span></div><div class="u">app.smartli.ink · sem cartão · pronto em 5 min</div></div>
+  </div>
+</section>
+
+<!-- 11b · QR na placa -->
+<section class="art" id="b11">
+  <div class="foto" style="background-image: url('casa-fachada.jpg')"></div>
+  <div class="veu"></div>
+  <div class="top">
+    <img class="logo" src="logo-dark.png" alt="">
+    <h1 style="margin-top: 36px">Sua placa de <span style="white-space: nowrap">Vende-se</span> agora <span class="c">responde.</span></h1>
+    <div class="sub">O cliente aponta a câmera e <b>a sua IA atende na hora</b>, com o seu nome.</div>
+  </div>
+  <div class="poste" style="left: 220px"></div>
+  <div class="poste" style="left: 834px"></div>
+  <div class="placa">
+    <div>
+      <div class="v">VENDE-SE</div>
+      <div class="n">Fale com a IA de <span>Camila</span></div>
+      <div class="a">Aponte a câmera do celular para o QR</div>
+      <span class="tag" style="margin-top: 14px">Exemplo</span>
+    </div>
+    <div class="qr">__QR__</div>
+  </div>
+  <div class="bal"><small>IA de Camila · agora</small>Oi! Quer saber o valor ou marcar uma visita?</div>
+  <div class="foot">
+    <div><div class="t">Cada imóvel ganha <span>um QR para a placa</span></div><div class="u">app.smartli.ink · imagem ilustrativa</div></div>
+  </div>
+</section>
+
+<!-- 11c · não precisa de mais leads -->
+<section class="art" id="c11">
+  <div class="top">
+    <img class="logo" src="logo-dark.png" alt="">
+    <h1 style="margin-top: 36px">Você não precisa de mais leads. <span class="c">Precisa responder os que já chegam.</span></h1>
+  </div>
+  <div class="lista">
+    <div class="hd"><b>Quem chegou hoje</b><span class="tag">Exemplo</span></div>
+    <div class="row"><div><div class="o">Instagram · 23h12</div><div class="q">"Qual o valor do condomínio?"</div></div><span class="ok">IA respondeu</span></div>
+    <div class="row"><div><div class="o">Placa · 07h40</div><div class="q">"Ainda está disponível?"</div></div><span class="ok">IA respondeu</span></div>
+    <div class="row"><div><div class="o">Indicação · 13h05</div><div class="q">"Aceita financiamento?"</div></div><span class="ok">IA respondeu</span></div>
+  </div>
+  <div class="foot">
+    <div><div class="t">A IA atende <span>quem já procura você</span></div><div class="u">app.smartli.ink · com o seu nome, 24h</div></div>
+  </div>
+</section>
+
+<!-- 11d · cole o link -->
+<section class="art" id="d11">
+  <div class="top">
+    <img class="logo" src="logo-dark.png" alt="">
+    <h1 style="margin-top: 36px">Cole o link do anúncio. <span class="c">A IA preenche o imóvel.</span></h1>
+    <div class="sub">Fotos, descrição e dados entram sozinhos. <b>Você confere e publica.</b></div>
+  </div>
+  <div class="campo"><div class="l">Link do anúncio</div><div class="u">https://seusite.com.br/imovel/casa-3-suites</div></div>
+  <div class="seta">Preencher com a IA</div>
+  <div class="imovel">
+    <div class="f" style="background-image: url('casa-piscina.jpg')"><span class="tag">Exemplo</span></div>
+    <div class="d"><div class="tt">Casa com piscina · 3 suítes</div><div class="mt">Venda · Residencial · Casa</div></div>
+  </div>
+  <div class="foot">
+    <div><div class="t">Até <span>100 imóveis no ar</span></div><div class="u">app.smartli.ink · sem cartão · pronto em 5 min</div></div>
+  </div>
+</section>
+
+</body>
+</html>
