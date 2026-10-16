@@ -131,6 +131,14 @@ Notas do projeto para agentes. Ler antes de mexer.
       Meta + ChatGPT: R$ 150/dia.
     - A rotina do relatório diário foi atualizada no mesmo minuto (verba
       configurada 5000).
+  - **16/10: 6g pausado** (Mateus: "Desativa o 6g"), depois de a Meta
+    rejeitá-lo em 15/10, às 22h57, por "link enganoso". Não religar.
+    - No conjunto do app ficam o 10a e os criativos 11a a 11d, no ar desde
+      16/10 por volta das 07h05. Artes em `anuncios/` da branch de trabalho.
+    - Isto vale acima do que a rotina do relatório diário ainda diz do 6g.
+    - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
+      permissoes". Subir criativo, pausar e redistribuir dentro do teto é
+      sem perguntar; depois, contar no relatório.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
