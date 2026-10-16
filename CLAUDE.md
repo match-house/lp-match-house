@@ -144,6 +144,10 @@ Notas do projeto para agentes. Ler antes de mexer.
   (religar) foram desligadas, não apagadas, para não haver dois controles.
   Se a regra falhar de novo, religar as duas rotinas e avisar o Mateus.
 - Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
+  - **Desde 15/10: Google em R$ 10/dia** (antes R$ 30). Nas palavras do
+    Mateus, em 16/10: "No google desde ontem reduzi para 10,00 por dia".
+    Dia de até R$ 20 é normal. Alerta se passar disso ou se a média de 7
+    dias passar de R$ 10.
 - **ChatGPT (OpenAI Ads)**, fora do MCP e fora do teto do Meta; quem mexe é o
   Mateus, no painel dele. Em 02/10 a conta mostrou que todos os 4 cadastros
   completos (1166 a 1169) vieram da campanha "Smart Link - Registro completo"
