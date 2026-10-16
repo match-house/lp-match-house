@@ -157,6 +157,9 @@ Notas do projeto para agentes. Ler antes de mexer.
         (120252806206560445).
       - Critério: quando cada um somar uns R$ 30, comparar custo por
         cadastro e por corretor que publicou, e pausar o pior.
+    - **16/10: 10a pausado** (Mateus: "que tal pausar o 10a?"). De 28/09 a
+      15/10 gastou R$ 11,90, com 236 impressões, 1 clique e nenhum cadastro.
+      No conjunto do app ficam só os 11a a 11d.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
