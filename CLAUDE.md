@@ -1199,6 +1199,11 @@ quando quem cortou foi o nosso limite (app #125).
   - da "b": `exemplo_aberto` (`video`), `exemplo_fechado` (`segundos`, `viu`),
     `auth_clicked` com `surface: "exemplo"` e `exemplo_viu` no
     `auth_entry_left`.
+  - **17/10: segue até 28/10** (Mateus: "ok, deixa rodando até 28/10"). A
+    leitura parcial de 17/10 não deu para concluir: a diferença cabe no
+    acaso. O detalhe está em `scratchpad/ab/leitura-1710.md`, nos arquivos
+    desta conversa. Lembrete em 28/10, às 9h07
+    (`trig_01GpTE6LuF26QoT3s1cvntn6`). Não encerrar antes sem o Mateus.
 - **O exemplo é fictício, sempre com o selo "Exemplo".**
   - Corretora, imóveis e conversa são de mentira. Nunca vai para o site
     público, onde geraria lead falso.
