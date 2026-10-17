@@ -509,6 +509,8 @@ para aquela mensagem.
     itens acima e mais um: se a produção exige cadastrar o IP de origem.
     - O IP de saída do ECS muda a cada tarefa nova. Se o C6 exigir o
       cadastro, é preciso um IP fixo de saída.
+    - O NAT foi tirado de propósito em 16/10 (cerca de US$ 33/mês), pelo
+      Vitor, o dev. Volta a ser avaliado só se um parceiro exigir IP fixo.
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
