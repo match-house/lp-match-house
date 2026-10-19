@@ -11,9 +11,13 @@ A amostra impressa da Vixcard funcionou (NFC e QR), mas o Mateus achou que
 diferenciar o azul do verde". No PVC os fundos da v1 saíram quase pretos.
 A v2 muda:
 
-- fundo verde-esmeralda (#16ad78 a #0a7d55) e azul royal (#2d5ff2 a
-  #1534b0), claros e de cor bem diferente;
-- texto branco, sem cinza; logo e wordmark brancos nos dois;
+- o mesmo verde escuro e o mesmo azul-noite da v1, mais claros: verde
+  #0c5e42 a #053524 (v1: #012a1e a #00140e) e azul #0b2a8a a #04124d
+  (v1: #00073e a #000318), com o brilho no canto mais forte. Um verde e um
+  azul claros foram testados e recusados pelo Mateus: "nao quero tb esse
+  verde e esse azul, mantenha aquele so ilumine mais.. assim nao ficou um
+  alto padrão";
+- texto branco ou quase branco, sem cinza escuro; logo e wordmark brancos;
 - letra maior: menor texto 2,6 mm de corpo (7,4 pt), nome da IA 6,6 mm,
   link 3,0 mm na frente e 2,8 mm no verso (na v1, 1,8 a 2,1 mm);
 - QR de 19,5 mm (12,45 mm na v1);

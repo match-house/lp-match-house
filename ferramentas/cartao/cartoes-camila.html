@@ -8,11 +8,13 @@
 
   v2 (19/10/2026), depois da amostra impressa pela Vixcard. Nas palavras do
   Mateus: "ficou muito pequeno para leitura e as cores muito escuras nao da
-  para diferenciar o azul do verde". Por isso:
-  - fundos claros e de cor bem diferente: verde-esmeralda e azul royal (no
-    PVC a cor sai mais escura que na tela; os fundos da v1 saíram pretos);
-  - texto branco, sem cinza; o menor texto tem 2,6 mm de corpo (7,4 pt),
-    contra 1,8 mm (5,1 pt) na v1;
+  para diferenciar o azul do verde". E, sobre um verde e um azul claros:
+  "nao quero tb esse verde e esse azul, mantenha aquele so ilumine mais..
+  assim nao ficou um alto padrão". Por isso:
+  - o mesmo verde escuro e o mesmo azul-noite da v1, mais claros (no PVC a
+    cor sai mais escura que na tela; os fundos da v1 saíram pretos);
+  - texto branco ou quase branco, sem cinza escuro; o menor texto tem
+    2,6 mm de corpo (7,4 pt), contra 1,8 mm (5,1 pt) na v1;
   - QR de 19,5 mm (12,45 mm na v1), módulo de 0,53 mm.
   A v1 está no commit 1deddfa e em v1/.
 
@@ -41,18 +43,24 @@
   @media screen { .page { margin: 6mm auto; box-shadow: 0 2mm 6mm rgba(0,0,0,.4); } }
 
   .green {
-    --bg1: #16ad78; --bg2: #0a7d55; --acc: #d2ffee; --selo: #ffffff; --check: #0b875c;
-    --chip: #0f9a6a; --sub: #e8faf2;
+    --bg1: #0c5e42; --bg2: #053524; --glow: rgba(26, 160, 112, .75);
+    --acc: #2cf5b0; --selo: #2cf5b0; --check: #053524; --chip: #0a4a34;
+    --label: #d3e6de; --sub: #dce9e4;
   }
   .blue {
-    --bg1: #2d5ff2; --bg2: #1534b0; --acc: #7ff5ff; --selo: #00efff; --check: #1534b0;
-    --chip: #2550dc; --sub: #e8eeff;
+    --bg1: #0b2a8a; --bg2: #04124d; --glow: rgba(20, 100, 230, .75);
+    --acc: #00efff; --selo: #00efff; --check: #04124d; --chip: #0a2470;
+    --label: #d3d9ee; --sub: #dde2f2;
   }
 
-  .bg { position: absolute; inset: 0; background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+  .bg { position: absolute; inset: 0; background: linear-gradient(155deg, var(--bg1) 0%, var(--bg2) 100%); }
+  .back .bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(60mm 40mm at 0mm 58mm, color-mix(in srgb, var(--glow) 45%, transparent), transparent 75%);
+  }
   .front .bg::after {
     content: ""; position: absolute; inset: 0;
-    background: radial-gradient(50mm 38mm at 86mm 4mm, rgba(255,255,255,.16), transparent 72%);
+    background: radial-gradient(56mm 44mm at 84mm 6mm, var(--glow), transparent 72%);
   }
 
   .abs { position: absolute; }
@@ -60,20 +68,22 @@
 
   /* Frente */
   .logo-m { left: 7.6mm; top: 7.2mm; width: 9mm; }
+  .green .logo-m { filter: drop-shadow(0 0 .9mm rgba(255,255,255,.5)); }
+  .blue .logo-m { filter: drop-shadow(0 0 .9mm rgba(0,200,255,.6)); }
 
   .nivel {
     right: 7.5mm; top: 7.9mm; font-weight: 600; font-size: 2.6mm; line-height: 1;
-    letter-spacing: .16em; margin-right: -.16em; text-transform: uppercase; white-space: nowrap;
+    letter-spacing: .16em; margin-right: -.16em; text-transform: uppercase; color: var(--label); white-space: nowrap;
   }
   .front .exemplo { right: 7.5mm; top: 12.4mm; }
 
   .chip {
     left: 7.6mm; top: 17.6mm; width: 9.4mm; height: 6.9mm; box-sizing: border-box;
-    border-radius: 1.1mm; border: .2mm solid rgba(255,255,255,.75);
+    border-radius: 1.1mm; border: .2mm solid color-mix(in srgb, var(--acc) 70%, transparent);
     background: var(--chip); padding: .75mm .72mm;
     display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: .32mm;
   }
-  .chip i { border: .15mm solid rgba(255,255,255,.6); border-radius: .32mm; }
+  .chip i { border: .15mm solid color-mix(in srgb, var(--acc) 55%, transparent); border-radius: .32mm; }
 
   .nfc { right: 7.5mm; top: 18.4mm; width: 3.7mm; height: 4.5mm; }
 
@@ -90,7 +100,7 @@
 
   .numero {
     right: 7.5mm; top: 47.8mm; font-family: "Plex Mono", monospace; font-weight: 500; font-size: 2.6mm;
-    line-height: 1; letter-spacing: .06em; margin-right: -.06em; white-space: nowrap;
+    line-height: 1; letter-spacing: .06em; margin-right: -.06em; color: var(--label); white-space: nowrap;
   }
 
   /* Verso */
@@ -115,7 +125,7 @@
 
   .exemplo {
     font-family: "Plex Mono", monospace; font-weight: 500; font-size: 2.2mm; line-height: 1;
-    letter-spacing: .2em; border: .2mm solid rgba(255,255,255,.8);
+    letter-spacing: .2em; color: var(--label); border: .2mm solid color-mix(in srgb, var(--label) 75%, transparent);
     border-radius: 1mm; padding: .6mm .9mm .55mm 1.25mm;
   }
 </style>
@@ -126,15 +136,23 @@
 <section class="page front green">
   <div class="bg"></div>
   <svg class="rings" viewBox="0 0 89.6 58" aria-hidden="true">
-    <circle cx="74" cy="16" r="17" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width=".22"/>
-    <circle cx="74" cy="16" r="24.5" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width=".22"/>
-    <circle cx="74" cy="16" r="32" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width=".2"/>
+    <defs>
+      <linearGradient id="fade-g" gradientUnits="userSpaceOnUse" x1="92" y1="0" x2="44" y2="46">
+        <stop offset="0" stop-color="#2cf5b0" stop-opacity=".55"/>
+        <stop offset=".75" stop-color="#2cf5b0" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#2cf5b0" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="74" cy="16" r="17" fill="none" stroke="#2cf5b0" stroke-opacity=".42" stroke-width=".22"/>
+    <circle cx="74" cy="16" r="24.5" fill="none" stroke="url(#fade-g)" stroke-width=".22"/>
+    <circle cx="74" cy="16" r="32" fill="none" stroke="url(#fade-g)" stroke-opacity=".65" stroke-width=".2"/>
+    <circle cx="61.5" cy="3.6" r=".7" fill="#2cf5b0" fill-opacity=".7"/>
   </svg>
   <img class="abs logo-m" src="m-branco.svg" alt="">
   <div class="abs nivel">Match House · Green</div>
   <div class="abs exemplo">EXEMPLO</div>
   <div class="abs chip"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round">
+  <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="var(--acc)" stroke-width="2.6" stroke-linecap="round">
     <path d="M3 12.5a6 6 0 0 1 0 8"/><path d="M9 8.5a12 12 0 0 1 0 16"/><path d="M15.5 4a18.5 18.5 0 0 1 0 25"/><path d="M22.5 1a24 24 0 0 1 0 31"/>
   </svg>
   <!-- DADOS: nome da IA -->
@@ -173,15 +191,23 @@
 <section class="page front blue">
   <div class="bg"></div>
   <svg class="rings" viewBox="0 0 89.6 58" aria-hidden="true">
-    <circle cx="74" cy="16" r="17" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width=".22"/>
-    <circle cx="74" cy="16" r="24.5" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width=".22"/>
-    <circle cx="74" cy="16" r="32" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width=".2"/>
+    <defs>
+      <linearGradient id="fade-b" gradientUnits="userSpaceOnUse" x1="92" y1="0" x2="44" y2="46">
+        <stop offset="0" stop-color="#00efff" stop-opacity=".55"/>
+        <stop offset=".75" stop-color="#00efff" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#00efff" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="74" cy="16" r="17" fill="none" stroke="#00efff" stroke-opacity=".42" stroke-width=".22"/>
+    <circle cx="74" cy="16" r="24.5" fill="none" stroke="url(#fade-b)" stroke-width=".22"/>
+    <circle cx="74" cy="16" r="32" fill="none" stroke="url(#fade-b)" stroke-opacity=".65" stroke-width=".2"/>
+    <circle cx="61.5" cy="3.6" r=".7" fill="#00efff" fill-opacity=".7"/>
   </svg>
   <img class="abs logo-m" src="m-branco.svg" alt="">
   <div class="abs nivel">Match House · Blue</div>
   <div class="abs exemplo">EXEMPLO</div>
   <div class="abs chip"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round">
+  <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="var(--acc)" stroke-width="2.6" stroke-linecap="round">
     <path d="M3 12.5a6 6 0 0 1 0 8"/><path d="M9 8.5a12 12 0 0 1 0 16"/><path d="M15.5 4a18.5 18.5 0 0 1 0 25"/><path d="M22.5 1a24 24 0 0 1 0 31"/>
   </svg>
   <div class="abs nome-ia" data-fit="70" data-min="4.6">Camila IA
