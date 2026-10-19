@@ -372,15 +372,36 @@ para aquela mensagem.
     Não "ilimitado". O limite só vale depois de construir a conferência ao
     publicar, que hoje não existe.
   - Visita marcada segue o plano (Mateus: "ela não deve seguir igual ao
-    plano pro?"). Proposta: do 2º cliente do mês em diante, no plano de
-    entrada, a agenda só oferece horário 40 h depois do contato (36 h + 4 h
-    de folga), para o aviso chegar antes da visita. Esperando o "ok" dele.
+    plano pro?"). Do 2º cliente do mês em diante, no plano de entrada, a
+    agenda só oferece horário 40 h depois do contato (36 h + 4 h de folga,
+    para o aviso chegar antes da visita). "Ok" dele em 19/10.
   - O comunicado vai também por WhatsApp (pedido dele), além do e-mail e da
     tela. É mudança material: a seção 17 dos termos pede 15 dias de aviso.
-  - Os termos precisam de ajuste (pedido dele). A seção 7 é genérica e cita
-    "termos específicos de cada plano", que não existem.
+  - Aviso "cliente chegou" no plano de entrada (sem o contato, com a hora da
+    liberação), por e-mail e WhatsApp. Mateus: "isso mesmo melhor momento
+    por email e whatsapp tb".
+  - "Ligar logo" (Mateus, 19/10). A regra só começa quando todos puderem
+    assinar o Pro; proposta enviada: comunicado 21/10, regra e Pro para
+    todos (cartão) em 05/11, os 18 antes, em 03/11. Esperando o "ok".
+  - Modelos de WhatsApp (api #104, criados e mandados à Meta por esta
+    conversa, como ele pediu: "vc mesmo cria a mensagem e aprova na meta"):
+    `mh_cliente_novo_pro_1` (Pro, com nome e celular) e
+    `mh_cliente_chegou_1` (plano de entrada). O `mh_aviso_regra_clientes_1`
+    (comunicado) só vai à Meta depois dos termos novos no ar: o botão abre
+    os termos.
+  - Termos: rascunho na branch `claude/termos-planos-1910` do lp-match-house
+    (seções 1, 6.5, 7, 8 e 10.3), esperando o "ok" dele para ir à `main`.
   - Plano completo em `scratchpad/pro/regra-atraso.md`, nos arquivos desta
     conversa.
+- **Cancelar o Pro: botão no app** (existe desde 05/10, "Cancelar assinatura"
+  na tela do Pro). Mateus, 19/10: "cancleamento precisa ser no app. um
+  botao".
+  - **Pesquisa no cancelamento** (Mateus: "Colher feed back (pesquisa) no
+    cancelamento"): api #105 e app #149, 19/10. Sete motivos e um comentário
+    opcional; cancelar não depende da resposta. As respostas saem em
+    `GET /backoffice/pro/cancelamentos`. O Amplitude leva só o motivo
+    (`pro_cancel_confirmed`), nunca o comentário. A exclusão da conta apaga
+    a pesquisa.
 
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
@@ -1258,6 +1279,18 @@ quando quem cortou foi o nosso limite (app #125).
   anúncio ou o texto, toca em "Preencher com a IA", confere e publica.
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
+
+## Endereço do imóvel: só bairro, cidade e UF no site (Mateus, 19/10)
+
+- Nas palavras dele: "volta a regra de nao aparecer o endereço completo do
+  imóvel. racional: corretor nao quer que o cliente vá direto ao imovel e
+  outros corretores".
+- Site #237 (19/10): o detalhe mostra "Barra da Tijuca, Rio de Janeiro - RJ",
+  sem rua, número, complemento nem CEP. O Google (JSON-LD) também não recebe
+  esses dados, e as consultas do site não os pedem mais. O endereço completo
+  aparecia desde 03/09 (8fbd779).
+- Em resposta a corretor ou cliente, não passar rua e número de imóvel de
+  outra pessoa. O próximo passo (a IA do link) ficou com o Mateus.
 
 ## QR code por imóvel (no ar desde 07/10)
 
