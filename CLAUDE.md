@@ -362,6 +362,26 @@ para aquela mensagem.
 
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
+- **19/10: atraso em vez de bloqueio** (direção do Mateus, ainda não
+  construída nem lançada). Vale acima dos "3 primeiros" e do "até 30" abaixo.
+  - Plano de entrada: o 1º cliente do mês (nome + celular) chega na hora;
+    os outros, 36 h depois. A IA atende todos na hora, nos dois planos.
+  - Pro: todos os clientes na hora, sem limite. A tela do Pro já diz isso
+    desde 16/10 (app d56f6ba: "Cada cliente chega na sua mão, na hora.").
+  - Imóveis: 100 no plano de entrada e 300 no Pro ("concordo com os 300").
+    Não "ilimitado". O limite só vale depois de construir a conferência ao
+    publicar, que hoje não existe.
+  - Visita marcada segue o plano (Mateus: "ela não deve seguir igual ao
+    plano pro?"). Proposta: do 2º cliente do mês em diante, no plano de
+    entrada, a agenda só oferece horário 40 h depois do contato (36 h + 4 h
+    de folga), para o aviso chegar antes da visita. Esperando o "ok" dele.
+  - O comunicado vai também por WhatsApp (pedido dele), além do e-mail e da
+    tela. É mudança material: a seção 17 dos termos pede 15 dias de aviso.
+  - Os termos precisam de ajuste (pedido dele). A seção 7 é genérica e cita
+    "termos específicos de cada plano", que não existem.
+  - Plano completo em `scratchpad/pro/regra-atraso.md`, nos arquivos desta
+    conversa.
+
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
   páginas públicas que trazem outros corretores.
