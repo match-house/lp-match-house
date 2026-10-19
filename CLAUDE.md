@@ -900,7 +900,11 @@ IA, pagando o preço de cada um, como uma revenda de tokens.
 Dá para fazer? Conferido em 01/10:
 
 - **IA do app (BFF):** já roda pelo OpenRouter, com o modelo padrão
-  `openai/gpt-4o-mini` em `OPENROUTER_MODEL`. O provider já aceita um modelo
+  `openai/gpt-4o-mini` em `OPENROUTER_MODEL`.
+  - **Trocar antes de 14/01/2027.** Em 19/10 chegou o aviso do OpenRouter
+    "GPT-4o and GPT-4.1 models retire January 14, 2027". Escolher o
+    substituto, testar a importação (link, fotos, PDF e texto) e trocar a
+    variável. O provider já aceita um modelo
   por pedido (`req.model`). Por isso, a parte técnica de trocar de modelo por
   corretor é pequena.
 - **IA que atende o cliente no smartli.ink:** é da Intelliway (EvaGPT), não
