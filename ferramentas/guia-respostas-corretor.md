@@ -386,3 +386,41 @@ Para fazer o QR do imóvel: no app, abra "Imóveis" e toque no ícone redondo de
 
 Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram. Quem abrir o link é atendido pela sua IA, a qualquer hora.
 ```
+
+## 11. Plano Pro (aberto no cartão desde 19/10)
+
+Mateus, 19/10: "sim pode ajustar a mensagem em todos os pontos de contato com
+os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
+(`scratchpad/pro/email-anuncio.txt`), sem pedir "pode".
+
+- **Onde:** no app, "Plano Pro" no menu (no celular, o cartão "Plano Pro" na
+  Visão geral). Link direto: `https://app.smartli.ink/dashboard/pro`.
+- **Preço:** R$ 147 por mês, no cartão. O Pix entra depois; ainda não há data.
+- **O que tem:**
+  - todos os clientes com nome e celular, na hora;
+  - visitas marcadas pela IA a partir de 1 hora depois do contato;
+  - até 300 imóveis no ar (no plano de entrada, até 100).
+- **O que muda em 05/11 no plano de entrada:** o 1º cliente do mês chega na
+  hora; do 2º em diante, o contato aparece 36 horas depois, e as visitas
+  desses clientes ficam para depois disso. A IA continua atendendo todos na
+  hora. Até 04/11 nada muda.
+- **Cancelar:** pelo app, em Plano Pro > "Cancelar assinatura". O Pro vale
+  até o fim do mês pago e não renova; depois a conta volta ao plano de
+  entrada, com o Smart Link, a IA e os imóveis no ar.
+- **Desistência nos 7 dias:** cancelando pelo app até o 7º dia depois do
+  pagamento, o valor volta sozinho para o cartão e o Pro termina na hora.
+- **Não dizer:** "30 leads", "30 clientes", que a Match House traz clientes,
+  "grátis" ou "gratuito". O desconto do Indique e Ganhe ainda não vale: não
+  prometer.
+- **Pede o "pode" do Mateus:** desistência ou devolução fora do app,
+  reclamação, cancelamento fora do app e qualquer promessa nova.
+
+Texto pronto para "quanto custa o Pro?" / "o que muda?" (trocar `<slug>`):
+
+```
+O Plano Pro custa R$ 147 por mês, no cartão. Com ele, todos os seus clientes chegam com nome e celular na hora, a IA marca visitas a partir de 1 hora depois do contato e você pode ter até 300 imóveis no ar. Para assinar: https://app.smartli.ink/dashboard/pro
+
+No plano de entrada, a partir de 05/11, o 1º cliente do mês continua chegando na hora; do 2º em diante, o contato aparece 36 horas depois. A IA continua atendendo todos na hora. Você cancela quando quiser pelo app e tem 7 dias para desistir com o valor de volta.
+
+Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram. Quem abrir o link é atendido pela sua IA, a qualquer hora.
+```
