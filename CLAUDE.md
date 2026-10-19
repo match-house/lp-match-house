@@ -4,6 +4,11 @@ Notas do projeto para agentes. Ler antes de mexer.
 
 ## Fluxo de trabalho padrão (o agente faz tudo)
 
+- **Falar com o Mateus em primeira pessoa, direto com ele** (19/10: "Pode
+  conversar na primeira pessoa comigo.. somos nós dois na match amigo").
+  Nada de "ele" para falar dele nas mensagens, e nada de recados em inglês
+  no meio da conversa.
+
 - O usuário **não é técnico** e espera que o agente **execute o processo inteiro**, do começo ao fim, sem pedir para ele mexer em git/GitHub.
 - Priorizar sempre o caminho **mais prático e rápido**. Para uma correção/ajuste pequeno e de baixo risco:
   1. Fazer a alteração e commitar.
