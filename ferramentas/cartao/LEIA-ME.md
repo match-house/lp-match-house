@@ -20,7 +20,7 @@ A v2 muda:
 - texto branco ou quase branco, sem cinza escuro; logo e wordmark brancos;
 - letra maior: menor texto 2,6 mm de corpo (7,4 pt), nome da IA 6,6 mm,
   link 3,0 mm na frente e 2,8 mm no verso (na v1, 1,8 a 2,1 mm);
-- QR de 19,5 mm (12,45 mm na v1);
+- QR de 17 mm (12,45 mm na v1), num quadro branco de 20 mm;
 - profissão e CRECI em duas linhas; "EXEMPLO" fora do número do cartão.
 
 A v1 está em `v1/` (PDF e prévias) e no commit 1deddfa (HTML).

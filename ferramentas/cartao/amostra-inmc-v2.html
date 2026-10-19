@@ -18,7 +18,8 @@
     cor sai mais escura que na tela; os fundos da v1 saíram pretos);
   - texto branco ou quase branco, sem cinza escuro; o menor texto tem
     2,6 mm de corpo (7,4 pt), contra 1,8 mm (5,1 pt) na v1;
-  - QR de 19,5 mm (12,45 mm na v1), módulo de 0,53 mm.
+  - QR de 17 mm (12,45 mm na v1), módulo de 0,46 mm. Primeiro foi de 19,5 mm;
+    o Mateus pediu: "diminua um pouco a parte do Qr code".
   A v1 está no commit 1deddfa e em v1/.
 
   Página: 89,6 x 58 mm = cartão CR80 (85,6 x 54 mm) + 2 mm de sangria por
@@ -111,20 +112,20 @@
   .back .exemplo { right: 7.5mm; top: 7.9mm; }
 
   .qr-box {
-    left: 7.6mm; top: 27.5mm; width: 23mm; height: 23mm; background: #fff; border-radius: 1.6mm;
+    left: 7.6mm; top: 30.5mm; width: 20mm; height: 20mm; background: #fff; border-radius: 1.5mm;
     display: grid; place-items: center;
   }
-  .qr-box img { width: 19.5mm; height: 19.5mm; display: block; }
+  .qr-box img { width: 17mm; height: 17mm; display: block; }
 
-  .verso-nome { left: 34mm; top: 27.6mm; font-weight: 600; font-size: 3.6mm; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
-  .verso-sub { left: 34mm; font-weight: 400; font-size: 2.6mm; line-height: 1; color: var(--sub); white-space: nowrap; }
+  .verso-nome { left: 31mm; top: 27.6mm; font-weight: 600; font-size: 3.6mm; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
+  .verso-sub { left: 31mm; font-weight: 400; font-size: 2.6mm; line-height: 1; color: var(--sub); white-space: nowrap; }
   .verso-sub.s1 { top: 32.3mm; }
   .verso-sub.s2 { top: 35.6mm; }
-  .instr { left: 34mm; display: flex; align-items: center; gap: 1.3mm; font-size: 2.6mm; line-height: 1; white-space: nowrap; }
+  .instr { left: 31mm; display: flex; align-items: center; gap: 1.3mm; font-size: 2.6mm; line-height: 1; white-space: nowrap; }
   .instr svg { width: 2.4mm; height: 2.4mm; flex: none; }
   .instr.l1 { top: 40.5mm; }
   .instr.l2 { top: 44mm; }
-  .back .link { left: 34mm; top: 47.6mm; font-size: 2.8mm; letter-spacing: .01em; }
+  .back .link { left: 31mm; top: 47.6mm; font-size: 2.8mm; letter-spacing: .01em; }
 
   .exemplo {
     font-family: "Plex Mono", monospace; font-weight: 500; font-size: 2.2mm; line-height: 1;
@@ -177,7 +178,7 @@
     <!-- DADOS: QR (qr.mjs) -->
   <div class="abs qr-box"><img src="qr-inmcpatrimonial.svg" alt=""></div>
   <!-- DADOS: nome, profissão e CRECI -->
-  <div class="abs verso-nome" data-fit="48" data-min="2.8">INMC Patrimonial</div>
+  <div class="abs verso-nome" data-fit="51" data-min="2.8">INMC Patrimonial</div>
   <div class="abs verso-sub s1">Corretor de imóveis</div>
   <div class="abs instr l1">
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 6a3 3 0 0 1 0 4"/><path d="M7 4a6 6 0 0 1 0 8"/><path d="M10.5 2a9 9 0 0 1 0 12"/></svg>
@@ -187,7 +188,7 @@
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 5V3.2c0-1 .7-1.7 1.7-1.7H5M11 1.5h1.8c1 0 1.7.7 1.7 1.7V5M14.5 11v1.8c0 1-.7 1.7-1.7 1.7H11M5 14.5H3.2c-1 0-1.7-.7-1.7-1.7V11"/><circle cx="8" cy="8" r="2.2"/></svg>
     ou aponte a câmera para o QR
   </div>
-  <div class="abs link" data-fit="48" data-min="2.3">smartli.ink/inmcpatrimonial</div>
+  <div class="abs link" data-fit="51" data-min="2.3">smartli.ink/inmcpatrimonial</div>
 </section>
 
 <!-- ====================== BLUE · FRENTE ====================== -->
@@ -224,7 +225,7 @@
   <div class="bg"></div>
   <img class="abs wordmark" src="wordmark-branco.svg" alt="Match House">
     <div class="abs qr-box"><img src="qr-inmcpatrimonial.svg" alt=""></div>
-  <div class="abs verso-nome" data-fit="48" data-min="2.8">INMC Patrimonial</div>
+  <div class="abs verso-nome" data-fit="51" data-min="2.8">INMC Patrimonial</div>
   <div class="abs verso-sub s1">Corretor de imóveis</div>
   <div class="abs instr l1">
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 6a3 3 0 0 1 0 4"/><path d="M7 4a6 6 0 0 1 0 8"/><path d="M10.5 2a9 9 0 0 1 0 12"/></svg>
@@ -234,7 +235,7 @@
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 5V3.2c0-1 .7-1.7 1.7-1.7H5M11 1.5h1.8c1 0 1.7.7 1.7 1.7V5M14.5 11v1.8c0 1-.7 1.7-1.7 1.7H11M5 14.5H3.2c-1 0-1.7-.7-1.7-1.7V11"/><circle cx="8" cy="8" r="2.2"/></svg>
     ou aponte a câmera para o QR
   </div>
-  <div class="abs link" data-fit="48" data-min="2.3">smartli.ink/inmcpatrimonial</div>
+  <div class="abs link" data-fit="51" data-min="2.3">smartli.ink/inmcpatrimonial</div>
 </section>
 
 <script>
