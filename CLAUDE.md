@@ -622,6 +622,26 @@ para aquela mensagem.
       cadastro, é preciso um IP fixo de saída.
     - O NAT foi tirado de propósito em 16/10 (cerca de US$ 33/mês), pelo
       Vitor, o dev. Volta a ser avaliado só se um parceiro exigir IP fixo.
+  - **19/10, à noite:** o C6 mandou o contrato para assinar. O Mateus acha
+    que o Pix sai em 20/10.
+  - **Desistência nos 7 dias também no Pix** (api #111 e app #153, 19/10):
+    o e-mail do anúncio e os termos prometem o valor de volta em qualquer
+    forma de pagamento. Antes, a devolução automática só existia no cartão.
+    - A devolução vai pelo C6 (`PUT /pix/{e2e}/devolucao/{id}`), e o Pro só
+      termina com ela aceita.
+    - Vale também para quem parou o débito no banco dentro dos 7 dias.
+    - O tick de hora em hora retoma desistência que ficou no meio, confere
+      as devoluções que ainda estão saindo e alerta a equipe se uma não
+      sair.
+    - Detalhe no Apêndice A.x de `api/docs/cobranca-pro.md`.
+    - **Pedir ao C6 também os escopos `pix.write` e `pix.read`**, além dos
+      do Pix Automático. Sem o `pix.write`, ninguém consegue desistir pelo
+      Pix.
+    - Para ligar: as credenciais e o certificado de produção, `C6_CONTA` e
+      `C6_AGENCIA` no ECS, os webhooks pelo backoffice e, por último,
+      `C6_PIX_AUTOMATICO=on`.
+    - Teste na 999: um Pix de verdade de R$ 147, a desistência e a
+      conferência da devolução e da nota.
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
