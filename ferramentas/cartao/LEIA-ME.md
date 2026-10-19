@@ -4,6 +4,23 @@ Fonte editável do cartão, remontada em 16/10/2026 a partir do PDF da amostra
 da INMC (`original/amostra-inmc-match-house.pdf`, enviado à Vixcard em 08/10).
 Os arquivos de trabalho de antes se perderam no reinício do scratchpad em 13/10.
 
+## Versão 2 (19/10/2026)
+
+A amostra impressa da Vixcard funcionou (NFC e QR), mas o Mateus achou que
+"ficou muito pequeno para leitura e as cores muito escuras nao da para
+diferenciar o azul do verde". No PVC os fundos da v1 saíram quase pretos.
+A v2 muda:
+
+- fundo verde-esmeralda (#16ad78 a #0a7d55) e azul royal (#2d5ff2 a
+  #1534b0), claros e de cor bem diferente;
+- texto branco, sem cinza; logo e wordmark brancos nos dois;
+- letra maior: menor texto 2,6 mm de corpo (7,4 pt), nome da IA 6,6 mm,
+  link 3,0 mm na frente e 2,8 mm no verso (na v1, 1,8 a 2,1 mm);
+- QR de 19,5 mm (12,45 mm na v1);
+- profissão e CRECI em duas linhas; "EXEMPLO" fora do número do cartão.
+
+A v1 está em `v1/` (PDF e prévias) e no commit 1deddfa (HTML).
+
 ## O que tem aqui
 
 - `cartoes-camila.html`: as 4 faces (Green frente e verso, Blue frente e verso)
@@ -24,8 +41,15 @@ Os arquivos de trabalho de antes se perderam no reinício do scratchpad em 13/10
 - Corte: 85,6 x 54 mm (CR80). Página: 89,6 x 58 mm, com 2 mm de sangria por
   lado e sem marcas de corte. O PDF marca o corte (TrimBox) e a sangria
   (BleedBox).
-- Texto e QR a pelo menos 3 mm do corte. Menor texto: 1,8 mm de corpo
-  (5,1 pt), claro sobre fundo escuro, igual ao original.
+- Texto e QR a pelo menos 3 mm do corte. Menor texto: 2,6 mm de corpo
+  (7,4 pt), branco sobre fundo de cor (o selo "EXEMPLO", só da amostra, tem
+  2,2 mm).
+- Nome e link longos encolhem sozinhos até caber (`data-fit`, largura em
+  mm; `data-min`, menor corpo). Se nem no mínimo couber, o `render.mjs`
+  mostra "AVISO: NAO CABE".
+- Número do chip: na amostra a Vixcard imprimiu o ID do chip em preto no
+  verso, embaixo, onde agora ficam o link e as instruções. Se o ID precisar
+  ir impresso, pedir no verso, no canto de cima à direita, em branco.
 - Arquivo em RGB, para a gráfica converter em CMYK. O QR é vetor e preto puro:
   imprimir só com preto (K 100%).
 - Chip: o link gravado é o do Smart Link com `utm_source=nfc&utm_medium=cartao`.
