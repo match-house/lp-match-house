@@ -723,14 +723,20 @@ para aquela mensagem.
     - A nota e o e-mail dizem "mensal", "anual" etc. pela duração do plano.
     - Pix Automático do C6 só existe para o Pro: plano novo no Pix precisa
       de código.
-  - Para ligar `producao`, falta:
-    - o "pode" do Mateus para a data;
-    - `charge.refunded` no webhook do Stripe;
-    - no ECS: `NFSE_EMISSAO=producao`, `NFSE_DESDE` = a data,
-      `NFSE_SEM_CPF=sem_tomador` e `NFSE_EMAIL_CORRETOR=on`. Também
-      acrescentar `3,56` em `NFSE_SEM_NOTA_USER_IDS`: as contas internas
-      confirmadas em 06/10.
+  - **Em produção desde 19/10, à tarde** (revisão `matchhouse-back:25` do
+    ECS, posta pelo Mateus): `NFSE_EMISSAO=producao`,
+    `NFSE_DESDE=2026-10-22`, `NFSE_SEM_CPF=sem_tomador`,
+    `NFSE_EMAIL_CORRETOR=on` e `NFSE_SEM_NOTA_USER_IDS` com 3, 56 e 39.
+    Conferido em `/backoffice/nfse/status`: série 900, certificado
+    carregado, sem problemas de configuração. Se a abertura do Pro mudar de
+    dia, trocar o `NFSE_DESDE`.
+    - `charge.refunded` marcado no webhook do Stripe pelo Mateus em 19/10.
     - Na primeira nota real, conferir a inscrição municipal (E0116/E0120).
+  - **Webhook do Stripe, 19/10 (api #106):** de 13 a 19/10, 427 das 805
+    entregas falharam com 404 no `invoice.paid` da fatura de R$ 0 do teste
+    do plano de entrada, que todo cadastro cria. Agora a fatura de R$ 0 sem
+    pagamento nosso é confirmada na hora, e aviso repetido responde 200.
+    Conferir no painel do Stripe que as falhas caíram.
 
 ## Ideia para depois: leads da IA como "matches" e prêmios da indicação (Mateus, 01/10; NÃO é para agora)
 
