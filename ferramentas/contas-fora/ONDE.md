@@ -20,6 +20,6 @@ Uma conta de teste, interna ou duplicada nova entra em TODAS:
 Lista em 13/10:
 - Testes: 1011, 1014, 1033, 1095, 1096.
 - Internas: 980, 941, 937, 999, 993, 3, 56, 39.
-- Duplicadas: 1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238.
+- Duplicadas: 1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238, 1373 e 1372 (as duas em 19/10).
 - Em dúvida (continuam nos números até o Mateus responder): 1234, 1092, 1164.
 - Não confirmada: 955.
