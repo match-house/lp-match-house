@@ -386,11 +386,13 @@ para aquela mensagem.
   - Modelos de WhatsApp (api #104, criados e mandados à Meta por esta
     conversa, como ele pediu: "vc mesmo cria a mensagem e aprova na meta"):
     `mh_cliente_novo_pro_1` (Pro, com nome e celular) e
-    `mh_cliente_chegou_1` (plano de entrada). O `mh_aviso_regra_clientes_1`
-    (comunicado) só vai à Meta depois dos termos novos no ar: o botão abre
-    os termos.
-  - Termos: rascunho na branch `claude/termos-planos-1910` do lp-match-house
-    (seções 1, 6.5, 7, 8 e 10.3), esperando o "ok" dele para ir à `main`.
+    `mh_cliente_chegou_1` (plano de entrada), os dois aprovados em 19/10, e
+    `mh_aviso_regra_clientes_1` (comunicado), mandado à Meta depois dos
+    termos no ar.
+  - **Termos no ar desde 19/10** (main 54a0bc0; Mateus: "Pq nao publica os
+    termos agora?"): seções 1, 6.5, 7, 8 e 10.3. As regras de 6.5, 7.2, 7.3
+    e 7.4 valem a partir de 05/11, 15 dias depois do aviso. O aviso (e-mail,
+    WhatsApp e tela) ainda não saiu: cada envio em massa precisa do "pode".
   - Plano completo em `scratchpad/pro/regra-atraso.md`, nos arquivos desta
     conversa.
 - **Cancelar o Pro: botão no app** (existe desde 05/10, "Cancelar assinatura"
@@ -1293,7 +1295,11 @@ quando quem cortou foi o nosso limite (app #125).
   esses dados, e as consultas do site não os pedem mais. O endereço completo
   aparecia desde 03/09 (8fbd779).
 - Em resposta a corretor ou cliente, não passar rua e número de imóvel de
-  outra pessoa. O próximo passo (a IA do link) ficou com o Mateus.
+  outra pessoa.
+- **A IA do link continua com o endereço completo e pode falar** (Mateus,
+  19/10: "vamos deixar a IA ter todas as informações, so no card que nao
+  entra a rua e numero" e "Ou seja a IA pode falar o endereço completo").
+  Não mexer no que a API manda à IA.
 
 ## QR code por imóvel (no ar desde 07/10)
 
