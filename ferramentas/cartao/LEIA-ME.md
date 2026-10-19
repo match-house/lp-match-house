@@ -21,6 +21,10 @@ A v2 muda:
 
 A v1 está em `v1/` (PDF e prévias) e no commit 1deddfa (HTML).
 
+Amostra 2 para a Vixcard: `amostra-inmc-v2.pdf`, com a conta interna INMC
+Patrimonial, como a amostra 1 (nenhum dado de corretor vai ao fornecedor).
+Sai de `amostra-inmc-v2.html`, gerado a partir de `cartoes-camila.html`.
+
 ## O que tem aqui
 
 - `cartoes-camila.html`: as 4 faces (Green frente e verso, Blue frente e verso)
