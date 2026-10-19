@@ -422,6 +422,25 @@ para aquela mensagem.
     WhatsApp e tela) ainda não saiu: cada envio em massa precisa do "pode".
   - Plano completo em `scratchpad/pro/regra-atraso.md`, nos arquivos desta
     conversa.
+- **Pro aberto para todos no cartão desde 19/10, ~15h41** (revisão
+  `matchhouse-back:26`: `BILLING_MODE=on` e `NFSE_DESDE=2026-10-19`, postas
+  pelo Mateus). Conferir em `GET /backoffice/pro/status` (api #108).
+  - **Desistência nos 7 dias com estorno automático** (api #107): cancelar no
+    app até as 23h59 do 7º dia depois do pagamento devolve no cartão e
+    encerra o Pro na hora. Só na 1ª mensalidade do cartão. O pagamento fica
+    "refunded" e não volta a valer. A taxa do Stripe não volta (no teste,
+    R$ 12,52 de R$ 147).
+  - **E-mail à equipe a cada cancelamento**, com o motivo da pesquisa.
+  - **NFS-e da 1ª mensalidade espera 7 dias** (ideia do Mateus), nunca
+    depois das 18h do último dia do mês. A desistência tira a nota da fila
+    ou pede o cancelamento sozinha (motivo 9). Renovação não espera.
+    Confirmar com a Contabilizei (texto dado ao Mateus em 19/10).
+  - Pro com 300 imóveis no banco (migração da api #107).
+  - App #150: tela com 300 imóveis, texto dos 7 dias, conserto do cartão e
+    o aviso de 05/11 na visão geral (com o "pode subir" do Mateus).
+  - O e-mail do anúncio assina só "Match House" (Mateus: "retirar meu nome
+    do email"). Texto em `scratchpad/pro/email-anuncio.txt`.
+  - O Stripe no Brasil repassa o cartão em 30 dias.
 - **Cancelar o Pro: botão no app** (existe desde 05/10, "Cancelar assinatura"
   na tela do Pro). Mateus, 19/10: "cancleamento precisa ser no app. um
   botao".
