@@ -441,6 +441,22 @@ para aquela mensagem.
   - O e-mail do anúncio assina só "Match House" (Mateus: "retirar meu nome
     do email"). Texto em `scratchpad/pro/email-anuncio.txt`.
   - O Stripe no Brasil repassa o cartão em 30 dias.
+  - **Atendimento sobre o Pro em todos os canais** (Mateus, 19/10: "sim
+    pode ajustar a mensagem em todos os pontos de contato com os
+    clientes"). No 6800, no Direct, no e-mail e nas respostas, a dúvida
+    sobre o Pro se responde com o que está no e-mail aprovado. É dúvida de
+    uso: entra na autonomia.
+    - R$ 147 por mês, no cartão. O Pix entra depois (C6).
+    - Todos os clientes chegam na hora, e as visitas podem ser marcadas
+      a partir de 1 h. O plano tem 300 imóveis; o plano de entrada, 100.
+    - Desistência nos 7 dias devolve o valor sozinha. Cancelar é no app:
+      Plano Pro > Cancelar assinatura.
+    - A regra do plano de entrada começa em 05/11.
+    - Nunca "30 leads" nem "30 clientes", e nunca dizer que a Match House
+      traz clientes.
+    - O desconto da indicação ainda não vale: não prometer.
+    - Continuam com o "pode": desistência ou devolução fora do app,
+      reclamação, cancelamento fora do app e qualquer promessa nova.
 - **Cancelar o Pro: botão no app** (existe desde 05/10, "Cancelar assinatura"
   na tela do Pro). Mateus, 19/10: "cancleamento precisa ser no app. um
   botao".
@@ -1519,8 +1535,11 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - **Autonomia nas conversas de ajuda** (Mateus, 04/10: "sim pode responder e me
   avisa"): quando a pessoa continua a conversa com uma dúvida de uso ou de
   cadastro, eu respondo pelo 6800 SEM pedir "pode" e aviso o Mateus depois,
-  com o que ela disse e o que eu respondi. Continuam precisando do "pode":
-  preço e planos, reclamação, cancelamento, promessa em nome da Match House e
+  com o que ela disse e o que eu respondi. Desde 19/10, dúvida sobre o Pro
+  (preço, o que tem, como assinar e cancelar) também entra, com o texto do
+  e-mail aprovado (ver "Atendimento sobre o Pro em todos os canais").
+  Continuam precisando do "pode": desistência ou devolução fora do app,
+  reclamação, cancelamento fora do app, promessa em nome da Match House e
   qualquer mensagem fora da janela de 24 h.
 - **Quem ainda não tem conta** responde-se por `id_inbound`: POST
   `/backoffice/messages/preview` e depois `/send` com
@@ -1576,11 +1595,12 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     avisar na hora. Cada envio é anotado em `envios_instagram`
     (`scratchpad/mensagens-vistas.json`), com o que ficou resolvido, e o
     relatório diário mostra isso no bloco "Mensagens".
-    - As regras de conteúdo continuam: nada de preço do Pro (falar em plano
-      de entrada), nunca prometer recurso que não existe, sem "grátis" e
-      convite da bio no fim.
-    - No 6800 nada mudou: preço, reclamação, cancelamento e promessa ainda
-      pedem o "pode".
+    - As regras de conteúdo continuam: nunca prometer recurso que não
+      existe, sem "grátis" e convite da bio no fim. Desde 19/10 o Pro e o
+      preço dele entram nas respostas, com o texto do e-mail aprovado (ver
+      "Atendimento sobre o Pro em todos os canais").
+    - No 6800: desistência, devolução, reclamação, cancelamento fora do app
+      e promessa ainda pedem o "pode".
     - Primeiro envio nessa regra: o @guilhermepicorelli (id_instagram 5), em
       05/10.
   - A rotina de hora em hora já lê esses e-mails.
