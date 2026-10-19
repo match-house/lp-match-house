@@ -203,6 +203,23 @@ Notas do projeto para agentes. Ler antes de mexer.
     cadastros e nenhum concluído.
   - Detalhe em `scratchpad/openai-ads/resumo.md`.
 
+## Fila: campanha pelos termos de busca (Mateus, 19/10)
+
+- Pedido dele: "coloca na fila a ideia para fazermos uma campanha link da bio
+  para corretores de imóveis e IA para corretores de imóveis, IA no link da
+  bio para corretores e link da bio de imóveis com IA para corretores, vamos
+  fazer criativos e testar na meta e no chatgpt".
+- Quatro ângulos, um criativo (e um texto) por ângulo:
+  1. link da bio para corretores de imóveis;
+  2. IA para corretores de imóveis;
+  3. IA no link da bio para corretores;
+  4. link da bio de imóveis com IA para corretores.
+- Meta: criativos 4x5 e 9:16, como os 11a a 11d, dentro do teto de
+  R$ 125/dia. ChatGPT: os textos vão para o Mateus subir no painel dele.
+- Mesmo critério de sempre: quando cada um somar uns R$ 30, comparar custo
+  por cadastro e por corretor que publicou, e pausar o pior.
+- Ainda não começado: entra depois da abertura do Pro.
+
 ## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
 
 Tirar do funil, dos relatórios e de custo por cadastro (id_user):
