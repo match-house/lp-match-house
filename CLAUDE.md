@@ -209,11 +209,16 @@ Notas do projeto para agentes. Ler antes de mexer.
   para corretores de imóveis e IA para corretores de imóveis, IA no link da
   bio para corretores e link da bio de imóveis com IA para corretores, vamos
   fazer criativos e testar na meta e no chatgpt".
-- Quatro ângulos, um criativo (e um texto) por ângulo:
+- Seis ângulos, um criativo (e um texto) por ângulo:
   1. link da bio para corretores de imóveis;
   2. IA para corretores de imóveis;
   3. IA no link da bio para corretores;
-  4. link da bio de imóveis com IA para corretores.
+  4. link da bio de imóveis com IA para corretores;
+  5. a loja online do corretor de imóveis com IA;
+  6. a imobiliária digital com IA do corretor de imóveis.
+- Os dois últimos entraram no mesmo dia (Mateus: "acrecente a ideia da
+  campanha: a loja online do corretor de imoveis com IA, a imobiliária
+  digital com IA do corretor de imóveis").
 - Meta: criativos 4x5 e 9:16, como os 11a a 11d, dentro do teto de
   R$ 125/dia. ChatGPT: os textos vão para o Mateus subir no painel dele.
 - Mesmo critério de sempre: quando cada um somar uns R$ 30, comparar custo
