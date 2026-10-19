@@ -402,6 +402,9 @@ para aquela mensagem.
     `GET /backoffice/pro/cancelamentos`. O Amplitude leva só o motivo
     (`pro_cancel_confirmed`), nunca o comentário. A exclusão da conta apaga
     a pesquisa.
+  - O relatório diário traz a linha "Cancelamentos do Pro": quantos houve
+    ontem e os motivos, lidos em `/backoffice/pro/cancelamentos`. Se não
+    houver nenhum, a linha diz "nenhum".
 
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
