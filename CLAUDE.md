@@ -634,9 +634,17 @@ para aquela mensagem.
       as devoluções que ainda estão saindo e alerta a equipe se uma não
       sair.
     - Detalhe no Apêndice A.x de `api/docs/cobranca-pro.md`.
-    - **Pedir ao C6 também os escopos `pix.write` e `pix.read`**, além dos
-      do Pix Automático. Sem o `pix.write`, ninguém consegue desistir pelo
-      Pix.
+    - **Escopos pedidos ao C6 em 19/10, à noite** (o Mateus mandou o
+      complemento ao homologacaoapi@c6bank.com). A lista completa:
+      `cob.write`, `cob.read`, `payloadlocationrec.write`, `rec.write`,
+      `rec.read`, `cobr.write`, `cobr.read`, `webhookrec.write`,
+      `webhookrec.read`, `webhookcobr.write`, `webhookcobr.read`,
+      `pix.write` e `pix.read`. O pedido de 15/10 tinha só os 5 `.write`
+      do Pix Automático.
+      - Sem o `pix.write`, ninguém consegue desistir pelo Pix.
+    - Os termos de uso das APIs do C6 foram assinados pelo Mateus em 19/10.
+      São os termos padrão para desenvolvedores e não falam de escopo nem
+      de produto: o que libera cada função é a chave.
     - Para ligar: as credenciais e o certificado de produção, `C6_CONTA` e
       `C6_AGENCIA` no ECS, os webhooks pelo backoffice e, por último,
       `C6_PIX_AUTOMATICO=on`.
