@@ -1612,7 +1612,17 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - recomendação: 10% por colega, até 100%, cada 10% válido por 6 meses;
   - o colega indicado também ganha 10% por 6 meses;
   - o desconto fica guardado até o Pro abrir e vale até 90 dias depois disso;
-  - o prazo final (6 meses ou 1 ano) ainda está com ele.
+  - **Regras fechadas pelo Mateus em 19/10 ("1, 2, 3 e 4 - sim!"):**
+    1. cada 10% vale **6 meses**, contados da aprovação do colega;
+    2. com **100%** (10 colegas ativos), o Pro fica liberado sem cobrança
+       enquanto os 100% durarem, direto pela API, sem passar pelo Stripe;
+    3. o desconto **não cai** se o colega tirar os imóveis do ar ou apagar
+       a conta: só acaba quando passam os 6 meses;
+    4. o **colega indicado também ganha 10% por 6 meses**, contados da
+       aprovação dele.
+    - Em 19/10 não havia nenhuma indicação de corretor real (só as 2
+      antigas da conta 56, interna), e o desconto continua desligado
+      (`INDICACAO_DESCONTO`). Liga só depois de construído e testado.
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
     há 7 dias.
