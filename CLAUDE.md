@@ -1684,6 +1684,50 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     - Em 19/10 não havia nenhuma indicação de corretor real (só as 2
       antigas da conta 56, interna), e o desconto continua desligado
       (`INDICACAO_DESCONTO`). Liga só depois de construído e testado.
+    - Nos 13 dias até 19/10 houve 167 cadastros e só 1 veio de convite
+      de perfil (a duplicada 1240, do próprio Enio). A contagem funciona;
+      ninguém indicava porque não havia tela.
+  - **Tela do Indique e Ganhe: pronta em 19/10 e escondida** (Mateus:
+    "pode fazer e crie a tela do indique e ganhe"). API #109 e #110, app
+    #152.
+    - `/dashboard/indique` mostra:
+      - o desconto de agora;
+      - o link de convite ("Enviar para um colega" e "Copiar link");
+      - o "Como funciona";
+      - os colegas por etapa, sem nome nem contato (`meuIndiqueGanhe`).
+    - O menu e o cartão na Visão geral só aparecem com
+      `INDICACAO_DESCONTO=on`.
+    - **O convite passa a valer mais que a origem anterior** (app #152):
+      quem chegou antes por um anúncio e depois cria a conta pelo convite
+      fica com a origem do convite (`smartli.ink / indicacao`). Os ids do
+      clique continuam. Aparelho que já tem conta não muda de origem. Isso
+      tira esses poucos cadastros da conta do anúncio no CAC.
+    - Aviso 7 dias antes de os 100% acabarem, em duas versões:
+      - com cartão salvo: a renovação é cobrada nele e o cancelamento é
+        pelo app;
+      - sem cartão: o pagamento sai pelo link do e-mail.
+      - Sai uma vez por data de fim. A marca `mh_aviso_fim_dos_cem` fica
+        na assinatura do Stripe.
+    - Renovação sem cartão nenhum: o e-mail é de pagar, e não de "cartão
+      recusado".
+    - **Cupom testado de verdade na 999 em 19/10**, pela rota
+      `POST /backoffice/pro/desconto-teste` (prévia e código; só a 999,
+      fixo no código).
+      - O teste achou um defeito: o cupom entrava e não saía. Consertado
+        na api #110, com string vazia no Stripe.
+      - Depois do conserto, 30% → 20% → 0% deu certo, e a 999 ficou sem
+        cupom.
+    - Ainda fora:
+      - o Pix segue com preço cheio até o C6;
+      - o Partner não aparece na tela, porque o selo e o destaque não
+        existem;
+      - não foi testado no Stripe se pagar pelo link da fatura salva o
+        cartão.
+    - Ligar: o Mateus põe `INDICACAO_DESCONTO=on` numa revisão nova do ECS,
+      como fez com o `BILLING_MODE`. Depois de ligado:
+      - conferir `desconto_indicacao: true` em `/backoffice/pro/status`;
+      - tirar dos textos de resposta (rotina de hora em hora, guia e
+        CLAUDE.md) o "o desconto da indicação ainda não vale".
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
     há 7 dias.
