@@ -29,7 +29,7 @@ INTERNOS = {
     3: "conta interna (Admin, admin-1; confirmada pelo Mateus em 06/10)",
     56: "conta interna (Match House, match-house-27; confirmada pelo Mateus em 06/10)",
     39: "conta interna (smartli.ink/matchhouse, confirmada pelo Mateus em 12/10)",
-    # Duplicadas, fora dos números pela regra de higiene da lista (Mateus): 1240, 1241, 1242 (10/10) e 836, 1103, 1128, 1187, 1196, 1238 (varredura de 11/10).
+    # Duplicadas, fora dos números pela regra de higiene da lista (Mateus): 1240, 1241, 1242 (10/10) e 836, 1103, 1128, 1187, 1196, 1238 (varredura de 11/10), 1373 e 1372 (18/10).
     1240: "conta duplicada (2ª conta; a principal é a 196)",
     1241: "conta duplicada (2ª conta; a principal é a 1226)",
     1242: "conta duplicada (3ª conta; a principal é a 1226)",
@@ -39,6 +39,8 @@ INTERNOS = {
     1187: "conta duplicada (2ª conta; a principal é a 1137)",
     1196: "conta duplicada (2ª conta; a principal é a 560)",
     1238: "conta duplicada (2ª conta; a principal é a 756)",
+    1373: "conta duplicada (2ª conta; a principal é a 1351)",
+    1372: "conta duplicada (2ª conta; a principal é a 1317)",
 }
 
 MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
