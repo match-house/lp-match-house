@@ -24,7 +24,9 @@ A v2 muda:
   marcaçao do chip". Então a v2 é a amostra impressa com só duas mudanças:
   - a cor (acima), com o texto, o logo e o wordmark brancos. O M da frente
     do Blue volta ao degradê da marca, como na amostra (Mateus, 20/10: "o M
-    do blue na parte da frente coloque na cor degrade da marca que estava");
+    do blue na parte da frente coloque na cor degrade da marca que estava").
+    Os dois M ficam sem brilho em volta: branco sólido no Green e degradê
+    no Blue ("tira a fumaça em volta do M");
   - sem o desenho do chip na frente.
   Letra, QR, marca e posições são os da amostra. As tentativas com letra e
   QR maiores (19 e 20/10) estão no commit 2bfb38c; não voltar a elas.
