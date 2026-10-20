@@ -266,6 +266,9 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   - Achadas em 18 e 19/10, as duas criadas com Gmail por quem já tinha
     conta pela Apple: 1373 (1351) e 1372 (1317). Saíram da esteira em
     19/10, às 6h41, com o "pode" do Mateus.
+  - Achada em 20/10, sem telefone, sem link e sem imóvel: 1361 (1191),
+    criada em 17/10 quando o telefone dele barrou o cadastro novo. Saiu
+    da esteira em 20/10, às 15h42, pela regra de higiene.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
