@@ -14,9 +14,13 @@
   - o mesmo verde escuro e o mesmo azul-noite da v1, mais claros (no PVC a
     cor sai mais escura que na tela; os fundos da v1 saíram pretos);
   - texto branco ou quase branco, sem cinza escuro; o menor texto tem
-    2,6 mm de corpo (7,4 pt), contra 1,8 mm (5,1 pt) na v1;
-  - QR de 17 mm (12,45 mm na v1), módulo de 0,46 mm. Primeiro foi de 19,5 mm;
-    o Mateus pediu: "diminua um pouco a parte do Qr code".
+    2,4 mm de corpo (6,8 pt), contra 1,8 mm (5,1 pt) na v1;
+  - verso no desenho da amostra impressa (topo limpo), com o QR de 15,3 mm
+    (12,45 mm na v1) num quadro de 18 mm e a marca de 14,5 mm (12,95 na
+    v1). Mateus, 20/10: "no verso manter igual estava antes (o da impressao)
+    aumentando um pouco o qr code e a marca match mas nao tanto";
+  - frente sem o desenho do chip e com o "MATCH HOUSE · GREEN/BLUE" de volta
+    embaixo, à direita, como na amostra.
   A v1 está no commit 1deddfa e em v1/.
 
   Página: 89,6 x 58 mm = cartão CR80 (85,6 x 54 mm) + 2 mm de sangria por
@@ -72,27 +76,21 @@
   .green .logo-m { filter: drop-shadow(0 0 .9mm rgba(255,255,255,.5)); }
   .blue .logo-m { filter: drop-shadow(0 0 .9mm rgba(0,200,255,.6)); }
 
+  /* Como na amostra impressa: o nível embaixo, à direita, na linha do nome,
+     e o número na linha do link. Sem o desenho do chip. */
   .nivel {
-    right: 7.5mm; top: 7.9mm; font-weight: 600; font-size: 2.6mm; line-height: 1;
-    letter-spacing: .16em; margin-right: -.16em; text-transform: uppercase; color: var(--label); white-space: nowrap;
+    right: 7.5mm; top: 42mm; font-weight: 600; font-size: 2.3mm; line-height: 1;
+    letter-spacing: .12em; margin-right: -.12em; text-transform: uppercase; color: var(--label); white-space: nowrap;
   }
-  .front .exemplo { right: 7.5mm; top: 12.4mm; }
+  .front .exemplo { right: 13.6mm; top: 7.5mm; }
 
-  .chip {
-    left: 7.6mm; top: 17.6mm; width: 9.4mm; height: 6.9mm; box-sizing: border-box;
-    border-radius: 1.1mm; border: .2mm solid color-mix(in srgb, var(--acc) 70%, transparent);
-    background: var(--chip); padding: .75mm .72mm;
-    display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: .32mm;
-  }
-  .chip i { border: .15mm solid color-mix(in srgb, var(--acc) 55%, transparent); border-radius: .32mm; }
-
-  .nfc { right: 7.5mm; top: 18.4mm; width: 3.7mm; height: 4.5mm; }
+  .nfc { right: 7.5mm; top: 7mm; width: 3.7mm; height: 4.5mm; }
 
   .nome-ia {
-    left: 7.6mm; top: 37.6mm; display: flex; align-items: flex-start; gap: 1.9mm;
-    font-weight: 600; font-size: 6.6mm; line-height: 1; letter-spacing: -.03em; white-space: nowrap;
+    left: 7.6mm; top: 38mm; display: flex; align-items: flex-start; gap: 1.8mm;
+    font-weight: 600; font-size: 6.2mm; line-height: 1; letter-spacing: -.03em; white-space: nowrap;
   }
-  .selo { width: 3.6mm; height: 3.6mm; margin-top: 1.4mm; flex: none; }
+  .selo { width: 3.4mm; height: 3.4mm; margin-top: 1.3mm; flex: none; }
 
   .link {
     font-family: "Plex Mono", monospace; font-weight: 500; color: var(--acc); line-height: 1; white-space: nowrap;
@@ -104,25 +102,26 @@
     line-height: 1; letter-spacing: .06em; margin-right: -.06em; color: var(--label); white-space: nowrap;
   }
 
-  /* Verso */
-  .wordmark { left: 7.6mm; top: 7.6mm; width: 22mm; }
-  .back .exemplo { right: 7.5mm; top: 7.9mm; }
+  /* Verso: o desenho da amostra impressa (topo limpo; QR, texto e marca
+     embaixo, alinhados pela base do QR), com o QR e a marca um pouco maiores
+     (quadro do QR 15,3 -> 18 mm; marca 12,95 -> 14,5 mm) e a letra maior,
+     no mínimo 2,4 mm. Folga de 1 mm ou mais entre as linhas. */
+  .wordmark { left: 67.6mm; top: 47.4mm; width: 14.5mm; }
+  .back .exemplo { right: 7.5mm; top: 7.6mm; }
 
   .qr-box {
-    left: 7.6mm; top: 30.5mm; width: 20mm; height: 20mm; background: #fff; border-radius: 1.5mm;
+    left: 7.6mm; top: 32.5mm; width: 18mm; height: 18mm; background: #fff; border-radius: 1.35mm;
     display: grid; place-items: center;
   }
-  .qr-box img { width: 17mm; height: 17mm; display: block; }
+  .qr-box img { width: 15.3mm; height: 15.3mm; display: block; }
 
-  .verso-nome { left: 31mm; top: 27.6mm; font-weight: 600; font-size: 3.6mm; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
-  .verso-sub { left: 31mm; font-weight: 400; font-size: 2.6mm; line-height: 1; color: var(--sub); white-space: nowrap; }
-  .verso-sub.s1 { top: 32.3mm; }
-  .verso-sub.s2 { top: 35.6mm; }
-  .instr { left: 31mm; display: flex; align-items: center; gap: 1.3mm; font-size: 2.6mm; line-height: 1; white-space: nowrap; }
-  .instr svg { width: 2.4mm; height: 2.4mm; flex: none; }
-  .instr.l1 { top: 40.5mm; }
-  .instr.l2 { top: 44mm; }
-  .back .link { left: 31mm; top: 47.6mm; font-size: 2.8mm; letter-spacing: .01em; }
+  .verso-nome { left: 28.2mm; top: 32.5mm; font-weight: 600; font-size: 3.2mm; line-height: 1; letter-spacing: -.01em; white-space: nowrap; }
+  .verso-sub { left: 28.2mm; top: 36.7mm; font-weight: 400; font-size: 2.5mm; line-height: 1; color: var(--sub); white-space: nowrap; }
+  .instr { left: 28.4mm; display: flex; align-items: center; gap: 1.1mm; font-size: 2.4mm; line-height: 1; white-space: nowrap; }
+  .instr svg { width: 2.2mm; height: 2.2mm; flex: none; }
+  .instr.l1 { top: 40.4mm; }
+  .instr.l2 { top: 43.9mm; }
+  .back .link { left: 28.2mm; top: 47.9mm; font-size: 2.6mm; letter-spacing: .01em; }
 
   .exemplo {
     font-family: "Plex Mono", monospace; font-weight: 500; font-size: 2.2mm; line-height: 1;
@@ -152,12 +151,11 @@
   <img class="abs logo-m" src="m-branco.svg" alt="">
   <div class="abs nivel">Match House · Green</div>
   <div class="abs exemplo">EXEMPLO</div>
-  <div class="abs chip"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="var(--acc)" stroke-width="2.6" stroke-linecap="round">
     <path d="M3 12.5a6 6 0 0 1 0 8"/><path d="M9 8.5a12 12 0 0 1 0 16"/><path d="M15.5 4a18.5 18.5 0 0 1 0 25"/><path d="M22.5 1a24 24 0 0 1 0 31"/>
   </svg>
   <!-- DADOS: nome da IA -->
-  <div class="abs nome-ia" data-fit="70" data-min="4.6">Camila IA
+  <div class="abs nome-ia" data-fit="36" data-min="4.2">Camila IA
     <svg class="selo" viewBox="0 0 24 24"><path fill="var(--selo)" d="M12 1.5l2.4 1.9 3-.4 1.2 2.8 2.8 1.2-.4 3 1.9 2.4-1.9 2.4.4 3-2.8 1.2-1.2 2.8-3-.4L12 22.5l-2.4-1.9-3 .4-1.2-2.8-2.8-1.2.4-3L1.1 12 3 9.6l-.4-3 2.8-1.2L6.6 2.6l3 .4z"/><path d="M7.6 12.3l3 3 5.8-6" fill="none" stroke="var(--check)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
   <!-- DADOS: link -->
@@ -174,9 +172,8 @@
   <!-- DADOS: QR (qr.mjs) -->
   <div class="abs qr-box"><img src="qr-camila.svg" alt=""></div>
   <!-- DADOS: nome, profissão e CRECI -->
-  <div class="abs verso-nome" data-fit="51" data-min="2.8">Camila Duarte</div>
-  <div class="abs verso-sub s1">Corretora de imóveis</div>
-  <div class="abs verso-sub s2">CRECI 00000-F</div>
+  <div class="abs verso-nome" data-fit="52" data-min="2.4">Camila Duarte</div>
+  <div class="abs verso-sub">Corretora de imóveis · CRECI 00000-F</div>
   <div class="abs instr l1">
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 6a3 3 0 0 1 0 4"/><path d="M7 4a6 6 0 0 1 0 8"/><path d="M10.5 2a9 9 0 0 1 0 12"/></svg>
     Aproxime o celular do cartão
@@ -185,7 +182,7 @@
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 5V3.2c0-1 .7-1.7 1.7-1.7H5M11 1.5h1.8c1 0 1.7.7 1.7 1.7V5M14.5 11v1.8c0 1-.7 1.7-1.7 1.7H11M5 14.5H3.2c-1 0-1.7-.7-1.7-1.7V11"/><circle cx="8" cy="8" r="2.2"/></svg>
     ou aponte a câmera para o QR
   </div>
-  <div class="abs link" data-fit="51" data-min="2.3">smartli.ink/camiladuarte</div>
+  <div class="abs link" data-fit="38" data-min="2">smartli.ink/camiladuarte</div>
 </section>
 
 <!-- ====================== BLUE · FRENTE ====================== -->
@@ -207,11 +204,10 @@
   <img class="abs logo-m" src="m-branco.svg" alt="">
   <div class="abs nivel">Match House · Blue</div>
   <div class="abs exemplo">EXEMPLO</div>
-  <div class="abs chip"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="var(--acc)" stroke-width="2.6" stroke-linecap="round">
     <path d="M3 12.5a6 6 0 0 1 0 8"/><path d="M9 8.5a12 12 0 0 1 0 16"/><path d="M15.5 4a18.5 18.5 0 0 1 0 25"/><path d="M22.5 1a24 24 0 0 1 0 31"/>
   </svg>
-  <div class="abs nome-ia" data-fit="70" data-min="4.6">Camila IA
+  <div class="abs nome-ia" data-fit="36" data-min="4.2">Camila IA
     <svg class="selo" viewBox="0 0 24 24"><path fill="var(--selo)" d="M12 1.5l2.4 1.9 3-.4 1.2 2.8 2.8 1.2-.4 3 1.9 2.4-1.9 2.4.4 3-2.8 1.2-1.2 2.8-3-.4L12 22.5l-2.4-1.9-3 .4-1.2-2.8-2.8-1.2.4-3L1.1 12 3 9.6l-.4-3 2.8-1.2L6.6 2.6l3 .4z"/><path d="M7.6 12.3l3 3 5.8-6" fill="none" stroke="var(--check)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
   <div class="abs link" data-fit="54" data-min="2.4">smartli.ink/camiladuarte</div>
@@ -224,9 +220,8 @@
   <img class="abs wordmark" src="wordmark-branco.svg" alt="Match House">
   <div class="abs exemplo">EXEMPLO</div>
   <div class="abs qr-box"><img src="qr-camila.svg" alt=""></div>
-  <div class="abs verso-nome" data-fit="51" data-min="2.8">Camila Duarte</div>
-  <div class="abs verso-sub s1">Corretora de imóveis</div>
-  <div class="abs verso-sub s2">CRECI 00000-F</div>
+  <div class="abs verso-nome" data-fit="52" data-min="2.4">Camila Duarte</div>
+  <div class="abs verso-sub">Corretora de imóveis · CRECI 00000-F</div>
   <div class="abs instr l1">
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M3.5 6a3 3 0 0 1 0 4"/><path d="M7 4a6 6 0 0 1 0 8"/><path d="M10.5 2a9 9 0 0 1 0 12"/></svg>
     Aproxime o celular do cartão
@@ -235,7 +230,7 @@
     <svg viewBox="0 0 16 16" fill="none" stroke="var(--acc)" stroke-width="1.6" stroke-linecap="round"><path d="M1.5 5V3.2c0-1 .7-1.7 1.7-1.7H5M11 1.5h1.8c1 0 1.7.7 1.7 1.7V5M14.5 11v1.8c0 1-.7 1.7-1.7 1.7H11M5 14.5H3.2c-1 0-1.7-.7-1.7-1.7V11"/><circle cx="8" cy="8" r="2.2"/></svg>
     ou aponte a câmera para o QR
   </div>
-  <div class="abs link" data-fit="51" data-min="2.3">smartli.ink/camiladuarte</div>
+  <div class="abs link" data-fit="38" data-min="2">smartli.ink/camiladuarte</div>
 </section>
 
 <script>
@@ -251,6 +246,15 @@
         el.style.fontSize = mm + 'mm';
       }
       if (el.getBoundingClientRect().width > max) console.warn('NAO CABE: ' + el.textContent.trim());
+    }
+    // Avisa se dois elementos se encostam (folga menor que 1 mm).
+    for (const pg of document.querySelectorAll('.page')) {
+      const els = [...pg.querySelectorAll('.nome-ia, .link, .nivel, .numero, .verso-nome, .verso-sub, .instr, .wordmark, .qr-box, .exemplo, .nfc, .logo-m')];
+      for (let i = 0; i < els.length; i++) for (let j = i + 1; j < els.length; j++) {
+        const a = els[i].getBoundingClientRect(), b = els[j].getBoundingClientRect(), f = px;
+        if (a.left < b.right + f && b.left < a.right + f && a.top < b.bottom + f && b.top < a.bottom + f)
+          console.warn('ENCOSTA: ' + els[i].className + ' x ' + els[j].className);
+      }
     }
     document.body.dataset.pronto = '1';
   });
