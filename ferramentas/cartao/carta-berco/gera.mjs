@@ -135,11 +135,35 @@ const linhas = (g, { rotulos = false, larg = 0.25 } = {}) => {
 
 // ---- luva
 
+// Ícones das redes, em branco sobre o azul, numa linha centralizada:
+// Instagram, YouTube, LinkedIn, Facebook e o M da Match House.
+const ICONES = [
+  `<svg viewBox="0 0 24 24"><rect x="2.2" y="2.2" width="19.6" height="19.6" rx="5.6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.35" fill="#fff"/></svg>`,
+  `<svg viewBox="0 0 24 24"><rect x="0.8" y="4.6" width="22.4" height="14.8" rx="4.4" fill="#fff"/><path d="M9.8 8.4 L16 12 L9.8 15.6 Z" fill="${AZUL2}"/></svg>`,
+  `<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3.2" fill="#fff"/><circle cx="7.1" cy="7.1" r="1.65" fill="${AZUL2}"/><rect x="5.7" y="9.6" width="2.8" height="8.6" fill="${AZUL2}"/><path d="M10.4 9.6h2.7v1.2c.5-.8 1.5-1.5 3-1.5 2.5 0 3.5 1.6 3.5 4.2v4.7h-2.8v-4.2c0-1.3-.4-2.1-1.6-2.1-1.2 0-2 .9-2 2.2v4.1h-2.8z" fill="${AZUL2}"/></svg>`,
+  `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.2" fill="#fff"/><path d="M13.3 22.1v-7.4h2.5l.4-2.9h-2.9V10c0-.8.3-1.4 1.4-1.4h1.6V6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2H7.8v2.9h2.4v7.2" fill="${AZUL2}"/></svg>`,
+];
+function redes(x, y, largura) {
+  const t = 6, gap = 5;
+  const itens = [...ICONES.map((i) => [t, i]), [9, mBranco]];
+  const total = itens.reduce((a, [w]) => a + w, 0) + gap * (itens.length - 1);
+  let cx = x + (largura - total) / 2;
+  return itens
+    .map(([w, svg]) => {
+      const alt = w === t ? t : w * 0.448; // o M é mais largo que alto
+      const html = `<div class="abs" style="left:${cx}mm;top:${y + (t - alt) / 2}mm;width:${w}mm">${svg}</div>`;
+      cx += w + gap;
+      return html;
+    })
+    .join('');
+}
+
 function luvaArte(g) {
   // Minimalista, só a marca, como a embalagem da C6 Tag (Mateus, 20/10:
   // "deixe minimalista somente a marca igual ao C6"): azul liso por fora,
-  // o logo na frente, com "desbloqueie seu mundo" pequeno embaixo, e o M
-  // pequeno no verso.
+  // o logo na frente, com "desbloqueie seu mundo" pequeno embaixo. No verso,
+  // os ícones das redes e o M (Mateus, 20/10: "insta, youtube, in, F, e o M
+  // da Match").
   const s = M.sangria, L = M.luva;
   const W = g.W + 2 * s, H = g.H + 2 * s;
   const px = (x) => x + s;
@@ -157,7 +181,7 @@ function luvaArte(g) {
     <div class="abs" style="left:${fx + (fw - lw) / 2}mm;top:${s + 85}mm;width:${lw}mm">${wordmark('#ffffff')}</div>
     <!-- Mateus, 20/10: "escreva pequeno embaixo da marca" -->
     <div class="t" style="left:${fx}mm;top:${s + 99.5}mm;width:${fw}mm;color:rgba(255,255,255,.78);font-size:2.9mm;letter-spacing:.08em">desbloqueie seu mundo</div>
-    <div class="abs" style="left:${bx + (fw - 10) / 2}mm;top:${s + 168}mm;width:10mm">${mBranco}</div>
+    ${redes(bx, s + 166, fw)}
   </div>`;
   return doc(W, H, corpo, '.abs svg[viewBox] { width:100%; height:auto; }');
 }

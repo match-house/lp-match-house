@@ -42,8 +42,8 @@ cartela"), no estilo da embalagem da C6 Tag. Tudo em tamanho real (1:1), em mm.
 ## Arte: só a marca (Mateus, 20/10: "deixe minimalista somente a marca igual ao C6")
 
 - **Luva:** azul liso (#04124d) por fora. Na frente, o logo Match House em
-  branco, com "desbloqueie seu mundo" pequeno embaixo; no verso, o M pequeno
-  embaixo.
+  branco, com "desbloqueie seu mundo" pequeno embaixo. No verso, embaixo, os
+  ícones do Instagram, YouTube, LinkedIn e Facebook e o M da Match House.
 - **Cartela:** frente branca, com o cartão e o logo azul embaixo. Verso no
   azul da luva, com o M pequeno.
 - Serve para o Green e para o Blue: não tem nome nem número do corretor.
