@@ -18,18 +18,14 @@ A v2 muda:
   verde e esse azul, mantenha aquele so ilumine mais.. assim nao ficou um
   alto padrão";
 - texto branco ou quase branco, sem cinza escuro; logo e wordmark brancos;
-- letra maior: nome da IA 6,2 mm e link 3,0 mm na frente; no verso, nome
-  3,2 mm, link 2,6 mm e o menor texto 2,4 mm (6,8 pt). Na v1, 1,8 a 2,1 mm;
-- frente sem o desenho do chip, com o "MATCH HOUSE · GREEN/BLUE" embaixo, à
-  direita, na linha do nome, como na amostra; "EXEMPLO" fora do número;
-- verso no desenho da amostra impressa, com o topo limpo (20/10, Mateus: "no
-  verso manter igual estava antes (o da impressao) aumentando um pouco o qr
-  code e a marca match mas nao tanto igual foi aumentado e manter tudo
-  alinhado"). QR de 15,3 mm num quadro de 18 mm (v1: 12,45 e 15,3 mm) e a
-  marca com 14,5 mm (v1: 12,95 mm). O texto começa no topo do QR e o link
-  termina na base dele; a marca fica na linha do link. Profissão e CRECI
-  numa linha só;
-- o `render.mjs` avisa "ENCOSTA" quando dois elementos ficam a menos de 1 mm.
+- 20/10, a palavra final do Mateus: "Vamos voltar tudo para o tamanho que
+  estava antes.. a cor ja vai resolver o problema. entao resumindo: so
+  vamos mudar do que foi impresso de teste, a cor e a retirada da
+  marcaçao do chip". Então a v2 é a amostra impressa com só duas mudanças:
+  - a cor (acima), com o texto, o logo e o wordmark brancos;
+  - sem o desenho do chip na frente.
+  Letra, QR, marca e posições são os da amostra. As tentativas com letra e
+  QR maiores (19 e 20/10) estão no commit 2bfb38c; não voltar a elas.
 
 A v1 está em `v1/` (PDF e prévias) e no commit 1deddfa (HTML).
 
@@ -57,9 +53,8 @@ Sai de `amostra-inmc-v2.html`, gerado a partir de `cartoes-camila.html`.
 - Corte: 85,6 x 54 mm (CR80). Página: 89,6 x 58 mm, com 2 mm de sangria por
   lado e sem marcas de corte. O PDF marca o corte (TrimBox) e a sangria
   (BleedBox).
-- Texto e QR a pelo menos 3 mm do corte. Menor texto: 2,4 mm de corpo
-  (6,8 pt), branco sobre fundo de cor (o selo "EXEMPLO", só da amostra, tem
-  2,2 mm).
+- Texto e QR a pelo menos 3 mm do corte. Menor texto: 1,8 mm de corpo,
+  como na amostra impressa, branco sobre fundo de cor.
 - Nome e link longos encolhem sozinhos até caber (`data-fit`, largura em
   mm; `data-min`, menor corpo). Se nem no mínimo couber, o `render.mjs`
   mostra "AVISO: NAO CABE".
