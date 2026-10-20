@@ -496,6 +496,16 @@ para aquela mensagem.
     - **Pix do C6:** `GET /backoffice/pro/pix?dias=2` (api #115) e
       `pix_c6` em `/backoffice/pro/status` (ligado ou não). Enquanto o C6
       não liberar a produção, a linha diz "desligado".
+    - **Pix recebido na conta do C6** (Mateus, 20/10: "o C6 manda email
+      toda vez que recebemos pix"):
+      - Ler no Gmail os e-mails de ontem com
+        `from:no-reply@c6bank.com.br "recebeu um Pix"`. O assunto é
+        "Confira os detalhes da transação.", e o texto traz valor, quem
+        pagou e a data.
+      - Separar o que é dele (aporte do sócio, não é receita) do que é
+        pagamento de corretor (o nome ou o documento batem com uma conta)
+        e do que é outra entrada.
+      - Os "Pix enviado" do mesmo remetente entram só como total do dia.
     - O que vai no bloco: assinaturas novas, renovações pagas, pagamentos
       que falharam, cancelamentos (com os motivos de `pro/cancelamentos`),
       devoluções dos 7 dias e quem começou a assinar e não terminou.
