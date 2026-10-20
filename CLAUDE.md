@@ -1875,8 +1875,10 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - **promoção por tempo limitado**, nunca "os primeiros 100", que exigiria
     autorização da SPA (Lei 5.768/71);
   - o CRECI vai no cartão (exigência do COFECI);
-  - o endereço é pedido só a quem bateu a meta, e apagado 30 dias depois da
-    entrega.
+  - o endereço é pedido só a quem bateu a meta e **fica guardado** (Mateus,
+    20/10: "temos que ter o endereço de nossos clientes"). Vale acima do
+    "apagado 30 dias depois da entrega" de 07/10. A API não tem rotina que
+    apague o endereço.
 - **QR por imóvel**: no ar desde 07/10 (PR app #122). Ver a seção "QR code
   por imóvel".
 - **"Crie seu Smart Link" maior** no perfil e em cada imóvel (aprovado). Passa
@@ -2068,10 +2070,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     dai fazemos tudo no modelo deles"). Quando a planilha chegar, eu
     preencho com os pedidos do app (`GET /backoffice/cartoes`, mais o CRECI e
     o link de cada um), 10 por vez. O envio também segue o modelo deles.
-    - Antes do primeiro lote, a Política de Privacidade tem de dizer que o
-      nome, o CRECI e o link vão para a gráfica, e o endereço para quem
-      entrega, e que se apagam 30 dias depois da entrega. O pedido do app
-      hoje só diz "Enviamos o cartão pelo correio para este endereço".
+    - Mudar a Política de Privacidade para isso: o Mateus achou
+      desnecessário (20/10). Não propor de novo.
     - A carta-berço (luva + cartela) está em `ferramentas/cartao/carta-berco/`
       da branch de trabalho. Em 20/10 o Mateus mandou o orçamento a duas
       gráficas.
