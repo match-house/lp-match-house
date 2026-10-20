@@ -1771,6 +1771,25 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       - conferir `desconto_indicacao: true` em `/backoffice/pro/status`;
       - tirar dos textos de resposta (rotina de hora em hora, guia e
         CLAUDE.md) o "o desconto da indicação ainda não vale".
+    - **Ligado desde 20/10, 8h27** (revisão 27 do ECS, posta pelo Mateus).
+      `/backoffice/pro/status` mostra `desconto_indicacao: true`. Vale
+      acima de qualquer "desconto ainda não está ligado: não oferecer" que
+      sobrar em texto antigo. A rotina de hora em hora, o guia (seção 12) e
+      o e-mail do aviso de 05/11 já falam dele.
+    - O WhatsApp do aviso de 05/11 é o `mh_aviso_regra_clientes_2`, com o
+      Indique e Ganhe e o botão "Ver meu convite", aprovado pela Meta em
+      20/10 (api #113).
+    - **Link de convite curto desde 20/10** (app #155, merge 15ce197). Mateus: "consegue
+      deixar o link mais amigável, com nome do corretor ou algo do tipo?".
+      - É `app.smartli.ink/convite/<slug>`. O `vercel.json` redireciona
+        (307) para o destino de antes, com `utm_medium=indicacao`,
+        `utm_content=perfil-<slug>` e `ref`. A API conta a indicação como
+        antes, e o card do WhatsApp continua "Crie seu Smart Link".
+      - O redirect fica no `vercel.json` para sempre: sem ele, os links já
+        mandados caem no 404. Não voltar a produção para um deploy de antes
+        do #155.
+      - Ponto no fim do slug vai como %2E, porque o WhatsApp corta o ponto
+        final do link.
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
     há 7 dias.
@@ -1916,12 +1935,27 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       bom, volte ao que era".
   - Amostra 2 (INMC): `ferramentas/cartao/amostra-inmc-v2.pdf`. A
     mensagem à Thaisa (cor e número do chip) foi dada ao Mateus.
+  - **20/10, decisão final: o desenho e as medidas da amostra impressa.**
+    Mateus: "Vamos voltar tudo para o tamanho que estava antes.. a cor ja
+    vai resolver o problema. entao resumindo: so vamos mudar do que foi
+    impresso de teste, a cor e a retirada da marcaçao do chip".
+    - Mudam só a cor (fundos clareados; texto e wordmark brancos) e o chip,
+      que sai da frente.
+    - O M da frente fica sem brilho em volta: branco sólido no Green e no
+      degradê da marca no Blue ("tira a fumaça em volta do M").
+    - Letra, QR, marca e posições são os da amostra. As tentativas com
+      letra e QR maiores (19 e 20/10, commit 2bfb38c da branch de
+      trabalho) foram descartadas: não propor de novo.
+    - Amostra 2 da INMC para a Vixcard refeita assim (commit 87009a7).
+    - O pedido de orçamento da carta-berço para gráfica está em
+      `ferramentas/cartao/pedido-carta-berco.md` da branch de trabalho.
+      A Vixcard e a BPD não fazem.
 - **No app, o cartão mostra o nome e o link do próprio corretor antes do
   pedido** (app #154, 19/10). Mateus: "consegue colocar o nome do corretor
   no cartao dele para ele ver no app? antes de pedir".
   - Na frente vão "<primeiro nome> IA" e `smartli.ink/<slug>`, sem número.
-  - A arte do app ainda tem as cores da v1. Passar para a v2 quando a
-    amostra 2 for aprovada.
+  - A arte do app ainda tem as cores da v1 e o chip. Passar para a v2 (só
+    a cor nova e sem o chip) quando a amostra 2 for aprovada.
 - **Fornecedor: Vixcard (Victor e Thaisa).**
   - **Orçamento nº 32481, de 07/10:** chip Mifare 1K com gravação do ID.
     Por cartão: 100 un. R$ 9,89; 250 un. R$ 8,99; 500 un. R$ 6,99. Frete
