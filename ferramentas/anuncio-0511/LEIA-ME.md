@@ -45,3 +45,8 @@ Para refazer as listas se o scratchpad sumir:
   fala de "smartli.ink/<link>". Decisão do Mateus pendente em 20/10.
 - Sem nome no cadastro, o e-mail diz só "Oi." e o WhatsApp não vai ({{1}}
   vazio seria recusado).
+- Desde 20/10 os três scripts param sozinhos no teto do dia ("teto diário"
+  na prévia). Antes, seguiam pela lista toda gravando prévias recusadas.
+- `envia-email-sem-link.sh lista-sem-link.json`: as 119 contas sem link,
+  com o texto adaptado (Mateus, 20/10: "Pode avisar todos, pode ir mandando
+  e depois ajusto para aumentarmos o envio"). Vão depois da lista com link.

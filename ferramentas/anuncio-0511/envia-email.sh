@@ -63,6 +63,8 @@ while read -r p; do
   conf=$(jq -r '.confirmacao // empty' <<<"$pv" 2>/dev/null)
   if [ -z "$conf" ]; then
     registra "$(jq -nc --argjson id "$id" --arg m "$(jq -r '.message // .' <<<"$pv" 2>/dev/null | head -c 300)" '{id_user: $id, status: "previa_recusada", motivo: $m, em: (now|todate)}')"
+    # 20/10: no teto do dia, parar (o resto da lista sai amanhã).
+    grep -q "teto diário" <<<"$pv" && break
     continue
   fi
   if [ "${DRY:-0}" = "1" ]; then
