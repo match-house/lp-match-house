@@ -1794,6 +1794,29 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
         do #155.
       - Ponto no fim do slug vai como %2E, porque o WhatsApp corta o ponto
         final do link.
+    - **Convite pelo WhatsApp desde 20/10, 14h26** (app #156). Mateus: "o
+      compartilhamento tem que ser pelo whatsapp". "Enviar para um colega"
+      abre o WhatsApp direto, com o texto e o link.
+    - **Cada colega conta uma vez só, desde 20/10, 14h31** (api #114, merge
+      40c60f6). Mateus: "veja se nao conta duplicada ou mais, e se nao conta
+      o mesmo duas vezes".
+      - O desconto, a tela e o nível contam cada colega uma vez. Se dois
+        corretores convidarem a mesma conta, só o primeiro convite vale.
+      - Quando o colega passa a contar, a indicação guarda um código
+        cifrado do celular e do login dele. A mesma pessoa não conta de
+        novo, nem com outro celular, nem com outra conta, nem depois de
+        excluir a conta.
+      - O código se apaga sozinho 1 ano depois. Está na Política de
+        Privacidade (10.8 e 11). Mateus: "fica guardado para evitar fraude
+        ou algo do tipo mas sem nenhum uso e podemos colocar um prazo para
+        apagar automaticamente, 1 ano".
+      - Aprovar à mão (do 6º colega do mês em diante) é só pelo `decidir` do
+        backoffice.
+        - Não se aprova à mão: mesmo login, mesmo celular, e-mail ou CPF do
+          indicador, e colega que já conta.
+        - Quando só o celular é igual, a prévia avisa e a aprovação à mão é
+          permitida (pode ser número reciclado pela operadora).
+      - O detalhe de segurança fica só em `scratchpad/seguranca/`.
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
     há 7 dias.
