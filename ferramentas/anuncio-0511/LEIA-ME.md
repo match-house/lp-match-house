@@ -25,3 +25,23 @@ Para refazer as listas se o scratchpad sumir:
    A lista de espera sai de `GET /backoffice/pro/interesse`.
 5. Tirar a conta 15 (do Mateus) e as de `fora.json` (testes, internas e
    duplicadas do CLAUDE.md).
+
+## Dias 2 em diante (a partir de 21/10)
+
+- `lista-resto-com-link.json`: quem tem link e nenhum imóvel no ar, sem os
+  já enviados, `fora.json` e a conta 15. Celular confirmado primeiro.
+  `lista-whats-resto.json`: os mesmos com celular confirmado e nome.
+- Como montar:
+  1. Os slugs com `publicados == 0` de `agents.json` → `slugs-sem-imovel.txt`.
+  2. `refaz.sh` busca o `id_user` de cada um, **um por vez**. A API limita as
+     chamadas por minuto (429): em 20/10, com 4 em paralelo, 671 de 787
+     voltaram com erro sem avisar. O `refaz.sh` só grava resposta com
+     `id_agent` e tenta de novo com espera.
+  3. `jq -n -f monta-resto.jq --slurpfile si <(jq -s 'unique_by(.slug)'
+     sem-imovel-ok.jsonl) --slurpfile sg <(jq -s . signups.jsonl)
+     --slurpfile env <(jq -s . enviados-email.jsonl) --slurpfile fora
+     fora.json > lista-resto.json`, e separar quem tem `slug`.
+- As 119 contas sem link (cadastro sem Smart Link) ficaram de fora: o texto
+  fala de "smartli.ink/<link>". Decisão do Mateus pendente em 20/10.
+- Sem nome no cadastro, o e-mail diz só "Oi." e o WhatsApp não vai ({{1}}
+  vazio seria recusado).

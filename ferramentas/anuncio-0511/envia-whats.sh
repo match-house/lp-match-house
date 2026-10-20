@@ -10,7 +10,9 @@ API=https://api.matchhouse.com.br/backoffice
 LISTA=${1:-$D/lista-dia1.json}
 LOG=$D/enviados-whats.jsonl
 touch "$LOG"
-SID=HXedcf8b8e51a95963c3305bfca21387fe
+# 20/10: mh_aviso_regra_clientes_2, o mesmo aviso com o Indique e Ganhe
+# (MARKETING). O _1 era HXedcf8b8e51a95963c3305bfca21387fe.
+SID=HXc90bd14f65062296e4d6fe70abd7dd56
 
 registra() { echo "$1" >> "$LOG"; echo "$1"; }
 

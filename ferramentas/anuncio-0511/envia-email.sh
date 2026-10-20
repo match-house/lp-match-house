@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # E-mail do anúncio de 05/11, assinado "Match House" (texto aprovado pelo
-# Mateus em 19/10; envios: "Pode começar amanha"). Um por pessoa; quem já
+# Mateus em 19/10; trecho do Indique e Ganhe aprovado em 20/10 ("Pode"); envios: "Pode começar amanha"). Um por pessoa; quem já
 # recebeu (enviados-email.jsonl) é pulado. DRY=1 faz só a prévia.
 # Uso: bash envia-email.sh [lista.json]
 set -u
@@ -9,13 +9,14 @@ API=https://api.matchhouse.com.br/backoffice
 LISTA=${1:-$D/lista-dia1.json}
 LOG=$D/enviados-email.jsonl
 touch "$LOG"
-SUBJ='Seu Smart Link: o que muda em 05/11 e o novo Plano Pro'
+SUBJ='Seu Smart Link: o que muda em 05/11, o Plano Pro e o Indique e Ganhe'
 
 texto() { # $1 primeiro nome, $2 slug, $3 lista de espera (true/false)
-  local extra=""
+  local extra="" saud="Oi, $1."
+  [ -z "$1" ] && saud="Oi."
   [ "$3" = "true" ] && extra=$'\n\nVocê está na lista do Pro, então fica sabendo primeiro.'
   cat <<TXT
-Oi, $1.${extra}
+${saud}${extra}
 
 Um aviso sobre o seu Smart Link (smartli.ink/$2).
 
@@ -32,6 +33,12 @@ Para receber todos na hora, o Plano Pro já está disponível:
 - até 300 imóveis no ar (no plano de entrada, até 100).
 
 O Pro custa R\$ 147 por mês, no cartão. Você cancela quando quiser, pelo app, e tem 7 dias para desistir com o valor de volta.
+
+Novo: Indique e Ganhe. Cada colega corretor que criar o Smart Link pelo seu convite vale 10% de desconto no Pro, por 6 meses. Com 10 colegas valendo ao mesmo tempo, o Pro sai sem cobrança.
+
+O colega passa a contar quando publica o primeiro imóvel e ele fica 7 dias no ar. E quem entra pelo seu convite também ganha 10% no Pro, por 6 meses.
+
+Seu convite está no app, em Indique e Ganhe: https://app.smartli.ink/dashboard/indique
 
 Até 04/11 nada muda: os dois planos recebem todos os clientes na hora.
 
