@@ -410,8 +410,8 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
 - **Desistência nos 7 dias:** cancelando pelo app até o 7º dia depois do
   pagamento, o valor volta sozinho para o cartão e o Pro termina na hora.
 - **Não dizer:** "30 leads", "30 clientes", que a Match House traz clientes,
-  "grátis" ou "gratuito". O desconto do Indique e Ganhe ainda não vale: não
-  prometer.
+  "grátis" ou "gratuito". O Indique e Ganhe está ligado desde 20/10: ver a
+  seção 12.
 - **Pede o "pode" do Mateus:** desistência ou devolução fora do app,
   reclamação, cancelamento fora do app e qualquer promessa nova.
 
@@ -423,4 +423,42 @@ O Plano Pro custa R$ 147 por mês, no cartão. Com ele, todos os seus clientes c
 No plano de entrada, a partir de 05/11, o 1º cliente do mês continua chegando na hora; do 2º em diante, o contato aparece 36 horas depois. A IA continua atendendo todos na hora. Você cancela quando quiser pelo app e tem 7 dias para desistir com o valor de volta.
 
 Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram. Quem abrir o link é atendido pela sua IA, a qualquer hora.
+```
+
+## 12. Indique e Ganhe (ligado desde 20/10, às 8h27)
+
+- **Onde fica:** no menu, "Indique e Ganhe"
+  (`https://app.smartli.ink/dashboard/indique`), e no cartão da Visão geral.
+  A tela mostra o desconto que já vale, o convite para copiar ou
+  compartilhar e a etapa de cada colega, sem nome nem contato dele.
+- **Como funciona:**
+  - cada colega corretor que criar o Smart Link pelo convite vale 10% de
+    desconto no Pro, por 6 meses;
+  - o colega passa a contar quando confirma o celular, publica o 1º imóvel
+    e esse imóvel fica 7 dias no ar;
+  - o desconto soma até 100%: com 10 colegas valendo ao mesmo tempo, o Pro
+    sai sem cobrança;
+  - quem entra pelo convite também ganha 10% no Pro, por 6 meses, nas
+    mesmas condições;
+  - o desconto vale no Pro pago no cartão. Os 100% (Pro sem cobrança) só
+    no cartão; o Pix ainda não está no ar.
+- **Etapas que a tela mostra para cada colega:** "Falta confirmar o
+  celular", "Falta publicar o 1º imóvel", "Passa a contar em <data>",
+  "Valendo 10%" (até a data) e "Os 6 meses terminaram".
+- **Não dizer:** que a Match House paga ou dá dinheiro, que o desconto vale
+  para sempre, que vale no Pix, nem quantos corretores já indicaram (sigilo).
+  Não prometer cartão físico por indicação além do que a tela do cartão
+  mostra.
+- **Pede o "pode" do Mateus:** colega que "não contou" e o corretor acha que
+  devia (a equipe confere no backoffice antes de responder), e qualquer
+  pedido de desconto fora da regra.
+
+Texto pronto para "como funciona o Indique e Ganhe?" (trocar `<slug>`):
+
+```
+No Indique e Ganhe, cada colega corretor que criar o Smart Link pelo seu convite vale 10% de desconto no seu Pro, por 6 meses. Ele passa a contar quando publica o primeiro imóvel e esse imóvel fica 7 dias no ar. Com 10 colegas valendo ao mesmo tempo, o Pro sai sem cobrança. E quem entra pelo seu convite também ganha 10% no Pro.
+
+O seu convite está no app, em Indique e Ganhe: https://app.smartli.ink/dashboard/indique
+
+Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas redes. No app, em Divulgar, o botão "Cole o link na bio do Instagram" já copia o link e abre a tela certa do Instagram.
 ```
