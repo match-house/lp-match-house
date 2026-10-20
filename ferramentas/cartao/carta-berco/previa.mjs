@@ -19,9 +19,10 @@ const html = `<!doctype html><meta charset="utf-8"><style>
   .p { position: absolute; }
   .cartela { left: 35mm; top: 12mm; width: 100mm; height: 184mm; border-radius: 2mm;
     background: url(${cartela}) -3mm -3mm / 106mm 190mm; box-shadow: 0 1mm 4mm rgba(4,18,77,.25); }
-  .cartao { left: 42.2mm; top: 30mm; width: 85.6mm; height: 54mm; border-radius: 3.18mm; overflow: hidden;
+  .cartao { left: 58mm; top: 30mm; width: 54mm; height: 85.6mm; border-radius: 3.18mm; overflow: hidden;
     box-shadow: 0 .6mm 1.6mm rgba(0,0,0,.35); }
-  .cartao img { position: absolute; left: -2mm; top: -2mm; width: 89.6mm; height: 58mm; }
+  /* em pé: a arte do cartão (deitada) gira 90° */
+  .cartao img { position: absolute; left: -17.8mm; top: 13.8mm; width: 89.6mm; height: 58mm; transform: rotate(-90deg); }
   .luva { left: 33mm; top: 112mm; width: 104mm; height: 190mm;
     background: url(${luva}) -3mm -3mm / 229.5mm 215.5mm;
     -webkit-mask: radial-gradient(circle 13mm at 52mm 0, transparent 99%, #000 100%);

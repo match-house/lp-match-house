@@ -19,7 +19,9 @@ const up = (f) => readFileSync(join(here, '..', f), 'utf8');
 // Medidas em mm.
 const M = {
   sangria: 3,
-  cartao: { w: 85.6, h: 54, r: 3.18 },
+  // em pé (Mateus, 20/10: "o cartão vem no sentido longitudinal"): o lado
+  // comprido acompanha o comprimento da cartela
+  cartao: { w: 85.6, h: 54, r: 3.18, emPe: true },
   cartela: { w: 100, h: 184, r: 2, topoCartao: 18 },
   luva: {
     w: 104, // 2 mm de folga de cada lado da cartela
@@ -35,15 +37,12 @@ const M = {
 // número com vírgula, como a gráfica lê
 const n = (v, casas) => (casas == null ? String(v) : v.toFixed(casas)).replace('.', ',');
 
-const AZUL1 = '#0b2a8a';
 const AZUL2 = '#04124d';
-const CIANO = '#00efff';
 const CORTE = '#ec008c';
 const VINCO = '#00a651';
 
 const wordmark = (cor) =>
   up('wordmark-branco.svg').replace(/fill="#ffffff"/g, `fill="${cor}"`);
-const mAzul = up('m-azul.svg');
 const mBranco = up('m-branco.svg');
 
 // ---------------------------------------------------------------- geometria
@@ -85,8 +84,9 @@ function luvaGeo() {
 
 function cartelaGeo() {
   const C = M.cartela, K = M.cartao, { recuo: a, meio: m } = M.corte;
-  const x0 = (C.w - K.w) / 2, x1 = x0 + K.w;
-  const y0 = C.topoCartao, y1 = y0 + K.h;
+  const kw = K.emPe ? K.h : K.w, kh = K.emPe ? K.w : K.h;
+  const x0 = (C.w - kw) / 2, x1 = x0 + kw;
+  const y0 = C.topoCartao, y1 = y0 + kh;
   const r = C.r;
   const corte = `M ${r} 0 H ${C.w - r} A ${r} ${r} 0 0 1 ${C.w} ${r} V ${C.h - r} A ${r} ${r} 0 0 1 ${C.w - r} ${C.h} H ${r} A ${r} ${r} 0 0 1 0 ${C.h - r} V ${r} A ${r} ${r} 0 0 1 ${r} 0 Z`;
   // corte reto a 45° em cada canto, a `a` mm do canto para dentro
@@ -96,7 +96,7 @@ function cartelaGeo() {
     [x0 + a, y1 - a, 1, 1],
     [x1 - a, y1 - a, 1, -1],
   ].map(([px, py, dx, dy]) => [px - m * dx, py - m * dy, px + m * dx, py + m * dy]);
-  return { x0, x1, y0, y1, corte, cantos, W: C.w, H: C.h };
+  return { x0, x1, y0, y1, kw, kh, corte, cantos, W: C.w, H: C.h };
 }
 
 // ---------------------------------------------------------------- html
@@ -136,38 +136,25 @@ const linhas = (g, { rotulos = false, larg = 0.25 } = {}) => {
 // ---- luva
 
 function luvaArte(g) {
+  // Minimalista, só a marca, como a embalagem da C6 Tag (Mateus, 20/10:
+  // "deixe minimalista somente a marca igual ao C6"): azul liso por fora,
+  // o logo na frente e o M pequeno no verso. Sem texto.
   const s = M.sangria, L = M.luva;
   const W = g.W + 2 * s, H = g.H + 2 * s;
   const px = (x) => x + s;
   const fundo = `
     <rect x="0" y="0" width="${W}" height="${H}" fill="${AZUL2}"/>
-    <defs>
-      <linearGradient id="gf" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="${AZUL1}"/><stop offset="1" stop-color="${AZUL2}"/>
-      </linearGradient>
-      <radialGradient id="brilho" cx="${px(L.w) - 6}" cy="${s + 18}" r="70" gradientUnits="userSpaceOnUse">
-        <stop offset="0" stop-color="rgba(20,100,230,.7)"/><stop offset="1" stop-color="rgba(20,100,230,0)"/>
-      </radialGradient>
-    </defs>
-    <rect x="0" y="0" width="${px(L.w)}" height="${s + L.h}" fill="url(#gf)"/>
-    <rect x="0" y="0" width="${px(L.w)}" height="${s + L.h}" fill="url(#brilho)"/>
     <!-- abas de cola sem tinta, a 2 mm da dobra -->
     <rect x="${px(g.bx1) + 2}" y="0" width="${L.aba + s}" height="${H}" fill="#fff"/>
     <rect x="0" y="${s + g.fy0 + 2}" width="${px(L.w) + 2}" height="${L.fundo + s}" fill="#fff"/>`;
   const fx = s, fw = L.w; // frente
   const bx = s + g.bx0; // verso
+  const lw = 46; // largura do logo da frente
   const corpo = `
   <div class="page">
     <svg class="abs" style="left:0;top:0;width:${W}mm;height:${H}mm" viewBox="0 0 ${W} ${H}">${fundo}</svg>
-    <div class="abs" style="left:${fx + (fw - 44) / 2}mm;top:${s + 26}mm;width:44mm">${wordmark('#ffffff')}</div>
-    <div class="t" style="left:${fx + 8}mm;top:${s + 70}mm;width:${fw - 16}mm;color:#fff;font-weight:600;font-size:8.2mm;line-height:1.12">Seu Smart Link chegou.</div>
-    <div class="t" style="left:${fx + 12}mm;top:${s + 104}mm;width:${fw - 24}mm;color:${CIANO};font-size:3.7mm;line-height:1.4">Puxe pela meia-lua e encoste o cartão no celular de quem você atende.</div>
-    <div class="t" style="left:${fx}mm;top:${s + 170}mm;width:${fw}mm;color:rgba(255,255,255,.72);font-family:'Plex Mono',monospace;font-size:3.3mm;letter-spacing:.06em">smartli.ink</div>
-
-    <div class="t" style="left:${bx + 12}mm;top:${s + 66}mm;width:${fw - 24}mm;color:#fff;font-weight:600;font-size:5mm;line-height:1.25">Um presente da Match House</div>
-    <div class="t" style="left:${bx + 12}mm;top:${s + 84}mm;width:${fw - 24}mm;color:#dde2f2;font-size:3.3mm;line-height:1.5">Dentro está o seu cartão Smart Link. Ele abre o seu link, com os seus imóveis e a sua IA, que responde na hora.</div>
-    <div class="abs" style="left:${bx + (fw - 16) / 2}mm;top:${s + 150}mm;width:16mm">${mBranco}</div>
-    <div class="t" style="left:${bx}mm;top:${s + 162}mm;width:${fw}mm;color:rgba(255,255,255,.72);font-size:2.8mm;letter-spacing:.12em">MATCH HOUSE</div>
+    <div class="abs" style="left:${fx + (fw - lw) / 2}mm;top:${s + 85}mm;width:${lw}mm">${wordmark('#ffffff')}</div>
+    <div class="abs" style="left:${bx + (fw - 10) / 2}mm;top:${s + 168}mm;width:10mm">${mBranco}</div>
   </div>`;
   return doc(W, H, corpo, '.abs svg[viewBox] { width:100%; height:auto; }');
 }
@@ -220,35 +207,25 @@ function luvaFaca(g, tecnico = false) {
 // ---- cartela
 
 function cartelaArte(g) {
+  // Minimalista, só a marca: frente branca com o cartão e o logo embaixo;
+  // verso no azul da luva, com o M pequeno.
   const s = M.sangria, C = M.cartela, K = M.cartao;
   const W = g.W + 2 * s, H = g.H + 2 * s;
-  const passo = (n, y, txt) => `
-    <div class="abs" style="left:${s + 10}mm;top:${s + y}mm;width:6mm;height:6mm;border-radius:50%;background:${AZUL1};color:#fff;font-weight:600;font-size:3.2mm;line-height:6mm;text-align:center">${n}</div>
-    <div class="abs" style="left:${s + 19}mm;top:${s + y - 0.4}mm;width:${C.w - 29}mm;color:${AZUL2};font-size:3.2mm;line-height:1.42">${txt}</div>`;
+  const lw = 34;
   const frente = `
   <div class="page">
     <svg class="abs" style="left:0;top:0;width:${W}mm;height:${H}mm" viewBox="0 0 ${W} ${H}">
       <rect width="${W}" height="${H}" fill="#ffffff"/>
-      <rect x="0" y="0" width="${W}" height="${s + 1.6}" fill="${CIANO}"/>
-      <rect x="${s + g.x0}" y="${s + g.y0}" width="${K.w}" height="${K.h}" rx="${K.r}" fill="#eef1f8"/>
+      <rect x="${s + g.x0}" y="${s + g.y0}" width="${g.kw}" height="${g.kh}" rx="${K.r}" fill="#eef1f8"/>
     </svg>
-    <div class="t" style="left:${s}mm;top:${s + 8.2}mm;width:${C.w}mm;color:${AZUL1};font-weight:600;font-size:2.5mm;letter-spacing:.18em">O SEU CARTÃO SMART LINK</div>
-    <div class="abs" style="left:${s + 10}mm;top:${s + 84}mm;color:${AZUL2};font-weight:600;font-size:4.6mm">Como usar</div>
-    ${passo(1, 95, 'Encoste o cartão atrás do celular do cliente. O seu Smart Link abre na tela.')}
-    ${passo(2, 112, 'Se não abrir, peça para ele apontar a câmera para o QR do cartão.')}
-    ${passo(3, 129, 'Leve na carteira e mostre em cada visita e em cada atendimento.')}
-    <svg class="abs" style="left:${s + 10}mm;top:${s + 150}mm;width:${C.w - 20}mm;height:0.3mm" viewBox="0 0 80 0.3"><rect width="80" height="0.3" fill="#d3d9ee"/></svg>
-    <div class="abs" style="left:${s + (C.w - 30) / 2}mm;top:${s + 157}mm;width:30mm">${wordmark(AZUL1)}</div>
-    <div class="t" style="left:${s}mm;top:${s + 168.5}mm;width:${C.w}mm;color:#4a5578;font-size:2.7mm">Dúvidas? WhatsApp (27) 99854-6800</div>
+    <div class="abs" style="left:${s + (C.w - lw) / 2}mm;top:${s + 150}mm;width:${lw}mm">${wordmark(AZUL2)}</div>
   </div>`;
   const verso = `
   <div class="page">
     <svg class="abs" style="left:0;top:0;width:${W}mm;height:${H}mm" viewBox="0 0 ${W} ${H}">
-      <defs><linearGradient id="gv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${AZUL1}"/><stop offset="1" stop-color="${AZUL2}"/></linearGradient></defs>
-      <rect width="${W}" height="${H}" fill="url(#gv)"/>
+      <rect width="${W}" height="${H}" fill="${AZUL2}"/>
     </svg>
-    <div class="abs" style="left:${s + (C.w - 20) / 2}mm;top:${s + 80}mm;width:20mm">${mAzul}</div>
-    <div class="t" style="left:${s}mm;top:${s + 94}mm;width:${C.w}mm;color:rgba(255,255,255,.72);font-family:'Plex Mono',monospace;font-size:3mm;letter-spacing:.06em">smartli.ink</div>
+    <div class="abs" style="left:${s + (C.w - 10) / 2}mm;top:${s + 165}mm;width:10mm">${mBranco}</div>
   </div>`;
   return doc(W, H, frente + verso);
 }
@@ -260,7 +237,7 @@ function cartelaFaca(g, tecnico = false) {
   const rot = (x, y, txt, tam = 3) =>
     `<text x="${x}" y="${y}" font-size="${tam}" fill="#555" text-anchor="middle" font-family="Poppins">${txt}</text>`;
   const cartao = tecnico
-    ? `<rect x="${g.x0}" y="${g.y0}" width="${K.w}" height="${K.h}" rx="${K.r}" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="1 1"/>${rot(C.w / 2, g.y0 + K.h / 2, `posição do cartão ${n(K.w)} x ${K.h} mm`, 2.8)}`
+    ? `<rect x="${g.x0}" y="${g.y0}" width="${g.kw}" height="${g.kh}" rx="${K.r}" fill="none" stroke="#999" stroke-width="0.2" stroke-dasharray="1 1"/>${rot(C.w / 2, g.y0 + g.kh / 2, `cartão em pé, ${n(g.kw)} x ${n(g.kh)} mm`, 2.8)}`
     : '';
   const notas = tecnico
     ? `${rot(C.w / 2, C.h + 8, `Cartela ${C.w} x ${C.h} mm, cantos com raio ${C.r} mm`, 3.2)}

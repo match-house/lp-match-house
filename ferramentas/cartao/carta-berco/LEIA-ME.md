@@ -23,8 +23,9 @@ cartela"), no estilo da embalagem da C6 Tag. Tudo em tamanho real (1:1), em mm.
 
 - **Cartão:** 85,6 x 54 mm (PVC, cantos com raio 3,18 mm), vem da Vixcard.
 - **Cartela:** 100 x 184 mm, cantos com raio 2 mm.
-  - O cartão fica centralizado, com o topo a 18 mm da borda de cima (7,2 mm
-    de cada lado).
+  - O cartão fica em pé, com o lado comprido no sentido da cartela (Mateus,
+    20/10: "o cartão vem no sentido longitudinal"). Fica centralizado, com o
+    topo a 18 mm da borda de cima e 23 mm de cada lado.
   - Ele encaixa por 4 cortes retos a 45°, de 17 mm, um em cada canto, a 4 mm
     do canto do cartão para dentro. Sem cola.
 - **Luva fechada:** 104 x 190 mm (2 mm de folga de cada lado da cartela e 6 mm
@@ -38,18 +39,12 @@ cartela"), no estilo da embalagem da C6 Tag. Tudo em tamanho real (1:1), em mm.
     6 mm abaixo da boca, a meia-lua mostra uns 7 mm dela.
   - Abas de cola sem tinta (a tinta da frente e do verso passa 2 mm da dobra).
 
-## Textos
+## Arte: só a marca (Mateus, 20/10: "deixe minimalista somente a marca igual ao C6")
 
-- **Luva, frente:** "Seu Smart Link chegou." e "Puxe pela meia-lua e encoste
-  o cartão no celular de quem você atende."
-- **Luva, verso:** "Um presente da Match House" e "Dentro está o seu cartão
-  Smart Link. Ele abre o seu link, com os seus imóveis e a sua IA, que
-  responde na hora."
-- **Cartela:** "Como usar", em 3 passos:
-  1. encostar no celular;
-  2. se não abrir, apontar a câmera para o QR;
-  3. levar na carteira.
-  O rodapé leva o WhatsApp de atendimento, o 6800.
+- **Luva:** azul liso (#04124d) por fora. Na frente, o logo Match House em
+  branco; no verso, o M pequeno embaixo. Sem texto.
+- **Cartela:** frente branca, com o cartão e o logo azul embaixo. Verso no
+  azul da luva, com o M pequeno.
 - Serve para o Green e para o Blue: não tem nome nem número do corretor.
 
 ## Como gerar de novo
