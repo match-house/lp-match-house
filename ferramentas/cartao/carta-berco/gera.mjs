@@ -138,7 +138,8 @@ const linhas = (g, { rotulos = false, larg = 0.25 } = {}) => {
 function luvaArte(g) {
   // Minimalista, só a marca, como a embalagem da C6 Tag (Mateus, 20/10:
   // "deixe minimalista somente a marca igual ao C6"): azul liso por fora,
-  // o logo na frente e o M pequeno no verso. Sem texto.
+  // o logo na frente, com "desbloqueie seu mundo" pequeno embaixo, e o M
+  // pequeno no verso.
   const s = M.sangria, L = M.luva;
   const W = g.W + 2 * s, H = g.H + 2 * s;
   const px = (x) => x + s;
@@ -154,6 +155,8 @@ function luvaArte(g) {
   <div class="page">
     <svg class="abs" style="left:0;top:0;width:${W}mm;height:${H}mm" viewBox="0 0 ${W} ${H}">${fundo}</svg>
     <div class="abs" style="left:${fx + (fw - lw) / 2}mm;top:${s + 85}mm;width:${lw}mm">${wordmark('#ffffff')}</div>
+    <!-- Mateus, 20/10: "escreva pequeno embaixo da marca" -->
+    <div class="t" style="left:${fx}mm;top:${s + 99.5}mm;width:${fw}mm;color:rgba(255,255,255,.78);font-size:2.9mm;letter-spacing:.08em">desbloqueie seu mundo</div>
     <div class="abs" style="left:${bx + (fw - 10) / 2}mm;top:${s + 168}mm;width:10mm">${mBranco}</div>
   </div>`;
   return doc(W, H, corpo, '.abs svg[viewBox] { width:100%; height:auto; }');
