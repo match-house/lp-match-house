@@ -181,6 +181,10 @@ Notas do projeto para agentes. Ler antes de mexer.
     - A regra noturna religa os conjuntos às 07h13, mas não a campanha:
       com a campanha pausada, nada gasta.
     - Para voltar: `enable_campaign`, só com o Mateus.
+    - Isto vale acima do que a rotina do relatório diário ainda diz da
+      Meta: a verba em 5000 e os anúncios 11 seguem configurados, mas sem
+      gastar. Gasto zero e zero cadastro da Meta não são alerta; gasto
+      da Meta, sim (alguém religou).
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
