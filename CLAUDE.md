@@ -2063,6 +2063,18 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       e-mail "Carta berço" do Mateus, 08/10.
   - **Nenhum dado de corretor vai para o fornecedor.** A amostra sai com a
     conta interna.
+  - **Pedidos em lotes de 10, na planilha da Vixcard** (Mateus, 20/10: "eles
+    vao me mandar uma planilha para prenchermos e podemos pedir de 10 em 10.
+    dai fazemos tudo no modelo deles"). Quando a planilha chegar, eu
+    preencho com os pedidos do app (`GET /backoffice/cartoes`, mais o CRECI e
+    o link de cada um), 10 por vez. O envio também segue o modelo deles.
+    - Antes do primeiro lote, a Política de Privacidade tem de dizer que o
+      nome, o CRECI e o link vão para a gráfica, e o endereço para quem
+      entrega, e que se apagam 30 dias depois da entrega. O pedido do app
+      hoje só diz "Enviamos o cartão pelo correio para este endereço".
+    - A carta-berço (luva + cartela) está em `ferramentas/cartao/carta-berco/`
+      da branch de trabalho. Em 20/10 o Mateus mandou o orçamento a duas
+      gráficas.
 
 ### Pendências do Indique e Ganhe (revisão de 07/10)
 
