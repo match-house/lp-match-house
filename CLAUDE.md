@@ -168,23 +168,17 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
-  - **Desde 20/10, às 6h37: Meta inteira pausada** (campanha do app
-    120252349246370445 em PAUSED; o orçamento ficou em 5000). A LP já
-    estava pausada desde 07/10.
-    - Motivo, de 13 a 19/10: pela Meta, R$ 418 com imposto, 12 contas e
-      3 que publicaram (R$ 139 por corretor que publicou). Pelo ChatGPT,
-      R$ 625, 67 contas e 19 que publicaram (R$ 33). Em 18 e 19/10 a Meta
-      não trouxe nenhum cadastro.
-    - Proposta minha no relatório: passar os R$ 50/dia da Meta para o
-      ChatGPT. O Mateus respondeu "Pode".
-    - O ChatGPT sobe de R$ 100 para R$ 150/dia pelo painel dele.
-    - A regra noturna religa os conjuntos às 07h13, mas não a campanha:
-      com a campanha pausada, nada gasta.
-    - Para voltar: `enable_campaign`, só com o Mateus.
-    - Isto vale acima do que a rotina do relatório diário ainda diz da
-      Meta: a verba em 5000 e os anúncios 11 seguem configurados, mas sem
-      gastar. Gasto zero e zero cadastro da Meta não são alerta; gasto
-      da Meta, sim (alguém religou).
+  - **20/10: Meta continua no ar; decisão no fim da semana.** Entendi um
+    "Pode" do Mateus como sim à minha proposta de passar os R$ 50/dia da
+    Meta para o ChatGPT e pausei a campanha do app às 6h37. Ele
+    respondeu: "Sobre a meta vamos esperar essa semana para decidir".
+    Religuei às ~6h50, com a mesma verba (5000) e os mesmos anúncios 11.
+    - Números da proposta, de 13 a 19/10:
+      - Meta: R$ 418 com imposto, 12 contas e 3 que publicaram (R$ 139
+        por corretor que publicou);
+      - ChatGPT: R$ 625, 67 contas e 19 que publicaram (R$ 33).
+    - Levar de novo no fim da semana, com os 7 dias novos. Até lá, não
+      pausar a Meta.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
