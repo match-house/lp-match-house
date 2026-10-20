@@ -1947,6 +1947,10 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       letra e QR maiores (19 e 20/10, commit 2bfb38c da branch de
       trabalho) foram descartadas: não propor de novo.
     - Amostra 2 da INMC para a Vixcard refeita assim (commit 87009a7).
+      **Mandada à gráfica pelo Mateus em 20/10, de manhã** ("Ja mandei para
+      a gráfica o cartao novo, cores + claras"). Quando chegar: testar o
+      NFC e o QR num iPhone e num Android e ver se o verde e o azul se
+      distinguem no PVC.
     - O pedido de orçamento da carta-berço para gráfica está em
       `ferramentas/cartao/pedido-carta-berco.md` da branch de trabalho.
       A Vixcard e a BPD não fazem.
