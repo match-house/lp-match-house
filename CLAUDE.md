@@ -168,6 +168,10 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
+  - **20/10, de manhã: o Mateus pausou o 11d** (cole-o-link, 120252806128330445)
+    no Gerenciador ("desativei um criativo na Meta.."). Era o que mais gastava
+    no conjunto do app: R$ 144 desde 16/10, contra R$ 25 do 11b e R$ 0,36 do
+    11c. Ficam no ar o 11b e o 11c. Não religar sem ele.
   - **20/10: Meta continua no ar; decisão no fim da semana.** Entendi um
     "Pode" do Mateus como sim à minha proposta de passar os R$ 50/dia da
     Meta para o ChatGPT e pausei a campanha do app às 6h37. Ele
