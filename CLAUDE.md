@@ -1893,6 +1893,24 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O PDF da amostra da INMC enviado à Vixcard está em `original/`.
   - Remontado em 16/10. Mateus: "ele ja remontou la com dados da camila..
     mas pode fazer tb e salve aqui".
+- **Versão 2 (19/10), depois da amostra impressa.** A amostra funcionou
+  (NFC e QR), mas, nas palavras do Mateus: "ficou muito pequeno para
+  leitura e as cores muito escuras nao da para diferenciar o azul do
+  verde". No PVC, os fundos saíram quase pretos.
+  - Ficaram o mesmo verde escuro e o mesmo azul-noite, mais claros. Texto
+    branco a partir de 2,6 mm. O QR do verso tem 17 mm.
+  - Recusados por ele no mesmo dia; não propor de novo:
+    - verde e azul claros: "assim nao ficou um alto padrão";
+    - a marca na vertical, à direita (as duas opções): "Nada disso ficou
+      bom, volte ao que era".
+  - Amostra 2 (INMC): `ferramentas/cartao/amostra-inmc-v2.pdf`. A
+    mensagem à Thaisa (cor e número do chip) foi dada ao Mateus.
+- **No app, o cartão mostra o nome e o link do próprio corretor antes do
+  pedido** (app #154, 19/10). Mateus: "consegue colocar o nome do corretor
+  no cartao dele para ele ver no app? antes de pedir".
+  - Na frente vão "<primeiro nome> IA" e `smartli.ink/<slug>`, sem número.
+  - A arte do app ainda tem as cores da v1. Passar para a v2 quando a
+    amostra 2 for aprovada.
 - **Fornecedor: Vixcard (Victor e Thaisa).**
   - **Orçamento nº 32481, de 07/10:** chip Mifare 1K com gravação do ID.
     Por cartão: 100 un. R$ 9,89; 250 un. R$ 8,99; 500 un. R$ 6,99. Frete
