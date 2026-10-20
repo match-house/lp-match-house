@@ -484,6 +484,28 @@ para aquela mensagem.
   - O relatório diário traz a linha "Cancelamentos do Pro": quantos houve
     ontem e os motivos, lidos em `/backoffice/pro/cancelamentos`. Se não
     houver nenhum, a linha diz "nenhum".
+  - **Relatório diário: bloco "Pro: Stripe e Pix do C6"** (Mateus, 20/10:
+    "pode incluir no relatório o stripe e o pix c6"). Vale acima do roteiro
+    da rotina, que ainda não fala dele.
+    - **Stripe:** o conector Stripe foi ligado pelo Mateus em 20/10. É só
+      leitura: cobrar,
+      devolver, cancelar ou mexer em assinatura só com o "pode" dele.
+      Ler as assinaturas (`GetSubscriptions`, com status active, incomplete
+      e canceled) e as cobranças de ontem (`GetCharges` com `created`).
+      O `metadata.id_user` diz de quem é.
+    - **Pix do C6:** `GET /backoffice/pro/pix?dias=2` (api #115) e
+      `pix_c6` em `/backoffice/pro/status` (ligado ou não). Enquanto o C6
+      não liberar a produção, a linha diz "desligado".
+    - O que vai no bloco: assinaturas novas, renovações pagas, pagamentos
+      que falharam, cancelamentos (com os motivos de `pro/cancelamentos`),
+      devoluções dos 7 dias e quem começou a assinar e não terminou.
+      Também o total de assinantes ativos e a receita do mês **só de
+      corretores**. Fora: as contas internas, de teste e duplicadas.
+    - O painel antigo (backoffice.matchhouse.com.br, "Total arrecadado
+      por mês") soma as cobranças das contas internas e as já devolvidas.
+      Não usar esse número.
+    - Assinantes, receita e quem pagou ficam só no relatório e em
+      `scratchpad/pro/`. Este repositório é público.
 
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
