@@ -22,7 +22,9 @@ A v2 muda:
   estava antes.. a cor ja vai resolver o problema. entao resumindo: so
   vamos mudar do que foi impresso de teste, a cor e a retirada da
   marcaçao do chip". Então a v2 é a amostra impressa com só duas mudanças:
-  - a cor (acima), com o texto, o logo e o wordmark brancos;
+  - a cor (acima), com o texto, o logo e o wordmark brancos. O M da frente
+    do Blue volta ao degradê da marca, como na amostra (Mateus, 20/10: "o M
+    do blue na parte da frente coloque na cor degrade da marca que estava");
   - sem o desenho do chip na frente.
   Letra, QR, marca e posições são os da amostra. As tentativas com letra e
   QR maiores (19 e 20/10) estão no commit 2bfb38c; não voltar a elas.

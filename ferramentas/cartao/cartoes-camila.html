@@ -14,7 +14,8 @@
   impresso de teste, a cor e a retirada da marcaçao do chip"):
   - a cor: o mesmo verde escuro e o mesmo azul-noite, mais claros (no PVC os
     fundos da amostra saíram quase pretos), texto branco ou quase branco,
-    logo e wordmark brancos e o brilho um pouco mais forte;
+    logo e wordmark brancos (o M da frente do Blue fica no degradê da marca,
+    como na amostra: Mateus, 20/10) e o brilho um pouco mais forte;
   - sem o desenho do chip na frente.
   Tentativas de 19 e 20/10 com letra e QR maiores: commit 2bfb38c.
 
@@ -70,7 +71,7 @@
   /* Frente */
   .logo-m { left: 7.6mm; top: 6.9mm; width: 7.1mm; }
   .green .logo-m { filter: drop-shadow(0 0 .9mm rgba(255,255,255,.55)); }
-  .blue .logo-m { filter: drop-shadow(0 0 .9mm rgba(0,200,255,.6)); }
+  .blue .logo-m { filter: drop-shadow(0 0 .9mm rgba(0,140,255,.65)); }
 
 
   .nfc { left: 78.6mm; top: 7.75mm; width: 2.7mm; height: 3.3mm; }
@@ -189,7 +190,7 @@
     <circle cx="73.6" cy="17.9" r="30.1" fill="none" stroke="url(#fade-b)" stroke-opacity=".65" stroke-width=".14"/>
     <circle cx="62.5" cy="4.0" r=".62" fill="#00efff" fill-opacity=".7"/>
   </svg>
-  <img class="abs logo-m" src="m-branco.svg" alt="">
+  <img class="abs logo-m" src="m-azul.svg" alt="">
   <svg class="abs nfc" viewBox="0 0 27 33" fill="none" stroke="var(--acc)" stroke-width="2.6" stroke-linecap="round">
     <path d="M3 12.5a6 6 0 0 1 0 8"/><path d="M9 8.5a12 12 0 0 1 0 16"/><path d="M15.5 4a18.5 18.5 0 0 1 0 25"/><path d="M22.5 1a24 24 0 0 1 0 31"/>
   </svg>
