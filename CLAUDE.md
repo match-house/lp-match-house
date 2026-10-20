@@ -1879,6 +1879,10 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     20/10: "temos que ter o endereço de nossos clientes"). Vale acima do
     "apagado 30 dias depois da entrega" de 07/10. A API não tem rotina que
     apague o endereço.
+    - O endereço serve para entregar o cartão, em casa ou no escritório, e
+      só isso. Marketing por correio está fora (Mateus, 20/10:
+      "provavelmente nao vamos mandar nada em papel. somos digital!"). Não
+      pôr opção de correspondência no pedido do cartão.
 - **QR por imóvel**: no ar desde 07/10 (PR app #122). Ver a seção "QR code
   por imóvel".
 - **"Crie seu Smart Link" maior** no perfil e em cada imóvel (aprovado). Passa
