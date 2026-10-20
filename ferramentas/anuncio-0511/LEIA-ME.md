@@ -50,3 +50,7 @@ Para refazer as listas se o scratchpad sumir:
 - `envia-email-sem-link.sh lista-sem-link.json`: as 119 contas sem link,
   com o texto adaptado (Mateus, 20/10: "Pode avisar todos, pode ir mandando
   e depois ajusto para aumentarmos o envio"). Vão depois da lista com link.
+- O teto de 50 WhatsApps por dia do backoffice vale também para as respostas
+  de atendimento no 6800. Em 20/10 o aviso usou os 50 e a resposta a um
+  corretor ficou para o dia seguinte. Desde então o `envia-whats.sh` para em
+  40 por dia (`LIMITE_DIA`), para sempre sobrar espaço para atender.
