@@ -768,6 +768,23 @@ para aquela mensagem.
       revisão 29 com `C6_PIX_AUTOMATICO=on` e `C6_PIX_SO_CONTAS=999` → Pix
       real de R$ 147 na 999 (com o "pode" dele) e desistência nos 7 dias →
       abrir para todos só com o "ok" dele.
+    - **Feito em 21/10, à noite.** Revisão 28 (credenciais, certificado,
+      conta e agência) às 20h00, login no C6 e webhooks `rec` e `cobr`
+      cadastrados. Revisão 29 (`C6_PIX_AUTOMATICO=on`, `C6_PIX_SO_CONTAS=999`)
+      às 20h12.
+    - A 999 já era Pro no cartão até 19/11 e não podia assinar o Pix. O login
+      do Mateus abre a 39 (smartli.ink/matchhouse), que entrou na trava pelo
+      código (api #119, `PIX_C6_CONTAS_INTERNAS`).
+    - **Teste real na 39, 20h25 a 20h28:** QR pago em 70 s, autorização
+      APROVADA, Pro até 21/11; desistência pelo app, autorização CANCELADA no
+      C6 e devolução dos R$ 147 conferida pelo Mateus na conta ("Devolveu o
+      valor tudo ok!"). A 39 está fora da nota fiscal.
+    - O relógio do Mac do Mateus estava um dia atrasado, e o login da AWS
+      vencia em minutos ("security token ... expired"). Acertado, parou.
+    - Falta: abrir para todos (revisão sem `C6_PIX_SO_CONTAS`, com o "ok"
+      dele), CNPJ no Pix (pedido dele: "se for empresa precisa de campo para
+      o CNPJ"), revogar a credencial antiga no portal do C6 e as perguntas de
+      antecedência, tarifas e IP fixo.
   - **Desistência nos 7 dias também no Pix** (api #111 e app #153, 19/10):
     o e-mail do anúncio e os termos prometem o valor de volta em qualquer
     forma de pagamento. Antes, a devolução automática só existia no cartão.
