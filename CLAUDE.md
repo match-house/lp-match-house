@@ -751,6 +751,23 @@ para aquela mensagem.
       Vitor, o dev. Volta a ser avaliado só se um parceiro exigir IP fixo.
   - **19/10, à noite:** o C6 mandou o contrato para assinar. O Mateus acha
     que o Pix sai em 20/10.
+  - **21/10: credenciais de produção saíram.** O Mateus criou no portal do
+    C6 o Client ID, o Client Secret e o certificado novos. Falta pôr no ECS:
+    a revisão feita à tarde se perdeu quando o login da AWS venceu, e ele
+    refaz em casa. Passo a passo (variáveis, teste na 999 e abertura) na
+    página "Pix C6 no ar": https://claude.ai/artifact/TuDY3bkC4gFbetn8xjtDqx.
+    - Na revisão 28, a partir da 27: `C6_CERT` e `C6_KEY` (base64 do .crt e
+      do .key), `C6_USERNAME` e `C6_PASSWORD` novos, `C6_CONTA` e
+      `C6_AGENCIA`. O resto do C6 já estava em produção.
+    - **Trava `C6_PIX_SO_CONTAS` (api #118, no ar em 21/10).** Com
+      `BILLING_MODE=on` (já ligado em produção), ligar o `C6_PIX_AUTOMATICO`
+      abriria o Pix a todo corretor de uma vez. Com `C6_PIX_SO_CONTAS=999`,
+      o Pix abre só para a 999. Tirar a variável abre para todos. Quem já
+      assina segue cobrado com ou sem ela.
+    - Ordem: revisão 28 → eu confiro o login no C6 e cadastro os webhooks →
+      revisão 29 com `C6_PIX_AUTOMATICO=on` e `C6_PIX_SO_CONTAS=999` → Pix
+      real de R$ 147 na 999 (com o "pode" dele) e desistência nos 7 dias →
+      abrir para todos só com o "ok" dele.
   - **Desistência nos 7 dias também no Pix** (api #111 e app #153, 19/10):
     o e-mail do anúncio e os termos prometem o valor de volta em qualquer
     forma de pagamento. Antes, a devolução automática só existia no cartão.
