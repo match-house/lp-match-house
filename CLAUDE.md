@@ -183,6 +183,19 @@ Notas do projeto para agentes. Ler antes de mexer.
       - ChatGPT: R$ 625, 67 contas e 19 que publicaram (R$ 33).
     - Levar de novo no fim da semana, com os 7 dias novos. Até lá, não
       pausar a Meta.
+  - **Custo por cadastro sempre por canal** (Mateus, 21/10: "acho q nao
+    esta considerando so custos do chatgpt, numeros n batem").
+    - A tabela do CAC do relatório junta Meta, Google e ChatGPT e divide
+      por todas as contas, inclusive as que vieram sem anúncio. Lida
+      sozinha, parecia ser só o ChatGPT.
+    - Daqui em diante, o relatório traz uma tabela por canal (ChatGPT,
+      Meta app, total), com ontem, 7 dias e mês. Cada canal entra só com o
+      gasto dele (a Meta com os 13,83%) e as contas que ele trouxe.
+    - Para cada canal: custo por conta criada, por quem concluiu o
+      cadastro e por quem publicou. Dizer sempre que "conta" é quem entrou
+      e "concluiu" é quem passou do código.
+    - O total vem depois, com o aviso de que o Google está sem gasto por
+      dia desde 17/10.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
