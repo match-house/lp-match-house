@@ -6,7 +6,11 @@ Uso: python3 cac.py 2026-09 [ate]   -> imprime {"funil": {...}} para o update do
 - cadastros: contas criadas no dia (horário de Brasília), sem contas internas/teste;
 - pagos: desses, os que vieram de anúncio (utm_source Meta ou Google);
 - publicaram: desses, os que já publicaram imóvel HOJE (coorte do dia — o número
-  de um dia antigo ainda cresce quando alguém publica depois).
+  de um dia antigo ainda cresce quando alguém publica depois);
+- canais (Mateus, 21/10: custo por cadastro separado por canal): por canal
+  (chatgpt, meta, google, sem_anuncio), contas, concluiram (passaram do código)
+  e publicaram por dia. A Meta junta o app e a LP, porque o gasto gravado na
+  área de custos é um só.
 Fonte: /backoffice/signups (a credencial do ambiente põe o token sozinho).
 """
 import json
@@ -71,6 +75,16 @@ def buscar(de: date, ate: date) -> list:
         pagina += 1
 
 
+def canal_de(origem: str) -> str:
+    if origem in ("chatgpt", "openai"):
+        return "chatgpt"
+    if origem == "google":
+        return "google"
+    if origem in ("meta", "ig", "fb", "facebook", "instagram"):
+        return "meta"
+    return "sem_anuncio"
+
+
 def main() -> None:
     mes = sys.argv[1]
     ano, m = map(int, mes.split("-"))
@@ -80,6 +94,7 @@ def main() -> None:
     ate = date.fromisoformat(sys.argv[2]) if len(sys.argv) > 2 else min(fim_mes, ontem)
 
     cad, pagos, pub = {}, {}, {}
+    canais = {c: {"contas": {}, "concluiram": {}, "publicaram": {}} for c in ("chatgpt", "meta", "google", "sem_anuncio")}
     vistos = set()
     for it in buscar(inicio, ate):
         if it["id_user"] in INTERNOS or it["id_user"] in vistos:
@@ -95,9 +110,15 @@ def main() -> None:
             pagos[k] = pagos.get(k, 0) + 1
         if (it.get("publicados") or 0) > 0:
             pub[k] = pub.get(k, 0) + 1
+        canal = canais[canal_de(origem)]
+        canal["contas"][k] = canal["contas"].get(k, 0) + 1
+        if it.get("sms_verificado_em"):
+            canal["concluiram"][k] = canal["concluiram"].get(k, 0) + 1
+        if (it.get("publicados") or 0) > 0:
+            canal["publicaram"][k] = canal["publicaram"].get(k, 0) + 1
 
     print(json.dumps({"funil": {
-        "cadastros": cad, "pagos": pagos, "publicaram": pub,
+        "cadastros": cad, "pagos": pagos, "publicaram": pub, "canais": canais,
         "fonte": "backoffice /signups; sem contas internas, de teste e duplicadas; publicaram = coorte do dia, contada no dia da atualização",
         "contado_em": datetime.now(BRT).isoformat(timespec="minutes"),
     }}, ensure_ascii=False))
