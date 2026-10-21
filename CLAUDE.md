@@ -199,6 +199,12 @@ Notas do projeto para agentes. Ler antes de mexer.
       - ChatGPT: R$ 625, 67 contas e 19 que publicaram (R$ 33).
     - Levar de novo no fim da semana, com os 7 dias novos. Até lá, não
       pausar a Meta.
+  - **`DIAS` do funil diário leva toda a mídia** (Mateus, 21/10: "Pq o custo
+    do cadastro esta 2,17 se tivemos 22 cadastros"). O `gasto` de cada dia
+    é Meta com os 13,83% + Google + ChatGPT, como no CAC da área de custos,
+    e não mais "Meta + Google sem imposto". Antes o ChatGPT ficava fora e o
+    custo por cadastro saía baixo demais (R$ 2,17 em vez de R$ 6,98 em
+    20/10). Vale acima do que a rotina do relatório diário diz de `DIAS`.
   - **Custo por cadastro sempre por canal** (Mateus, 21/10: "acho q nao
     esta considerando so custos do chatgpt, numeros n batem").
     - A tabela do CAC do relatório junta Meta, Google e ChatGPT e divide
