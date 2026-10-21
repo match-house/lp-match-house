@@ -1,0 +1,35 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+@font-face { font-family: "Poppins"; src: url("../Poppins-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Poppins"; src: url("../Poppins-SemiBold.ttf"); font-weight: 600; }
+body { margin:0; background:#e8ebf3; font-family:"Poppins",sans-serif; color:#04124d; }
+.wrap { width:1500px; padding:50px 40px 60px; box-sizing:border-box; display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+.step { display:grid; gap:18px; justify-items:center; align-content:start; }
+.n { width:44px; height:44px; border-radius:50%; background:#04124d; color:#fff; display:grid; place-items:center; font-weight:600; font-size:22px; }
+.cap { font-size:22px; line-height:1.35; text-align:center; max-width:400px; }
+.cap b { font-weight:600; }
+.stage { position:relative; width:420px; height:600px; }
+.env { position:absolute; left:40px; width:342px; height:486px; background:#0b2a8a; border-radius:6px; box-shadow:0 10px 24px rgba(4,18,77,.25); }
+.flap { position:absolute; left:0; top:0; width:342px; height:180px; background:#0a2580; clip-path:polygon(0 0,100% 0,50% 100%); border-radius:6px 6px 0 0; }
+.seal { position:absolute; left:146px; top:150px; width:50px; height:50px; border-radius:50%; background:#fff; display:grid; place-items:center; }
+.apoio { position:absolute; width:300px; height:450px; border-radius:4px; box-shadow:0 8px 20px rgba(4,18,77,.22); background:#fff center/cover no-repeat; }
+.verso { background-image:url("previa-verso.png"); }
+.frente { background-image:url("previa-frente-blue.png"); }
+.card { position:absolute; width:162px; height:257px; border-radius:10px; overflow:hidden; box-shadow:0 10px 22px rgba(4,18,77,.35); transform:rotate(-12deg); }
+.card img { position:absolute; width:257px; height:162px; left:-48px; top:48px; transform:rotate(-90deg); }
+</style></head><body><div class="wrap">
+  <div class="step"><div class="n">1</div>
+    <div class="stage"><div class="env" style="top:60px"><div class="flap"></div><div class="seal"><img src="../m-azul.svg" style="width:30px"></div></div></div>
+    <div class="cap">Chega pelo <b>Correio</b>, num envelope carta comum, fechado com o adesivo do M.</div></div>
+  <div class="step"><div class="n">2</div>
+    <div class="stage">
+      <div class="apoio frente" style="left:60px;top:0"></div>
+      <div class="env" style="top:300px;height:300px"></div>
+    </div>
+    <div class="cap">Dentro, o <b>cartão de apoio</b> (um papel firme de 10 x 15 cm) com o cartão de PVC preso nele.</div></div>
+  <div class="step"><div class="n">3</div>
+    <div class="stage">
+      <div class="apoio verso" style="left:20px;top:40px"></div>
+      <div class="card" style="left:240px;top:250px"><img src="../previa-blue-frente.png"></div>
+    </div>
+    <div class="cap">O corretor <b>destaca o cartão</b> (a cola sai sem marcar). No verso do papel, o <b>como usar</b>.</div></div>
+</div></body></html>
