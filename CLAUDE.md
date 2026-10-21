@@ -532,6 +532,21 @@ para aquela mensagem.
       Não usar esse número.
     - Assinantes, receita e quem pagou ficam só no relatório e em
       `scratchpad/pro/`. Este repositório é público.
+  - **Vendas no funil diário e no Funil Smart Link** (Mateus, 21/10: "as
+    vendas podem entrar no funil diario e no funil").
+    - A fonte é `GET /backoffice/pro/vendas?dias=N` (api #116). Ela lista
+      quem está com o Pro ativo e os pagamentos do Pro do período. Funciona
+      mesmo sem o conector do Stripe; quando o Stripe estiver na sessão,
+      conferir com ele.
+    - Na página do funil diário, o cartão "Vendas do Pro" lê a constante
+      `VENDAS`, trocada todo dia junto com as outras: vendas do dia, vendas
+      do mês, assinantes ativos, receita do mês e a lista do mês.
+    - O Funil Smart Link (`gerar.py`) monta sozinho a seção "Vendas do Pro".
+    - Contam só corretores: as contas internas e de teste ficam fora (a 999
+      inclusive). Receita é o que foi pago e não devolvido.
+    - Venda é status `succeeded` ou `paid` com valor acima de zero.
+      `refunded` é devolvida, e os outros status são pagamento que não
+      terminou.
 
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
