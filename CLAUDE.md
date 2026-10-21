@@ -1161,6 +1161,18 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   `smartli.ink/<slug>` na bio do Instagram e nas redes. O caminho no app é o
   botão "Cole o link na bio do Instagram", em Divulgar. Primeiro resolver a
   dúvida dele; o convite fecha a mensagem.
+- **O SAIR vem depois do convite, em itálico, como rodapé** (Mateus, 21/10:
+  "pode fazer assim, com o itálico").
+  - Linha separada, no fim: `_Se não quiser mais receber essas mensagens, é
+    só responder SAIR._`. No WhatsApp não dá para diminuir a letra, então o
+    itálico faz a vez de nota de rodapé.
+  - Só quando a pessoa está respondendo a uma mensagem automática (aviso ou
+    esteira). Não vai em toda resposta.
+  - No e-mail nada muda: o "Parar de receber" já fica no rodapé, cinza, em
+    12 px.
+  - Nos modelos do WhatsApp, quando houver versão nova, o SAIR vai no campo
+    de rodapé da Meta, que já sai pequeno e cinza. Não trocar os aprovados
+    só por isso.
 - Dúvida sobre qualquer tela do app (Divulgar, Métricas, IA & Leads, Imóveis,
   Redes, Editar perfil) se responde pelo guia
   **`ferramentas/guia-respostas-corretor.md`**. Ele foi levantado no código do
