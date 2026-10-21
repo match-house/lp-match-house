@@ -167,6 +167,68 @@ def bloco_esteira(hoje: date) -> str:
     return "\n  ".join(partes)
 
 
+PAGO = {"succeeded", "paid"}
+SITUACAO = {"refunded": "devolvido", "refunding": "devolvendo"}
+FORMA = {"card": "cartão", "pix": "Pix", "pix_c6": "Pix"}
+
+
+def brl(v: float) -> str:
+    return "R$ " + f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def bloco_vendas(hoje: date, ids_funil: set) -> str:
+    """Vendas do Pro (Mateus, 21/10: "as vendas podem entrar no funil diario e no funil")."""
+    url = "https://api.matchhouse.com.br/backoffice/pro/vendas?dias=400"
+    try:
+        d = json.loads(subprocess.run(["curl", "-sS", "--fail", "--max-time", "40", url],
+                                      capture_output=True, text=True, check=True).stdout)
+    except Exception as erro:  # a página sai mesmo se a rota não responder
+        return f'<div class="panel"><p class="sub">As vendas não responderam agora ({erro}).</p></div>'
+    ass = [a for a in d.get("assinantes", []) if a["id_user"] not in INTERNOS]
+    pags = [p for p in d.get("pagamentos", []) if p["id_user"] not in INTERNOS]
+    for p in pags:
+        p["_dia"] = datetime.fromisoformat(p["em"].replace("Z", "+00:00")).astimezone(BRT)
+    pags.sort(key=lambda p: p["_dia"])
+    mes = hoje.strftime("%Y-%m")
+    pagos_mes = [p for p in pags if p["status"] in PAGO and (p.get("valor") or 0) > 0
+                 and p["_dia"].strftime("%Y-%m") == mes]
+    receita = sum(p["valor"] for p in pagos_mes)
+    cancel = [a for a in ass if a.get("cancelamento_pedido_em")]
+    kpis = [
+        (len(ass), "Assinantes ativos", "só corretores, sem contas internas"),
+        (len(pagos_mes), f"Vendas em {MESES[hoje.month - 1].lower()}", "assinaturas e renovações pagas"),
+        (brl(receita), f"Receita de {MESES[hoje.month - 1].lower()}", "pago e não devolvido"),
+        (len(cancel), "Pediram para cancelar", "o Pro vale até o fim do período pago"),
+    ]
+    kp = "".join(f'<div class="kpi"><span class="v num">{v}</span><span class="l">{l}</span>'
+                 f'<span class="d">{dsc}</span></div>' for v, l, dsc in kpis)
+    linhas, vistos = [], set()
+    for p in pags:
+        if p["status"] in PAGO and (p.get("valor") or 0) > 0:
+            tipo = "renovação" if p["id_user"] in vistos else "assinou"
+            vistos.add(p["id_user"])
+            prazo = (p["_dia"] + timedelta(days=7)).date()
+            sit = f"{tipo}; pode desistir até {prazo:%d/%m}" if prazo >= hoje else tipo
+        else:
+            sit = SITUACAO.get(p["status"], "não concluiu o pagamento")
+        nome = (p.get("nome") or "").split(" ")[0] or "(sem nome)"
+        linhas.append(f'<tr><td class="num">{p["_dia"]:%d/%m %H:%M}</td><td>{nome} ({p["id_user"]})</td>'
+                      f'<td>{FORMA.get(p.get("metodo"), p.get("metodo") or "—")}</td>'
+                      f'<td class="r num">{brl(p.get("valor") or 0)}</td><td>{sit}</td></tr>')
+    linhas.reverse()
+    tabela = ('<table><thead><tr><th>Quando</th><th>Corretor</th><th>Forma</th><th class="r">Valor</th>'
+              f'<th>Situação</th></tr></thead><tbody>{"".join(linhas) or "<tr><td colspan=5>Nenhuma venda ainda.</td></tr>"}'
+              '</tbody></table>')
+    fora = [f'{(a.get("nome") or "").split(" ")[0] or "Sem nome"} ({a["id_user"]})'
+            for a in sorted(ass, key=lambda a: a["id_user"]) if a["id_user"] not in ids_funil]
+    nota = (f' {fora[0]} entrou antes de 1º/07, com uma conta do app antigo, por isso não aparece '
+            'no funil por cadastro abaixo.' if len(fora) == 1 else
+            f' {", ".join(fora)} entraram antes de 1º/07, com contas do app antigo, por isso não aparecem '
+            'no funil por cadastro abaixo.' if fora else '')
+    return (f'<div class="kpis">{kp}</div><div class="panel scroll">{tabela}'
+            f'<p class="sub" style="margin-top:10px">Contas internas e de teste ficam fora.{nota}</p></div>')
+
+
 def main() -> None:
     agora = datetime.now(BRT)
     hoje = agora.date()
@@ -230,6 +292,7 @@ def main() -> None:
         "__MESES_NOTA__": " Mostra os três últimos meses." if len(months) > 3 else "",
         "__MESES_OPT__": "".join(f'<option value="{m}">{n}</option>' for m, n, _ in months),
         "__ESTEIRA__": bloco_esteira(hoje),
+        "__VENDAS__": bloco_vendas(hoje, {r["id"] for r in linhas}),
     }
     for chave, valor in trocas.items():
         assert html.count(chave) == 1, chave
