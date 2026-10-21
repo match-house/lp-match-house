@@ -2306,6 +2306,25 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O nome de cada fatia leva a % dela ("Sem imóvel nem conversa · 63%").
     A API não escreve texto dentro da fatia: `pieSliceText` é ignorado sem
     erro (testado em 15/10). Dentro da fatia, só pelo editor do gráfico.
+- **Vendas no Painel do PRO (Mateus, 21/10: "pode fazer as vendas agora").**
+  - Etapa "7. Compraram o Pro" em Painel!L9:M9. Ela conta as linhas da aba
+    "Vendas Pro" (sheetId 1855183834), menos as devolvidas: uma linha por
+    corretor, pela primeira compra paga, sem contas internas, de teste e
+    duplicadas.
+  - Conta toda venda desde a abertura (19/10), também de conta de antes de
+    14/07, como no Funil Smart Link. O Enio (196), a 1ª venda, tem conta
+    desde 12/2024.
+  - A % da etapa 7 é sobre quem publicou (etapa 4) e sobre os logins, e não
+    sobre a etapa 6: comprar não depende de ter recebido lead.
+  - O funil desenhado foi para H11:K28, com a etapa 7 em verde (gerador
+    `ferramentas/painel-pro/gera-funil.mjs`). O 💡 da aba Dados desceu para
+    B29.
+  - O gráfico de cima ("Funil — do login à compra do Pro") lê L2:M9, e os
+    rótulos dele saem de 'Vendas Pro'!K2:K9: K3:K8 repetem a Base, e K9
+    é o da venda. O robô do export não mexe em nada disso (ele grava a
+    Base A1:C13 e as etapas 1 a 6).
+  - Atualização: a rotina das 06h47 (`trig_011zZvcgNN73kVfWyPypb1dc`) roda
+    `ferramentas/painel-pro/vendas.sh` e grava a aba a partir de A3.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
@@ -2323,6 +2342,7 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - `custos/cac.py` e `custos/aws_dias.py`: CAC e AWS do relatório.
   - `funil-smart-link/gerar.py` e `template.html`: o "Funil Smart Link".
   - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
+  - `painel-pro/vendas.sh`: a aba "Vendas Pro" do Painel (rotina das 06h47).
   - `cartao/`: o cartão Smart Link (Green e Blue), com o HTML, o PDF e o
     LEIA-ME.
 - A página do funil diário volta pelo Artifact (`read` com `path`
