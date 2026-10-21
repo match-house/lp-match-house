@@ -169,7 +169,7 @@ def bloco_esteira(hoje: date) -> str:
 
 PAGO = {"succeeded", "paid"}
 SITUACAO = {"refunded": "devolvido", "refunding": "devolvendo"}
-FORMA = {"card": "cartão", "pix": "Pix", "pix_c6": "Pix"}
+FORMA = {"card": "cartão", "pix": "Pix", "pix_automatico": "Pix (C6)"}
 
 
 def brl(v: float) -> str:
