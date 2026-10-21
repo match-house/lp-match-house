@@ -1425,6 +1425,30 @@ quando quem cortou foi o nosso limite (app #125).
   - Depois de publicada, saem as mensagens aos corretores dos imóveis com
     tipo errado, primeiro por e-mail.
 
+## Login vencido e o link dos avisos (app #157, no ar desde 21/10, 11h33)
+
+- Defeito visto no vídeo do Guilherme (1012), em 21/10. Ele tocou no link
+  do aviso por e-mail (`/dashboard/indique`), viu "Entre na sua conta" e,
+  ao tocar em "Fazer login", caiu em "Criar conta — Passo 2 de 2", com
+  "Sua sessão expirou" e um botão que não fazia nada.
+  - Causa: todo login gravava no navegador um "cadastro em andamento",
+    também para quem já tem link, e esse registro nunca saía. Quando a
+    sessão vencia, a entrada achava o registro e retomava a criação do
+    link, com um login de mais de 40 dias (o login da API vale 40 dias).
+- O que mudou:
+  - login de conta pronta apaga esse registro;
+  - a entrada descarta o registro com o login vencido, e também o de quem
+    já tem link nesse navegador;
+  - se a sessão cair no passo do link, a pessoa volta ao login com "Sua
+    sessão expirou. Entre de novo para continuar.";
+  - **o painel sem sessão abre direto a tela de entrada** (Mateus: "já
+    pode abrir direto?"). Não existe mais a tela "Entre na sua conta para
+    abrir o painel". Depois do login, a pessoa cai na tela do link que
+    tocou.
+- Publicação do app: em 21/10 o merge não disparou o "📦 Vercel Deploy"
+  sozinho. Se acontecer de novo, rodar o workflow à mão (`deploy.yml`,
+  workflow_dispatch na `main`).
+
 ## Entrar no app pelo Instagram no iPhone (decisões do Mateus, 09/10)
 
 - Números de 02 a 08/10: 36 pessoas abriram o app dentro do Instagram no
