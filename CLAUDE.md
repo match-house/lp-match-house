@@ -572,6 +572,12 @@ para aquela mensagem.
         tem a coluna `compraram`, pela origem da conta de quem comprou. A
         etapa pode passar da anterior: quem compra no dia raramente se
         cadastrou no mesmo dia. Dizer isso no `fonte`.
+      - Tabela "Campanha por campanha" (Mateus, 21/10: "Aq tb precisamos do
+        numero de vendas"): cada coluna de `CAMPANHAS.lista` tem `vendas`
+        (vendas pagas no período, pela origem da conta de quem pagou). A
+        tabela mostra "Compraram o Pro", "Publicou → comprou", "Por venda" e
+        "Vendas por R$ 100". `CAMPANHAS.vendas_nota` diz de onde vieram as
+        vendas do período, inclusive as que não vieram de anúncio.
       - Régua do PLG, linha "Freemium → pago" (Mateus, 21/10: "Aqui tb
         temos que incluir as vendas"): um ponto só, de todos os canais. A
         conta é corretores que pagaram ÷ corretores com imóvel no ar
