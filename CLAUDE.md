@@ -572,6 +572,13 @@ para aquela mensagem.
         tem a coluna `compraram`, pela origem da conta de quem comprou. A
         etapa pode passar da anterior: quem compra no dia raramente se
         cadastrou no mesmo dia. Dizer isso no `fonte`.
+      - Régua do PLG, linha "Freemium → pago" (Mateus, 21/10: "Aqui tb
+        temos que incluir as vendas"): um ponto só, de todos os canais. A
+        conta é corretores que pagaram ÷ corretores com imóvel no ar
+        (todos os tempos, sem contas internas). Em 21/10 deu 1 de 137, ou
+        0,73%. A régua não é diária, mas essa linha muda quando houver
+        venda nova: trocar `geral` no `PLG` (fonte: `/pro/vendas` e
+        `/agents` com publicados > 0).
       - Funil Smart Link: etapa 5 "Comprou o Pro". Ela conta a primeira
         compra de cada corretor pela data da compra, não do cadastro, nos
         cartões, no gráfico por mês e no semana a semana (Mateus, 21/10: "o
