@@ -1558,6 +1558,27 @@ quando quem cortou foi o nosso limite (app #125).
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
+## Vitrine (matchhouse.co): imóveis do Pro na frente (api #117, no ar desde 21/10, 12h20)
+
+- Pedido do Mateus em 21/10: "colocar os clientes pro com os imóveis
+  sempre na frente no matchhouse.co".
+- A busca externa (`findAllPropertyPageExternal`) sem `id_agent` nem
+  `id_property` devolve primeiro os imóveis de quem tem o Pro valendo e
+  depois os outros. Cada bloco vai do mais novo para o mais antigo, e a
+  paginação corre pelos dois como uma lista só.
+- O que conta como Pro: plano Pro ativo, pela mesma regra do cron que
+  desliga o plano (`cronDisableAt`). No cartão, vale a validade mais 10 dias
+  de folga; com cancelamento pedido, até o fim do período; no Pix do C6,
+  a própria validade. A conta interna 999 não entra.
+- Ficam como eram: a página de um corretor (Smart Link e IA), um imóvel
+  só e a contagem (`take -1`). Se o destaque falhar, volta à ordem de
+  sempre.
+- Conferido no ar em 21/10: a lista inteira com cada imóvel uma vez só, e
+  os 15 do Enio (corretor 132) na frente.
+- A revisão pegou que o Prisma recusa `id_agent: null`, porque o campo é
+  obrigatório. Os testes com o banco simulado não pegam esse tipo de erro:
+  filtro novo do Prisma se testa com um Postgres de verdade.
+
 ## Endereço do imóvel: só bairro, cidade e UF no site (Mateus, 19/10)
 
 - Nas palavras dele: "volta a regra de nao aparecer o endereço completo do
