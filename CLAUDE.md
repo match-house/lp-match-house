@@ -2325,6 +2325,13 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     Base A1:C13 e as etapas 1 a 6).
   - Atualização: a rotina das 06h47 (`trig_011zZvcgNN73kVfWyPypb1dc`) roda
     `ferramentas/painel-pro/vendas.sh` e grava a aba a partir de A3.
+  - Na parte de baixo (Mateus, 21/10: "aqui tb precisa refletir as
+    vendas"): o cartão "COMPRARAM O PRO 💳" em K33:K34 (=$M$9), e o
+    "Funil completo" do robô com a etapa 7 em verde (api a9886f0, na branch
+    do robô). Com isso a Base desceu uma linha: etapas em A2:C8, pizza em
+    A9:B12, apoio em B13 e imóveis no total em B14.
+  - A pizza continua só até o lead da IA: ela é a turma desde 14/07, e o
+    Enio (a 1ª venda) é de antes.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
