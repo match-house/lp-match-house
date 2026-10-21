@@ -395,7 +395,13 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
 
 - **Onde:** no app, "Plano Pro" no menu (no celular, o cartão "Plano Pro" na
   Visão geral). Link direto: `https://app.smartli.ink/dashboard/pro`.
-- **Preço:** R$ 147 por mês, no cartão. O Pix entra depois; ainda não há data.
+- **Preço:** R$ 147 por mês, no cartão ou no Pix.
+- **Pix (no ar desde 21/10, à noite):** é débito automático. O corretor
+  escolhe "Pix", informa o CPF e paga o QR (ou o "Copiar código Pix") do
+  1º mês; com isso ele autoriza o débito no banco, uma vez só, e os meses
+  seguintes saem sozinhos. O código vale 10 minutos (depois, "Gerar novo
+  código"). Pagar de uma conta no nome do mesmo CPF. Por enquanto só CPF:
+  empresa com CNPJ ainda não.
 - **O que tem:**
   - todos os clientes com nome e celular, na hora;
   - visitas marcadas pela IA a partir de 1 hora depois do contato;
@@ -406,9 +412,13 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
   hora. Até 04/11 nada muda.
 - **Cancelar:** pelo app, em Plano Pro > "Cancelar assinatura". O Pro vale
   até o fim do mês pago e não renova; depois a conta volta ao plano de
-  entrada, com o Smart Link, a IA e os imóveis no ar.
+  entrada, com o Smart Link, a IA e os imóveis no ar. No Pix, o débito
+  automático também pode ser cancelado no app do banco.
 - **Desistência nos 7 dias:** cancelando pelo app até o 7º dia depois do
-  pagamento, o valor volta sozinho para o cartão e o Pro termina na hora.
+  pagamento, o valor volta sozinho e o Pro termina na hora: no cartão, o
+  estorno aparece na fatura em alguns dias; no Pix, o valor volta por Pix
+  para a conta que pagou e o débito automático é cancelado (testado em
+  21/10).
 - **Não dizer:** "30 leads", "30 clientes", que a Match House traz clientes,
   "grátis" ou "gratuito". O Indique e Ganhe está ligado desde 20/10: ver a
   seção 12.
@@ -418,7 +428,7 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
 Texto pronto para "quanto custa o Pro?" / "o que muda?" (trocar `<slug>`):
 
 ```
-O Plano Pro custa R$ 147 por mês, no cartão. Com ele, todos os seus clientes chegam com nome e celular na hora, a IA marca visitas a partir de 1 hora depois do contato e você pode ter até 300 imóveis no ar. Para assinar: https://app.smartli.ink/dashboard/pro
+O Plano Pro custa R$ 147 por mês, no cartão ou no Pix (débito automático: você autoriza uma vez no banco). Com ele, todos os seus clientes chegam com nome e celular na hora, a IA marca visitas a partir de 1 hora depois do contato e você pode ter até 300 imóveis no ar. Para assinar: https://app.smartli.ink/dashboard/pro
 
 No plano de entrada, a partir de 05/11, o 1º cliente do mês continua chegando na hora; do 2º em diante, o contato aparece 36 horas depois. A IA continua atendendo todos na hora. Você cancela quando quiser pelo app e tem 7 dias para desistir com o valor de volta.
 
@@ -440,8 +450,9 @@ Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas r
     sai sem cobrança;
   - quem entra pelo convite também ganha 10% no Pro, por 6 meses, nas
     mesmas condições;
-  - o desconto vale no Pro pago no cartão. Os 100% (Pro sem cobrança) só
-    no cartão; o Pix ainda não está no ar.
+  - o desconto vale no Pro pago no cartão. No Pix (no ar desde 21/10),
+    o desconto da indicação ainda não vale. Os 100% (Pro sem cobrança) só
+    no cartão.
 - **Etapas que a tela mostra para cada colega:** "Falta confirmar o
   celular", "Falta publicar o 1º imóvel", "Passa a contar em <data>",
   "Valendo 10%" (até a data) e "Os 6 meses terminaram".
