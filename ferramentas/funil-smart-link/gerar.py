@@ -187,10 +187,15 @@ def vendas():
 
 
 def compradores(d: dict) -> dict:
-    """id_user -> primeiro nome, de quem tem pagamento do Pro pago e não devolvido."""
-    return {p["id_user"]: (p.get("nome") or "").split(" ")[0] or "Sem nome"
-            for p in d.get("pagamentos", [])
-            if p["id_user"] not in INTERNOS and p["status"] in PAGO and (p.get("valor") or 0) > 0}
+    """id_user -> {nome, data} da primeira compra do Pro paga e não devolvida (sem renovações)."""
+    out = {}
+    for p in d.get("pagamentos", []):
+        if p["id_user"] in INTERNOS or p["status"] not in PAGO or (p.get("valor") or 0) <= 0:
+            continue
+        dia = datetime.fromisoformat(p["em"].replace("Z", "+00:00")).astimezone(BRT).strftime("%Y-%m-%d")
+        if p["id_user"] not in out or dia < out[p["id_user"]]["data"]:
+            out[p["id_user"]] = {"nome": (p.get("nome") or "").split(" ")[0] or "Sem nome", "data": dia}
+    return out
 
 
 def bloco_vendas(hoje: date, ids_funil: set, d: dict) -> str:
@@ -227,17 +232,17 @@ def bloco_vendas(hoje: date, ids_funil: set, d: dict) -> str:
         nome = (p.get("nome") or "").split(" ")[0] or "(sem nome)"
         linhas.append(f'<tr><td class="num">{p["_dia"]:%d/%m %H:%M}</td><td>{nome} ({p["id_user"]})</td>'
                       f'<td>{FORMA.get(p.get("metodo"), p.get("metodo") or "—")}</td>'
-                      f'<td class="r num">{brl(p.get("valor") or 0)}</td><td>{sit}</td></tr>')
+                      f'<td class="r num">{brl(p.get("valor") or 0)}</td><td style="white-space:nowrap">{sit}</td></tr>')
     linhas.reverse()
     tabela = ('<table><thead><tr><th>Quando</th><th>Corretor</th><th>Forma</th><th class="r">Valor</th>'
               f'<th>Situação</th></tr></thead><tbody>{"".join(linhas) or "<tr><td colspan=5>Nenhuma venda ainda.</td></tr>"}'
               '</tbody></table>')
     fora = [f'{(a.get("nome") or "").split(" ")[0] or "Sem nome"} ({a["id_user"]})'
             for a in sorted(ass, key=lambda a: a["id_user"]) if a["id_user"] not in ids_funil]
-    nota = (f' {fora[0]} entrou antes de 1º/07, com uma conta do app antigo, por isso não aparece '
-            'no funil por cadastro abaixo.' if len(fora) == 1 else
-            f' {", ".join(fora)} entraram antes de 1º/07, com contas do app antigo, por isso não aparecem '
-            'no funil por cadastro abaixo.' if fora else '')
+    nota = (f' {fora[0]} entrou antes de 1º/07, com uma conta do app antigo: não aparece nas etapas 1 a 4 '
+            'abaixo, e na etapa 5 entra pela data da compra.' if len(fora) == 1 else
+            f' {", ".join(fora)} entraram antes de 1º/07, com contas do app antigo: não aparecem nas etapas 1 a 4 '
+            'abaixo, e na etapa 5 entram pela data da compra.' if fora else '')
     return (f'<div class="kpis">{kp}</div><div class="panel scroll">{tabela}'
             f'<p class="sub" style="margin-top:10px">Contas internas e de teste ficam fora.{nota}</p></div>')
 
@@ -279,7 +284,11 @@ def main() -> None:
         if r["id"] in pro:
             r["etapa"] = 5
     ids_funil = {r["id"] for r in linhas}
-    antigos = [{"id": i, "nome": nome} for i, nome in sorted(pro.items()) if i not in ids_funil]
+    antigos = [{"id": i, "nome": c["nome"]} for i, c in sorted(pro.items()) if i not in ids_funil]
+    # A etapa 5 conta pela data da compra (Mateus, 21/10: "o enio deveria aparecer"), e
+    # assim entram também as contas de antes de 1º/07.
+    vendas_pro = [{"id": i, "nome": c["nome"], "data": c["data"], "mes": c["data"][:7]}
+                  for i, c in sorted(pro.items(), key=lambda x: x[1]["data"])]
     linhas.sort(key=lambda r: r["_ord"], reverse=True)
     for r in linhas:
         del r["_ord"]
@@ -314,7 +323,7 @@ def main() -> None:
         "__MESES_OPT__": "".join(f'<option value="{m}">{n}</option>' for m, n, _ in months),
         "__ESTEIRA__": bloco_esteira(hoje),
         "__VENDAS__": bloco_vendas(hoje, ids_funil, dv),
-        "__PRO__": json.dumps({"antigos": antigos}, ensure_ascii=False),
+        "__PRO__": json.dumps({"antigos": antigos, "vendas": vendas_pro}, ensure_ascii=False),
     }
     for chave, valor in trocas.items():
         assert html.count(chave) == 1, chave

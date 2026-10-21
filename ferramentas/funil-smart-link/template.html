@@ -149,7 +149,9 @@ const R = ALL.filter(r=>!r.interno);
 const MONTHS_ALL=__MONTHS__;
 const MONTHS=MONTHS_ALL.slice(-3); /* o gráfico por mês mostra os três últimos */
 const META=__META__;
-const PRO=__PRO__; /* quem comprou o Pro com conta de antes de 1º/07 (fora das linhas do funil) */
+const PRO=__PRO__; /* antigos: quem comprou com conta de antes de 1º/07; vendas: 1ª compra de cada corretor */
+/* Etapa 5 conta pela data da compra, não do cadastro: assim entra quem tem conta antiga. */
+const vendasNoMes=k=>PRO.vendas.filter(v=>v.mes===k).length;
 const STAGES=[
   {k:1,t:"Cadastro",d:"Criou a conta"},
   {k:2,t:"Link criado",d:"Tem smartli.ink ativo"},
@@ -206,7 +208,7 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
     const gy=top+gi*(3*barH+2*gapB+groupGap);
     const lb=el('text',{x:0,y:gy+barH*1.5+gapB+5,'font-size':14,'font-weight':600,fill:'var(--ink)'},svg);lb.textContent=s.t;
     MONTHS.forEach(([k,l],mi)=>{
-      const arr=R.filter(r=>r.mes===k), v=reach(arr,s.k), p=arr.length?v*100/arr.length:0;
+      const arr=R.filter(r=>r.mes===k), v=s.k===5?vendasNoMes(k):reach(arr,s.k), p=arr.length?v*100/arr.length:0;
       const y=gy+mi*(barH+gapB), w=Math.max(p>0?x(p)-left:0,0);
       if(w>0){const r=Math.min(4,w/2);el('path',{d:`M${left},${y}h${w-r}q${r},0 ${r},${r}v${barH-2*r}q0,${r} ${-r},${r}h${-(w-r)}z`,fill:cols[mi]},svg)}
       else el('line',{x1:left,x2:left+2,y1:y+barH/2,y2:y+barH/2,stroke:'var(--axis)','stroke-width':2},svg);
@@ -226,24 +228,26 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
   const wk=r=>Math.floor((new Date(r.data+'T00:00:00Z')-start)/(7*864e5));
   const fd=d=>String(d.getUTCDate()).padStart(2,'0')+'/'+String(d.getUTCMonth()+1).padStart(2,'0');
   const byW=weeks.map((_,i)=>R.filter(r=>wk(r)===i));
+  const vendasNaSemana=weeks.map((_,i)=>PRO.vendas.filter(v=>wk(v)===i).length);
   const maxAll=Math.max(...byW.map(a=>a.length));
   const box=document.getElementById('stages');
   STAGES.forEach((s,si)=>{
     const card=document.createElement('div');card.className='panel stage';
-    const tot=reach(R,s.k);
-    const mrow=MONTHS.map(([k,,ab])=>{const a=R.filter(r=>r.mes===k);const v=reach(a,s.k);return `<span>${ab} <b class="num">${v}</b>${s.k>1?` <span class="num">(${fmtPct(v,a.length)})</span>`:''}</span>`}).join('');
-    card.innerHTML=`<div class="head"><h3>${s.k}. ${s.t}</h3><span class="count num">${tot} no total${s.k>1?' · '+fmtPct(tot,R.length):''}</span></div><div class="mrow">${mrow}</div>`;
+    const tot=s.k===5?PRO.vendas.length:reach(R,s.k);
+    const mrow=MONTHS.map(([k,,ab])=>{const a=R.filter(r=>r.mes===k);const v=s.k===5?vendasNoMes(k):reach(a,s.k);return `<span>${ab} <b class="num">${v}</b>${s.k>1?` <span class="num">(${fmtPct(v,a.length)})</span>`:''}</span>`}).join('');
+    const quem=s.k===5&&PRO.vendas.length?`<p class="sub" style="margin:0">Pela data da compra: ${PRO.vendas.map(v=>esc(v.nome)+' ('+v.id+') em '+v.data.slice(8,10)+'/'+v.data.slice(5,7)).join(', ')}.</p>`:'';
+    card.innerHTML=`<div class="head"><h3>${s.k}. ${s.t}</h3><span class="count num">${tot} no total${s.k>1?' · '+fmtPct(tot,R.length):''}</span></div><div class="mrow">${mrow}</div>${quem}`;
     const svg=el('svg',{class:'chart',viewBox:'0 0 440 170',role:'img','aria-label':`${s.t} por semana de cadastro`});
     card.appendChild(svg);box.appendChild(card);
     const L=28,Rr=8,T=10,B=26,W=440,H=170,pw=W-L-Rr,ph=H-T-B;
-    const yMax=s.k===1?Math.ceil(maxAll/5)*5:Math.max(5,Math.ceil(Math.max(...byW.map(a=>reach(a,s.k)))/5)*5);
+    const yMax=s.k===1?Math.ceil(maxAll/5)*5:Math.max(5,Math.ceil(Math.max(...byW.map((a,i)=>s.k===5?vendasNaSemana[i]:reach(a,s.k)))/5)*5);
     const y=v=>T+ph-ph*v/yMax;
     const step=yMax<=10?yMax/2:yMax/(yMax%4===0?4:5);
     for(let t=0;t<=yMax+0.01;t+=step){el('line',{x1:L,x2:W-Rr,y1:y(t),y2:y(t),stroke:t?'var(--grid)':'var(--axis)','stroke-width':1},svg);
       const tx=el('text',{x:L-6,y:y(t)+4,'text-anchor':'end','font-size':11,fill:'var(--muted)',class:'num'},svg);tx.textContent=Math.round(t)}
     const bw=pw/weeks.length, barW=Math.min(18,bw-6);
     byW.forEach((arr,i)=>{
-      const v=reach(arr,s.k), cx=L+bw*i+bw/2, h=ph*v/yMax;
+      const v=s.k===5?vendasNaSemana[i]:reach(arr,s.k), cx=L+bw*i+bw/2, h=ph*v/yMax;
       if(v>0){const r=Math.min(4,h,barW/2);el('path',{d:`M${cx-barW/2},${y(0)}v${-(h-r)}q0,${-r} ${r},${-r}h${barW-2*r}q${r},0 ${r},${r}v${h-r}z`,fill:'var(--accent)','fill-opacity':i===weeks.length-1?.55:1},svg)}
       if(i%2===0){const tx=el('text',{x:cx,y:H-8,'text-anchor':'middle','font-size':10.5,fill:'var(--muted)',class:'num'},svg);tx.textContent=fd(weeks[i])}
       const hit=el('rect',{x:L+bw*i,y:T,width:bw,height:ph,fill:'transparent'},svg);
