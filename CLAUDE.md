@@ -172,6 +172,18 @@ Notas do projeto para agentes. Ler antes de mexer.
     no Gerenciador ("desativei um criativo na Meta.."). Era o que mais gastava
     no conjunto do app: R$ 144 desde 16/10, contra R$ 25 do 11b e R$ 0,36 do
     11c. Ficam no ar o 11b e o 11c. Não religar sem ele.
+  - **Desde 21/10, às 7h32: Meta inteira pausada** (Mateus: "Vamos pausar
+    a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
+    orçamento em 5000 e os anúncios 11b e 11c como estavam. A LP já estava
+    pausada desde 07/10.
+    - Números que levaram à decisão, de 14 a 20/10: Meta app R$ 388 com
+      imposto, 9 contas e 2 que publicaram (R$ 194 por corretor que
+      publicou); ChatGPT R$ 656, 73 contas e 19 que publicaram (R$ 34,50).
+    - A regra noturna religa os conjuntos às 07h13, mas não a campanha: com
+      a campanha pausada, nada gasta. Gasto zero e nenhum cadastro da Meta
+      não são alerta; gasto da Meta é (alguém religou).
+    - Para voltar: `enable_campaign`, só com o Mateus.
+    - Isto vale acima do que a rotina do relatório diário diz da Meta.
   - **20/10: Meta continua no ar; decisão no fim da semana.** Entendi um
     "Pode" do Mateus como sim à minha proposta de passar os R$ 50/dia da
     Meta para o ChatGPT e pausei a campanha do app às 6h37. Ele
