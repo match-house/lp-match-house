@@ -184,6 +184,10 @@ Notas do projeto para agentes. Ler antes de mexer.
       não são alerta; gasto da Meta é (alguém religou).
     - Para voltar: `enable_campaign`, só com o Mateus.
     - Isto vale acima do que a rotina do relatório diário diz da Meta.
+    - **ChatGPT fica em R$ 100/dia por enquanto** (Mateus, 21/10: "Vamos
+      manter o chat e decidimos o aumento na semana que vem"). Levar os
+      números do ChatGPT na segunda, 27/10, para ele decidir se sobe. Quem
+      mexe na verba é ele, no painel da OpenAI.
   - **20/10: Meta continua no ar; decisão no fim da semana.** Entendi um
     "Pode" do Mateus como sim à minha proposta de passar os R$ 50/dia da
     Meta para o ChatGPT e pausei a campanha do app às 6h37. Ele
