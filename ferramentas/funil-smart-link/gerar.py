@@ -176,14 +176,27 @@ def brl(v: float) -> str:
     return "R$ " + f"{v:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def bloco_vendas(hoje: date, ids_funil: set) -> str:
-    """Vendas do Pro (Mateus, 21/10: "as vendas podem entrar no funil diario e no funil")."""
+def vendas():
+    """Vendas do Pro (backoffice /pro/vendas, api #116). None se a rota não responder."""
     url = "https://api.matchhouse.com.br/backoffice/pro/vendas?dias=400"
     try:
-        d = json.loads(subprocess.run(["curl", "-sS", "--fail", "--max-time", "40", url],
-                                      capture_output=True, text=True, check=True).stdout)
+        return json.loads(subprocess.run(["curl", "-sS", "--fail", "--max-time", "40", url],
+                                         capture_output=True, text=True, check=True).stdout)
     except Exception as erro:  # a página sai mesmo se a rota não responder
-        return f'<div class="panel"><p class="sub">As vendas não responderam agora ({erro}).</p></div>'
+        return {"erro": str(erro)}
+
+
+def compradores(d: dict) -> dict:
+    """id_user -> primeiro nome, de quem tem pagamento do Pro pago e não devolvido."""
+    return {p["id_user"]: (p.get("nome") or "").split(" ")[0] or "Sem nome"
+            for p in d.get("pagamentos", [])
+            if p["id_user"] not in INTERNOS and p["status"] in PAGO and (p.get("valor") or 0) > 0}
+
+
+def bloco_vendas(hoje: date, ids_funil: set, d: dict) -> str:
+    """Vendas do Pro (Mateus, 21/10: "as vendas podem entrar no funil diario e no funil")."""
+    if "erro" in d:
+        return f'<div class="panel"><p class="sub">As vendas não responderam agora ({d["erro"]}).</p></div>'
     ass = [a for a in d.get("assinantes", []) if a["id_user"] not in INTERNOS]
     pags = [p for p in d.get("pagamentos", []) if p["id_user"] not in INTERNOS]
     for p in pags:
@@ -259,6 +272,14 @@ def main() -> None:
             "interno": INTERNOS.get(it["id_user"]),
             "_ord": quando.isoformat(),
         })
+    # Etapa 5 (Mateus, 21/10: "depois do publicou agora, é o venda"): quem pagou o Pro.
+    dv = vendas()
+    pro = compradores(dv)
+    for r in linhas:
+        if r["id"] in pro:
+            r["etapa"] = 5
+    ids_funil = {r["id"] for r in linhas}
+    antigos = [{"id": i, "nome": nome} for i, nome in sorted(pro.items()) if i not in ids_funil]
     linhas.sort(key=lambda r: r["_ord"], reverse=True)
     for r in linhas:
         del r["_ord"]
@@ -292,7 +313,8 @@ def main() -> None:
         "__MESES_NOTA__": " Mostra os três últimos meses." if len(months) > 3 else "",
         "__MESES_OPT__": "".join(f'<option value="{m}">{n}</option>' for m, n, _ in months),
         "__ESTEIRA__": bloco_esteira(hoje),
-        "__VENDAS__": bloco_vendas(hoje, {r["id"] for r in linhas}),
+        "__VENDAS__": bloco_vendas(hoje, ids_funil, dv),
+        "__PRO__": json.dumps({"antigos": antigos}, ensure_ascii=False),
     }
     for chave, valor in trocas.items():
         assert html.count(chave) == 1, chave
@@ -306,6 +328,7 @@ def main() -> None:
         "link": sum(r["etapa"] >= 2 for r in fora),
         "imovel": sum(r["etapa"] >= 3 for r in fora),
         "publicou": sum(r["etapa"] >= 4 for r in fora),
+        "compraram": sum(r["etapa"] >= 5 for r in fora), "compraram_conta_antiga": len(antigos),
         "por_mes": {m: [sum(1 for r in fora if r["mes"] == m),
                         sum(1 for r in fora if r["mes"] == m and r["etapa"] >= 4)] for m in meses},
     }, ensure_ascii=False))
