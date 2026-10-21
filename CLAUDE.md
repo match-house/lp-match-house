@@ -558,6 +558,17 @@ para aquela mensagem.
       `VENDAS`, trocada todo dia junto com as outras: vendas do dia, vendas
       do mês, assinantes ativos, receita do mês e a lista do mês.
     - O Funil Smart Link (`gerar.py`) monta sozinho a seção "Vendas do Pro".
+    - **A venda é a última etapa dos dois funis** (Mateus, 21/10: "depois do
+      publicou agora, é o venda [...] quantos dos que publicaram compraram,
+      e do funil inteiro").
+      - Funil diário: `FUNIL` tem a 5ª etapa "Compraram o Pro" (vendas
+        pagas no dia, de qualquer conta, com `semPior: true`), e `ORIGENS`
+        tem a coluna `compraram`, pela origem da conta de quem comprou. A
+        etapa pode passar da anterior: quem compra no dia raramente se
+        cadastrou no mesmo dia. Dizer isso no `fonte`.
+      - Funil Smart Link: etapa 5 "Comprou o Pro" (`etapa = 5` para quem
+        pagou). No cartão de cima entram também as contas de antes de
+        1º/07 que compraram, como o Enio (196).
     - Contam só corretores: as contas internas e de teste ficam fora (a 999
       inclusive). Receita é o que foi pago e não devolvido.
     - Venda é status `succeeded` ou `paid` com valor acima de zero.
