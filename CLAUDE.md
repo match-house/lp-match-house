@@ -105,6 +105,11 @@ Notas do projeto para agentes. Ler antes de mexer.
   (R$ 40) e seguidores (R$ 10 a partir de 26/10). Conjunto novo pela API só
   por `duplicate_adset`: o `create_adset` pede o anunciante verificado.
   Leitura em 29/10.
+- **Campanha 14, seguidores, desde 22/10, 20h45** (Mateus: "vamos comecar
+  agora"): 120252906629350445, R$ 10/dia, leva ao perfil .br com o
+  reel do exemplo da Camila. Público igual ao do app, sem ES. A campanha 13
+  está pausada até 05/11, então hoje o Meta soma R$ 60/dia (app 50 +
+  seguidores 10). Detalhe em `ferramentas/meta-auto/LEIA-ME.md`.
 - **Modo Desbloqueado, decisões do Mateus em 22/10** (proposta do Claude Design,
   "Modo-Desbloqueado-campanha"):
   - a provocação fica para 05/11, junto com a regra nova. Ele viaja em 28/10 e
