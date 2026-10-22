@@ -215,6 +215,9 @@ Notas do projeto para agentes. Ler antes de mexer.
       (botão "Crie seu Smart Link", `utm_medium=perfil`), convite do Indique
       e Ganhe (`utm_medium=indicacao`), QR, cartão NFC e sem origem. Na
       página e no convite, dizer qual corretor trouxe (o slug).
+    - A página de outro corretor e o convite do Indique e Ganhe aparecem
+      sempre, mesmo com zero (Mateus, 22/10: "pagina de outro corretor e o
+      indique e ganhe temos que ter no relatorio").
     - O `utm_medium` sai no `/backoffice/signups` desde 22/10 (api #123).
       Antes disso os dois ficavam juntos.
     - A 1ª indicação de verdade: o Edmilson (1293, montoyaconsultorimob)
