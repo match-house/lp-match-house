@@ -119,9 +119,11 @@ Notas do projeto para agentes. Ler antes de mexer.
   - ele gostou do cadeado abrindo como gesto da marca;
   - ele sugeriu contar a história da Camila. Ela é personagem e aparece sempre
     como personagem (selo "Exemplo"), nunca como cliente de verdade.
-  - na revisão do Claude Design (22/10, à noite), as respostas dele: a Camila
-    aparece como "assinante Pro" nas peças, sem explicar o plano de entrada e
-    sem preço; a campanha de seguidores começa já ("vamos comecar agora"), não
+  - na revisão do Claude Design (22/10, à noite), as respostas dele: o "assinante Pro"
+    vai junto da frase em que o contato do cliente chega na hora para a Camila
+    ("Como a Camila é assinante Pro, o contato chegou na hora"), sem explicar o
+    plano de entrada e sem preço. A IA atender na hora vale para todos e fica
+    sem o Pro; a campanha de seguidores começa já ("vamos comecar agora"), não
     em 26/10; o resto da revisão, ok. Nome do clube: "Desbloqueados"; selo no
     Smart Link: "Modo Desbloqueado".
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
