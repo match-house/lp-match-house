@@ -90,6 +90,11 @@ Notas do projeto para agentes. Ler antes de mexer.
 ## Meta Ads — regras fixas do usuário
 
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
+- **Nunca anunciar no Espírito Santo** (Mateus, 22/10: "nao quero que a
+  campanha da meta rode no espírito santo"). Todo conjunto do Meta, inclusive
+  o de seguidores, exclui a região 445 (`excluded_geo_locations`). Tirado do
+  conjunto do app (120252351113480445) às 16h37 do mesmo dia. Em outubro, até
+  ali, o ES tinha levado R$ 19,79. Detalhe em `ferramentas/meta-auto/LEIA-ME.md`.
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
