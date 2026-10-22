@@ -205,6 +205,21 @@ Notas do projeto para agentes. Ler antes de mexer.
     e não mais "Meta + Google sem imposto". Antes o ChatGPT ficava fora e o
     custo por cadastro saía baixo demais (R$ 2,17 em vez de R$ 6,98 em
     20/10). Vale acima do que a rotina do relatório diário diz de `DIAS`.
+  - **De onde vêm todos os corretores: uma linha fixa no relatório diário**
+    (Mateus, 22/10: "precisamos saber de onde vem todos os corretores").
+    - Rodar `python3 scratchpad/custos/origens.py <ontem>` (cópia em
+      `ferramentas/custos/origens.py` da branch de trabalho; usa o `cac.py`
+      da mesma pasta). Ele dá, para ontem, 7 dias e o mês, as contas, quem
+      concluiu e quem publicou por origem.
+    - Origens: ChatGPT, Meta app, Meta LP, Google, página de outro corretor
+      (botão "Crie seu Smart Link", `utm_medium=perfil`), convite do Indique
+      e Ganhe (`utm_medium=indicacao`), QR, cartão NFC e sem origem. Na
+      página e no convite, dizer qual corretor trouxe (o slug).
+    - O `utm_medium` sai no `/backoffice/signups` desde 22/10 (api #123).
+      Antes disso os dois ficavam juntos.
+    - A 1ª indicação de verdade: o Edmilson (1293, montoyaconsultorimob)
+      trouxe o André Telles (1421) pela página dele, em 21/10. Fica "a
+      conferir" até o imóvel do André fazer 7 dias no ar (aprova ~29/10).
   - **Custo por cadastro sempre por canal** (Mateus, 21/10: "acho q nao
     esta considerando so custos do chatgpt, numeros n batem").
     - A tabela do CAC do relatório junta Meta, Google e ChatGPT e divide
