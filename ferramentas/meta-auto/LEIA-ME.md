@@ -23,6 +23,11 @@ anúncios) e pela seção "Meta no automático" do CLAUDE.md.
 - Campanha do app 120252349246370445 (orçamento na campanha, centavos), conjunto
   120252351113480445. Segmentação manual (nunca Advantage+). Evento Lead do
   pixel 1159381878670820 sem renomear.
+- **Nunca no Espírito Santo** (Mateus, 22/10: "nao quero que a campanha da meta
+  rode no espírito santo"). Todo conjunto, inclusive o de seguidores, leva
+  `"excluded_geo_locations": {"regions": [{"key": "445"}]}` (445 = Espírito
+  Santo, conferido na própria conta). No `update_adset` o `targeting` substitui
+  o objeto inteiro: mandar tudo de novo, com `advantage_audience: 0`.
 - Pausa noturna 23h13–07h13 pela regra do Gerenciador (religa os conjuntos).
 
 ## Regras do dia (rotina das 07h37)
