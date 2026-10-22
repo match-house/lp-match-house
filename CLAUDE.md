@@ -95,6 +95,13 @@ Notas do projeto para agentes. Ler antes de mexer.
   o de seguidores, exclui a região 445 (`excluded_geo_locations`). Tirado do
   conjunto do app (120252351113480445) às 16h37 do mesmo dia. Em outubro, até
   ali, o ES tinha levado R$ 19,79. Detalhe em `ferramentas/meta-auto/LEIA-ME.md`.
+- **Campanha 13, Modo Desbloqueado, desde 22/10, ~17h** (Mateus: "vamos usar
+  para trafego pago tb blza"), a campanha do Claude Design: 120252905488250445,
+  R$ 40/dia, anúncios 13a ("Desbloqueado às 22h14") e 13b ("Quem atende o
+  seu cliente agora?"). O teto de R$ 100/dia é a soma de app (R$ 50), 13
+  (R$ 40) e seguidores (R$ 10 a partir de 26/10). Conjunto novo pela API só
+  por `duplicate_adset`: o `create_adset` pede o anunciante verificado.
+  Leitura em 29/10.
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
