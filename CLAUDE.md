@@ -2394,6 +2394,26 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   funil também sempre saiu vazia. Quem põe o segredo é o Mateus ou o Vitor,
   direto no GitHub (de preferência um usuário só de leitura). Nunca pelo chat.
 
+## Origem de cada visita ao Smart Link (desde 22/10)
+
+- Pedidos do Mateus: "Pode começar a gravar a origem das visitas" e "Grave
+  tb linkedin, e outras redes que ele adicionar no smart link". Base do
+  relatório de origem das visitas do Pro (só para o Pro; o total de visitas
+  e o "chegaram visitas pelo Instagram" do Divulgar continuam para todos).
+- api #125 e site #238. A página do corretor (e a de cada imóvel dele) manda,
+  uma vez por aba, só a categoria: instagram, facebook, linkedin, tiktok,
+  youtube, whatsapp, site_corretor (o link "Site" dele), qr, nfc, google,
+  busca, chatgpt, vitrine (matchhouse.co), outro_site ou direto. O WhatsApp
+  quase sempre chega como direto. O imóvel vai quando a visita abriu nele.
+  Nada de quem visitou.
+- Leitura: `GET /backoffice/visitas/origens?days=7` (1 a 90): total, por
+  dia, por corretor e por imóvel. Tirar as contas internas pelo `id_users`.
+- Tetos: 500 por dia por origem e imóvel e 1.000 por dia por corretor
+  (a gravação é pública e a API não tem limite por conexão). Corretor com
+  1.000 exatos no dia é sinal de fraude: olhar.
+- Falta (ideia, não feito): o "Ver meu Smart Link" do app não marca a
+  visita do próprio corretor, que conta como direto.
+
 ## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
 
 - Pedido dele: "inclua nas duas planilhas o receberam leads na conversa da
