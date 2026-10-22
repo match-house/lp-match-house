@@ -119,6 +119,11 @@ Notas do projeto para agentes. Ler antes de mexer.
   - ele gostou do cadeado abrindo como gesto da marca;
   - ele sugeriu contar a história da Camila. Ela é personagem e aparece sempre
     como personagem (selo "Exemplo"), nunca como cliente de verdade.
+  - na revisão do Claude Design (22/10, à noite), as respostas dele: a Camila
+    aparece como "assinante Pro" nas peças, sem explicar o plano de entrada e
+    sem preço; a campanha de seguidores começa já ("vamos comecar agora"), não
+    em 26/10; o resto da revisão, ok. Nome do clube: "Desbloqueados"; selo no
+    Smart Link: "Modo Desbloqueado".
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
