@@ -131,6 +131,16 @@ O que ele aprovou, em resposta à proposta do mesmo dia:
   `universal_payer`, ids de Configurações do negócio > Identidades
   verificadas). Pedidos ao Mateus em 22/10; sem eles, o conjunto de seguidores
   não nasce pela API.]
+- **Campanha 14 de seguidores, no ar desde 22/10, 20h45** (Mateus: "vamos comecar
+  agora"): campanha 120252906629350445 (OUTCOME_TRAFFIC, R$ 10/dia na campanha),
+  conjunto 120252906629990445 (destino perfil do Instagram, cópia de um conjunto
+  antigo de visitas ao perfil; o Mateus pôs o beneficiário e pagador à mão).
+  Público igual ao do app, sem ES e sem Advantage+. Troca semanal do post:
+  vídeo do Instagram precisa subir antes com `create_ad_video` (URL raw), e o
+  anúncio vai com `creative.object_story_spec` (page_id, instagram_user_id
+  17841456747581112, video_data com video_id, image_url da capa, message e
+  call_to_action {"type":"VIEW_INSTAGRAM_PROFILE"}). Outro botão é recusado.
+  Foto: `source_instagram_media_id` serve direto. Pausar o anúncio anterior.
 - Orgânico: publico direto e mostro depois, como nos anúncios.
 - Ritmo: 3 posts no feed por semana (seg, qua, sex), story todo dia útil e
   1 reels por semana (terça).
