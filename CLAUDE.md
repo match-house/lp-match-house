@@ -781,9 +781,28 @@ para aquela mensagem.
       valor tudo ok!"). A 39 está fora da nota fiscal.
     - O relógio do Mac do Mateus estava um dia atrasado, e o login da AWS
       vencia em minutos ("security token ... expired"). Acertado, parou.
-    - Falta: abrir para todos (revisão sem `C6_PIX_SO_CONTAS`, com o "ok"
-      dele), CNPJ no Pix (pedido dele: "se for empresa precisa de campo para
-      o CNPJ"), revogar a credencial antiga no portal do C6 e as perguntas de
+    - **Aberto para todos em 21/10, às 20h34** (revisão 31, sem
+      `C6_PIX_SO_CONTAS`, com o "ok" do Mateus).
+    - **CNPJ no Pix desde 22/10** (api #120, app #158; Mateus: "se for
+      empresa precisa de campo para o CNPJ"): o campo é "CPF ou CNPJ"; com
+      CNPJ, pede a razão social, o devedor no C6 é a empresa e a nota sai
+      para ela. O CNPJ fica só na recorrência, não no cadastro.
+    - **Desconto da indicação também no Pix desde 22/10** (api #122, app
+      #159; Mateus: "o desconto precisa valer para o PIX tb" e "Perfeito,
+      pode construir assim! \"Pro R$ 147/mês, menos desconto\"").
+      - A autorização nova é de valor variável (`valorMinimoRecebedor` =
+        R$ 147), com o objeto "Pro R$ 147/mês, menos desconto". No banco
+        aparece "valor variável"; o limite que o corretor puser não fica
+        abaixo de R$ 147.
+      - O 1º mês sai com o desconto de agora. Cada mensalidade usa o
+        desconto do dia do vencimento, como o cupom do cartão.
+      - Mês com 100%: nada vai ao C6, o mês fica pago com R$ 0 (sem nota) e
+        a autorização continua. Assinar com 100%: a tela mostra só "Liberar
+        o Pro" (sem cobrança).
+      - Falta o teste real na 39 (Pix de R$ 147 e desistência), combinado
+        com o Mateus para 22/10 ("vamos testar amanha sim"): conferir no
+        banco o "valor variável" e o texto.
+    - Falta: revogar a credencial antiga no portal do C6 e as perguntas de
       antecedência, tarifas e IP fixo.
   - **Desistência nos 7 dias também no Pix** (api #111 e app #153, 19/10):
     o e-mail do anúncio e os termos prometem o valor de volta em qualquer
