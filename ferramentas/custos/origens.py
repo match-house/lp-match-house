@@ -10,13 +10,22 @@ as contas internas, de teste e duplicadas do cac.py.
 Origens:
 - ChatGPT, Meta app, Meta LP e Google: pelo utm_source (e a ORIGEM_CORRIGIDA
   do cac.py, para as contas que nasceram sem utm).
-- Página de outro corretor: utm_source smartli.ink e utm_medium perfil (o
-  botão "Crie seu Smart Link" na página de um corretor).
+- Página de outro corretor: utm_source smartli.ink, do botão "Crie seu Smart
+  Link" que o site põe no perfil de todo corretor (utm_medium perfil), em cada
+  imóvel dele (imovel) e no rodapé (sem utm_medium). O utm_content
+  perfil-<slug> diz qual corretor trouxe.
 - Convite do Indique e Ganhe: utm_source smartli.ink e utm_medium indicacao.
-  Antes de 22/10 o backoffice não mandava o utm_medium: sem ele, os dois
-  ficam juntos em "Página de outro corretor ou convite".
+- Digitou smartli.ink: utm_source smartli.ink e utm_medium direto (a raiz do
+  domínio leva ao cadastro, com utm_content raiz).
+- Instagram sem anúncio: utm_source org-instagram. A LP marca assim quem
+  chega do Instagram sem anúncio (desde 01/10); com utm_content bio, é o link
+  da bio do @matchhouse.br (Mateus, 22/10: "Os sem origem podem ter vindo do
+  instagram, la tem o site d a LP e o app").
+- Busca no Google, WhatsApp e outro site: org-google, org-whatsapp e os
+  outros org-*, que a LP manda para quem chega sem anúncio.
 - QR e cartão NFC: utm_source qr ou nfc.
-- Sem origem: sem utm (direto, link copiado, utm perdido).
+- Sem origem: sem utm, ou "direto" (entrou na LP sem site de origem: digitou
+  o endereço ou abriu de um app que não diz de onde veio).
 """
 import importlib.util
 import json
@@ -32,9 +41,10 @@ _spec.loader.exec_module(cac)
 
 META = {"meta", "ig", "fb", "facebook", "instagram"}
 ORDEM = ["ChatGPT", "Meta app", "Meta LP", "Google", "Página de outro corretor",
-         "Convite do Indique e Ganhe", "Página de outro corretor ou convite",
-         "QR (placa ou cartão)", "Cartão NFC", "Sem origem"]
-SEMPRE = ["Página de outro corretor", "Convite do Indique e Ganhe"]
+         "Convite do Indique e Ganhe", "Instagram sem anúncio", "Busca no Google",
+         "WhatsApp", "Outro site", "Digitou smartli.ink", "QR (placa ou cartão)",
+         "Cartão NFC", "Sem origem"]
+SEMPRE = ["Página de outro corretor", "Convite do Indique e Ganhe", "Instagram sem anúncio"]
 
 
 def origem(it: dict) -> tuple:
@@ -53,9 +63,17 @@ def origem(it: dict) -> tuple:
         slug = cont[len("perfil-"):] if cont.startswith("perfil-") else None
         if med == "indicacao":
             return "Convite do Indique e Ganhe", slug
-        if med == "perfil":
-            return "Página de outro corretor", slug
-        return "Página de outro corretor ou convite", slug
+        if med == "direto":
+            return "Digitou smartli.ink", None
+        return "Página de outro corretor", slug
+    if src == "org-instagram":
+        return "Instagram sem anúncio", ("bio do @matchhouse.br" if cont == "bio" else None)
+    if src in ("org-google", "org-busca"):
+        return "Busca no Google", None
+    if src == "org-whatsapp":
+        return "WhatsApp", None
+    if src.startswith("org-"):
+        return "Outro site", src[len("org-"):]
     if src == "qr":
         return "QR (placa ou cartão)", None
     if src == "nfc":
