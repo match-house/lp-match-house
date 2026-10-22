@@ -29,6 +29,18 @@ anúncios) e pela seção "Meta no automático" do CLAUDE.md.
   Santo, conferido na própria conta). No `update_adset` o `targeting` substitui
   o objeto inteiro: mandar tudo de novo, com `advantage_audience: 0`.
 - Pausa noturna 23h13–07h13 pela regra do Gerenciador (religa os conjuntos).
+- **Campanha 13, Modo Desbloqueado** (Mateus, 22/10: "vamos usar para trafego
+  pago tb blza"), a campanha do Claude Design. Campanha 120252905488250445,
+  R$ 40/dia na campanha, conjunto 120252905491280445 (cópia do conjunto do app,
+  para herdar o anunciante verificado; o `create_adset` pela API é recusado sem
+  ele, então conjunto novo sempre por `duplicate_adset`). Anúncios 13a
+  120252905496920445 e 13b 120252905499330445, utm_campaign
+  `MH_2026_10_desbloqueado`. Regras por anúncio iguais às do app; a verba fica
+  em R$ 40 até a leitura de 29/10 (comparar custo por corretor que publicou com
+  a do app).
+- **Teto é a soma:** app + 13 + seguidores nunca passam de R$ 100/dia. Hoje
+  R$ 50 + R$ 40, e R$ 10 de seguidores a partir de 26/10. A subida de 20%
+  de uma só cabe no que sobra do teto.
 
 ## Regras do dia (rotina das 07h37)
 
@@ -50,7 +62,8 @@ Verba (na campanha):
 - Custo por corretor que publicou nos últimos 7 dias, com imposto, só da
   campanha do app.
 - Até R$ 40, com pelo menos 3 que publicaram nos 7 dias e a última mudança há
-  3 dias ou mais: subir 20% (arredondar para R$ 5), no máximo R$ 100/dia.
+  3 dias ou mais: subir 20% (arredondar para R$ 5), sem passar do teto
+  somado (R$ 100 menos as outras campanhas).
 - De R$ 40 a R$ 120: manter. Se passar de R$ 70 em duas leituras seguidas,
   voltar à verba anterior.
 - Acima de R$ 120, com pelo menos R$ 150 gastos nos 7 dias: pausar a campanha
@@ -112,6 +125,11 @@ relatório diário).
 O que ele aprovou, em resposta à proposta do mesmo dia:
 - Campanha de seguidores: R$ 10/dia DENTRO dos R$ 100/dia (a do app + a de
   seguidores nunca passam de R$ 100 somadas), impulsionando o melhor post da
+  [22/10: pela API, `create_adset` pede o anunciante verificado
+  (`regional_regulation_identities` com `universal_beneficiary` e
+  `universal_payer`, ids de Configurações do negócio > Identidades
+  verificadas). Pedidos ao Mateus em 22/10; sem eles, o conjunto de seguidores
+  não nasce pela API.]
   semana.
 - Orgânico: publico direto e mostro depois, como nos anúncios.
 - Ritmo: 3 posts no feed por semana (seg, qua, sex), story todo dia útil e
