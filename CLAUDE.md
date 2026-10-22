@@ -229,7 +229,14 @@ Notas do projeto para agentes. Ler antes de mexer.
           03/11). O link é rastreado (`/r/<token>`, api #126) e a lista
           de quem tocou sai em `GET /backoffice/links/seguir-instagram-1`;
         - 3 dias depois, WhatsApp com o modelo `mh_seguir_instagram_1`
-          para quem não tocou e tem Smart Link, até 40 por dia;
+          para quem não tocou e tem Smart Link;
+        - **WhatsApp de campanha: no máximo 35 por dia, somando todas**
+          (Mateus, 22/10: "Pois é vamos mandar 35 whatsapp por dia..").
+          O teto do backoffice é 50 por dia, e em 22/10 o aviso de 05/11
+          esgotou o teto e uma resposta de atendimento ficou para o dia
+          seguinte. Os scripts param em 35;
+        - o reel do exemplo da Camila saiu em 22/10
+          (https://www.instagram.com/reel/DezqxHUFVx3/), com o "pode" dele;
         - scripts em `scratchpad/seguir-insta/` (cópia em
           `ferramentas/seguir-insta/` da branch de trabalho).
       - A linha proposta em 22/10 é a série "Enquanto você…": liberdade e
