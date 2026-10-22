@@ -172,8 +172,33 @@ Notas do projeto para agentes. Ler antes de mexer.
     no Gerenciador ("desativei um criativo na Meta.."). Era o que mais gastava
     no conjunto do app: R$ 144 desde 16/10, contra R$ 25 do 11b e R$ 0,36 do
     11c. Ficam no ar o 11b e o 11c. Não religar sem ele.
-  - **Desde 21/10, às 7h32: Meta inteira pausada** (Mateus: "Vamos pausar
-    a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
+  - **Desde 22/10: Meta no automático, com autonomia total** (Mateus: "pode
+    subir e ligar direto e me manda para eu checar depois. mas vc vai ter
+    autonomia para agir.. confio em vc, estmaos juntos").
+    - Respostas dele, 22/10:
+      - religar: "sim", com criativos novos; a primeira leva vem do Fable;
+      - teto: "100,00/dia" (vale acima dos R$ 125 de 29/09);
+      - meta e freio: "Isso 40 e pausa se passar de 120". A meta é R$ 40
+        por corretor que publicou, com imposto. Acima de R$ 120 nos 7 dias,
+        pausar tudo e avisar.
+    - Eu crio, subo, ligo, pauso e mudo a verba sem perguntar e mando a
+      ele o que mudou para ele checar depois.
+    - Regras, modelo do anúncio e passo a passo em
+      `scratchpad/meta-auto/LEIA-ME.md` (cópia em `ferramentas/meta-auto/`
+      da branch de trabalho). O estado vivo fica em
+      `scratchpad/meta-auto/estado.json`, que tem gasto e por isso não vai
+      ao repositório.
+    - Rotinas desta conversa:
+      - regras do dia às 07h37;
+      - criativos novos e comparação com o ChatGPT na segunda e na quinta,
+        às 08h17.
+    - Vale acima do que a rotina do relatório diário diz da verba, dos
+      anúncios permitidos e do alerta de orçamento. A verba configurada é a
+      do `estado.json`.
+    - Continua: segmentação manual (nunca Advantage+), evento `Lead` sem
+      renomear, pausa noturna e as regras de texto.
+  - **De 21/10, às 7h32, a 22/10: Meta inteira pausada** (Mateus: "Vamos
+    pausar a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
     orçamento em 5000 e os anúncios 11b e 11c como estavam. A LP já estava
     pausada desde 07/10.
     - Números que levaram à decisão, de 14 a 20/10: Meta app R$ 388 com
