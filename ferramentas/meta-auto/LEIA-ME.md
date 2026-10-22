@@ -125,12 +125,12 @@ relatório diário).
 O que ele aprovou, em resposta à proposta do mesmo dia:
 - Campanha de seguidores: R$ 10/dia DENTRO dos R$ 100/dia (a do app + a de
   seguidores nunca passam de R$ 100 somadas), impulsionando o melhor post da
+  semana.
   [22/10: pela API, `create_adset` pede o anunciante verificado
   (`regional_regulation_identities` com `universal_beneficiary` e
   `universal_payer`, ids de Configurações do negócio > Identidades
   verificadas). Pedidos ao Mateus em 22/10; sem eles, o conjunto de seguidores
   não nasce pela API.]
-  semana.
 - Orgânico: publico direto e mostro depois, como nos anúncios.
 - Ritmo: 3 posts no feed por semana (seg, qua, sex), story todo dia útil e
   1 reels por semana (terça).
