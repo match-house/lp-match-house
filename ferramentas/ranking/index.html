@@ -1,0 +1,336 @@
+<style>
+  #dash-root { --rk-gap: var(--cds-gap-md); }
+  .rk-page { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-lg); }
+  .rk-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .rk-take { margin: var(--cds-gap-xs) 0 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); max-width: 70ch; }
+  .rk-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr)); gap: var(--rk-gap); }
+  .rk-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); display: grid; gap: var(--cds-gap-xs); align-content: start; }
+  .rk-tile-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rk-tile-num { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; min-height: 1.2em; }
+  .rk-tile-sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); min-height: 1.2em; }
+  .rk-section-title { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .rk-section-note { margin: var(--cds-gap-xs) 0 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--rk-gap); }
+  .rk-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+  .rk-card h3 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .rk-card-note { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rk-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+  .rk-table th { text-align: left; font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+  .rk-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .rk-table .rk-n { text-align: right; }
+  .rk-top tbody { counter-reset: rk; }
+  .rk-top tbody tr { counter-increment: rk; }
+  .rk-top td.rk-name::before { content: counter(rk) "."; display: inline-block; min-width: 1.6em; color: var(--color-fg-muted); }
+  .rk-top tbody tr:nth-child(-n+3) td.rk-name { font-weight: var(--cds-font-weight-medium); }
+  .rk-empty { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rk-chip { display: inline-block; padding: 0 var(--cds-pad-xs); border-radius: var(--cds-radius); font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); }
+  .rk-chip-ok { color: var(--color-ok); }
+  .rk-chip-warn { color: var(--color-warn); }
+  .rk-chip-none { color: var(--color-fg-muted); }
+  .rk-tools { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+  .rk-tools input { font: inherit; font-size: var(--cds-font-size-body); padding: var(--cds-pad-xs) var(--cds-pad-sm); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); background: var(--color-bg); color: var(--color-fg); min-width: 0; flex: 1 1 14rem; max-width: 24rem; }
+  .rk-count { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .rk-scroll { max-height: 34rem; overflow: auto; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+  .rk-scroll .rk-table th { position: sticky; top: 0; background: var(--color-panel); z-index: 1; }
+  .rk-sort { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+  .rk-sort:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+  .rk-link { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); display: block; }
+  .rk-hide-narrow { }
+  @media (max-width: 40rem) { .rk-hide-narrow { display: none; } }
+  .rk-defs { margin: 0; padding-left: 1.1rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); display: grid; gap: var(--cds-gap-xs); max-width: 80ch; }
+  [data-dash-source-state=empty] { color: transparent; }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .rk-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: 3rem; }
+  .rk-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+</style>
+
+<div class="rk-page">
+  <header class="rk-head" id="topo">
+    <h1>Ranking dos corretores</h1>
+    <p class="rk-take" id="rk-take"><span data-source="resumo" data-field="corretores">—</span> corretores com Smart Link. <span data-source="resumo" data-field="com_imovel">—</span> têm imóvel no ar, <span data-source="resumo" data-field="bio_confirmada">—</span> já recebem visita pelo Instagram e <span data-source="resumo" data-field="trouxeram">—</span> trouxeram colegas pelo próprio link.</p>
+  </header>
+
+  <section class="rk-tiles" id="resumo" aria-label="Resumo">
+    <div class="rk-tile">
+      <span class="rk-tile-label">Com imóvel no ar</span>
+      <span class="rk-tile-num dash-skeleton" data-source="resumo" data-field="com_imovel">—</span>
+      <span class="rk-tile-sub">Imóveis no ar no total: <span data-source="resumo" data-field="imoveis_no_ar">—</span></span>
+    </div>
+    <div class="rk-tile">
+      <span class="rk-tile-label">Link na bio confirmado</span>
+      <span class="rk-tile-num dash-skeleton" data-source="resumo" data-field="bio_confirmada">—</span>
+      <span class="rk-tile-sub">Só marcaram no app: <span data-source="resumo" data-field="bio_marcou">—</span></span>
+    </div>
+    <div class="rk-tile">
+      <span class="rk-tile-label">Visitas no Smart Link, 30 dias</span>
+      <span class="rk-tile-num dash-skeleton" data-source="resumo" data-field="visitas_30d">—</span>
+      <span class="rk-tile-sub">Smart Links com visita: <span data-source="resumo" data-field="com_visitas_30d">—</span></span>
+    </div>
+    <div class="rk-tile">
+      <span class="rk-tile-label">Indicaram colegas</span>
+      <span class="rk-tile-num dash-skeleton" data-source="resumo" data-field="indicaram">—</span>
+      <span class="rk-tile-sub">Indicações no total: <span data-source="resumo" data-field="indicacoes">—</span></span>
+    </div>
+    <div class="rk-tile">
+      <span class="rk-tile-label">Trouxeram cadastros</span>
+      <span class="rk-tile-num dash-skeleton" data-source="resumo" data-field="trouxeram">—</span>
+      <span class="rk-tile-sub">Cadastros trazidos: <span data-source="resumo" data-field="cadastros_trazidos">—</span></span>
+    </div>
+  </section>
+
+  <section id="top10">
+    <h2 class="rk-section-title">Os 10 primeiros em cada critério</h2>
+    <p class="rk-section-note">Só entra quem tem pelo menos 1 no critério. Contas internas, de teste e duplicadas ficam de fora.</p>
+  </section>
+
+  <div class="rk-grid">
+    <article class="rk-card" id="top-imoveis">
+      <h3>Mais imóveis no ar</h3>
+      <p class="rk-card-note">Imóveis publicados e visíveis hoje.</p>
+      <table class="rk-table rk-top" data-source="corretores" data-row-key="id_user">
+        <thead><tr><th data-field="corretor">Corretor</th><th class="rk-n" data-field="imoveis_no_ar">No ar</th><th class="rk-n rk-hide-narrow" data-field="imoveis_total">Cadastrados</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+
+    <article class="rk-card" id="top-bio">
+      <h3>Link na bio do Instagram</h3>
+      <p class="rk-card-note">Visitas abertas pelo navegador do Instagram desde 17/10, quando a contagem começou.</p>
+      <table class="rk-table rk-top" data-source="corretores" data-row-key="id_user">
+        <thead><tr><th data-field="corretor">Corretor</th><th class="rk-n" data-field="visitas_instagram">Visitas</th><th class="rk-n rk-hide-narrow" data-field="visitas_instagram_7d">7 dias</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+
+    <article class="rk-card" id="top-visitas">
+      <h3>Mais visitas no Smart Link</h3>
+      <p class="rk-card-note">Visitas à página do corretor nos últimos 30 dias, de qualquer lugar.</p>
+      <table class="rk-table rk-top" data-source="corretores" data-row-key="id_user">
+        <thead><tr><th data-field="corretor">Corretor</th><th class="rk-n" data-field="visitas_site_30d">30 dias</th><th class="rk-n rk-hide-narrow" data-field="visitas_site">Desde o início</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+
+    <article class="rk-card" id="top-indicacoes">
+      <h3>Mais indicações</h3>
+      <p class="rk-card-note">Colegas do Indique e Ganhe. Aprovada é colega com imóvel no ar há 7 dias.</p>
+      <table class="rk-table rk-top" data-source="corretores" data-row-key="id_user">
+        <thead><tr><th data-field="corretor">Corretor</th><th class="rk-n" data-field="indicacoes_aprovadas">Aprovadas</th><th class="rk-n" data-field="indicacoes_a_conferir">A conferir</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+
+    <article class="rk-card" id="top-trazidos">
+      <h3>Mais cadastros pelos seus links</h3>
+      <p class="rk-card-note">Contas novas que vieram da página do corretor ou do convite dele.</p>
+      <table class="rk-table rk-top" data-source="corretores" data-row-key="id_user">
+        <thead><tr><th data-field="corretor">Corretor</th><th class="rk-n" data-field="cadastros_trazidos">Cadastros</th><th class="rk-n" data-field="trazidos_que_publicaram">Publicaram</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </article>
+  </div>
+
+  <section class="rk-card" id="todos">
+    <h2 class="rk-section-title">Todos os corretores</h2>
+    <div class="rk-tools">
+      <input id="rk-busca" type="search" placeholder="Buscar por nome ou link" aria-label="Buscar corretor">
+      <span class="rk-count" id="rk-count"></span>
+    </div>
+    <div class="rk-scroll">
+      <table class="rk-table" id="rk-todos" data-source="corretores" data-row-key="id_user">
+        <thead><tr>
+          <th data-field="corretor"><button class="rk-sort" type="button" data-col="corretor">Corretor</button></th>
+          <th class="rk-n" data-field="imoveis_no_ar"><button class="rk-sort" type="button" data-col="imoveis_no_ar">Imóveis no ar</button></th>
+          <th data-field="bio"><button class="rk-sort" type="button" data-col="bio_ordem">Bio</button></th>
+          <th class="rk-n" data-field="visitas_instagram"><button class="rk-sort" type="button" data-col="visitas_instagram">Visitas Instagram</button></th>
+          <th class="rk-n" data-field="visitas_site_30d"><button class="rk-sort" type="button" data-col="visitas_site_30d">Visitas 30 dias</button></th>
+          <th class="rk-n" data-field="indicacoes_aprovadas"><button class="rk-sort" type="button" data-col="indicacoes_total">Indicações</button></th>
+          <th class="rk-n" data-field="cadastros_trazidos"><button class="rk-sort" type="button" data-col="cadastros_trazidos">Cadastros trazidos</button></th>
+          <th class="rk-hide-narrow" data-field="cadastro"><button class="rk-sort" type="button" data-col="cadastro">Conta desde</button></th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="como">
+    <h2 class="rk-section-title">Como cada número é contado</h2>
+    <ul class="rk-defs">
+      <li>Imóveis no ar: publicados e visíveis no Smart Link hoje.</li>
+      <li>Bio: "Confirmada" quando já chegou visita pelo navegador do Instagram (bio, stories ou direct); "Marcou" quando o corretor marcou no app que colou o link, sem visita ainda.</li>
+      <li>Visitas no Smart Link: cada abertura da página do corretor, de qualquer lugar. A página conta desde que foi ao ar; robôs que não abrem a página não entram.</li>
+      <li>Indicações: as do Indique e Ganhe. "A conferir" vira aprovada quando o colega tem o celular confirmado e um imóvel no ar há 7 dias.</li>
+      <li>Cadastros trazidos: contas novas que chegaram pelo botão "Crie seu Smart Link" da página do corretor ou pelo convite dele.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+  dash.calc('resumo', {
+    title: 'Resumo do ranking',
+    description: 'Totais da tabela dos corretores: quantos têm cada coisa e as somas.',
+    inputs: ['corretores'],
+    fn: (corretores) => {
+      const soma = (k) => corretores.reduce((s, c) => s + (Number(c[k]) || 0), 0);
+      const conta = (f) => corretores.filter(f).length;
+      return [{
+        corretores: corretores.length,
+        com_imovel: conta((c) => Number(c.imoveis_no_ar) > 0),
+        imoveis_no_ar: soma('imoveis_no_ar'),
+        bio_confirmada: conta((c) => c.bio === 'Confirmada'),
+        bio_marcou: conta((c) => c.bio === 'Marcou'),
+        // Sem a exportação das visitas, as duas ficam vazias (não zero).
+        com_visitas_30d: corretores.some((c) => c.visitas_site != null) ? conta((c) => Number(c.visitas_site_30d) > 0) : null,
+        visitas_30d: corretores.some((c) => c.visitas_site != null) ? soma('visitas_site_30d') : null,
+        indicaram: conta((c) => Number(c.indicacoes_aprovadas) + Number(c.indicacoes_a_conferir) > 0),
+        indicacoes: soma('indicacoes_aprovadas') + soma('indicacoes_a_conferir'),
+        trouxeram: conta((c) => Number(c.cadastros_trazidos) > 0),
+        cadastros_trazidos: soma('cadastros_trazidos'),
+      }];
+    },
+  });
+
+  (function () {
+    const fmt = new Intl.NumberFormat('pt-BR');
+    const n = (v) => (v === null || v === undefined || v === '' ? '—' : fmt.format(Number(v)));
+    const sing = (k, um, varios) => (k === 1 ? um : varios);
+
+    function falha(el) {
+      el.replaceChildren();
+      const p = document.createElement('div');
+      p.className = 'rk-fail';
+      p.textContent = 'Failed to load';
+      el.append(p);
+    }
+
+    function linha(row, cols) {
+      const tr = document.createElement('tr');
+      tr.dataset.key = String(row.id_user);
+      for (const c of cols) {
+        const td = document.createElement('td');
+        if (c.num) td.className = 'rk-n' + (c.hide ? ' rk-hide-narrow' : '');
+        else if (c.hide) td.className = 'rk-hide-narrow';
+        if (c.key === 'corretor') {
+          td.classList.add('rk-name');
+          td.textContent = row.corretor;
+        } else if (c.key === 'bio') {
+          const s = document.createElement('span');
+          s.className = 'rk-chip ' + (row.bio === 'Confirmada' ? 'rk-chip-ok' : row.bio === 'Marcou' ? 'rk-chip-warn' : 'rk-chip-none');
+          s.textContent = row.bio;
+          td.append(s);
+        } else if (c.num) {
+          td.textContent = n(row[c.key]);
+        } else {
+          td.textContent = row[c.key] ?? '—';
+        }
+        tr.append(td);
+      }
+      return tr;
+    }
+
+    const TOPS = [
+      { id: 'top-imoveis', by: (r) => Number(r.imoveis_no_ar) || 0, tie: (r) => Number(r.imoveis_total) || 0,
+        cols: [{ key: 'corretor' }, { key: 'imoveis_no_ar', num: true }, { key: 'imoveis_total', num: true, hide: true }],
+        vazio: 'Nenhum corretor com imóvel no ar.' },
+      { id: 'top-bio', by: (r) => Number(r.visitas_instagram) || 0, tie: (r) => Number(r.visitas_instagram_7d) || 0,
+        cols: [{ key: 'corretor' }, { key: 'visitas_instagram', num: true }, { key: 'visitas_instagram_7d', num: true, hide: true }],
+        vazio: 'Ainda não chegou visita pelo Instagram.' },
+      { id: 'top-visitas', by: (r) => Number(r.visitas_site_30d) || 0, tie: (r) => Number(r.visitas_site) || 0,
+        cols: [{ key: 'corretor' }, { key: 'visitas_site_30d', num: true }, { key: 'visitas_site', num: true, hide: true }],
+        vazio: 'As visitas entram com a próxima exportação diária do funil.' },
+      { id: 'top-indicacoes', by: (r) => (Number(r.indicacoes_aprovadas) || 0) * 1000 + (Number(r.indicacoes_a_conferir) || 0), tie: () => 0,
+        cols: [{ key: 'corretor' }, { key: 'indicacoes_aprovadas', num: true }, { key: 'indicacoes_a_conferir', num: true }],
+        vazio: 'Nenhuma indicação ainda.' },
+      { id: 'top-trazidos', by: (r) => Number(r.cadastros_trazidos) || 0, tie: (r) => Number(r.trazidos_que_publicaram) || 0,
+        cols: [{ key: 'corretor' }, { key: 'cadastros_trazidos', num: true }, { key: 'trazidos_que_publicaram', num: true }],
+        vazio: 'Nenhum cadastro trazido pelos links ainda.' },
+    ];
+
+    function desenhaTop(t, rows) {
+      const card = document.getElementById(t.id);
+      const tbody = card.querySelector('tbody');
+      card.querySelectorAll('.rk-empty').forEach((e) => e.remove());
+      const top = rows.filter((r) => t.by(r) > 0)
+        .sort((a, b) => t.by(b) - t.by(a) || t.tie(b) - t.tie(a) || String(a.corretor).localeCompare(String(b.corretor), 'pt-BR'))
+        .slice(0, 10);
+      tbody.replaceChildren(...top.map((r) => linha(r, t.cols)));
+      if (!top.length) {
+        const p = document.createElement('p');
+        p.className = 'rk-empty';
+        p.textContent = t.vazio;
+        card.append(p);
+      }
+    }
+
+    const COLS_TODOS = [
+      { key: 'corretor' }, { key: 'imoveis_no_ar', num: true }, { key: 'bio' }, { key: 'visitas_instagram', num: true },
+      { key: 'visitas_site_30d', num: true }, { key: 'indicacoes_aprovadas', num: true }, { key: 'cadastros_trazidos', num: true },
+      { key: 'cadastro', hide: true },
+    ];
+    const BIO_ORDEM = { Confirmada: 2, Marcou: 1, 'Não': 0 };
+    let ordem = { col: 'imoveis_no_ar', desc: true };
+    const busca = document.getElementById('rk-busca');
+    const tabela = document.getElementById('rk-todos');
+
+    function valor(r, col) {
+      if (col === 'bio_ordem') return BIO_ORDEM[r.bio] ?? 0;
+      if (col === 'indicacoes_total') return (Number(r.indicacoes_aprovadas) || 0) + (Number(r.indicacoes_a_conferir) || 0);
+      if (col === 'corretor' || col === 'cadastro') return String(r[col] ?? '');
+      return Number(r[col]) || 0;
+    }
+
+    function desenhaTodos(rows) {
+      const q = busca.value.trim().toLowerCase();
+      const lista = rows.filter((r) => !q || String(r.corretor).toLowerCase().includes(q) || String(r.link).toLowerCase().includes(q));
+      lista.sort((a, b) => {
+        const va = valor(a, ordem.col), vb = valor(b, ordem.col);
+        const c = typeof va === 'string' ? va.localeCompare(vb, 'pt-BR') : va - vb;
+        return (ordem.desc ? -c : c) || String(a.corretor).localeCompare(String(b.corretor), 'pt-BR');
+      });
+      tabela.querySelector('tbody').replaceChildren(...lista.map((r) => linha(r, COLS_TODOS)));
+      tabela.querySelectorAll('th').forEach((th) => {
+        const b = th.querySelector('.rk-sort');
+        th.setAttribute('aria-sort', b && b.dataset.col === ordem.col ? (ordem.desc ? 'descending' : 'ascending') : 'none');
+      });
+      document.getElementById('rk-count').textContent = fmt.format(lista.length) + ' ' + sing(lista.length, 'corretor', 'corretores');
+    }
+
+    tabela.querySelector('thead').addEventListener('click', (ev) => {
+      const b = ev.target.closest('.rk-sort');
+      if (!b) return;
+      const col = b.dataset.col;
+      ordem = { col, desc: ordem.col === col ? !ordem.desc : col !== 'corretor' };
+      const d = dash.data('corretores');
+      if (d.status === 'ok') desenhaTodos(d.data);
+    });
+    busca.addEventListener('input', () => {
+      const d = dash.data('corretores');
+      if (d.status === 'ok') desenhaTodos(d.data);
+    });
+
+    function desenhaResumo() {
+      const r = dash.data('resumo');
+      const s = r.status === 'ok' && r.data && r.data[0];
+      document.querySelectorAll('[data-source="resumo"][data-field]').forEach((el) => {
+        el.classList.remove('dash-skeleton');
+        el.textContent = s ? n(s[el.dataset.field]) : '—';
+      });
+    }
+
+    dash.onData(() => {
+      const d = dash.data('corretores');
+      const tabelas = document.querySelectorAll('table[data-source="corretores"]');
+      if (d.status === 'ok') {
+        TOPS.forEach((t) => desenhaTop(t, d.data));
+        desenhaTodos(d.data);
+      } else {
+        tabelas.forEach((tb) => {
+          const tbody = tb.querySelector('tbody');
+          if (d.status === 'error') { const tr = document.createElement('tr'); const td = document.createElement('td'); td.colSpan = 8; falha(td); tr.append(td); tbody.replaceChildren(tr); }
+          else tbody.replaceChildren();
+        });
+      }
+      desenhaResumo();
+    });
+  })();
+</script>
