@@ -35,7 +35,7 @@ Uma dica: coloque o seu link smartli.ink/{slug} na bio do Instagram e nas suas r
 
 Qualquer dúvida, é só responder este e-mail.
 
-Mateus, da Match House"""
+Match House"""
 
 ASSUNTO_B = "Seu Smart Link está no ar, falta o primeiro imóvel"
 TEXTO_B = """Oi, {nome}!
@@ -50,7 +50,7 @@ Uma dica: depois de publicar, coloque o seu link smartli.ink/{slug} na bio do In
 
 Qualquer dúvida, é só responder este e-mail.
 
-Mateus, da Match House"""
+Match House"""
 
 
 def call(method, path, body=None):
