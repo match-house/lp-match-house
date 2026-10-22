@@ -34,6 +34,7 @@ META = {"meta", "ig", "fb", "facebook", "instagram"}
 ORDEM = ["ChatGPT", "Meta app", "Meta LP", "Google", "Página de outro corretor",
          "Convite do Indique e Ganhe", "Página de outro corretor ou convite",
          "QR (placa ou cartão)", "Cartão NFC", "Sem origem"]
+SEMPRE = ["Página de outro corretor", "Convite do Indique e Ganhe"]
 
 
 def origem(it: dict) -> tuple:
@@ -77,6 +78,10 @@ def contar(itens: list, de: date, ate: date) -> OrderedDict:
         r["publicaram"] += 1 if (it.get("publicados") or 0) > 0 else 0
         if slug:
             r["quem_trouxe"][slug] = r["quem_trouxe"].get(slug, 0) + 1
+    # Pedido do Mateus (22/10): a página de outro corretor e o convite do
+    # Indique e Ganhe aparecem sempre, mesmo com zero.
+    for k in SEMPRE:
+        res.setdefault(k, {"contas": 0, "concluiram": 0, "publicaram": 0, "quem_trouxe": {}})
     chaves = [k for k in ORDEM if k in res] + sorted(k for k in res if k not in ORDEM)
     out = OrderedDict()
     for k in chaves:
