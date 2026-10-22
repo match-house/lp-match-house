@@ -397,11 +397,12 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
   Visão geral). Link direto: `https://app.smartli.ink/dashboard/pro`.
 - **Preço:** R$ 147 por mês, no cartão ou no Pix.
 - **Pix (no ar desde 21/10, à noite):** é débito automático. O corretor
-  escolhe "Pix", informa o CPF e paga o QR (ou o "Copiar código Pix") do
-  1º mês; com isso ele autoriza o débito no banco, uma vez só, e os meses
-  seguintes saem sozinhos. O código vale 10 minutos (depois, "Gerar novo
-  código"). Pagar de uma conta no nome do mesmo CPF. Por enquanto só CPF:
-  empresa com CNPJ ainda não.
+  escolhe "Pix", informa o CPF (ou o CNPJ e a razão social, para pagar como
+  empresa; desde 22/10) e paga o QR (ou o "Copiar código Pix") do 1º mês;
+  com isso ele autoriza o débito no banco, uma vez só, e os meses seguintes
+  saem sozinhos. O código vale 10 minutos (depois, "Gerar novo código").
+  Pagar de uma conta no nome do mesmo CPF ou CNPJ. Com CNPJ, a nota fiscal
+  sai em nome da empresa.
 - **O que tem:**
   - todos os clientes com nome e celular, na hora;
   - visitas marcadas pela IA a partir de 1 hora depois do contato;
