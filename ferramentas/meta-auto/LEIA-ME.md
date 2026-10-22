@@ -1,0 +1,103 @@
+# Meta no automático (decisão do Mateus, 22/10/2026)
+
+Pergunta dele: "como podemos automatizar as campanhas na meta? digo, gerar novos
+criativos e subir varios, pausar e destivar os que nao performam e perseguir uma
+escala alta para ter custo igual ou menor do que o chatgpt? queria te dar
+autonomia para isso".
+
+Respostas dele, 22/10:
+1. Religar a Meta: "sim" (com criativos novos; a primeira leva vem do Fable).
+2. Teto: "100,00/dia".
+3. Meta e freio: "Isso 40 e pausa se passar de 120" (R$ 40 por corretor que
+   publicou; pausa tudo se os 7 dias passarem de R$ 120).
+4. Criativos: "pode subir e ligar direto e me manda para eu checar depois. mas
+   vc vai ter autonomia para agir.. confio em vc, estmaos juntos."
+
+Estado vivo em `estado.json` (só no scratchpad: tem gasto, que é número da
+empresa; o repositório é público). Se sumir, recriar pelo Windsor (estado dos
+anúncios) e pela seção "Meta no automático" do CLAUDE.md.
+
+## Onde
+
+- Conta 450532434323918, página 261171503755179.
+- Campanha do app 120252349246370445 (orçamento na campanha, centavos), conjunto
+  120252351113480445. Segmentação manual (nunca Advantage+). Evento Lead do
+  pixel 1159381878670820 sem renomear.
+- Pausa noturna 23h13–07h13 pela regra do Gerenciador (religa os conjuntos).
+
+## Regras do dia (rotina das 07h37)
+
+Números da Meta sem imposto no Windsor; para custo por corretor, somar 13,83%.
+Contas por `utm_content` (`<criativo>-story-app`) no /backoffice/signups, com
+a ORIGEM_CORRIGIDA e o INTERNOS do `custos/cac.py`.
+
+Por anúncio (desde que entrou):
+1. Gastou R$ 30 e nenhuma conta: pausar.
+2. Gastou R$ 80 e ninguém publicou: pausar.
+3. Entre os que passaram de R$ 30: custo por conta concluída acima de 2x o do
+   melhor: pausar o pior.
+4. Nunca deixar o conjunto com menos de 2 anúncios ativos sem substituto: se a
+   regra pausaria o penúltimo, criar criativo novo antes (rotina de criativos)
+   ou esperar.
+5. Reprovado pela Meta: anotar o motivo em `reprovacoes` e não reenviar o mesmo.
+
+Verba (na campanha):
+- Custo por corretor que publicou nos últimos 7 dias, com imposto, só da
+  campanha do app.
+- Até R$ 40, com pelo menos 3 que publicaram nos 7 dias e a última mudança há
+  3 dias ou mais: subir 20% (arredondar para R$ 5), no máximo R$ 100/dia.
+- De R$ 40 a R$ 120: manter. Se passar de R$ 70 em duas leituras seguidas,
+  voltar à verba anterior.
+- Acima de R$ 120, com pelo menos R$ 150 gastos nos 7 dias: pausar a campanha
+  e avisar o Mateus na hora.
+- A Meta recusa mudança de verba muito seguida: no máximo uma por dia.
+
+Depois de agir: gravar em `estado.json` (`log`) e mandar ao Mateus 2 a 4 linhas
+com o que mudou e o número que justificou. Sem mudança: silêncio (vai no
+relatório diário).
+
+## Criativos novos (segunda e quinta, 08h17)
+
+- Quando houver menos de 3 anúncios ativos, ou um foi pausado desde a última
+  rodada: criar 2 ou 3 novos (no máximo 3 por rodada).
+- Ângulos: `fila` do `estado.json`; briefing
+  https://claude.ai/artifact/1FpGjLzGwcr3ksukDgSpRC; o que aparecer nas
+  mensagens dos corretores (`mensagens-vistas.json`) e no Amplitude (o que mais
+  usam no app). Só insight geral: nunca nome nem dado de corretor no anúncio.
+- Regras de texto do CLAUDE.md (nunca grátis/gratuito, nunca "30 leads", a IA
+  atende os clientes que já chegam ao corretor, nada que não exista, exemplo
+  fictício com selo "Exemplo", sem número de resultado como promessa, sem
+  domínio escrito no texto).
+- Artes: 1080x1350 (feed) e 1080x1920 (story), HTML renderizado com Playwright
+  (modelo em `scratchpad/criativos11/render.mjs` e `render45.mjs`; cópia em
+  `anuncios/fonte-11/` da branch de trabalho). Conferir cada PNG olhando.
+- Subir: commitar os PNGs em `anuncios/` da branch
+  `claude/cheque-campanha-numeros-ivhccq` (só arte, nada de número) e usar o
+  endereço raw com o hash do commit. Nome do anúncio
+  `[12] 12a <ideia> (feed 4x5 + story 9x16)`; utm_content `12a-story-app`.
+- Modelo do create_ad (o mesmo dos 11):
+
+```json
+{"adset_id":"120252351113480445","name":"[12] 12a <ideia> (feed 4x5 + story 9x16)","status":"active",
+ "creative":{"object_story_spec":{"page_id":"261171503755179"},
+  "asset_feed_spec":{
+   "images":[{"url":"https://raw.githubusercontent.com/match-house/lp-match-house/<commit>/anuncios/12a-<ideia>-4x5.png","adlabels":[{"name":"feed_12a"}]},
+             {"url":"https://raw.githubusercontent.com/match-house/lp-match-house/<commit>/anuncios/12a-<ideia>-9x16.png","adlabels":[{"name":"story_12a"}]}],
+   "bodies":[{"text":"<texto>"}],"titles":[{"text":"<título>"}],
+   "link_urls":[{"website_url":"https://app.smartli.ink/?utm_source=meta&utm_medium=cpc&utm_campaign=MH_2026_09_app&utm_content=12a-story-app"}],
+   "call_to_action_types":["SIGN_UP"],"ad_formats":["SINGLE_IMAGE"],"optimization_type":"PLACEMENT",
+   "asset_customization_rules":[
+    {"customization_spec":{"publisher_platforms":["instagram"],"instagram_positions":["stream"]},"image_label":{"name":"feed_12a"},"priority":1},
+    {"customization_spec":{"publisher_platforms":["instagram"],"instagram_positions":["story","reels"]},"image_label":{"name":"story_12a"},"priority":2}]}}}
+```
+
+- Freio: 2 reprovações na mesma semana, parar de subir novos e avisar o Mateus.
+- Depois: mandar ao Mateus os nomes, o texto e as artes (SendUserFile), para ele
+  checar depois.
+
+## Semana (segunda, junto com os criativos)
+
+- Comparar Meta x ChatGPT nos 7 dias: gasto, contas, concluíram, publicaram,
+  custo por conta e por corretor que publicou.
+- Atualizar a `fila` de ângulos com o que funcionou e o que apareceu nas
+  mensagens e no Amplitude.
