@@ -2358,6 +2358,33 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - A conta 56 (interna) tem 2 indicações antigas aprovadas, que contam para o
   nível. A trava de conta interna só vale para as novas.
 
+## Ranking dos corretores (Mateus, 22/10)
+
+- Pedido dele: "queria ter um ranking de corretores, os que mais colocaram
+  imoveis, link na bio, receberam visitas, indicaram, geraram novos usuarios
+  pelos seus links". Só para ele (dado de corretor: nunca mostrar a outro
+  corretor nem pôr neste repositório).
+- Página: https://claude.ai/artifact/124MpbwDZnk61LFdLivtBK (painel). Os 10
+  primeiros em cada critério e a tabela com todos, com busca e ordenação.
+- **Atualizar todo dia com o relatório diário:**
+  1. `python3 scratchpad/ranking/gerar.py <csv das visitas>` (cópia em
+     `ferramentas/ranking/`). Ele escreve `scratchpad/ranking/corretores.json`.
+  2. Subir o arquivo como asset do painel (Artifact `publish` com
+     `asset: true`) e trocar `url`, `name` e `updated` do documento
+     `datasets/corretores` (ArtifactData `update`, com o `if_version`).
+- Fontes: `/backoffice/signups` (imóveis no ar e os links),
+  `GET /backoffice/instagram/visitas?days=90` (api #124, no ar desde 22/10:
+  visitas pelo navegador do Instagram, contadas desde 17/10, e a lista
+  `bio_marcada` de quem marcou "colei o link"), `/backoffice/indicacao/indicacoes`
+  e os cadastros com `utm_content=perfil-<slug>`.
+- **Visitas ao Smart Link ainda não chegam.** A exportação diária do funil
+  (branch `claude/post-deploy-api-export-csv-2qpvzq`, commit 17e18be3) já
+  gera `visitas-corretores-ACUMULADO.csv` (Drive 1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK),
+  mas o segredo `METRICS_DATABASE_URL` do GitHub está vazio: o banco do site
+  (`agent_metrics`) não é lido. Por isso a coluna `primeiro_clique_link` do
+  funil também sempre saiu vazia. Quem põe o segredo é o Mateus ou o Vitor,
+  direto no GitHub (de preferência um usuário só de leitura). Nunca pelo chat.
+
 ## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
 
 - Pedido dele: "inclua nas duas planilhas o receberam leads na conversa da
