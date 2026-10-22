@@ -403,6 +403,10 @@ os clientes". Dúvida sobre o Pro se responde com o que está no e-mail aprovado
   saem sozinhos. O código vale 10 minutos (depois, "Gerar novo código").
   Pagar de uma conta no nome do mesmo CPF ou CNPJ. Com CNPJ, a nota fiscal
   sai em nome da empresa.
+  - No app do banco, a autorização aparece com "valor variável" e o texto
+    "Pro R$ 147/mês, menos desconto": cada mês sai com o desconto de
+    indicação daquele mês, nunca acima de R$ 147. Se o banco pedir um
+    limite, ele não pode ficar abaixo de R$ 147.
 - **O que tem:**
   - todos os clientes com nome e celular, na hora;
   - visitas marcadas pela IA a partir de 1 hora depois do contato;
@@ -451,14 +455,16 @@ Uma dica: coloque o seu link smartli.ink/<slug> na bio do Instagram e nas suas r
     sai sem cobrança;
   - quem entra pelo convite também ganha 10% no Pro, por 6 meses, nas
     mesmas condições;
-  - o desconto vale no Pro pago no cartão. No Pix (no ar desde 21/10),
-    o desconto da indicação ainda não vale. Os 100% (Pro sem cobrança) só
-    no cartão.
+  - o desconto vale no Pro pago no cartão e no Pix (no Pix desde 22/10):
+    cada mês sai com o desconto que valer naquele mês. Com 100%, a tela do
+    Pro mostra só "Liberar o Pro", e o Pro sai sem cobrança. Quem já paga
+    no Pix e chega a 100% não é cobrado naquele mês, e o débito volta
+    sozinho quando o desconto cair.
 - **Etapas que a tela mostra para cada colega:** "Falta confirmar o
   celular", "Falta publicar o 1º imóvel", "Passa a contar em <data>",
   "Valendo 10%" (até a data) e "Os 6 meses terminaram".
 - **Não dizer:** que a Match House paga ou dá dinheiro, que o desconto vale
-  para sempre, que vale no Pix, nem quantos corretores já indicaram (sigilo).
+  para sempre, nem quantos corretores já indicaram (sigilo).
   Não prometer cartão físico por indicação além do que a tela do cartão
   mostra.
 - **Pede o "pode" do Mateus:** colega que "não contou" e o corretor acha que
