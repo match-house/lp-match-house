@@ -107,8 +107,14 @@ Notas do projeto para agentes. Ler antes de mexer.
   Leitura em 29/10.
 - **Modo Desbloqueado, decisões do Mateus em 22/10** (proposta do Claude Design,
   "Modo-Desbloqueado-campanha"):
-  - a provocação fica para 05/11, junto com a regra nova. Ele viaja e volta em
-    10/11 ("mas vc pode tocar?"): eu toco o orgânico e os anúncios nesse período;
+  - a provocação fica para 05/11, junto com a regra nova. Ele viaja em 28/10 e
+    volta em 10/11 ("mas vc pode tocar?"): eu toco o orgânico e os anúncios nesse
+    período. O que precisa do "pode" dele sai antes de 28/10;
+  - **o que o Modo Desbloqueado quer dizer** (Mateus, 22/10): é como o modo
+    avião. O corretor fica livre para fazer o que quiser enquanto a IA trabalha
+    por ele. Nunca mostrar o corretor pegando o celular na hora livre: "Desbloqueado
+    às 22h14" podia ser lido como "desbloqueou o celular no jantar". A campanha 13
+    foi pausada antes de entregar para refazer as artes;
   - o Jantar Desbloqueado não vai ser feito. O clube vai (nome ainda a escolher);
   - ele gostou do cadeado abrindo como gesto da marca;
   - ele sugeriu contar a história da Camila. Ela é personagem e aparece sempre
