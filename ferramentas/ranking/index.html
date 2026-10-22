@@ -158,7 +158,7 @@
     <ul class="rk-defs">
       <li>Imóveis no ar: publicados e visíveis no Smart Link hoje.</li>
       <li>Bio: "Confirmada" quando já chegou visita pelo navegador do Instagram (bio, stories ou direct); "Marcou" quando o corretor marcou no app que colou o link, sem visita ainda.</li>
-      <li>Visitas no Smart Link: cada abertura da página do corretor, de qualquer lugar. A página conta desde que foi ao ar; robôs que não abrem a página não entram.</li>
+      <li>Visitas no Smart Link: cada abertura da página do corretor, de qualquer lugar; robôs que não abrem a página não entram. Ainda em branco: a exportação diária precisa de acesso ao banco do site para trazer esse número.</li>
       <li>Indicações: as do Indique e Ganhe. "A conferir" vira aprovada quando o colega tem o celular confirmado e um imóvel no ar há 7 dias.</li>
       <li>Cadastros trazidos: contas novas que chegaram pelo botão "Crie seu Smart Link" da página do corretor ou pelo convite dele.</li>
     </ul>
@@ -237,7 +237,7 @@
         vazio: 'Ainda não chegou visita pelo Instagram.' },
       { id: 'top-visitas', by: (r) => Number(r.visitas_site_30d) || 0, tie: (r) => Number(r.visitas_site) || 0,
         cols: [{ key: 'corretor' }, { key: 'visitas_site_30d', num: true }, { key: 'visitas_site', num: true, hide: true }],
-        vazio: 'As visitas entram com a próxima exportação diária do funil.' },
+        vazio: 'As visitas do site ainda não chegam aqui: falta ligar a leitura do banco do site na exportação diária.' },
       { id: 'top-indicacoes', by: (r) => (Number(r.indicacoes_aprovadas) || 0) * 1000 + (Number(r.indicacoes_a_conferir) || 0), tie: () => 0,
         cols: [{ key: 'corretor' }, { key: 'indicacoes_aprovadas', num: true }, { key: 'indicacoes_a_conferir', num: true }],
         vazio: 'Nenhuma indicação ainda.' },
