@@ -1300,6 +1300,14 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+- **Nunca o nome do Mateus nas mensagens** (Mateus, 22/10: "Nao coloque meu
+  nome nas mensagens lembra??"). Em 22/10, os textos para a Thaís (580) e o
+  Bruno (1430), que ele manda do WhatsApp dele, abriam com "Aqui é o Mateus,
+  da Match House".
+  - Quem fala é sempre a Match House ("Aqui é a Match House" ou "Aqui é o
+    atendimento da Match House"), mesmo quando quem envia é ele.
+  - Vale para WhatsApp, e-mail, Direct, assinatura ("Match House", nunca
+    "Mateus, da Match House") e modelos.
 - **Toda mensagem pronta vai com os links (Mateus, 03/10: "O link, lembra?
   Salva isso").** Em 03/10 entreguei respostas sem link e ele cobrou duas vezes.
   - **Dentro da mensagem, o link que a pessoa precisa.** Quem ainda não tem
