@@ -204,10 +204,18 @@ Notas do projeto para agentes. Ler antes de mexer.
         semana, com os temas e as regras da seção no `LEIA-ME.md`;
       - seguidores com R$ 10/dia dentro do teto de R$ 100/dia, impulsionando
         o melhor post da semana.
-      - Depende de conectar o Instagram no Windsor: em 22/10 só a Meta Ads,
-        o Amplitude e o ChatGPT estavam lá. A rotina que publica sozinha é
-        criada depois da conexão. O sistema desta conversa recusou criá-la
-        antes, em 22/10.
+      - O Instagram (conta 17841456747581112) foi conectado no Windsor em
+        22/10, e o Mateus subiu o plano para o Essential (o Basic aceita só
+        3 fontes e pausou todas as leituras com 4). O 1º post do feed saiu
+        no mesmo dia, com o "Pode postar" dele.
+      - A rotina `trig_01CGQkw8UcHiNqFKT6HYiyKw` publica sozinha nos dias
+        úteis, às 09h17. O modo Auto recusou criá-la duas vezes. Ela foi
+        criada com o Mateus no modo Accept edits, com a aprovação dele na
+        tela.
+      - A linha proposta em 22/10 é a série "Enquanto você…": liberdade e
+        eficiência de ter a IA com o seu nome atendendo. Ela e o calendário
+        ficam em `estado.json` (`organico.linha`). Vale quando o Mateus
+        aprovar; até lá, os temas do `LEIA-ME`.
   - **De 21/10, às 7h32, a 22/10: Meta inteira pausada** (Mateus: "Vamos
     pausar a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
     orçamento em 5000 e os anúncios 11b e 11c como estavam. A LP já estava
