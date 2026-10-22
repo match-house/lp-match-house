@@ -17,9 +17,9 @@ SID=HXc90bd14f65062296e4d6fe70abd7dd56
 registra() { echo "$1" >> "$LOG"; echo "$1"; }
 
 # 20/10: o teto de 50 WhatsApps por dia é o mesmo das respostas de atendimento.
-# O aviso usa no máximo LIMITE_DIA (35) por dia, para sempre sobrar espaço
+# O aviso usa no máximo LIMITE_DIA (30) por dia, para sempre sobrar espaço
 # para responder corretor pelo 6800.
-LIMITE_DIA=${LIMITE_DIA:-35}
+LIMITE_DIA=${LIMITE_DIA:-30}
 HOJE=$(TZ=America/Sao_Paulo date +%F)
 enviados_hoje() { jq -r --arg d "$HOJE" 'select(.status == "enviado") | .em' "$LOG" 2>/dev/null | while read -r e; do TZ=America/Sao_Paulo date -d "$e" +%F; done | grep -c "^$HOJE$"; }
 while read -r p; do

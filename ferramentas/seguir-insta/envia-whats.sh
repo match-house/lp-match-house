@@ -3,7 +3,7 @@
 # whatsapp para os que falterem" e "pode tudo"): modelo mh_seguir_instagram_1,
 # {{1}} primeiro nome e {{2}} smartli.ink/<slug>. Vai só a quem recebeu o
 # e-mail há 3 dias ou mais, não tocou no link e tem Smart Link. No máximo
-# LIMITE_DIA (35) por dia, para sobrar espaço para o atendimento no 6800 (o
+# LIMITE_DIA (30) por dia, para sobrar espaço para o atendimento no 6800 (o
 # teto de 50 é do backoffice). DRY=1 faz só a prévia.
 # Uso: bash envia-whats.sh lista.json   (a mesma lista do e-mail)
 set -u
@@ -14,7 +14,7 @@ LISTA=${1:?lista}
 EMAILS=$D/enviados-email.jsonl
 LOG=$D/enviados-whats.jsonl
 touch "$LOG"
-LIMITE_DIA=${LIMITE_DIA:-35}
+LIMITE_DIA=${LIMITE_DIA:-30}
 HOJE=$(TZ=America/Sao_Paulo date +%F)
 CORTE=$(date -u -d '3 days ago' +%FT%TZ)
 
