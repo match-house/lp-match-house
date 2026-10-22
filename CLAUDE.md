@@ -219,6 +219,19 @@ Notas do projeto para agentes. Ler antes de mexer.
         carrossel prático sai na quinta, e os comentários são respondidos em
         até um dia útil. Em 02/11 levo a ele o custo real por seguidor da
         1ª semana para decidir a verba do Instagram ("2 - combinado").
+      - **Siga a Match House no Instagram** (Mateus, 22/10: "pode tudo"):
+        - no app, cartão "Siga a Match House no Instagram" na Visão geral e
+          no Divulgar, só para quem tem imóvel no ar. Some por 30 dias
+          depois do toque. Evento `instagram_seguir_click` {onde}. No ar
+          desde 22/10 (app #160);
+        - e-mail a todos os cadastros a partir de 29/10, 150 por dia, quem
+          tem imóvel primeiro (887 na lista de 22/10; acaba por volta de
+          03/11). O link é rastreado (`/r/<token>`, api #126) e a lista
+          de quem tocou sai em `GET /backoffice/links/seguir-instagram-1`;
+        - 3 dias depois, WhatsApp com o modelo `mh_seguir_instagram_1`
+          para quem não tocou e tem Smart Link, até 40 por dia;
+        - scripts em `scratchpad/seguir-insta/` (cópia em
+          `ferramentas/seguir-insta/` da branch de trabalho).
       - A linha proposta em 22/10 é a série "Enquanto você…": liberdade e
         eficiência de ter a IA com o seu nome atendendo. Ela e o calendário
         ficam em `estado.json` (`organico.linha`). Vale quando o Mateus
@@ -327,7 +340,19 @@ Notas do projeto para agentes. Ler antes de mexer.
   `trig_01GNLbMWdWC3DBgkeXWCuWzt` (pausa) e `trig_013D2UoHoJwwzqVjQLHzcuZZ`
   (religar) foram desligadas, não apagadas, para não haver dois controles.
   Se a regra falhar de novo, religar as duas rotinas e avisar o Mateus.
-- Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
+- **Google Ads no Windsor desde 22/10** (conector `google_ads`, conta
+  454-477-3035, "[MH] Match House"). O Mateus conectou com o espaço do plano
+  Essential ("conectei o google, esta com 10,00 dia").
+  - O gasto, os cliques e as impressões por dia vêm daí. Isto vale acima do
+    que a rotina do relatório diário ainda diz sobre o GA4 e o e-mail
+    semanal. O e-mail semanal fica só como conferência.
+  - Só leitura. O conector aceita pausar e mudar verba, mas no Google isso é
+    com o Mateus: ele não deu autonomia lá.
+  - O Google marca 0 conversões: o cadastro não é importado como conversão.
+    O custo por cadastro sai do backoffice (origem google).
+  - De 16 a 22/10: R$ 83,28 (média de R$ 11,90 por dia), 27 cliques.
+  - O GA4 continua fora do Windsor. Recomendei religar (propriedade
+    387457360) e, depois, o Search Console.
   - **Desde 15/10: Google em R$ 10/dia** (antes R$ 30). Nas palavras do
     Mateus, em 16/10: "No google desde ontem reduzi para 10,00 por dia".
     Dia de até R$ 20 é normal. Alerta se passar disso ou se a média de 7
