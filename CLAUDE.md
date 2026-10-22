@@ -2366,12 +2366,21 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   corretor nem pôr neste repositório).
 - Página: https://claude.ai/artifact/124MpbwDZnk61LFdLivtBK (painel). Os 10
   primeiros em cada critério e a tabela com todos, com busca e ordenação.
-- **Atualizar todo dia com o relatório diário:**
-  1. `python3 scratchpad/ranking/gerar.py <csv das visitas>` (cópia em
-     `ferramentas/ranking/`). Ele escreve `scratchpad/ranking/corretores.json`.
-  2. Subir o arquivo como asset do painel (Artifact `publish` com
-     `asset: true`) e trocar `url`, `name` e `updated` do documento
-     `datasets/corretores` (ArtifactData `update`, com o `if_version`).
+- **Vai todo dia no relatório diário, junto com o funil** (Mateus, 22/10:
+  "Manda todos os dias junto com o funil blza"). Vale acima da lista de
+  entregas e de links da rotina do relatório, que ainda não cita o ranking.
+  1. Depois do export do funil, baixar o CSV das visitas do Drive
+     (1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK) para `scratchpad/ranking/visitas.csv`.
+  2. `python3 scratchpad/ranking/gerar.py scratchpad/ranking/visitas.csv`
+     (cópia em `ferramentas/ranking/`). Ele escreve
+     `scratchpad/ranking/corretores.json` e imprime os totais.
+  3. Subir o arquivo como asset do painel (Artifact `publish` com
+     `asset: true`) e trocar `source` (com o url novo) e `updated` do
+     documento `datasets/corretores` (ArtifactData `update`, com o
+     `if_version`). Não mexer em `files/index.html`.
+  4. No chat, ao lado do link do funil diário: o link do ranking e uma linha
+     (com imóvel no ar, bio confirmada, indicações, cadastros trazidos e quem
+     entrou no topo).
 - Fontes: `/backoffice/signups` (imóveis no ar e os links),
   `GET /backoffice/instagram/visitas?days=90` (api #124, no ar desde 22/10:
   visitas pelo navegador do Instagram, contadas desde 17/10, e a lista
