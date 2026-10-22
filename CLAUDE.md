@@ -789,7 +789,7 @@ para aquela mensagem.
       para ela. O CNPJ fica só na recorrência, não no cadastro.
     - **Desconto da indicação também no Pix desde 22/10** (api #122, app
       #159; Mateus: "o desconto precisa valer para o PIX tb" e "Perfeito,
-      pode construir assim! \"Pro R$ 147/mês, menos desconto\"").
+      pode construir assim! Pro R$ 147/mês, menos desconto").
       - A autorização nova é de valor variável (`valorMinimoRecebedor` =
         R$ 147), com o objeto "Pro R$ 147/mês, menos desconto". No banco
         aparece "valor variável"; o limite que o corretor puser não fica
