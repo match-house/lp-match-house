@@ -212,10 +212,25 @@ Notas do projeto para agentes. Ler antes de mexer.
         úteis, às 09h17. O modo Auto recusou criá-la duas vezes. Ela foi
         criada com o Mateus no modo Accept edits, com a aprovação dele na
         tela.
+      - **Meta de seguidores** (Mateus, 22/10: "nossa meta é engajamento e
+        chegar a 10 mil seguidores em 3 meses"): eram 1.789 em 22/10. Os
+        marcos são 3.500 em 21/11, 6.500 em 21/12 e 10.000 em 22/01. Reels
+        passou para 3 por semana ("1 sim!"): segunda, quarta e sexta. O
+        carrossel prático sai na quinta, e os comentários são respondidos em
+        até um dia útil. Em 02/11 levo a ele o custo real por seguidor da
+        1ª semana para decidir a verba do Instagram ("2 - combinado").
       - A linha proposta em 22/10 é a série "Enquanto você…": liberdade e
         eficiência de ter a IA com o seu nome atendendo. Ela e o calendário
         ficam em `estado.json` (`organico.linha`). Vale quando o Mateus
         aprovar; até lá, os temas do `LEIA-ME`.
+  - **22/10, 13h45: Meta religada com a onda 1 do Fable** (Mateus: "Blza
+    pode seguir"). Os anúncios 12a cena-0715, 12c ia-corretor e 12d
+    ia-na-bio entraram no conjunto do app, com R$ 50/dia, e o 11b e o 11c
+    foram pausados.
+    - As ondas 2 e 3 já estão prontas: 12f, 12g e 12b, depois 12e e
+      variações do vencedor. As artes estão em `anuncios/` da branch de
+      trabalho, e o material do Fable está em
+      https://claude.ai/artifact/WFd1PgHdKQvPz4Z2dzhjt7.
   - **De 21/10, às 7h32, a 22/10: Meta inteira pausada** (Mateus: "Vamos
     pausar a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
     orçamento em 5000 e os anúncios 11b e 11c como estavam. A LP já estava
