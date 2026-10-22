@@ -2386,13 +2386,21 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   visitas pelo navegador do Instagram, contadas desde 17/10, e a lista
   `bio_marcada` de quem marcou "colei o link"), `/backoffice/indicacao/indicacoes`
   e os cadastros com `utm_content=perfil-<slug>`.
-- **Visitas ao Smart Link ainda não chegam.** A exportação diária do funil
-  (branch `claude/post-deploy-api-export-csv-2qpvzq`, commit 17e18be3) já
-  gera `visitas-corretores-ACUMULADO.csv` (Drive 1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK),
-  mas o segredo `METRICS_DATABASE_URL` do GitHub está vazio: o banco do site
-  (`agent_metrics`) não é lido. Por isso a coluna `primeiro_clique_link` do
-  funil também sempre saiu vazia. Quem põe o segredo é o Mateus ou o Vitor,
-  direto no GitHub (de preferência um usuário só de leitura). Nunca pelo chat.
+- **Visitas ao Smart Link chegam desde 22/10, 9h20.** O Mateus copiou o
+  `POSTGRES_URL` da Vercel para o segredo `METRICS_DATABASE_URL` do GitHub
+  (api), direto, sem passar pelo chat. A exportação diária do funil (branch
+  `claude/post-deploy-api-export-csv-2qpvzq`) grava
+  `visitas-corretores-ACUMULADO.csv` (Drive 1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK),
+  lido da `agent_metrics` do site. A coluna `primeiro_clique_link` do funil
+  passa a vir preenchida.
+  - Baixar o CSV pelo Drive (`download_file_content`), nunca pelo artifact
+    do GitHub Actions: o endereço dele (blob.core.windows.net) é bloqueado
+    na rede desta conversa. O Drive devolve base64: gravar, decodificar com
+    `base64 -d` e conferir cada linha (9 campos, datas válidas) antes de
+    rodar o gerar.py.
+  - Desde dd77ff7e o banco do site tem prazo (20 s para conectar, 2 min por
+    consulta): se falhar, o CSV das visitas não sai e o resto do export segue.
+  - Trocar depois por um usuário só de leitura do banco (com o Vitor).
 
 ## Origem de cada visita ao Smart Link (desde 22/10)
 
