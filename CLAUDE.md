@@ -211,13 +211,33 @@ Notas do projeto para agentes. Ler antes de mexer.
       `ferramentas/custos/origens.py` da branch de trabalho; usa o `cac.py`
       da mesma pasta). Ele dá, para ontem, 7 dias e o mês, as contas, quem
       concluiu e quem publicou por origem.
-    - Origens: ChatGPT, Meta app, Meta LP, Google, página de outro corretor
-      (botão "Crie seu Smart Link", `utm_medium=perfil`), convite do Indique
-      e Ganhe (`utm_medium=indicacao`), QR, cartão NFC e sem origem. Na
-      página e no convite, dizer qual corretor trouxe (o slug).
-    - A página de outro corretor e o convite do Indique e Ganhe aparecem
-      sempre, mesmo com zero (Mateus, 22/10: "pagina de outro corretor e o
-      indique e ganhe temos que ter no relatorio").
+    - Origens:
+      - ChatGPT, Meta app, Meta LP e Google;
+      - página de outro corretor: o botão "Crie seu Smart Link" do site, no
+        perfil (`utm_medium=perfil`), em cada imóvel (`imovel`) e no rodapé
+        (sem medium);
+      - convite do Indique e Ganhe (`utm_medium=indicacao`);
+      - Instagram sem anúncio (`utm_source=org-instagram`; com
+        `utm_content=bio`, é o link da bio do @matchhouse.br);
+      - busca no Google, WhatsApp e outro site (os outros `org-*` da LP);
+      - digitou smartli.ink (`utm_medium=direto`), QR, cartão NFC e sem
+        origem.
+      - Na página e no convite, dizer qual corretor trouxe (o slug).
+    - A página de outro corretor, o convite do Indique e Ganhe e o Instagram
+      sem anúncio aparecem sempre, mesmo com zero (Mateus, 22/10: "pagina de
+      outro corretor e o indique e ganhe temos que ter no relatorio" e "Os
+      sem origem podem ter vindo do instagram, la tem o site d a LP e o
+      app").
+    - Links da bio do @matchhouse.br, com a marca (dados ao Mateus em 22/10;
+      quem troca é ele, no Instagram):
+      `https://app.smartli.ink/?utm_source=org-instagram&utm_medium=organico&utm_content=bio`
+      e o mesmo final em `https://www.matchhouse.com.br/`. A LP repassa a
+      marca ao app (testado em 22/10). Sem ela, quem toca no link do app da
+      bio fica "sem origem": o app não lê o site de origem, só a LP lê.
+    - Os 7 "sem origem" de outubro (até 21/10), olhados no Amplitude em
+      22/10: nenhum passou pelo navegador do Instagram. Quatro parecem ser
+      a segunda conta de quem já tinha uma, todas vazias; os outros vieram
+      sem site de origem ou sem rastro.
     - O `utm_medium` sai no `/backoffice/signups` desde 22/10 (api #123).
       Antes disso os dois ficavam juntos.
     - A 1ª indicação de verdade: o Edmilson (1293, montoyaconsultorimob)
