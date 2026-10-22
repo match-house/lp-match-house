@@ -101,3 +101,41 @@ relatório diário).
   custo por conta e por corretor que publicou.
 - Atualizar a `fila` de ângulos com o que funcionou e o que apareceu nas
   mensagens e no Amplitude.
+
+## Instagram orgânico e seguidores (Mateus, 22/10: "Pode ser assim! otimo")
+
+O que ele aprovou, em resposta à proposta do mesmo dia:
+- Campanha de seguidores: R$ 10/dia DENTRO dos R$ 100/dia (a do app + a de
+  seguidores nunca passam de R$ 100 somadas), impulsionando o melhor post da
+  semana.
+- Orgânico: publico direto e mostro depois, como nos anúncios.
+- Ritmo: 3 posts no feed por semana (seg, qua, sex), story todo dia útil e
+  1 reels por semana (terça).
+- Temas: dicas para o corretor (bio, QR na placa, responder rápido), o Smart
+  Link funcionando com o exemplo da Camila (selo "Exemplo"), novidades (Pro,
+  Indique e Ganhe). Mesmas regras de texto dos anúncios; a legenda termina com
+  o convite para o link da bio.
+
+Como publicar (Windsor, conector `instagram`, depois que o Mateus conectar o
+@matchhouse.br):
+- `create_image_post` (feed, JPEG até 8 MB, 4:5), `create_carousel_post`
+  (2 a 10 JPEG), `create_story` (JPEG 9:16 ou vídeo de 3 a 60 s),
+  `create_video_post` (reels, MP4 9:16, `share_to_feed` true).
+- O Instagram só aceita JPEG: renderizar com Playwright em JPEG (ou converter
+  com ffmpeg). Endereço público: raw do GitHub, pasta `anuncios/organico/` da
+  branch de trabalho (só arte).
+- Reels: montar com ffmpeg (há `ffmpeg` no ambiente e os scripts do vídeo da
+  Camila em `scratchpad/demo/`: `gravar.mjs`, `montar-video.sh`), 15 a 30 s.
+- Depois de cada post: mandar ao Mateus a arte e a legenda (SendUserFile), e
+  anotar em `estado.json` (`organico`).
+
+Seguidores:
+- Toda segunda, escolher o post de feed da semana com mais alcance e
+  interações (leitura do conector `instagram`) e impulsionar por 7 dias com
+  R$ 10/dia: campanha OUTCOME_ENGAGEMENT, conjunto com destino no perfil
+  (FACEBOOK_PAGE + PROFILE_AND_PAGE_ENGAGEMENT, botão VISIT_PROFILE) e a mesma
+  segmentação manual do conjunto do app (nunca Advantage+), e `boost_post`.
+- Medir: seguidores ganhos, custo por seguidor e contas com
+  `utm_source=org-instagram` (link da bio).
+- Se a verba do app estiver em R$ 100, a de seguidores só entra se a do app
+  descer para R$ 90 (o teto é a soma).
