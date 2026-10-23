@@ -131,6 +131,12 @@ Notas do projeto para agentes. Ler antes de mexer.
     sem o Pro; a campanha de seguidores começa já ("vamos comecar agora"), não
     em 26/10; o resto da revisão, ok. Nome do clube: "Desbloqueados"; selo no
     Smart Link: "Modo Desbloqueado".
+  - **A história da Camila começa já, de 23 a 28/10** (Mateus, 22/10, à noite:
+    "entao acho q podemos começar a campanha amanha mesmo..." e "Pode"), e não
+    em 05/11. O nome fica Modo Desbloqueado (ele perguntou de "Modo IA"; o Google
+    já usa "Modo IA" na busca em português). Um episódio por dia na hora da cena;
+    do ep. 2 em diante cada um vira anúncio na campanha 13. Roteiro, legendas e
+    lembretes em `ferramentas/meta-auto/semana-camila/` da branch de trabalho.
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
