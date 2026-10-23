@@ -1296,6 +1296,30 @@ quando quem cortou foi o nosso limite (app #125).
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
+## O corretor responde pelo que publica no Smart Link (Mateus, 23/10)
+
+- Nas palavras dele: "o corretor, ele que é o responsável por administrar
+  o Smart Link dele [...] pela veracidade das informações que ele coloca.
+  Ele só deve colocar imóveis [...] que ele é autorizado a vender, que o
+  proprietário ou a imobiliária ou um parceiro passou para ele. Que a gente
+  é um meio."
+- Nos termos desde 23/10 (main 52c2962): seção 5, "Imóveis e informações do
+  Smart Link". A Lei 6.530/1978, art. 20, III, veda anunciar sem autorização
+  por escrito. A Match House pode ocultar o anúncio em desacordo e pedir a
+  comprovação.
+- Em resposta a corretor que copia anúncio de outro site, o tom é
+  equilibrado:
+  - o link é dele, e quem publica responde pelas informações e pelas fotos;
+  - só entra imóvel autorizado (próprio, do proprietário que autorizou, ou
+    repassado por imobiliária ou parceiro);
+  - a Match House é a ferramenta e não intermedeia;
+  - o caminho para tirar do ar é "Ocultar anúncio".
+- Primeiro caso: o Decolo (1189), com anúncios de aluguel copiados em Campo
+  Grande e sem CRECI. A resposta saiu em 24/10, por causa do limite de 1
+  WhatsApp por dia.
+- Ocultar o anúncio de um corretor por nossa conta só com o "pode" do
+  Mateus.
+
 ## Endereço do imóvel: só bairro, cidade e UF no site (Mateus, 19/10)
 
 - Nas palavras dele: "volta a regra de nao aparecer o endereço completo do
