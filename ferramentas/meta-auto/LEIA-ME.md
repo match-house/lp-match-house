@@ -68,6 +68,10 @@ Verba (na campanha):
   voltar à verba anterior.
 - Acima de R$ 120, com pelo menos R$ 150 gastos nos 7 dias: pausar a campanha
   e avisar o Mateus na hora.
+- A janela dos 7 dias (verba e freio) começa na religada de 22/10 às 10h45
+  (Brasília). Antes disso eram os criativos 11, que o Mateus pausou em 21/10;
+  contar aqueles dias faria o freio pausar a onda 1 no primeiro dia. Até
+  29/10 a janela é "desde 22/10". Decidido em 23/10 no relatório diário.
 - A Meta recusa mudança de verba muito seguida: no máximo uma por dia.
 
 Depois de agir: gravar em `estado.json` (`log`) e mandar ao Mateus 2 a 4 linhas
