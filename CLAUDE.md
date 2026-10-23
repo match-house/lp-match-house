@@ -369,6 +369,20 @@ Notas do projeto para agentes. Ler antes de mexer.
     - A 1ª indicação de verdade: o Edmilson (1293, montoyaconsultorimob)
       trouxe o André Telles (1421) pela página dele, em 21/10. Fica "a
       conferir" até o imóvel do André fazer 7 dias no ar (aprova ~29/10).
+  - **Na página do funil diário desde 23/10** (Mateus: "Coloque essas info
+    e o google no arquivo do funil diario"). Todo dia, além das constantes
+    que a rotina já troca:
+    - `ORIGEM_CORRETORES`: a saída do `origens.py` (ontem, 7 dias e mês,
+      `[contas, concluíram, publicaram]`), com o `total` do `cac.py`. A
+      página avisa se a soma não fechar.
+    - `CUSTO_CANAL`: ChatGPT, Meta app, Meta LP (quando gastou), Meta
+      seguidores (só gasto) e Google, mais o total de toda a mídia por todas
+      as contas, para ontem, 7 dias e mês. A página confere a soma do gasto.
+    - Google como 4ª coluna em `CAMPANHAS` (conector `google_ads`), e
+      `ORIGENS` com Meta e Google em linhas separadas.
+    - Conta sem utm com origem achada no Amplitude vai em `ORIGEM_ACHADA`
+      do `origens.py`. `utm_source=chatgpt.com` é "ChatGPT sem anúncio": o
+      smartli.ink citado numa resposta do ChatGPT.
   - **Custo por cadastro sempre por canal** (Mateus, 21/10: "acho q nao
     esta considerando so custos do chatgpt, numeros n batem").
     - A tabela do CAC do relatório junta Meta, Google e ChatGPT e divide
