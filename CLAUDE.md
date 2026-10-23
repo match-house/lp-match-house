@@ -2028,6 +2028,21 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
   6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
 
+## Perfil do @matchhouse.br (23/10)
+
+- O Mateus arquivou em 23/10 os posts da marca antiga (2023 a agosto de
+  2025: imóveis de luxo, "baixe o app", Web Summit, matchhouse.co). Não
+  republicar nada deles.
+- Bio desde 23/10: "Desbloqueie seu tempo. A IA no link da sua bio atende
+  seus clientes na hora, com o seu nome. Crie o seu Smart Link:
+  app.smartli.ink".
+- O link da bio é só `app.smartli.ink`, sem utm. Mateus: "deixar mt coisa
+  depois da / o cliente pode desconfiar do link". Não propor link longo.
+- Desde o app #162 (23/10), quem chega ao app sem utm vindo do Instagram
+  vira `org-instagram` ("Instagram sem anúncio" no relatório). Num aparelho
+  que já tem conta, nada é marcado.
+- Arquivar post e mudar a bio não dá pela API: quem faz é o Mateus, no app.
+
 ## Direct do Instagram (@matchhouse.br) — automação nativa desde 04/10
 
 - Corretor também escreve no Direct da Match House. Em 02/10 a Luciene Matos
