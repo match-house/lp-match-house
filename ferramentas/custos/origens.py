@@ -47,14 +47,29 @@ ORDEM = ["ChatGPT", "Meta app", "Meta LP", "Google", "Página de outro corretor"
 SEMPRE = ["Página de outro corretor", "Convite do Indique e Ganhe", "Instagram sem anúncio"]
 
 
+# Contas sem utm cuja origem foi achada no Amplitude, olhando a página de
+# antes da tela de entrada no mesmo aparelho.
+ORIGEM_ACHADA = {
+    # 22/10: abriu o link de um WhatsApp da esteira (mh_src=whatsapp-link_vazio)
+    # que tinha ido para outra conta, no mesmo celular, e criou conta nova.
+    1441: ("WhatsApp da esteira", None),
+}
+
+
 def origem(it: dict) -> tuple:
     """(origem, quem trouxe: o slug do corretor, quando há)."""
     u = it["id_user"]
+    if u in ORIGEM_ACHADA:
+        return ORIGEM_ACHADA[u]
     src = (it.get("utm_source") or "").strip().lower() or cac.ORIGEM_CORRIGIDA.get(u, "")
     med = (it.get("utm_medium") or "").strip().lower()
     cont = (it.get("utm_content") or "").strip()
     if src in ("chatgpt", "openai"):
         return "ChatGPT", None
+    if src == "chatgpt.com":
+        # O ChatGPT marca assim os links das respostas dele: é o smartli.ink
+        # citado numa resposta, sem anúncio.
+        return "ChatGPT sem anúncio (resposta)", None
     if src == "google":
         return "Google", None
     if src in META:
