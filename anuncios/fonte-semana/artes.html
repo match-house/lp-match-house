@@ -85,6 +85,16 @@
   /* teaser e cartões do reels */
   .centro { position: absolute; left: 80px; right: 80px; text-align: center; }
   .grande { width: 260px; height: 260px; color: var(--cyan); }
+  .topo .pill { margin-left: auto; }
+  .pill.sel { display: inline-flex; align-items: center; gap: 10px; }
+  .pill.sel svg { width: 30px; height: 30px; color: var(--navy); flex: none; }
+  .pill.off { background: transparent; border: 2px solid currentColor; padding: 5px 16px; }
+  .paper .pill.off { color: var(--muted); } .navy .pill.off { color: #9aa3e0; }
+  .pill.off svg { color: currentColor; }
+  .topo .pill.off { background: rgba(0,7,62,.62); color: #fff; border-color: rgba(255,255,255,.75); }
+  .nota { position: absolute; right: 44px; bottom: 20px; font-size: 19px; opacity: .6; z-index: 5; white-space: nowrap; }
+  .paper .nota { color: var(--muted); } .navy .nota { color: #9aa3e0; }
+  .f916 .nota { bottom: 240px; right: 72px; }
 </style>
 </head>
 <body>
@@ -98,14 +108,16 @@
 
 <!-- ===================== EP. 1 · PRESA ===================== -->
 <div class="art f45 paper" id="e1f">
+  <div class="nota">*Personagem fictícia</div>
   <div class="foto" style="height:720px;background-image:url(cafe.jpg);background-position:center 40%"></div>
-  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#fechado"/></svg></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill sel off"><svg><use href="#fechado"/></svg>Bloqueada</span></div>
   <div class="tit" style="top:780px"><h1 style="font-size:70px">Sábado, 22h: o cliente escreveu. Domingo, 9h: ela respondeu.</h1>
     <p class="sub" style="font-size:31px">Ele já tinha visitado com outro corretor. Camila saiu do café em família para responder, e mesmo assim perdeu o cliente.</p></div>
   <div class="rod" style="bottom:52px"><span class="cta"><svg><use href="#fechado"/></svg>Amanhã: a chave.</span><span class="ep">Modo Desbloqueado · Ep. 1 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e1s">
-  <div class="s-hd"><svg class="cad"><use href="#fechado"/></svg><span class="lbl">Modo Desbloqueado · ep. 1</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#fechado"/></svg><span class="lbl">Modo Desbloqueado · ep. 1</span><span class="pill off">Bloqueada</span></div>
   <div class="s-h1" style="font-size:82px">Sábado, 22h: o cliente escreveu. <span>Domingo, 9h:</span> ela respondeu.</div>
   <div class="s-foto" style="top:770px;background-image:url(cafe.jpg)"></div>
   <p class="s-txt" style="top:1365px">Ele já tinha visitado com outro corretor. <b>Ninguém atende às 22h de sábado.</b></p>
@@ -114,10 +126,11 @@
 
 <!-- ===================== EP. 2 · A CHAVE ===================== -->
 <div class="art f45 navy" id="e2f">
-  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
-  <h1 style="position:absolute;left:60px;right:60px;top:170px;font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.035em">Tem modo avião. Agora tem <span style="color:var(--cyan)">Modo Desbloqueado.</span></h1>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
+  <h1 style="position:absolute;left:60px;right:60px;top:170px;font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.035em">Desbloqueie <span style="color:var(--cyan)">seu tempo.</span></h1>
   <div class="passos" style="position:absolute;left:60px;right:60px;top:430px">
-    <div class="lb">Exemplo · no app, em 3 passos</div>
+    <div class="lb">No app, em 3 passos</div>
     <ol><li><span>Crie o seu link no navegador.</span></li>
         <li><span>Cole o link do anúncio e toque em <b>Preencher com a IA</b>.</span></li>
         <li><span>Toque em <b>Cole o link na bio do Instagram</b>.</span></li></ol>
@@ -127,10 +140,11 @@
   <div class="rod" style="bottom:56px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o seu: coloque a IA no link da sua bio.</span><span class="ep">Ep. 2 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e2s">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 2</span><span class="pill">Exemplo</span></div>
-  <div class="s-h1">Tem modo avião. Agora tem <span>Modo Desbloqueado.</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 2</span><span class="pill">Desbloqueado</span></div>
+  <div class="s-h1">Desbloqueie <span>seu tempo.</span></div>
   <div class="passos" style="position:absolute;left:72px;right:72px;top:720px">
-    <div class="lb">Exemplo · no app, em 3 passos</div>
+    <div class="lb">No app, em 3 passos</div>
     <ol><li><span>Crie o seu link no navegador.</span></li>
         <li><span>Cole o link do anúncio e toque em <b>Preencher com a IA</b>.</span></li>
         <li><span>Toque em <b>Cole o link na bio do Instagram</b>.</span></li></ol>
@@ -141,8 +155,9 @@
 
 <!-- ===================== EP. 3 · JANTAR ===================== -->
 <div class="art f45 paper" id="e3f">
+  <div class="nota">*Personagem fictícia</div>
   <div class="foto" style="height:700px;background-image:url(jantar.jpg);background-position:30% 40%"></div>
-  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
   <div class="chat flut" style="top:140px">
     <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">22h14</div></div>
     <div class="msgs">
@@ -157,7 +172,8 @@
   <div class="rod" style="bottom:46px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 3 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e3s">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 3</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 3</span><span class="pill">Desbloqueado</span></div>
   <div class="s-h1">Camila no jantar. A IA no atendimento.</div>
   <p class="s-data" style="top:610px">sábado, 24 de outubro · 22h14 · o celular dela ficou na bolsa</p>
   <div class="s-mid" style="top:700px"><div class="chat">
@@ -173,14 +189,16 @@
 
 <!-- ===================== EP. 4 · A VISITA ===================== -->
 <div class="art f45 paper" id="e4f">
+  <div class="nota">*Personagem fictícia</div>
   <div class="foto" style="height:740px;background-image:url(ape.jpg);background-position:center 50%"></div>
-  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
   <div class="tit" style="top:800px"><h1 style="font-size:72px">Camila na visita. Ela já sabia o que a Fernanda procurava.</h1>
     <p class="sub" style="font-size:30px">A IA conversou com a Fernanda no sábado à noite: 2 quartos, Pinheiros, mudança até março. Camila leu de manhã e chegou com as respostas.</p></div>
   <div class="rod" style="bottom:48px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 4 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e4s">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 4</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 4</span><span class="pill">Desbloqueado</span></div>
   <div class="s-h1">Camila na visita. Ela já sabia o que a Fernanda procurava.</div>
   <div class="s-foto" style="top:780px;background-image:url(ape.jpg)"></div>
   <p class="s-txt" style="top:1370px">A IA conversou com a Fernanda no sábado à noite: <b>2 quartos, Pinheiros, mudança até março.</b></p>
@@ -189,8 +207,9 @@
 
 <!-- ===================== EP. 5 · TREINO ===================== -->
 <div class="art f45 paper" id="e5f">
-  <div class="foto" style="height:700px;background-image:url(treino.jpg);background-position:30% 50%"></div>
-  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="foto" style="height:700px;background-image:url(treino.jpg);background-size:1600px auto;background-position:-40px 0px"></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
   <div class="chat flut" style="top:170px;left:48px;right:auto;width:560px">
     <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">6h10</div></div>
     <div class="msgs">
@@ -205,7 +224,8 @@
   <div class="rod" style="bottom:46px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 5 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e5s">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 5</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 5</span><span class="pill">Desbloqueado</span></div>
   <div class="s-h1">Camila no treino. A IA no atendimento.</div>
   <p class="s-data" style="top:610px">segunda, 26 de outubro · 6h10 · correndo, sem celular na mão</p>
   <div class="s-mid" style="top:700px"><div class="chat">
@@ -221,33 +241,45 @@
 
 <!-- ===================== EP. 7 · O CONVITE ===================== -->
 <div class="art f45 navy" id="e7f">
-  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
   <h1 style="position:absolute;left:60px;right:60px;top:180px;font-weight:800;font-size:96px;line-height:1.0;letter-spacing:-.04em">A Camila é personagem.<br><span style="color:var(--cyan)">A IA é de verdade.</span></h1>
   <div class="chat" style="position:absolute;left:150px;right:150px;top:520px">
-    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Exemplo · Smart Link</div></div></div>
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Smart Link</div></div></div>
     <div class="msgs"><div class="m ia" style="font-size:27px">Oi! Eu sou a IA de Camila. Posso te ajudar com os imóveis dela?</div></div>
   </div>
   <p style="position:absolute;left:60px;right:60px;top:860px;font-size:34px;line-height:1.4;color:var(--soft)">Crie o seu link no navegador, cole o link do anúncio e cole o link na bio. Comece pelo plano de entrada, sem mensalidade.</p>
   <div class="rod" style="bottom:56px"><span class="cta" style="font-size:32px"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado.</span><span class="ep">Ep. 7 de 7</span></div>
 </div>
 <div class="art f916 navy" id="e7s">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 7</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 7</span><span class="pill">Desbloqueado</span></div>
   <div class="s-h1" style="font-size:100px">A Camila é personagem. <span>A IA é de verdade.</span></div>
   <div class="s-mid" style="top:860px"><div class="chat">
-    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Exemplo · Smart Link</div></div></div>
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Smart Link</div></div></div>
     <div class="msgs"><div class="m ia" style="font-size:29px">Oi! Eu sou a IA de Camila. Posso te ajudar com os imóveis dela?</div></div>
   </div></div>
   <p class="s-txt" style="top:1160px">Crie o seu link no navegador, cole o link do anúncio e cole o link na bio. <b>Comece pelo plano de entrada, sem mensalidade.</b></p>
   <div class="s-assin" style="top:1440px"><div class="a1">Ligue o Modo Desbloqueado.</div><div class="a2">Coloque a IA no link da sua bio.</div></div>
 </div>
 
+
+<!-- ===================== TEASER 1 (23/10) ===================== -->
+<div class="art f916 navy" id="t1s">
+  <div class="topo" style="top:290px;left:72px;right:72px"><img src="logo-dark.png" alt=""><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
+  <div class="centro" style="top:470px"><svg class="grande" style="width:300px;height:300px"><use href="#aberto"/></svg></div>
+  <div class="s-h1" style="top:850px;font-size:112px">Desbloqueie <span>seu tempo.</span></div>
+  <p class="s-txt" style="top:1110px;font-size:38px">Jante, treine, viaje. A IA no link da sua bio atende o seu cliente na hora, pega nome e celular e marca a visita.</p>
+  <div class="s-assin" style="top:1420px"><div class="a1">Modo Desbloqueado.</div><div class="a2">Coloque a IA no link da sua bio.</div></div>
+</div>
+
 <!-- ===================== TEASER 2 (23/10, fim da tarde) ===================== -->
 <div class="art f916 navy" id="t2s">
+  <div class="nota">*Personagem fictícia</div>
   <div class="centro" style="top:420px"><svg class="grande"><use href="#fechado"/></svg></div>
   <div class="centro" style="top:760px;font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.035em">Hoje, 22h.</div>
   <div class="centro" style="top:900px;font-size:42px;line-height:1.35;color:var(--soft)">Começa a semana desbloqueada da Camila.<br>Um episódio por dia.</div>
-  <div class="centro" style="top:1180px"><span class="pill">Camila é personagem · Exemplo</span></div>
-  <div class="centro" style="top:1320px;font-weight:600;font-size:34px">Tem modo avião. Agora tem Modo Desbloqueado.</div>
+  <div class="centro" style="top:1190px;font-weight:600;font-size:40px">Desbloqueie seu tempo.</div>
 </div>
 
 <!-- ===================== CARTÕES DO REELS (ep. 6) ===================== -->
@@ -257,10 +289,11 @@
 <div class="art f916 navy" id="r1">
   <div class="centro" style="top:640px"><svg class="grande" style="width:340px;height:340px"><use href="#aberto"/></svg></div>
   <div class="centro" style="top:1040px;font-weight:800;font-size:84px;letter-spacing:-.03em">Modo Desbloqueado</div>
-  <div class="centro" style="top:1160px;font-size:36px;color:var(--soft)">Uma semana da Camila · Exemplo</div>
+  <div class="centro" style="top:1160px;font-size:36px;color:var(--soft)">Uma semana da Camila</div>
 </div>
 <div class="art f916 navy" id="r2">
-  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 6</span><span class="pill">Exemplo</span></div>
+  <div class="nota">*Personagem fictícia</div>
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 6</span><span class="pill">Desbloqueado</span></div>
   <div class="s-h1">Camila no cinema. A IA no atendimento.</div>
   <p class="s-data" style="top:610px">segunda, 26 de outubro · 20h · o celular na bolsa</p>
   <div class="s-mid" style="top:720px"><div class="chat">
@@ -272,10 +305,11 @@
     </div></div></div>
 </div>
 <div class="art f916 navy" id="r3">
+  <div class="nota">*Personagem fictícia</div>
   <div class="centro" style="top:560px;font-size:40px;line-height:1.5;color:var(--soft)">Sábado, 22h14. Domingo, 10h.<br>Segunda, 6h10. Segunda, 20h.</div>
   <div class="centro" style="top:820px;font-weight:800;font-size:90px;line-height:1.04;letter-spacing:-.035em">Você livre.<br><span style="color:var(--cyan)">A IA trabalhando.</span></div>
   <div class="centro" style="top:1150px;font-size:36px;color:var(--soft)">Coloque a IA no link da sua bio.</div>
-  <div class="centro" style="top:1290px"><span class="pill">Camila é personagem · Exemplo</span></div>
+  <div class="centro" style="top:1290px"><span class="pill sel"><svg><use href="#aberto"/></svg>Desbloqueado</span></div>
 </div>
 
 </body>
