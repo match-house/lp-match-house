@@ -61,7 +61,8 @@ def origem(it: dict) -> tuple:
     u = it["id_user"]
     if u in ORIGEM_ACHADA:
         return ORIGEM_ACHADA[u]
-    src = (it.get("utm_source") or "").strip().lower() or cac.ORIGEM_CORRIGIDA.get(u, "")
+    # A correção à mão vem primeiro (ver cac.py).
+    src = cac.ORIGEM_CORRIGIDA.get(u) or (it.get("utm_source") or "").strip().lower()
     med = (it.get("utm_medium") or "").strip().lower()
     cont = (it.get("utm_content") or "").strip()
     if src in ("chatgpt", "openai"):

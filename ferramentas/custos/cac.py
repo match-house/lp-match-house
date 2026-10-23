@@ -105,7 +105,9 @@ def main() -> None:
             continue
         k = dia.isoformat()
         cad[k] = cad.get(k, 0) + 1
-        origem = (it.get("utm_source") or "").strip().lower() or ORIGEM_CORRIGIDA.get(it["id_user"], "")
+        # A correção à mão vem primeiro: uma conta antiga sem origem pode ganhar
+        # uma depois, no login (o app preenche a que falta), e não é a do cadastro.
+        origem = ORIGEM_CORRIGIDA.get(it["id_user"]) or (it.get("utm_source") or "").strip().lower()
         if origem in PAGOS:
             pagos[k] = pagos.get(k, 0) + 1
         if (it.get("publicados") or 0) > 0:
