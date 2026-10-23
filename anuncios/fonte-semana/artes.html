@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Semana desbloqueada da Camila</title>
+<style>
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+
+  :root { --navy: #00073e; --blue: #000f90; --cyan: #00efff; --ink: #00073e; --muted: #4f5680; --paper: #f2f3f8; --soft: #c9cff5; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; font-family: P, sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; align-items: flex-start; }
+  .art { position: relative; overflow: hidden; color: #fff; }
+  .f45 { width: 1080px; height: 1350px; }
+  .f916 { width: 1080px; height: 1920px; }
+  .pill { font-weight: 700; font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--navy);
+          background: var(--cyan); padding: 7px 18px; border-radius: 999px; white-space: nowrap; }
+  .cad { width: 56px; height: 56px; color: var(--cyan); flex: none; }
+  .navy { background: radial-gradient(110% 70% at 70% 0%, #0b1fa8 0%, #00073e 58%, #00031f 100%); }
+  .paper { background: var(--paper); }
+
+  /* feed com foto */
+  .foto { position: absolute; left: 0; right: 0; top: 0; background-size: cover; background-repeat: no-repeat; }
+  .foto::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,7,62,.55) 0%, rgba(0,7,62,.06) 30%, rgba(0,7,62,.12) 70%, rgba(0,7,62,.45) 100%); }
+  .topo { position: absolute; left: 60px; right: 60px; display: flex; align-items: center; gap: 20px; z-index: 2; }
+  .topo img { height: 46px; display: block; }
+  .topo .cad { margin-left: auto; }
+  .tit { position: absolute; left: 60px; right: 60px; color: var(--ink); }
+  .tit h1 { font-weight: 800; letter-spacing: -.04em; line-height: 1; text-wrap: balance; }
+  .tit .sub { margin-top: 20px; color: var(--muted); line-height: 1.38; }
+  .tit .sub b { color: var(--blue); font-weight: 700; }
+  .rod { position: absolute; left: 60px; right: 60px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .rod .cta { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 24px; color: var(--blue); white-space: nowrap; }
+  .rod .cta svg { width: 30px; height: 30px; flex: none; }
+  .rod .ep { font-size: 23px; color: var(--muted); white-space: nowrap; }
+  .navy .rod .cta { color: #fff; } .navy .rod .cta svg { color: var(--cyan); } .navy .rod .ep { color: #9aa3e0; }
+
+  /* aparelho com a tela do cliente */
+  .chat { background: #0c1660; border: 3px solid #2a3aa8; border-radius: 40px; padding: 24px 24px 26px; color: #fff;
+          box-shadow: 0 40px 90px rgba(0,0,0,.45); }
+  .chat .hd { display: flex; align-items: center; gap: 14px; padding-bottom: 16px; }
+  .chat .av { width: 58px; height: 58px; border-radius: 50%; background: var(--cyan); color: var(--navy); display: grid; place-items: center;
+              font-weight: 700; font-size: 26px; flex: none; }
+  .chat .nm { font-weight: 600; font-size: 25px; line-height: 1.15; }
+  .chat .st { font-size: 18px; color: #9aa3e0; }
+  .chat .hr { margin-left: auto; font-size: 20px; color: #9aa3e0; font-weight: 500; white-space: nowrap; }
+  .msgs { display: flex; flex-direction: column; gap: 12px; }
+  .m { max-width: 86%; padding: 14px 18px; border-radius: 22px; font-size: 22px; line-height: 1.36; }
+  .m.cli { align-self: flex-end; background: #f2f3f8; color: var(--ink); border-bottom-right-radius: 6px; }
+  .m.ia { align-self: flex-start; background: #243084; color: #fff; border-bottom-left-radius: 6px; }
+  .m.ok { color: var(--cyan); font-weight: 700; }
+  .chat.flut { position: absolute; right: 48px; width: 600px; z-index: 3; }
+
+  /* passos do app (ep. 2) */
+  .passos { background: #0c1660; border: 3px solid #2a3aa8; border-radius: 44px; padding: 34px 36px; }
+  .passos .lb { font-weight: 700; font-size: 20px; letter-spacing: .18em; color: #9aa3e0; text-transform: uppercase; }
+  .passos ol { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 22px; counter-reset: p; }
+  .passos li { counter-increment: p; display: flex; gap: 20px; align-items: flex-start; font-size: 29px; line-height: 1.32; color: #fff; }
+  .passos li::before { content: counter(p); flex: none; width: 50px; height: 50px; border-radius: 50%; background: var(--cyan); color: var(--navy);
+                       font-weight: 800; font-size: 26px; display: grid; place-items: center; margin-top: -4px; }
+  .passos li b { color: var(--cyan); font-weight: 600; }
+  .passos .fim { margin-top: 26px; padding-top: 20px; border-top: 2px solid #2a3aa8; font-weight: 700; font-size: 29px; }
+
+  /* story (9x16) */
+  .s-hd { position: absolute; left: 72px; right: 72px; top: 290px; display: flex; align-items: center; gap: 16px; }
+  .s-hd .lbl { font-weight: 600; font-size: 30px; color: #fff; }
+  .s-hd .pill { margin-left: auto; }
+  .s-h1 { position: absolute; left: 72px; right: 72px; top: 380px; font-weight: 800; font-size: 92px; line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  .s-h1 span { color: var(--cyan); }
+  .s-data { position: absolute; left: 72px; right: 72px; font-size: 31px; color: var(--soft); line-height: 1.35; }
+  .s-mid { position: absolute; left: 110px; right: 110px; }
+  .s-mid .chat .m { font-size: 25px; } .s-mid .chat .nm { font-size: 28px; }
+  .s-foto { position: absolute; left: 72px; right: 72px; height: 560px; border-radius: 44px; background-size: cover; background-position: center;
+            box-shadow: 0 40px 90px rgba(0,0,0,.45); }
+  .s-txt { position: absolute; left: 72px; right: 72px; font-size: 34px; color: var(--soft); line-height: 1.4; }
+  .s-txt b { color: #fff; font-weight: 600; }
+  .s-assin { position: absolute; left: 72px; right: 72px; top: 1380px; }
+  .s-assin .a1 { font-weight: 700; font-size: 44px; line-height: 1.15; }
+  .s-assin .a2 { margin-top: 12px; font-size: 30px; color: var(--soft); }
+
+  /* teaser e cartões do reels */
+  .centro { position: absolute; left: 80px; right: 80px; text-align: center; }
+  .grande { width: 260px; height: 260px; color: var(--cyan); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="aberto" viewBox="0 0 48 48"><rect x="9" y="21" width="30" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M15 21v-6a9 9 0 0 1 17.5-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="24" cy="32" r="3" fill="currentColor"/></symbol>
+    <symbol id="fechado" viewBox="0 0 48 48"><rect x="9" y="21" width="30" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M15 21v-6a9 9 0 0 1 18 0v6" fill="none" stroke="currentColor" stroke-width="3.5"/><circle cx="24" cy="32" r="3" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== EP. 1 · PRESA ===================== -->
+<div class="art f45 paper" id="e1f">
+  <div class="foto" style="height:720px;background-image:url(cafe.jpg);background-position:center 40%"></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#fechado"/></svg></div>
+  <div class="tit" style="top:780px"><h1 style="font-size:70px">Sábado, 22h: o cliente escreveu. Domingo, 9h: ela respondeu.</h1>
+    <p class="sub" style="font-size:31px">Ele já tinha visitado com outro corretor. Camila saiu do café em família para responder, e mesmo assim perdeu o cliente.</p></div>
+  <div class="rod" style="bottom:52px"><span class="cta"><svg><use href="#fechado"/></svg>Amanhã: a chave.</span><span class="ep">Modo Desbloqueado · Ep. 1 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e1s">
+  <div class="s-hd"><svg class="cad"><use href="#fechado"/></svg><span class="lbl">Modo Desbloqueado · ep. 1</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1" style="font-size:82px">Sábado, 22h: o cliente escreveu. <span>Domingo, 9h:</span> ela respondeu.</div>
+  <div class="s-foto" style="top:770px;background-image:url(cafe.jpg)"></div>
+  <p class="s-txt" style="top:1365px">Ele já tinha visitado com outro corretor. <b>Ninguém atende às 22h de sábado.</b></p>
+  <div class="s-assin" style="top:1500px"><div class="a1">Amanhã: a chave.</div></div>
+</div>
+
+<!-- ===================== EP. 2 · A CHAVE ===================== -->
+<div class="art f45 navy" id="e2f">
+  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <h1 style="position:absolute;left:60px;right:60px;top:170px;font-weight:800;font-size:78px;line-height:1.02;letter-spacing:-.035em">Tem modo avião. Agora tem <span style="color:var(--cyan)">Modo Desbloqueado.</span></h1>
+  <div class="passos" style="position:absolute;left:60px;right:60px;top:430px">
+    <div class="lb">Exemplo · no app, em 3 passos</div>
+    <ol><li><span>Crie o seu link no navegador.</span></li>
+        <li><span>Cole o link do anúncio e toque em <b>Preencher com a IA</b>.</span></li>
+        <li><span>Toque em <b>Cole o link na bio do Instagram</b>.</span></li></ol>
+    <div class="fim">Pronto: a IA de Camila atende.</div>
+  </div>
+  <p style="position:absolute;left:60px;right:60px;top:960px;font-weight:700;font-size:44px;line-height:1.2">Faça o que quiser:<br><span style="color:var(--cyan)">a IA está atendendo por você.</span></p>
+  <div class="rod" style="bottom:56px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o seu: coloque a IA no link da sua bio.</span><span class="ep">Ep. 2 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e2s">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 2</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1">Tem modo avião. Agora tem <span>Modo Desbloqueado.</span></div>
+  <div class="passos" style="position:absolute;left:72px;right:72px;top:720px">
+    <div class="lb">Exemplo · no app, em 3 passos</div>
+    <ol><li><span>Crie o seu link no navegador.</span></li>
+        <li><span>Cole o link do anúncio e toque em <b>Preencher com a IA</b>.</span></li>
+        <li><span>Toque em <b>Cole o link na bio do Instagram</b>.</span></li></ol>
+    <div class="fim">Pronto: a IA de Camila atende.</div>
+  </div>
+  <div class="s-assin" style="top:1400px"><div class="a1">Faça o que quiser:<br>a IA está atendendo por você.</div><div class="a2">Sem app para baixar.</div></div>
+</div>
+
+<!-- ===================== EP. 3 · JANTAR ===================== -->
+<div class="art f45 paper" id="e3f">
+  <div class="foto" style="height:700px;background-image:url(jantar.jpg);background-position:30% 40%"></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="chat flut" style="top:140px">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">22h14</div></div>
+    <div class="msgs">
+      <div class="m cli">O apê de 2 quartos em Pinheiros ainda está disponível? Consigo ver amanhã?</div>
+      <div class="m ia">Oi! Eu sou a IA de Camila. Está disponível. Amanhã às 10h a agenda dela está livre. Me passa seu nome e celular que eu marco.</div>
+      <div class="m cli">Fernanda, (11) 9 ••••-••••. Pode marcar.</div>
+      <div class="m ia ok">Visita marcada: domingo, 10h.</div>
+    </div>
+  </div>
+  <div class="tit" style="top:880px"><h1 style="font-size:80px">Camila no jantar.<br>A IA no atendimento.</h1>
+    <p class="sub" style="font-size:29px">Sábado, 24 de outubro, 22h14. A IA atendeu, cadastrou a Fernanda e marcou a visita. <b>Assinante Pro</b>, a Camila recebeu o contato na hora e viu de manhã.</p></div>
+  <div class="rod" style="bottom:46px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 3 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e3s">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 3</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1">Camila no jantar. A IA no atendimento.</div>
+  <p class="s-data" style="top:610px">sábado, 24 de outubro · 22h14 · o celular dela ficou na bolsa</p>
+  <div class="s-mid" style="top:700px"><div class="chat">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">22h14</div></div>
+    <div class="msgs">
+      <div class="m cli">O apê de 2 quartos em Pinheiros ainda está disponível? Consigo ver amanhã?</div>
+      <div class="m ia">Oi! Eu sou a IA de Camila. Está disponível. Amanhã às 10h a agenda dela está livre. Me passa seu nome e celular que eu marco.</div>
+      <div class="m cli">Fernanda, (11) 9 ••••-••••. Pode marcar.</div>
+      <div class="m ia ok">Visita marcada: domingo, 10h.</div>
+    </div></div></div>
+  <div class="s-assin" style="top:1400px"><div class="a1">Faça o que quiser:<br>a IA está atendendo por você.</div><div class="a2">Assinante Pro: o contato chegou na hora.</div></div>
+</div>
+
+<!-- ===================== EP. 4 · A VISITA ===================== -->
+<div class="art f45 paper" id="e4f">
+  <div class="foto" style="height:740px;background-image:url(ape.jpg);background-position:center 50%"></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="tit" style="top:800px"><h1 style="font-size:72px">Camila na visita. Ela já sabia o que a Fernanda procurava.</h1>
+    <p class="sub" style="font-size:30px">A IA conversou com a Fernanda no sábado à noite: 2 quartos, Pinheiros, mudança até março. Camila leu de manhã e chegou com as respostas.</p></div>
+  <div class="rod" style="bottom:48px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 4 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e4s">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 4</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1">Camila na visita. Ela já sabia o que a Fernanda procurava.</div>
+  <div class="s-foto" style="top:780px;background-image:url(ape.jpg)"></div>
+  <p class="s-txt" style="top:1370px">A IA conversou com a Fernanda no sábado à noite: <b>2 quartos, Pinheiros, mudança até março.</b></p>
+  <div class="s-assin" style="top:1500px"><div class="a2" style="margin:0">domingo, 25 de outubro · 10h · o celular no bolso</div></div>
+</div>
+
+<!-- ===================== EP. 5 · TREINO ===================== -->
+<div class="art f45 paper" id="e5f">
+  <div class="foto" style="height:700px;background-image:url(treino.jpg);background-position:30% 50%"></div>
+  <div class="topo" style="top:56px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <div class="chat flut" style="top:170px;left:48px;right:auto;width:560px">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">6h10</div></div>
+    <div class="msgs">
+      <div class="m cli">Vi a casa em Alphaville no anúncio. Dá para visitar hoje?</div>
+      <div class="m ia">Oi! Eu sou a IA de Camila. Dá sim: hoje às 15h a agenda dela está livre. Me passa seu nome e celular?</div>
+      <div class="m cli">Ricardo, (11) 9 ••••-••••.</div>
+      <div class="m ia ok">Visita marcada: hoje, 15h.</div>
+    </div>
+  </div>
+  <div class="tit" style="top:880px"><h1 style="font-size:80px">Camila no treino.<br>A IA no atendimento.</h1>
+    <p class="sub" style="font-size:29px">Segunda, 26 de outubro, 6h10. Visita marcada para as 15h. <b>Assinante Pro</b>, ela recebeu o contato na hora e viu no café da manhã.</p></div>
+  <div class="rod" style="bottom:46px"><span class="cta"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado: coloque a IA no link da sua bio.</span><span class="ep">Ep. 5 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e5s">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 5</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1">Camila no treino. A IA no atendimento.</div>
+  <p class="s-data" style="top:610px">segunda, 26 de outubro · 6h10 · correndo, sem celular na mão</p>
+  <div class="s-mid" style="top:700px"><div class="chat">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">6h10</div></div>
+    <div class="msgs">
+      <div class="m cli">Vi a casa em Alphaville no anúncio. Dá para visitar hoje?</div>
+      <div class="m ia">Oi! Eu sou a IA de Camila. Dá sim: hoje às 15h a agenda dela está livre. Me passa seu nome e celular?</div>
+      <div class="m cli">Ricardo, (11) 9 ••••-••••.</div>
+      <div class="m ia ok">Visita marcada: hoje, 15h.</div>
+    </div></div></div>
+  <div class="s-assin" style="top:1400px"><div class="a1">Faça o que quiser:<br>a IA está atendendo por você.</div><div class="a2">Assinante Pro: o contato chegou na hora.</div></div>
+</div>
+
+<!-- ===================== EP. 7 · O CONVITE ===================== -->
+<div class="art f45 navy" id="e7f">
+  <div class="topo" style="top:60px"><img src="logo-dark.png" alt=""><span class="pill">Exemplo</span><svg class="cad"><use href="#aberto"/></svg></div>
+  <h1 style="position:absolute;left:60px;right:60px;top:180px;font-weight:800;font-size:96px;line-height:1.0;letter-spacing:-.04em">A Camila é personagem.<br><span style="color:var(--cyan)">A IA é de verdade.</span></h1>
+  <div class="chat" style="position:absolute;left:150px;right:150px;top:520px">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Exemplo · Smart Link</div></div></div>
+    <div class="msgs"><div class="m ia" style="font-size:27px">Oi! Eu sou a IA de Camila. Posso te ajudar com os imóveis dela?</div></div>
+  </div>
+  <p style="position:absolute;left:60px;right:60px;top:860px;font-size:34px;line-height:1.4;color:var(--soft)">Crie o seu link no navegador, cole o link do anúncio e cole o link na bio. Comece pelo plano de entrada, sem mensalidade.</p>
+  <div class="rod" style="bottom:56px"><span class="cta" style="font-size:32px"><svg><use href="#aberto"/></svg>Ligue o Modo Desbloqueado.</span><span class="ep">Ep. 7 de 7</span></div>
+</div>
+<div class="art f916 navy" id="e7s">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 7</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1" style="font-size:100px">A Camila é personagem. <span>A IA é de verdade.</span></div>
+  <div class="s-mid" style="top:860px"><div class="chat">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">Exemplo · Smart Link</div></div></div>
+    <div class="msgs"><div class="m ia" style="font-size:29px">Oi! Eu sou a IA de Camila. Posso te ajudar com os imóveis dela?</div></div>
+  </div></div>
+  <p class="s-txt" style="top:1160px">Crie o seu link no navegador, cole o link do anúncio e cole o link na bio. <b>Comece pelo plano de entrada, sem mensalidade.</b></p>
+  <div class="s-assin" style="top:1440px"><div class="a1">Ligue o Modo Desbloqueado.</div><div class="a2">Coloque a IA no link da sua bio.</div></div>
+</div>
+
+<!-- ===================== TEASER 2 (23/10, fim da tarde) ===================== -->
+<div class="art f916 navy" id="t2s">
+  <div class="centro" style="top:420px"><svg class="grande"><use href="#fechado"/></svg></div>
+  <div class="centro" style="top:760px;font-weight:800;font-size:96px;line-height:1.02;letter-spacing:-.035em">Hoje, 22h.</div>
+  <div class="centro" style="top:900px;font-size:42px;line-height:1.35;color:var(--soft)">Começa a semana desbloqueada da Camila.<br>Um episódio por dia.</div>
+  <div class="centro" style="top:1180px"><span class="pill">Camila é personagem · Exemplo</span></div>
+  <div class="centro" style="top:1320px;font-weight:600;font-size:34px">Tem modo avião. Agora tem Modo Desbloqueado.</div>
+</div>
+
+<!-- ===================== CARTÕES DO REELS (ep. 6) ===================== -->
+<div class="art f916 navy" id="r0">
+  <div class="centro" style="top:760px"><svg class="grande" style="width:340px;height:340px"><use href="#fechado"/></svg></div>
+</div>
+<div class="art f916 navy" id="r1">
+  <div class="centro" style="top:640px"><svg class="grande" style="width:340px;height:340px"><use href="#aberto"/></svg></div>
+  <div class="centro" style="top:1040px;font-weight:800;font-size:84px;letter-spacing:-.03em">Modo Desbloqueado</div>
+  <div class="centro" style="top:1160px;font-size:36px;color:var(--soft)">Uma semana da Camila · Exemplo</div>
+</div>
+<div class="art f916 navy" id="r2">
+  <div class="s-hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Modo Desbloqueado · ep. 6</span><span class="pill">Exemplo</span></div>
+  <div class="s-h1">Camila no cinema. A IA no atendimento.</div>
+  <p class="s-data" style="top:610px">segunda, 26 de outubro · 20h · o celular na bolsa</p>
+  <div class="s-mid" style="top:720px"><div class="chat">
+    <div class="hd"><div class="av">C</div><div><div class="nm">IA de Camila</div><div class="st">tela do cliente · Smart Link</div></div><div class="hr">20h</div></div>
+    <div class="msgs">
+      <div class="m cli">Esse apartamento aceita pet? E o condomínio, quanto é?</div>
+      <div class="m ia">Oi! Eu sou a IA de Camila. Aceita pet, sim, e o condomínio está no anúncio. Quer que eu passe o seu contato para ela?</div>
+      <div class="m ia ok">Nome e celular cadastrados.</div>
+    </div></div></div>
+</div>
+<div class="art f916 navy" id="r3">
+  <div class="centro" style="top:560px;font-size:40px;line-height:1.5;color:var(--soft)">Sábado, 22h14. Domingo, 10h.<br>Segunda, 6h10. Segunda, 20h.</div>
+  <div class="centro" style="top:820px;font-weight:800;font-size:90px;line-height:1.04;letter-spacing:-.035em">Você livre.<br><span style="color:var(--cyan)">A IA trabalhando.</span></div>
+  <div class="centro" style="top:1150px;font-size:36px;color:var(--soft)">Coloque a IA no link da sua bio.</div>
+  <div class="centro" style="top:1290px"><span class="pill">Camila é personagem · Exemplo</span></div>
+</div>
+
+</body>
+</html>
