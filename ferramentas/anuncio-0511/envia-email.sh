@@ -11,7 +11,7 @@ LOG=$D/enviados-email.jsonl
 touch "$LOG"
 SUBJ='Seu Smart Link: o que muda em 05/11, o Plano Pro e o Indique e Ganhe'
 
-texto() { # $1 primeiro nome, $2 slug, $3 lista de espera (true/false)
+texto_simples() { # $1 primeiro nome, $2 slug, $3 lista de espera (true/false)
   local extra="" saud="Oi, $1."
   [ -z "$1" ] && saud="Oi."
   [ "$3" = "true" ] && extra=$'\n\nVocê está na lista do Pro, então fica sabendo primeiro.'
@@ -51,15 +51,40 @@ Match House
 TXT
 }
 
+# Com arte (24/10, Mateus: "Ficou bom o email, pode fazer esse mesmo... nos
+# envios"): o mesmo texto aprovado, sem mudar uma palavra. A saudação vira o
+# título, o parágrafo "Lembrete" vai para o quadro azul e a assinatura fica no
+# rodapé do template. O botão leva à tela do Pro, que o texto já cita.
+IMG=https://raw.githubusercontent.com/match-house/lp-match-house/2af2e158fee1f6c90d7e3fa49c571de2618f6884/anuncios/email/hero-anuncio-0511.jpg
+ARTE=${ARTE:-1}
+corpo_arte() { # $1 id, $2 primeiro, $3 slug, $4 espera
+  local titulo="Oi, $2. O que muda no seu Smart Link em 05/11." t
+  [ -z "$2" ] && titulo="O que muda no seu Smart Link em 05/11."
+  t=$(texto_simples "$2" "$3" "$4")
+  jq -n --argjson id "$1" --arg s "$SUBJ" --arg img "$IMG" --arg h "$titulo" --arg t "$t" '
+    ($t | split("\n\n")) as $p
+    | ($p | map(select(startswith("Lembrete:"))) | .[0]) as $nota
+    | {id_user: $id, channel: "email", kind: "texto", subject: $s,
+       text: ($p[1:] | map(select(startswith("Lembrete:") | not)) | map(select(. != "Match House")) | join("\n\n")),
+       arte: {image_url: $img, headline: $h, cta_label: "Conhecer o Plano Pro",
+              cta_url: "https://app.smartli.ink/dashboard/pro", note: $nota}}'
+}
+
 registra() { echo "$1" >> "$LOG"; echo "$1"; }
 
 while read -r p; do
   id=$(jq -r .id_user <<<"$p")
   if grep -q "\"id_user\":$id,\"status\":\"enviado\"" "$LOG"; then continue; fi
   nome=$(jq -r .primeiro <<<"$p"); slug=$(jq -r .slug <<<"$p"); espera=$(jq -r .espera <<<"$p")
-  body=$(jq -n --argjson id "$id" --arg s "$SUBJ" --arg t "$(texto "$nome" "$slug" "$espera")" \
+  simples=$(jq -n --argjson id "$id" --arg s "$SUBJ" --arg t "$(texto_simples "$nome" "$slug" "$espera")" \
     '{id_user: $id, channel: "email", kind: "texto", subject: $s, text: $t}')
+  if [ "$ARTE" = "1" ]; then body=$(corpo_arte "$id" "$nome" "$slug" "$espera"); else body=$simples; fi
   pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+  if [ "$ARTE" = "1" ] && grep -q "campo desconhecido: arte" <<<"$pv"; then
+    echo "API sem o e-mail com arte: seguindo só com texto"
+    ARTE=0; body=$simples
+    pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+  fi
   conf=$(jq -r '.confirmacao // empty' <<<"$pv" 2>/dev/null)
   if [ -z "$conf" ]; then
     registra "$(jq -nc --argjson id "$id" --arg m "$(jq -r '.message // .' <<<"$pv" 2>/dev/null | head -c 300)" '{id_user: $id, status: "previa_recusada", motivo: $m, em: (now|todate)}')"
@@ -68,7 +93,7 @@ while read -r p; do
     continue
   fi
   if [ "${DRY:-0}" = "1" ]; then
-    echo "PRÉVIA $id: $(jq -c '{destinatario: .destinatario.nome, assunto, avisos}' <<<"$pv")"
+    echo "PRÉVIA $id: $(jq -c '{destinatario: .destinatario.nome, assunto, arte: (.arte != null), avisos}' <<<"$pv")"
     continue
   fi
   code=$(curl -sS -o "$D/.resp" -w '%{http_code}' -X POST "$API/messages/send" -H 'content-type: application/json' \
