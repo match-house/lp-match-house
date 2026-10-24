@@ -30,6 +30,19 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Rotinas, conversa nova e arquivo de regras enxuto foram oferecidos e ele
   não escolheu agora: não insistir, só lembrar se o consumo voltar a apertar.
 
+## Permissões: resolver de vez na segunda, 26/10 (Mateus, 24/10)
+
+- Nas palavras dele: "Anote para resolvermos as permissoes de vez na
+  segunda. Preciso que tudo funcione automaticamente". Foi depois de ele
+  ter de aprovar comandos meus várias vezes no mesmo dia.
+- A maior parte dos pedidos veio de `python3` no Bash. Não usar python3:
+  editar com as ferramentas de edição e fazer conta ou JSON com node ou jq.
+- Na segunda: levantar o que pediu aprovação (`/fewer-permission-prompts`),
+  montar a lista de permissões no `.claude/settings.json` da branch de
+  trabalho, mostrar a ele em português simples antes de gravar e conferir
+  que as rotinas passam sem pedir nada. Lembrete às 8h41
+  (`trig_01XwR23y4tu5gnJWYRj9xk4U`).
+
 ## Deploy / Publicação (IMPORTANTE)
 
 - O site em produção — **https://www.matchhouse.com.br** — é servido a partir da branch **`main`**.
