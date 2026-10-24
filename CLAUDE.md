@@ -1023,6 +1023,31 @@ quando quem cortou foi o nosso limite (app #125).
 - Falta para cumprir: criar uma rota no backoffice para trocar o e-mail da
   196 e excluir a 1240. Outras contas antigas com Yahoo ou Hotmail devem ter o
   mesmo problema.
+- **Venda do Pro nos atendimentos** (Mateus, 24/10: "Pode ser assim, pode
+  anotar"). Vale acima do "nada de preço" das seções antigas.
+  - No 6800 e no Direct, só para quem nos escreveu: quem pergunta preço ou
+    plano, ou mostra interesse (como receber todos os contatos, o que muda
+    em 05/11), recebe a oferta do Pro sem pedir "pode". É o mesmo conteúdo
+    do aviso de 05/11:
+    - R$ 147 por mês, no cartão ou no Pix Automático;
+    - todos os clientes com nome e celular, na hora;
+    - visitas marcadas a partir de 1 hora depois do contato;
+    - até 300 imóveis no ar;
+    - cancela quando quiser pelo app, com 7 dias para desistir e o valor
+      de volta;
+    - o link https://app.smartli.ink/dashboard/pro.
+  - O tom de sempre: a IA é o assistente dele, que atende na hora os
+    clientes que ele já tem. Nunca "30 leads", e nunca que a Match House
+    traz clientes. Sempre a verdade: até 04/11 os dois planos recebem todos
+    os clientes na hora.
+  - Se a pessoa ficar em silêncio depois da oferta, vai um "conseguiu
+    assinar?", pela regra do follow-up.
+  - Cada conversa de venda e cada assinatura entram no relatório diário.
+  - Continuam com o "pode":
+    - desconto, cupom ou condição fora do aviso (o anual ainda não existe);
+    - devolução fora dos 7 dias, reclamação e cancelamento com problema;
+    - promessa de recurso que não está no ar;
+    - chamar para venda quem não escreveu primeiro, porque isso é campanha.
 - **Mensagem fora do app: no máximo duas respostas** (Mateus, 12/10).
   - Nas palavras dele: "a gente pode responder assim uma vez, somente uma
     vez ... desejando melhoras e mandando as coisas do app para ele abrir.
