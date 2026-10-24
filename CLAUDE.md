@@ -737,6 +737,32 @@ para aquela mensagem.
     - O desconto da indicação ainda não vale: não prometer.
     - Continuam com o "pode": desistência ou devolução fora do app,
       reclamação, cancelamento fora do app e qualquer promessa nova.
+- **Aviso de cliente novo para todos os planos: no ar desde 24/10, 16h12**
+  (api #128 e #129; Mateus: "Sim pode ligar").
+  - Quando um cliente deixa nome e celular válido na IA do Smart Link, o
+    corretor recebe na hora um e-mail (nome, WhatsApp, interesse, hora da
+    chegada e "Chamar no WhatsApp") e o WhatsApp `mh_cliente_novo_pro_1`
+    (UTILITY), que respeita SAIR e a autorização. Vale em qualquer plano.
+  - Motivo: só cliente com celular deixa o corretor agir. O "Assumir
+    conversa" de IA & Leads só aparece com o celular, e o chat da IA é no
+    site. De 06 a 23/10, 67 clientes escreveram para a IA e só 3 deixaram
+    nome e celular.
+  - A rotina de 5 em 5 minutos lê as conversas da IA criadas ontem e hoje e
+    paradas há 10 min.
+  - Não sai aviso de cliente que o corretor já tinha, de contato com mais
+    de 6 h, nem quando as pistas de corretor da conversa não batem.
+  - Tetos: 10 por hora e 40 por dia por corretor, e 60 por hora no total,
+    com alerta à equipe. Acima deles, o aviso espera até 24 h.
+  - Lead que a Intelliway mandou não é alterado pela leitura.
+  - Para desligar: `AVISO_CLIENTES=off` numa revisão nova do ECS.
+  - A regra das 36 h foi junto para o servidor, desligada
+    (`REGRA_CLIENTES` sem valor). Os números do mês saem em
+    `GET /backoffice/clientes/regra`.
+  - O 1º deploy (#128) não subiu: faltava o `ConfigService` no `LeadModule`.
+    O container antigo seguiu no ar, e o #129 corrigiu. Antes de publicar
+    mudança de módulo na API, subir o `dist` com variáveis falsas e ver se
+    a subida chega até a conexão com o banco
+    (`ferramentas/api/boot-teste.sh`).
 - **Cancelar o Pro: botão no app** (existe desde 05/10, "Cancelar assinatura"
   na tela do Pro). Mateus, 19/10: "cancleamento precisa ser no app. um
   botao".
