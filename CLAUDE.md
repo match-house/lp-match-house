@@ -168,6 +168,14 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
+  - **Desde 24/10, às 6h55: campanha do app pausada pelo freio** (Mateus:
+    "blz, deixa a Meta app pausada"). Desde a religada de 22/10 ela passou
+    do freio (acima de R$ 120 por corretor que publicou, com pelo menos
+    R$ 150 gastos): trouxe 2 contas e nenhum corretor que publicou.
+    - Na Meta ficam a campanha 13 (Modo Desbloqueado, R$ 40/dia, com os
+      episódios da Camila desde 24/10) e a 14 de seguidores (R$ 10/dia).
+    - Não religar o app nem criar criativo para ele sem o Mateus. Gasto da
+      campanha do app é alerta (alguém religou).
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
