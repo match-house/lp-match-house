@@ -336,6 +336,22 @@ para aquela mensagem.
   - Em 10/10, às 19h37, saíram assim as duplicadas 1240 (Enio; a principal é
     a 196) e 1241 e 1242 (Bárbara; a principal é a 1226). Foi pedido do
     Mateus, não delas. As principais não mudaram.
+- **E-mail com arte** (api #127, no ar desde 24/10, 14h39 UTC; Mateus:
+  "Ficou bom o email, pode fazer esse mesmo... nos envios").
+  - O `/backoffice/messages/preview` e o `/send` de e-mail aceitam
+    `arte: {image_url, headline, cta_label, cta_url, note}`.
+  - Sai pelo `campanha.hbs`: imagem, título, o texto, botão, quadro de
+    lembrete e rodapé com "Parar de receber" (o mesmo descadastro da esteira,
+    com o botão de cancelar inscrição do Gmail). O texto puro vai junto.
+  - Imagem só em `raw.githubusercontent.com/match-house/lp-match-house/<commit>/…`
+    (as artes ficam em `anuncios/email/` da branch de trabalho) ou em
+    matchhouse.com.br. O botão só leva a endereços nossos, ao Instagram e ao
+    wa.me.
+  - Usam arte o anúncio de 05/11 (a partir de 25/10) e o "Siga a Match
+    House" (26/10). Os scripts voltam sozinhos ao texto puro se a API
+    recusar o campo.
+  - A página do "Parar de receber" diz "lembretes e novidades": o
+    `activation_opt_out_at` para a esteira e os envios do backoffice.
 
 ## Limite de imóveis no ar: 100 (desde 29/09/2026)
 
