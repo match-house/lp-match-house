@@ -290,6 +290,14 @@ Notas do projeto para agentes. Ler antes de mexer.
         eficiência de ter a IA com o seu nome atendendo. Ela e o calendário
         ficam em `estado.json` (`organico.linha`). Vale quando o Mateus
         aprovar; até lá, os temas do `LEIA-ME`.
+  - **Desde 24/10, às 6h55: campanha do app pausada pelo freio** (Mateus:
+    "blz, deixa a Meta app pausada"). Desde a religada de 22/10 ela passou
+    do freio (acima de R$ 120 por corretor que publicou, com pelo menos
+    R$ 150 gastos): trouxe 2 contas e nenhum corretor que publicou.
+    - Na Meta ficam a campanha 13 (Modo Desbloqueado, R$ 40/dia, com os
+      episódios da Camila desde 24/10) e a 14 de seguidores (R$ 10/dia).
+    - Não religar o app nem criar criativo para ele sem o Mateus. Gasto da
+      campanha do app é alerta (alguém religou).
   - **22/10, 13h45: Meta religada com a onda 1 do Fable** (Mateus: "Blza
     pode seguir"). Os anúncios 12a cena-0715, 12c ia-corretor e 12d
     ia-na-bio entraram no conjunto do app, com R$ 50/dia, e o 11b e o 11c
