@@ -297,6 +297,9 @@ para aquela mensagem.
   do Mateus para aquela conta.
   - Primeiro o e-mail de confirmação, porque a exclusão apaga o endereço.
     Sem convite da bio.
+  - O e-mail fala só da exclusão da conta e do Smart Link (Mateus, 25/10:
+    "nao fale nada de nosso fornecedor de IA. Nem de apagar as conversas da
+    IA. So sobre excluir a conta mesmo"). Vale para todos os pedidos.
   - Depois `POST /backoffice/conta/excluir/preview` `{id_user}`, e
     `POST /backoffice/conta/excluir` com o mesmo corpo + `confirmacao`.
   - O que a exclusão faz:
