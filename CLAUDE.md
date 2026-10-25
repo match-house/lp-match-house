@@ -2244,6 +2244,8 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - **Mensagem no Direct: no máximo 1.000 caracteres** (o Instagram recusa com
   "A mensagem é muito longa"). Resposta pronta para o Mateus colar no Direct
   sai abaixo disso.
+- No Direct, @mateus_perim é o Mateus e @crisperim é a irmã dele (Mateus,
+  25/10: "pode desconsiderar ela"): só registrar, sem responder.
 - Não escrever "falar com uma pessoa": quem responde é a Match House (eu e o
   Mateus). Ele pediu para trocar por "Tenho outra dúvida".
 - Link no Direct que trava numa tela branca do l.instagram.com é o Instagram
