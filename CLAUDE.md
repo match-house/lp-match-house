@@ -1942,6 +1942,9 @@ quando quem cortou foi o nosso limite (app #125).
 - Primeiro caso: o Decolo (1189), com anúncios de aluguel copiados em Campo
   Grande e sem CRECI. A resposta saiu em 24/10, por causa do limite de 1
   WhatsApp por dia.
+  - Os anúncios dele continuam no ar, e fica assim (Mateus, 25/10: "Mantem
+    o Decolo. Ja mandamos a mensagem para ele esta ok"). Não ocultar nem
+    voltar a cobrar.
 - Ocultar o anúncio de um corretor por nossa conta só com o "pode" do
   Mateus.
 
