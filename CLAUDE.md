@@ -2027,8 +2027,15 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   `git show origin/claude/cheque-campanha-numeros-ivhccq:ferramentas/<arquivo>`.
   - `vigia/vigia.sh`: a vigia do Direct e do 6800 (vai em `scratchpad/vigia.sh`).
   - `leads-ia/atualiza.sh`: a aba "Leads IA" (rotina das 06h47).
-  - `custos/cac.py` e `custos/aws_dias.py`: CAC e AWS do relatório.
-  - `funil-smart-link/gerar.py` e `template.html`: o "Funil Smart Link".
+  - `custos/cac.mjs`, `custos/origens.mjs` e `custos/aws_dias.sh`: CAC,
+    origem dos corretores e AWS do relatório.
+  - `funil-smart-link/gerar.mjs` e `template.html`: o "Funil Smart Link".
+  - Desde 25/10 essas ferramentas rodam em node e bash (`node cac.mjs
+    2026-10`, `bash aws_dias.sh 3 <câmbio>`, `node gerar.mjs`), porque o
+    python pede aprovação a cada vez. Os `.py` ficam só como referência.
+    - A conta que chega do link da bio do Instagram (`ig` / `social` /
+      `link_in_bio`) é orgânica: entra como "Instagram sem anúncio", fora
+      do custo da Meta.
   - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
   - `cartao/`: o cartão Smart Link (Green e Blue), com o HTML, o PDF e o
     LEIA-ME.
