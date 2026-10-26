@@ -345,6 +345,13 @@ Notas do projeto para agentes. Ler antes de mexer.
       - Ao pixel 1159381878670820 vão só o PageView e os eventos
         Diagnostico*, sem eventos automáticos (`autoConfig` desligado).
       - O Lead do clique no WhatsApp vai só ao pixel 442305528638784.
+      - O WhatsApp do resultado abre o 6800 (antes, o 27 99226-8000).
+        Mateus, 26/10: "pode deixar no 6800". A mensagem pronta começa com
+        "Acabei de fazer o Diagnóstico de Posicionamento Digital" e traz o
+        nome, o score e o link de hoje. Eu respondo pela autonomia de dúvida
+        de uso: explico o resultado e mostro como criar o Smart Link
+        (https://app.smartli.ink), sem preço do Pro se a pessoa não
+        perguntar.
     - Leitura em 02/11, junto do custo por seguidor: custo por visita,
       quantos concluem, cliques no "Seguir" e seguidores novos.
     - Não religar o app nem criar criativo para ele sem o Mateus. Gasto da
