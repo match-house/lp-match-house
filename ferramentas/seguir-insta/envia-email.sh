@@ -65,6 +65,8 @@ registra() { echo "$1" >> "$LOG"; echo "$1"; }
 # Links de quem ainda não tem, em lotes de 200 (a API devolve o mesmo link se pedir de novo).
 faltam=$(jq -c --slurpfile L "$LINKS" '[.[] | .id_user | select(($L[0][tostring]) == null)]' "$LISTA")
 for lote in $(jq -c '[_nwise(200)][]' <<<"$faltam"); do
+  # 26/10: com todos os links prontos, o jq devolve um lote vazio, que a API recusa.
+  [ "$lote" = "[]" ] && continue
   r=$(curl -sS -X POST "$API/links/$CAMPANHA" -H 'content-type: application/json' -d "$(jq -nc --argjson ids "$lote" '{ids_user: $ids}')")
   jq -e '.itens' >/dev/null 2>&1 <<<"$r" || { echo "links: erro: $(head -c 300 <<<"$r")"; exit 1; }
   jq --argjson r "$r" '. + ([$r.itens[] | {key: (.id_user|tostring), value: .url}] | from_entries)' "$LINKS" > "$LINKS.tmp" && mv "$LINKS.tmp" "$LINKS"
