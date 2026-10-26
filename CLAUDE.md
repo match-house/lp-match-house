@@ -30,18 +30,25 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Rotinas, conversa nova e arquivo de regras enxuto foram oferecidos e ele
   não escolheu agora: não insistir, só lembrar se o consumo voltar a apertar.
 
-## Permissões: resolver de vez na segunda, 26/10 (Mateus, 24/10)
+## Permissões: aprovação vem do conector (resolvido em 26/10)
 
-- Nas palavras dele: "Anote para resolvermos as permissoes de vez na
-  segunda. Preciso que tudo funcione automaticamente". Foi depois de ele
-  ter de aprovar comandos meus várias vezes no mesmo dia.
-- A maior parte dos pedidos veio de `python3` no Bash. Não usar python3:
-  editar com as ferramentas de edição e fazer conta ou JSON com node ou jq.
-- Na segunda: levantar o que pediu aprovação (`/fewer-permission-prompts`),
-  montar a lista de permissões no `.claude/settings.json` da branch de
-  trabalho, mostrar a ele em português simples antes de gravar e conferir
-  que as rotinas passam sem pedir nada. Lembrete às 8h41
-  (`trig_01XwR23y4tu5gnJWYRj9xk4U`).
+- Pedido do Mateus em 24/10: "Preciso que tudo funcione automaticamente".
+  Em 26/10 ele reclamou: "todos posts tenho que permitir".
+- O cartão de aprovação dos posts, stories e anúncios vinha da permissão
+  de cada ferramenta do conector, no claude.ai, e não do repositório.
+  - Em 26/10, às 7h15, ele deixou o Windsor em "Sempre permitir" em todas
+    as ferramentas.
+  - O caminho é https://claude.ai/customize/connectors > Meus > o conector
+    > a ferramenta > ✓.
+  - Se o cartão voltar em outro conector (por exemplo, Google Sheets), o
+    ajuste é o mesmo, feito por ele.
+- O `.claude/settings.json` do repositório só vale numa conversa com um
+  repositório só. Esta tem 5 (site, API, app, BFF e vitrine), então aqui
+  ele não é lido. Dar acesso a mais repositórios não ajuda.
+- Eu não posso gravar as minhas próprias permissões: a trava de segurança
+  recusa, mesmo com o "pode" dele.
+- Não usar python3 no Bash. Editar com as ferramentas de edição e fazer
+  conta ou JSON com node ou jq.
 
 ## Deploy / Publicação (IMPORTANTE)
 
