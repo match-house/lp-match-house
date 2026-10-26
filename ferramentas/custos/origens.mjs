@@ -33,6 +33,8 @@ function origem(it) {
   if (src === 'google') return ['Google', null];
   // Link da bio marcado pelo próprio Instagram (ig / social / link_in_bio).
   if (organicoInstagram(it)) return ['Instagram sem anúncio', cont === 'link_in_bio' ? 'link da bio no Instagram' : null];
+  // 26/10: a 14b leva ao diagnóstico (utm_content 14d-diagnostico), não à LP.
+  if (META.has(src) && (cont.endsWith('-diagnostico') || (it.utm_campaign || '').includes('diagnostico'))) return ['Meta diagnóstico', null];
   if (META.has(src)) return [(!cont || cont.endsWith('-app')) ? 'Meta app' : 'Meta LP', null];
   if (src === 'smartli.ink') {
     const slug = cont.startsWith('perfil-') ? cont.slice('perfil-'.length) : null;

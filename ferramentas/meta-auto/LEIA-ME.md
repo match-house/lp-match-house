@@ -145,6 +145,32 @@ O que ele aprovou, em resposta à proposta do mesmo dia:
   17841456747581112, video_data com video_id, image_url da capa, message e
   call_to_action {"type":"VIEW_INSTAGRAM_PROFILE"}). Outro botão é recusado.
   Foto: `source_instagram_media_id` serve direto. Pausar o anúncio anterior.
+- **26/10, ~10h20: a 14 foi PAUSADA e entrou a 14b, do diagnóstico** (Mateus:
+  "Ficou bom, pode publicar e subir o anúncio"). Motivo: de 22 a 25/10 a 14
+  gastou R$ 34,71 e teve 61 cliques (78% em Stories), e os seguidores foram
+  de 1792 a 1790.
+  - Campanha 120252956827030445 "[14b] Diagnóstico para corretores"
+    (OUTCOME_TRAFFIC, R$ 10/dia na campanha).
+  - Conjunto 120252956827840445: WEBSITE + LANDING_PAGE_VIEWS, só
+    Instagram stream e reels, com o mesmo público da 14 (sem ES, sem
+    Advantage+). É uma cópia da 14, para herdar o anunciante verificado.
+  - Anúncio 14d 120252956838610445: feed 4x5 e reels 9x16
+    (`anuncios/14d-diagnostico-*.jpg`, commit 337c677), botão LEARN_MORE,
+    para https://www.matchhouse.com.br/diagnostico/?utm_source=meta&utm_medium=cpc&utm_campaign=MH_2026_10_diagnostico&utm_content=14d-diagnostico.
+  - Não coube na 14: com a verba na campanha, a Meta não aceita conjuntos
+    com otimizações diferentes. A cópia 120252956784590445 ficou pausada
+    dentro da 14. Não usar.
+  - Na página, o pixel 1159381878670820 recebe só o PageView e os eventos
+    DiagnosticoIniciado, DiagnosticoConcluido, DiagnosticoSeguirInstagram,
+    DiagnosticoCriarSmartLink e DiagnosticoWhatsApp (sem autoConfig). O
+    Lead do WhatsApp vai só ao 442305528638784.
+  - No relatório, a 14b entra como "Meta seguidores (diagnóstico)", fora das
+    contas da Meta app. Quem se cadastra vindo dela aparece no
+    `origens.mjs` como "Meta diagnóstico".
+  - A troca semanal do post (acima) parou: agora o anúncio da 14b é o
+    diagnóstico. Leitura em 02/11: custo por visita, quantos concluem (o
+    DiagnosticoConcluido no Gerenciador de Eventos), cliques no "Seguir" e
+    seguidores novos.
 - Orgânico: publico direto e mostro depois, como nos anúncios.
 - Ritmo: 3 posts no feed por semana (seg, qua, sex), story todo dia útil e
   1 reels por semana (terça).
