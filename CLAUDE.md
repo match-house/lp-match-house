@@ -1971,9 +1971,21 @@ quando quem cortou foi o nosso limite (app #125).
     (detalhe em `scratchpad/seguranca/achados.md`).
   - Testes de qualidade: `scratchpad/estudo-ia/eval/roda.mjs` roda os 44
     casos de outubro pelo `/simular`.
-  - Falta: a Política de Privacidade citar OpenRouter e Anthropic para as
-    conversas do Smart Link (texto com o Mateus) e o prazo de guarda das
-    conversas, com a limpeza automática.
+  - Falta: a seção 10.8 da Política de Privacidade (conversas do Smart
+    Link, guarda de 12 meses), com o "pode" do Mateus. Texto em
+    `scratchpad/estudo-ia/politica-10-8.md`. A limpeza automática já existe
+    (`ATENDIMENTO_GUARDA_DIAS`, padrão 365).
+- **Política e termos não mostram a arquitetura do negócio** (Mateus,
+  26/10: "nao use nomes das plataformas, somente um nome tecnico [...] na
+  nossa politica nao devemos mostrar nossa arquitetura de negocios").
+  - Sem nome de fornecedor, de plataforma nem do modelo de IA. Usar só a
+    categoria: "prestador de serviços de inteligência artificial", "de
+    mensageria", "de infraestrutura em nuvem".
+  - A LGPD não pede o nome na política: a relação dos operadores vai a
+    quem pedir, pelo canal da Seção 13 ("Obter informações sobre
+    compartilhamento de dados", art. 18, VII).
+  - A plataforma WhatsApp pode ser citada, porque é o canal que a pessoa
+    usa.
 
 - O plano está em "Plano até o Pro pago"
   (https://claude.ai/artifact/DNBKDvBvEArffF7xwgX8q7).
