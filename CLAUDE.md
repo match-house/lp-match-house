@@ -316,7 +316,30 @@ Notas do projeto para agentes. Ler antes de mexer.
     do freio (acima de R$ 120 por corretor que publicou, com pelo menos
     R$ 150 gastos): trouxe 2 contas e nenhum corretor que publicou.
     - Na Meta ficam a campanha 13 (Modo Desbloqueado, R$ 40/dia, com os
-      episódios da Camila desde 24/10) e a 14 de seguidores (R$ 10/dia).
+      episódios da Camila desde 24/10) e, desde 26/10, a 14b do
+      diagnóstico (R$ 10/dia), no lugar da 14 de seguidores.
+  - **26/10: seguidores pelo diagnóstico** (Mateus: "Ficou bom, pode
+    publicar e subir o anúncio"). De 22 a 25/10 a 14, que levava ao perfil,
+    gastou R$ 34,71, teve 61 cliques (78% em Stories), e os seguidores
+    foram de 1792 a 1790.
+    - Pausada a campanha 14 (120252906629350445). Entrou a 14b,
+      120252956827030445 (OUTCOME_TRAFFIC, R$ 10/dia na campanha):
+      - conjunto 120252956827840445, otimizado por visualização da página,
+        só Feed e Reels do Instagram, com o mesmo público (sem ES e sem
+        Advantage+);
+      - anúncio 14d 120252956838610445, que leva a
+        matchhouse.com.br/diagnostico/ (utm_campaign
+        `MH_2026_10_diagnostico`, utm_content `14d-diagnostico`).
+    - Não coube na própria 14: com a verba na campanha, a Meta não aceita
+      conjuntos com otimizações diferentes. A cópia 120252956784590445
+      ficou pausada dentro da 14. Não usar.
+    - A página do diagnóstico fala com o corretor e traz o bloco "Siga a
+      Match House no Instagram" no resultado.
+      - Ao pixel 1159381878670820 vão só o PageView e os eventos
+        Diagnostico*, sem eventos automáticos (`autoConfig` desligado).
+      - O Lead do clique no WhatsApp vai só ao pixel 442305528638784.
+    - Leitura em 02/11, junto do custo por seguidor: custo por visita,
+      quantos concluem, cliques no "Seguir" e seguidores novos.
     - Não religar o app nem criar criativo para ele sem o Mateus. Gasto da
       campanha do app é alerta (alguém religou).
   - **22/10, 13h45: Meta religada com a onda 1 do Fable** (Mateus: "Blza

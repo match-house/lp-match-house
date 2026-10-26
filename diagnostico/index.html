@@ -28,10 +28,15 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '442305528638784');
+// Sem eventos automáticos no pixel da campanha: só PageView e os Diagnostico*.
+fbq('set', 'autoConfig', false, '1159381878670820');
+fbq('init', '1159381878670820');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=442305528638784&ev=PageView&noscript=1"
+/><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1159381878670820&ev=PageView&noscript=1"
 /></noscript>
 <script>
 // Conversão (Google Ads + Meta) em qualquer clique para o WhatsApp
@@ -41,7 +46,7 @@ function handleWhatsAppClick() {
     'value': 1.0,
     'currency': 'BRL'
   });
-  if (window.fbq) fbq('track', 'Lead');
+  if (window.fbq) fbq('trackSingle', '442305528638784', 'Lead');
 }
 document.addEventListener('click', function (e) {
   var a = e.target && e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="whatsapp.com"]') : null;
@@ -174,7 +179,22 @@ function isValidBrCell(s) {
 }
 
 // Evento personalizado do Vercel Web Analytics (funil do diagnóstico)
+var PIXEL_SITE = "1159381878670820";
+var EVENTOS_PIXEL = {
+  "Diagnóstico iniciado": "DiagnosticoIniciado",
+  "Diagnóstico concluído": "DiagnosticoConcluido",
+  "Clique Instagram": "DiagnosticoSeguirInstagram",
+  "Clique Smart Link": "DiagnosticoCriarSmartLink",
+  "Clique WhatsApp": "DiagnosticoWhatsApp",
+};
 function track(name, data) {
+  try {
+    if (typeof window !== "undefined" && typeof window.fbq === "function" && EVENTOS_PIXEL[name]) {
+      window.fbq("trackSingleCustom", PIXEL_SITE, EVENTOS_PIXEL[name]);
+    }
+  } catch (e) {
+    /* analytics nunca pode quebrar o fluxo */
+  }
   try {
     if (typeof window !== "undefined" && typeof window.va === "function") {
       window.va("event", { name: name, data: data || {} });
@@ -439,7 +459,7 @@ function Intro({ onNext }) {
         />
         <GrowthMark />
       </div>
-      <div style={styles.eyebrow}>DIAGNÓSTICO DO SEU LINK</div>
+      <div style={styles.eyebrow}>DIAGNÓSTICO PARA CORRETORES DE IMÓVEIS</div>
       <h1 style={styles.h1}>
         Teste agora seu <span style={{ color: BLUE }}>ranking digital</span> no
         mercado imobiliário
@@ -518,7 +538,7 @@ function FormStep({ name, setName, whats, setWhats, onSubmit, error }) {
   return (
     <div style={styles.card}>
       <StepHeader step={1} total={4} title="Antes de começar" />
-      <p style={styles.lead}>Pra onde enviamos seu resultado?</p>
+      <p style={styles.lead}>Seu resultado aparece logo depois das perguntas.</p>
       <div style={styles.form}>
         <label style={styles.label}>
           Seu nome
@@ -648,9 +668,9 @@ function ResultStep({ name, link, score, tierInfo, analysis, answers, onRestart 
   const firstName = name.split(" ")[0] || "Corretor(a)";
   const recommendations = buildRecommendations(analysis, answers);
 
-  const waNumber = "5527992268000";
+  const waNumber = "5527998546800";
   const waMessage =
-    "Olá! Acabei de fazer o Diagnóstico de Posicionamento Digital e quero receber meu resultado completo." +
+    "Olá! Acabei de fazer o Diagnóstico de Posicionamento Digital e quero tirar dúvidas sobre o meu resultado." +
     "\n\nNome: " + name +
     "\nMeu Score: " + score + "/100 (" + tierInfo.label + ")" +
     (link ? "\nLink que uso hoje: " + link : "");
@@ -681,6 +701,10 @@ function ResultStep({ name, link, score, tierInfo, analysis, answers, onRestart 
         ))}
       </div>
 
+      <CtaInstagram />
+
+      <CtaSmartLink firstName={firstName} score={score} />
+
       <a
         href={waUrl}
         target="_blank"
@@ -691,13 +715,11 @@ function ResultStep({ name, link, score, tierInfo, analysis, answers, onRestart 
         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
           <path fill="currentColor" d="M20.52 3.48A11.95 11.95 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.18 1.6 6L0 24l6.18-1.62A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52ZM12 22c-1.85 0-3.67-.5-5.24-1.44l-.37-.22-3.67.96.98-3.57-.24-.38A9.95 9.95 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10Zm5.47-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.47-2.4-1.5-.89-.79-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.11.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
         </svg>
-        Receber meu diagnóstico no WhatsApp
+        Falar com a Match House no WhatsApp
       </a>
       <div style={styles.waNote}>
-        Enviamos seu resultado completo e os próximos passos direto no seu WhatsApp.
+        Mande seu resultado e tire as dúvidas sobre o seu link. As respostas são feitas com a ajuda de IA, e a nossa equipe acompanha cada conversa.
       </div>
-
-      <CtaSmartLink firstName={firstName} score={score} />
 
       <button style={styles.ghostBtn} onClick={onRestart}>
         Refazer diagnóstico
@@ -776,6 +798,44 @@ function ScoreRing({ score, color }) {
   );
 }
 
+function CtaInstagram() {
+  return (
+    <div style={styles.ctaBox}>
+      <div style={styles.ctaEyebrow}>DICAS TODA SEMANA</div>
+      <div style={styles.ctaTitle}>Siga a Match House no Instagram</div>
+      <p style={styles.ctaBody}>
+        Conteúdo feito para corretor de imóveis: como responder na hora quem te chama,
+        ideias para divulgar seus imóveis (como o QR na placa) e como usar o link da bio
+        para não perder cliente.
+      </p>
+      <a
+        href="https://www.instagram.com/matchhouse.br/"
+        target="_blank"
+        rel="noopener"
+        style={{ ...styles.ctaBtn, display: "block", textAlign: "center", textDecoration: "none" }}
+        onClick={() => track("Clique Instagram")}
+      >
+        Seguir @matchhouse.br →
+      </a>
+    </div>
+  );
+}
+
+// Leva ao app a origem de quem chegou (utm do anúncio); sem ela, marca o diagnóstico.
+function appUrl() {
+  var p = new URLSearchParams(window.location.search);
+  var out = new URLSearchParams();
+  ["utm_source", "utm_medium", "utm_campaign", "utm_content", "fbclid", "gclid"].forEach(function (k) {
+    if (p.get(k)) out.set(k, p.get(k));
+  });
+  if (!out.get("utm_source") && !out.get("utm_medium") && !out.get("utm_campaign") && !out.get("utm_content")) {
+    out.set("utm_source", "org-diagnostico");
+    out.set("utm_medium", "site");
+    out.set("utm_campaign", "diagnostico");
+  }
+  return "https://app.smartli.ink/?" + out.toString();
+}
+
 function CtaSmartLink({ firstName, score }) {
   return (
     <div style={styles.ctaBox}>
@@ -784,17 +844,16 @@ function CtaSmartLink({ firstName, score }) {
         Veja como ficaria o link de {firstName} com um Smart Link
       </div>
       <p style={styles.ctaBody}>
-        Um link único, com sua cara, que qualifica leads 24h por dia e mostra seus
-        imóveis com a autoridade que sua experiência merece — mesmo enquanto você
-        está numa visita.
+        Um link único, com sua cara, em que a IA atende na hora quem te chama, 24h por
+        dia, e mostra seus imóveis, mesmo enquanto você está numa visita.
       </p>
       <button
         style={styles.ctaBtn}
-        onClick={() => window.open("https://www.matchhouse.com.br", "_blank")}
+        onClick={() => { track("Clique Smart Link"); window.open(appUrl(), "_blank"); }}
       >
-        Descubra como funciona →
+        Criar meu Smart Link →
       </button>
-      <div style={styles.microcopy}>R$ 0 de pagamento agora · Cancele quando quiser</div>
+      <div style={styles.microcopy}>Comece no plano de entrada · Leva poucos minutos</div>
     </div>
   );
 }
