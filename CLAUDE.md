@@ -1389,6 +1389,27 @@ quando quem cortou foi o nosso limite (app #125).
 - Medir no Amplitude o `otp_colar` (`resultado`: ok, sem_codigo ou negado).
   Comparar quem pediu o código e quem confirmou, antes e depois de 26/10.
 
+## Conversas da IA de outubro e o chamado à Intelliway (26/10)
+
+- Em 26/10 o Mateus exportou do painel da Intelliway as conversas da IA
+  de 01 a 26/10, e eu li todas. A análise fica em `scratchpad/conversas-ia/`.
+  O arquivo tem nome e celular de cliente: nunca vai para o repositório.
+- O que achei:
+  - quando a IA pede nome e celular, o cliente passa. Mas ela só pede
+    quando o cliente fala em visita;
+  - quando o corretor não tem o que a pessoa procura, a IA só pergunta
+    "quer procurar em outra localidade?", e a conversa morre;
+  - corretor sem imóvel no ar: a saudação abre com "não tem imóveis
+    disponíveis";
+  - a IA diz que só atende venda, e há corretor anunciando locação;
+  - parte dos "leads" é o próprio corretor testando, com o celular dele.
+    Contar cliente só com celular diferente do do corretor.
+- Em 26/10 o Mateus abriu o chamado na Intelliway com 4 ajustes (texto em
+  `scratchpad/conversas-ia/msg-glaucia.txt`). Quando entrar, ler as
+  conversas de novo e comparar quantas viram contato.
+- O plano está em "Plano até o Pro pago"
+  (https://claude.ai/artifact/DNBKDvBvEArffF7xwgX8q7).
+
 ## Teste A/B da tela de entrada do app (desde 14/10)
 
 - Código em `app/src/lib/tela-entrada.ts`.
