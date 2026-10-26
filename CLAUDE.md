@@ -1978,6 +1978,17 @@ quando quem cortou foi o nosso limite (app #125).
     Link, guarda de 12 meses), com o "pode" do Mateus. Texto em
     `scratchpad/estudo-ia/politica-10-8.md`. A limpeza automática já existe
     (`ATENDIMENTO_GUARDA_DIAS`, padrão 365).
+- **Viagem do Mateus de 28/10 a 11/11: a IA nova vai ao ar na volta**
+  (Mateus, 26/10: "teste até la, com varios cenarios, e usos e vamos
+  colocar no ar qd eu voltar").
+  - Até 11/11 ela fica só na INMC (804), e todos os outros corretores
+    seguem na Intelliway. Não ligar corretor de verdade nem cancelar a
+    Intelliway antes da volta.
+  - Até lá: rodar os casos de outubro e cenários novos pelo `/simular`,
+    ajustar as regras e comparar os modelos (Sonnet, Haiku, GPT e
+    Gemini), dentro dos US$ 20/mês da chave.
+  - Na volta: resultado, escolha do modelo, o "pode" da seção 10.8 da
+    política e os 5 primeiros corretores.
 - **Política e termos não mostram a arquitetura do negócio** (Mateus,
   26/10: "nao use nomes das plataformas, somente um nome tecnico [...] na
   nossa politica nao devemos mostrar nossa arquitetura de negocios").
