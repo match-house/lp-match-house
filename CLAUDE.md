@@ -1938,6 +1938,42 @@ quando quem cortou foi o nosso limite (app #125).
     (primeiro na INMC e em 5 corretores, com o "pode"). Antes de cancelar,
     exportar todas as conversas para IA & Leads. O chamado #1503 fica
     aberto enquanto isso.
+- **Construída em 26/10 (branches `claude/atendimento-proprio` na api, no
+  site match-house e no BFF), desligada até as variáveis entrarem:**
+  - API, `src/modules/atendimento/`: o site chama
+    `POST /atendimento/conversas` e `/conversas/:id/mensagens` (Bearer
+    `ATENDIMENTO_SITE_TOKEN`). Ferramentas presas ao corretor da conversa:
+    buscar, ver e mostrar imóveis, horários livres, guardar contato e
+    marcar visita (pelo `LeadService.receive`, que já manda o aviso de
+    cliente novo). Leads com `source: 'ia_propria'`.
+  - Liga por corretor: `ATENDIMENTO_AGENTES` (ids ou `todos`),
+    `ATENDIMENTO_MODELO` (o slug do Claude no OpenRouter) e
+    `OPENROUTER_ATENDIMENTO_KEY`. Sem um deles, o site segue na Intelliway.
+    A vitrine (bot MAIN) fica na Intelliway.
+  - Tetos (variáveis `ATENDIMENTO_*`, com padrão): US$ 5 no dia no total,
+    US$ 1,50 e 300 respostas por corretor, US$ 0,40 por conversa, 40
+    mensagens por conversa, 12 conversas e 40 mensagens por visitante por
+    hora, 60 conversas novas por corretor por hora. Sem IA (teto ou
+    queda), a resposta pronta ainda pega o contato.
+  - Uma conversa é um cliente: um celular só, até 3 gravações e 3 visitas.
+    Celular do próprio corretor não vira lead.
+  - Backoffice: `GET /backoffice/atendimento/status`, `/modelos`,
+    `/conversas?id_agent&dias`, `POST /simular` (não grava contato) e
+    `POST /conversas/:id/apagar` (pedido do cliente).
+  - IA & Leads: `GET /atendimento/minhas` (login do corretor, com a regra
+    de 05/11); o BFF põe as nossas nas primeiras páginas, antes das da
+    Intelliway. A esteira ("a IA respondeu") conta as duas.
+  - O visitante vai à API só como HMAC do IP e do dia, com chave que a API
+    não tem.
+  - Revisão de segurança com vários agentes em 26/10: 12 achados
+    confirmados, todos corrigidos. Um teste chegou a ter o celular real de
+    um cliente: trocado, e o merge do PR da API é só por **squash**
+    (detalhe em `scratchpad/seguranca/achados.md`).
+  - Testes de qualidade: `scratchpad/estudo-ia/eval/roda.mjs` roda os 44
+    casos de outubro pelo `/simular`.
+  - Falta: a Política de Privacidade citar OpenRouter e Anthropic para as
+    conversas do Smart Link (texto com o Mateus) e o prazo de guarda das
+    conversas, com a limpeza automática.
 
 - O plano está em "Plano até o Pro pago"
   (https://claude.ai/artifact/DNBKDvBvEArffF7xwgX8q7).
