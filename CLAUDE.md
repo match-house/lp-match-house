@@ -1884,6 +1884,25 @@ quando quem cortou foi o nosso limite (app #125).
     Se a campanha sumir sem `attr_memoria`, a perda foi um recarregamento ou
     uma página nova, que a memória não cobre.
 
+## Campo do código no iPhone, dentro de outro app (26/10)
+
+- Em 26/10 o Luis (1481), num iPhone e dentro do navegador do ChatGPT,
+  recebeu o código pelo WhatsApp e tocou em "Copiar código". Depois não
+  conseguiu colar nem digitar nas caixinhas. Pelo Safari, terminou.
+- O campo era um input invisível (`opacity: 0`) por cima das caixinhas. O
+  WebKit esconde o "Colar" e a seleção de campo quase transparente.
+- Conserto no ar em 26/10, à tarde (app #164, merge 0435934; Mateus: "Pode
+  resoler agora mesmo"):
+  - o campo ficou visível, com o texto transparente, e o fundo do
+    autopreenchimento não cobre mais as caixinhas;
+  - tocar em qualquer caixinha dá foco ao campo;
+  - colar com espaço, traço ou texto em volta funciona;
+  - entrou o botão "Colar código", que lê o que foi copiado e preenche. Ele
+    só aceita um código do tamanho certo, para não gastar tentativa;
+  - as caixinhas ficam fora das gravações de sessão (Amplitude e Clarity).
+- Medir no Amplitude o `otp_colar` (`resultado`: ok, sem_codigo ou negado).
+  Comparar quem pediu o código e quem confirmou, antes e depois de 26/10.
+
 ## Teste A/B da tela de entrada do app (desde 14/10)
 
 - Código em `app/src/lib/tela-entrada.ts`.
