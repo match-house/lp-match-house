@@ -1424,8 +1424,11 @@ quando quem cortou foi o nosso limite (app #125).
     (primeiro na INMC e em 5 corretores, com o "pode"). Antes de cancelar,
     exportar todas as conversas para IA & Leads. O chamado #1503 fica
     aberto enquanto isso.
-- **Construída em 26/10 (branches `claude/atendimento-proprio` na api, no
-  site match-house e no BFF), desligada até as variáveis entrarem:**
+- **Construída e publicada desligada em 26/10, à noite:** api #130 (squash
+  d867641), BFF #15 (0e771bd) e site #239 (24a60be). Nada muda até as
+  variáveis entrarem no ECS e no Vercel. Modelos no OpenRouter:
+  `anthropic/claude-sonnet-5.5` (US$ 2 e 10 por milhão de tokens) e
+  `anthropic/claude-haiku-5.5` (US$ 0,10 e 0,50).
   - API, `src/modules/atendimento/`: o site chama
     `POST /atendimento/conversas` e `/conversas/:id/mensagens` (Bearer
     `ATENDIMENTO_SITE_TOKEN`). Ferramentas presas ao corretor da conversa:
