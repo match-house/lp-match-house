@@ -37,7 +37,8 @@ Notas do projeto para agentes. Ler antes de mexer.
 - O cartão de aprovação dos posts, stories e anúncios vinha da permissão
   de cada ferramenta do conector, no claude.ai, e não do repositório.
   - Em 26/10, às 7h15, ele deixou o Windsor em "Sempre permitir" em todas
-    as ferramentas.
+    as ferramentas. Logo depois liberou também as de gravar do Google
+    Sheets ("Libera as planilhas também").
   - O caminho é https://claude.ai/customize/connectors > Meus > o conector
     > a ferramenta > ✓.
   - Se o cartão voltar em outro conector (por exemplo, Google Sheets), o
