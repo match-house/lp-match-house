@@ -1389,7 +1389,7 @@ quando quem cortou foi o nosso limite (app #125).
 - Medir no Amplitude o `otp_colar` (`resultado`: ok, sem_codigo ou negado).
   Comparar quem pediu o código e quem confirmou, antes e depois de 26/10.
 
-## Conversas da IA de outubro e o chamado à Intelliway (26/10)
+## Conversas da IA de outubro, chamado à Intelliway e IA própria (26/10)
 
 - Em 26/10 o Mateus exportou do painel da Intelliway as conversas da IA
   de 01 a 26/10, e eu li todas. A análise fica em `scratchpad/conversas-ia/`.
@@ -1407,6 +1407,24 @@ quando quem cortou foi o nosso limite (app #125).
 - Em 26/10 o Mateus abriu o chamado na Intelliway com 4 ajustes (texto em
   `scratchpad/conversas-ia/msg-glaucia.txt`). Quando entrar, ler as
   conversas de novo e comparar quantas viram contato.
+- **26/10, à noite: sair da Intelliway** (Mateus: "precisamos sair da
+  Inteliway, e agente mesmo cuidar disso"). A IA da página passa a ser
+  nossa: o Claude pelo OpenRouter, rodando na nossa API ("acho que vai ser
+  mais simples usarmos o open router, ja temos conta.. e usamos o claude la
+  dentro"). Esta conversa não atende a página: o cliente precisa de
+  resposta em segundos. Ela segue no 6800 e no Direct e lê as conversas da
+  página todo dia para ajustar as regras.
+  - Estudo: "Atendimento próprio da IA"
+    (https://claude.ai/artifact/6ErSUT8zWqR97mKWPSALNE).
+  - Cuidados: uma chave do OpenRouter só para o atendimento, com teto de
+    gasto e recarga automática; o Claude só pela Anthropic dentro do
+    OpenRouter; citar o OpenRouter na Política de Privacidade; revisão de
+    segurança com vários agentes antes de ligar.
+  - A Intelliway só sai depois de a nossa ganhar nas conversas de verdade
+    (primeiro na INMC e em 5 corretores, com o "pode"). Antes de cancelar,
+    exportar todas as conversas para IA & Leads. O chamado #1503 fica
+    aberto enquanto isso.
+
 - O plano está em "Plano até o Pro pago"
   (https://claude.ai/artifact/DNBKDvBvEArffF7xwgX8q7).
 
