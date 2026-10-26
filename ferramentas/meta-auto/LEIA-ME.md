@@ -36,10 +36,12 @@ anúncios) e pela seção "Meta no automático" do CLAUDE.md.
   ele, então conjunto novo sempre por `duplicate_adset`). Anúncios 13a
   120252905496920445 e 13b 120252905499330445, utm_campaign
   `MH_2026_10_desbloqueado`. Regras por anúncio iguais às do app; a verba fica
-  em R$ 40 até a leitura de 29/10 (comparar custo por corretor que publicou com
-  a do app).
-- **Teto é a soma:** app + 13 + seguidores nunca passam de R$ 100/dia. Hoje
-  R$ 50 + R$ 40, e R$ 10 de seguidores a partir de 26/10. A subida de 20%
+  em R$ 30 (era R$ 40 até 26/10, 10h18) até a leitura de 29/10 (comparar
+  custo por corretor que publicou com a do app).
+- **Teto é a soma:** app + 13 + seguidores nunca passam de R$ 100/dia.
+  Desde 26/10, 10h18 (Mateus: "fica 30 naquele anúncio que a gente está em
+  testes [...] fica 20 por dia nesse do diagnóstico"): 13 em R$ 30 e 14b em
+  R$ 20, com o app pausado pelo freio. Antes: 13 em R$ 40 e 14 em R$ 10. A subida de 20%
   de uma só cabe no que sobra do teto.
 
 ## Regras do dia (rotina das 07h37)
@@ -150,7 +152,8 @@ O que ele aprovou, em resposta à proposta do mesmo dia:
   gastou R$ 34,71 e teve 61 cliques (78% em Stories), e os seguidores foram
   de 1792 a 1790.
   - Campanha 120252956827030445 "[14b] Diagnóstico para corretores"
-    (OUTCOME_TRAFFIC, R$ 10/dia na campanha).
+    (OUTCOME_TRAFFIC, verba na campanha: R$ 10/dia ao nascer, R$ 20/dia
+    desde 10h18 do mesmo dia).
   - Conjunto 120252956827840445: WEBSITE + LANDING_PAGE_VIEWS, só
     Instagram stream e reels, com o mesmo público da 14 (sem ES, sem
     Advantage+). É uma cópia da 14, para herdar o anunciante verificado.

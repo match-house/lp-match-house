@@ -193,15 +193,21 @@ Notas do projeto para agentes. Ler antes de mexer.
     "blz, deixa a Meta app pausada"). Desde a religada de 22/10 ela passou
     do freio (acima de R$ 120 por corretor que publicou, com pelo menos
     R$ 150 gastos): trouxe 2 contas e nenhum corretor que publicou.
-    - Na Meta ficam a campanha 13 (Modo Desbloqueado, R$ 40/dia, com os
-      episódios da Camila desde 24/10) e, desde 26/10, a 14b do
-      diagnóstico (R$ 10/dia), no lugar da 14 de seguidores.
+    - Na Meta ficam a campanha 13 (Modo Desbloqueado, com os episódios da
+      Camila desde 24/10) e, desde 26/10, a 14b do diagnóstico, no lugar
+      da 14 de seguidores.
+    - **Desde 26/10, às 10h18: 13 em R$ 30/dia e 14b em R$ 20/dia** (antes
+      40 e 10). Nas palavras do Mateus: "dos 50 que tem na meta por dia,
+      fica 30 naquele anúncio que a gente está em testes [...] que não está
+      entregando um lead bom [...] fica 20 por dia nesse do diagnóstico
+      para a gente ver se dá resultado". A Meta segue em R$ 50/dia.
   - **26/10: seguidores pelo diagnóstico** (Mateus: "Ficou bom, pode
     publicar e subir o anúncio"). De 22 a 25/10 a 14, que levava ao perfil,
     gastou R$ 34,71, teve 61 cliques (78% em Stories), e os seguidores
     foram de 1792 a 1790.
     - Pausada a campanha 14 (120252906629350445). Entrou a 14b,
-      120252956827030445 (OUTCOME_TRAFFIC, R$ 10/dia na campanha):
+      120252956827030445 (OUTCOME_TRAFFIC, verba na campanha; R$ 20/dia
+      desde 10h18):
       - conjunto 120252956827840445, otimizado por visualização da página,
         só Feed e Reels do Instagram, com o mesmo público (sem ES e sem
         Advantage+);
