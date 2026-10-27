@@ -2061,6 +2061,20 @@ quando quem cortou foi o nosso limite (app #125).
     Gemini), dentro dos US$ 20/mês da chave.
   - Na volta: resultado, escolha do modelo, o "pode" da seção 10.8 da
     política e os 5 primeiros corretores.
+- **Modelo por plano: pronto e desligado desde 27/10** (api #142; Mateus:
+  "podemos colocar um modelo barato no plano freemium e no pro um modelo
+  melhor?" e "sim deixa pronto, sem citar nomes de IAs nem modelos").
+  - `ATENDIMENTO_MODELO_PRO` vale para quem tem o Pro valendo (regra do
+    `cronDisableAt`). `ATENDIMENTO_MODELO_RESERVA` dá uma nova tentativa
+    quando o modelo da conversa falha. Ela não acontece se a 1ª já chamou
+    `guardar_contato` ou `marcar_visita`, se passou do teto da conversa ou
+    se já se foram 22 s; as duas cabem em 40 s.
+  - Nada que o cliente ou o corretor vê cita nome de IA ou de modelo.
+  - Testes de 27/10 (casos de outubro): Sonnet 44/44 sem resposta vazia,
+    ~US$ 0,065 por conversa; Haiku ~US$ 0,003; Opus em 15 casos, ~US$ 0,12,
+    respostas quase iguais às do Sonnet.
+  - Recomendação para a volta: Haiku no plano de entrada, Sonnet no Pro e
+    de reserva. Ligar com o Mateus, junto com a escolha do modelo.
 - **Política e termos não mostram a arquitetura do negócio** (Mateus,
   26/10: "nao use nomes das plataformas, somente um nome tecnico [...] na
   nossa politica nao devemos mostrar nossa arquitetura de negocios").
