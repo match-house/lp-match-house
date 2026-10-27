@@ -2264,6 +2264,47 @@ quando quem cortou foi o nosso limite (app #125).
   entra a rua e numero" e "Ou seja a IA pode falar o endereço completo").
   Não mexer no que a API manda à IA.
 
+## Ajustes de 27/10, pelas sessões do Amplitude (Mateus: "Pode fazer o 1,2 3 e 4")
+
+- **Divulgar: o link na bio vem primeiro** (app #167). No celular, o bloco
+  "Cole o link na bio do Instagram" abre a tela, antes das artes. No
+  computador, fica em cima, à esquerda, com as artes fixas à direita. O toque
+  vira `bio_link_click` com `onde` (`divulgar` ou `visao`).
+- **Imóvel sem foto: quadro azul-escuro com "Sem foto" em branco** (Mateus:
+  "objetivo é que coloquem fotos").
+  - No app (Seus imóveis, app #167), tocar no quadro de um imóvel publicado
+    abre a edição para pôr as fotos.
+  - No Smart Link (site #240), o mesmo quadro.
+  - A vitrine (matchhouse.co) continua escondendo imóvel sem foto.
+- **Comodidades do corretor no ar desde 27/10** (api #84, site #225, app
+  #129): campo "Escreva aqui" em cada grupo. A comodidade digitada é só do
+  corretor, nunca entra no catálogo de todos. **Não voltar a imagem da API
+  para antes do #84** depois que corretores criarem comodidades.
+  - Junto, a api #84 fechou duas leituras antigas: as comodidades de um
+    imóvel só para o dono ou o admin, e item novo no catálogo só pelo admin.
+- **Primeiro imóvel** (app #167):
+  - "Preencher com a IA" fica sempre aceso. Vazio, ele pede o link ou o texto
+    (`primeiro_imovel_vazio`).
+  - "Colar o que copiei" põe na caixa o que foi copiado
+    (`primeiro_imovel_colar`, com `resultado`).
+  - "Prefiro mandar as fotos" virou um link discreto: o botão de fotos puxava
+    as pessoas.
+- **Link do Instagram, do Facebook ou do WhatsApp vai direto para o texto**
+  (app #167). De 18 a 26/10, 9 dos 19 links que falharam eram desses. O app
+  nem tenta ler: pede a legenda do post e registra `property_import` falhou
+  com `motivo: "rede_social"`.
+  - Ler o post pelo link não dá: Instagram e Facebook só mostram para quem
+    está logado, e ler por fora vai contra as regras da Meta (o app da Meta é
+    o mesmo do Direct).
+  - Ideia para a volta do Mateus, se o evento mostrar que é frequente:
+    "Importar do meu Instagram" pela API oficial (login do corretor, só conta
+    profissional, com revisão da Meta).
+- Nas gravações do Amplitude, as fotos dos imóveis aparecem quebradas porque
+  o endereço do S3 vence em 1 hora. O app está certo.
+- **Métricas a conferir** (Mateus, 27/10): no perfil do Enio (196) ele viu
+  "100 visitas" e depois "360 visitas" na mesma sessão. Fica para a conversa
+  das métricas do Pro.
+
 ## QR code por imóvel (no ar desde 07/10)
 
 - PR app #122 (merge 1c0988f). O corretor gera um QR para imprimir na placa
