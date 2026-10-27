@@ -491,6 +491,10 @@ Notas do projeto para agentes. Ler antes de mexer.
     Mateus, em 16/10: "No google desde ontem reduzi para 10,00 por dia".
     Dia de até R$ 20 é normal. Alerta se passar disso ou se a média de 7
     dias passar de R$ 10.
+  - **Desde 27/10, ~0h: Google pausado** (Mateus, antes da viagem: "pausa
+    o google agora"). Pausadas pelo Windsor as duas ativas: "Validacao PMF -
+    202604" (23704816236, R$ 72 nos 7 dias antes) e "[TP]Leads-Search-04.07"
+    (20345565295, sem gasto). Não religar sem ele. Gasto no Google é alerta.
 - **ChatGPT (OpenAI Ads)**, fora do MCP e fora do teto do Meta; quem mexe é o
   Mateus, no painel dele. Em 02/10 a conta mostrou que todos os 4 cadastros
   completos (1166 a 1169) vieram da campanha "Smart Link - Registro completo"
@@ -806,6 +810,24 @@ para aquela mensagem.
   - A regra das 36 h foi junto para o servidor, desligada
     (`REGRA_CLIENTES` sem valor). Os números do mês saem em
     `GET /backoffice/clientes/regra`.
+  - **27/10: a regra fica para 05/11, mesmo com o Mateus viajando** (ele
+    escolheu "Manter 05/11"). Uma revisão do ECS só, feita por ele antes de
+    viajar, faz as três etapas (api #134):
+    - `REGRA_CLIENTES=on`, `REGRA_CLIENTES_TESTE_IDS=39,999` e
+      `REGRA_CLIENTES_FORA_IDS=3,39,56,937,941,980,999,1011,1014,1033,1095,1096`;
+    - antes de 05/11, o on registra a ordem de todos e já retém nas contas
+      39 e 999 (o mês inteiro). Ao BFF vai "registro" até a data;
+    - em 05/11, à 0h, vale para todos, menos os de fora.
+    - Depois da revisão no ar: `POST /backoffice/clientes/varrer-historico`
+      com `{"dias": 120}` e o teste nas contas 39 e 999.
+  - **Freio sem o ECS** (api #134): `GET /backoffice/clientes/regra/freio`,
+    `POST …/freio/preview` e `POST …/freio` com `{pausar: true|false}` e o
+    código. Puxado, nada fica retido, o painel mostra os contatos na hora e
+    as visitas não esperam as 40 h. Puxar se a regra esconder contato de
+    quem não devia, ou se o Pro não liberar. Contar ao Mateus na hora.
+  - BFF #16 (a máscara nas conversas da Intelliway) e o app (IA & Leads:
+    "Cliente novo", "Contato libera sexta, 30/10, às 15h" e "Ver agora com
+    o Pro", evento `regra_ver_pro`) foram ao ar em 27/10.
   - O 1º deploy (#128) não subiu: faltava o `ConfigService` no `LeadModule`.
     O container antigo seguiu no ar, e o #129 corrigiu. Antes de publicar
     mudança de módulo na API, subir o `dist` com variáveis falsas e ver se
