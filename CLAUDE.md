@@ -726,10 +726,15 @@ para aquela mensagem.
   `{ligar: true|false}`, depois `POST /backoffice/transcricao` com o código.
   O estado sai em `GET /backoffice/transcricao`. Não precisa de revisão do
   ECS.
-- Fica pendente: a política diz que as conversas ficam "até 30 dias", mas os
-  e-mails da caixa ficam mais tempo no Gmail. Levei ao Mateus em 27/10 duas
-  saídas: trocar o texto pelo prazo real, ou limpar esses e-mails depois de
-  30 dias.
+- **Limpeza dos 30 dias, desde 27/10** (Mateus: "Pode fazer a limpeza"):
+  - API (#143): todo dia às 04h40, o texto das respostas do WhatsApp
+    (`body_preview`) e do Direct (`reply_text`) com mais de 30 dias é
+    apagado. Ficam data, canal, tipo e status. O e-mail fica de fora.
+  - Gmail: a rotina `trig_01NWMSBwvFQx8S85KcVRuPAQ` roda às 05h13 e manda
+    para a lixeira os e-mails "WhatsApp de…" e "Instagram de…" com mais de
+    2 dias. O Gmail esvazia a lixeira em 30 dias. O Mateus deixou "Sempre
+    permitir" no `trash_thread` do Gmail em 27/10. Em 27/10 saíram os 245
+    antigos.
 - O "Preencher com a IA" por áudio, no app, ainda não foi feito. Fica
   desligado até a volta do Mateus (11/11), só para as contas 39 e 999.
 
