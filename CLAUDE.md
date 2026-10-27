@@ -304,6 +304,10 @@ Notas do projeto para agentes. Ler antes de mexer.
           do backoffice é 50 por dia. Em 22/10 ele acabou duas vezes antes
           do fim do dia e segurou respostas de atendimento (Pro Futuro e
           Juceli). Os scripts param em 30;
+        - desde 27/10 (api #138) as respostas em texto do 6800 têm teto
+          próprio, 150 por dia (`BACKOFFICE_REPLY_DAILY_LIMIT`), fora dos
+          50 dos modelos. Texto livre para uma conta só sai se ela escreveu
+          nas últimas 24 h;
         - o reel do exemplo da Camila saiu em 22/10
           (https://www.instagram.com/reel/DezqxHUFVx3/), com o "pode" dele;
         - scripts em `scratchpad/seguir-insta/` (cópia em
@@ -324,6 +328,17 @@ Notas do projeto para agentes. Ler antes de mexer.
       fica 30 naquele anúncio que a gente está em testes [...] que não está
       entregando um lead bom [...] fica 20 por dia nesse do diagnóstico
       para a gente ver se dá resultado". A Meta segue em R$ 50/dia.
+    - **27/10, 7h44: campanha 13 pausada pelo freio.** De 24 a 26/10 ela
+      gastou R$ 156,54 com imposto, trouxe 1 conta e nenhum corretor que
+      publicou. Na Meta fica só a 14b (R$ 20/dia). Não religar a 13 sem
+      proposta nova ao Mateus; o ep. 7 da Camila sai só no orgânico.
+    - **Campanha [15], WhatsApp 6800** (proposta de 26/10, "2 manda o
+      passo a passo"): o Mateus cria no Gerenciador e me manda "pronto";
+      eu ajusto o público (sem ES, sem Advantage+) e ligo. A mensagem
+      pronta "Vim pelo anúncio e quero conhecer o Smart Link" recebe a
+      resposta na hora (api #138), e quem editou a mensagem é reconhecido
+      pelos parâmetros Referral da Twilio. Depois, quem conduz a conversa
+      e a venda sou eu, pela autonomia dos atendimentos.
   - **26/10: seguidores pelo diagnóstico** (Mateus: "Ficou bom, pode
     publicar e subir o anúncio"). De 22 a 25/10 a 14, que levava ao perfil,
     gastou R$ 34,71, teve 61 cliques (78% em Stories), e os seguidores
