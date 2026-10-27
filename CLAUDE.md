@@ -2305,6 +2305,38 @@ quando quem cortou foi o nosso limite (app #125).
   "100 visitas" e depois "360 visitas" na mesma sessão. Fica para a conversa
   das métricas do Pro.
 
+## Conversa de 27/10, à noite (decisões do Mateus antes da viagem)
+
+- **Tela de links de anúncios** (Mateus: "pode fazer A, B e C"). Em outubro,
+  40% dos 188 links falharam, e 31 de 56 corretores nunca tiveram um link que
+  funcionasse. Detalhe em `scratchpad/noite-2710/links.md`.
+  - A: portal que bloqueia a leitura (Imovelweb, OLX, Zap) vai direto para
+    "copie a descrição do anúncio e cole aqui", como a rede social. Sem burlar
+    o bloqueio do portal.
+  - B: a leitura do link tenta de novo, usa uma IA de reserva e avisa a equipe
+    depois de 3 falhas seguidas (em 12/10 a IA da importação caiu por 4 horas e
+    ninguém soube).
+  - C: depois da falha, o texto é a saída principal, com "Colar o que copiei" e
+    o passo a passo; "Tentar outro link" fica menor.
+- **Métricas especiais do Pro: construir já** ("vamos fazer agora"), escondidas
+  e ligadas só nas contas 39 e 999. Primeiro o atendimento fora do horário; no
+  plano de entrada, só o total de atendimentos da IA, o resto trancado com "Ver
+  tudo com o Pro". Ligar para todos só com o "pode" dele.
+- **Métricas de hoje: não mexer** ("sobre as marcações nas métricas de 7d, 30d,
+  tudo, deixe como está" e "nao vamos mexer nisso"). O caso do Enio (100 e 360)
+  são dois períodos: 30 dias e Tudo. Não propor de novo o período escrito no
+  número, o padrão de 30 dias nem o "–" ao trocar.
+- **Stories todo dia, 4 por dia** ("tudo"): 8h07, 12h13, 17h17 e 21h23,
+  sábado e domingo incluídos. As 28 artes da semana saem de uma vez na segunda,
+  e uma rotina só publica. Publico sem mostrar antes e conto no relatório.
+- **14b do diagnóstico: fica até a leitura de 02/11** ("tudo", com a minha
+  recomendação de esperar a 1ª semana inteira).
+- **Orgânico** ("tudo"): reels 3 por semana (seg, qua e sex), carrossel na
+  quinta, posts em parceria com corretores e sem campanha paga de seguidores.
+- **15b (WhatsApp 6800): mais um dia** ("deixa mais um dia"). Em 27/10: R$ 17,69
+  com imposto, 31 cliques, nenhuma conversa. Leitura em 28/10, 19h37; sem
+  conversa, pausar e deixar a verba parada.
+
 ## QR code por imóvel (no ar desde 07/10)
 
 - PR app #122 (merge 1c0988f). O corretor gera um QR para imprimir na placa
