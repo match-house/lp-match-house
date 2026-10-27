@@ -2318,16 +2318,37 @@ quando quem cortou foi o nosso limite (app #125).
     ninguém soube).
   - C: depois da falha, o texto é a saída principal, com "Colar o que copiei" e
     o passo a passo; "Tentar outro link" fica menor.
+  - **No ar em 27/10, à noite:** A e C no app #168 (merge 46d53da; portais em
+    `blockedPortalName`, `link-site.utils.ts`; eventos `property_import`
+    com `motivo: "portal_bloqueia"` e `link_falha_colar`). B no BFF #17
+    (eb009e0: `OPENROUTER_MODEL_RESERVA`, padrão `google/gemini-2.5-flash`,
+    vazio desliga, só dentro de 25 s) e na API #146 (03b780f: o `/health/ia`
+    do BFF diz "falhando" com 3 falhas seguidas, e a API manda o e-mail "A IA
+    do app está falhando", um por dia). Crédito e chave não contam como falha.
 - **Métricas especiais do Pro: construir já** ("vamos fazer agora"), escondidas
   e ligadas só nas contas 39 e 999. Primeiro o atendimento fora do horário; no
   plano de entrada, só o total de atendimentos da IA, o resto trancado com "Ver
-  tudo com o Pro". Ligar para todos só com o "pode" dele.
+  tudo com o Pro".
+  - Abrir para todos depois do teste, sem pedir de novo (Mateus: "as metricas
+    pode subir e ficando certo ja fazemos para todos pq so tem o Enio"). A
+    trava é `isAbertoParaTodos` em `app/src/shared/utils/relatorio-pro.utils.ts`.
+  - Construído em 27/10, à noite: API `meuRelatorioPro(dias)` (módulo
+    `relatorio-pro`: clientes com nome e celular, os que chegaram fora do
+    horário, origem das visitas desde 22/10 e imóveis que trouxeram clientes;
+    fora do Pro só `pro: false`), BFF `GET /evagpt/relatorio` (conversas
+    e as fora do horário) e a seção "Relatório do Pro" no fim de Métricas.
+  - Fora do horário: de segunda a sexta, das 19h às 8h, e sábado e domingo,
+    no horário de Brasília. Cliente é um celular, sem o do próprio corretor.
+  - Conferir os números de um corretor: `GET /backoffice/relatorio-pro?id_agent=&dias=`.
+  - Eventos: `relatorio_pro_visto` {pro, periodo} e `regra_ver_pro`
+    {onde: "metricas"}.
 - **Métricas de hoje: não mexer** ("sobre as marcações nas métricas de 7d, 30d,
   tudo, deixe como está" e "nao vamos mexer nisso"). O caso do Enio (100 e 360)
   são dois períodos: 30 dias e Tudo. Não propor de novo o período escrito no
   número, o padrão de 30 dias nem o "–" ao trocar.
-- **Stories todo dia, 4 por dia** ("tudo"): 8h07, 12h13, 17h17 e 21h23,
-  sábado e domingo incluídos. As 28 artes da semana saem de uma vez na segunda,
+- **Stories todo dia, 4 por dia** ("tudo"): 8h07, 12h07, 17h07 e 21h07,
+  sábado e domingo incluídos (rotina `trig_017QGK5KC14zdoHbZ8AdoA7Z`; as
+  artes da semana, `trig_01HWVLSEj21XzivXqUqv9VEu`, segunda às 6h41). As 28 artes da semana saem de uma vez na segunda,
   e uma rotina só publica. Publico sem mostrar antes e conto no relatório.
 - **14b do diagnóstico: fica até a leitura de 02/11** ("tudo", com a minha
   recomendação de esperar a 1ª semana inteira).
