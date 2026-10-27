@@ -38,6 +38,15 @@ anúncios) e pela seção "Meta no automático" do CLAUDE.md.
   `MH_2026_10_desbloqueado`. Regras por anúncio iguais às do app; a verba fica
   em R$ 30 (era R$ 40 até 26/10, 10h18) até a leitura de 29/10 (comparar
   custo por corretor que publicou com a do app).
+- **Campanha 15b, WhatsApp 6800** (27/10): 120252975696550445
+  (OUTCOME_TRAFFIC, R$ 30/dia na campanha), conjunto 120252975698770445
+  (cópia da 14b, LINK_CLICKS) e anúncio 120252975724270445: reel da Camila
+  (video_id 3002305903435672), botão CONTACT_US para
+  `https://wa.me/5527998546800?text=Vim%20pelo%20an%C3%BAncio%20e%20quero%20conhecer%20o%20Smart%20Link`.
+  Contas por `utm_content=15a-whatsapp` (o link da resposta automática).
+  Regras por anúncio iguais às do app. O destino WhatsApp do Gerenciador
+  não aceita o 6800 (pede "Instalar agora", que tiraria o número da API:
+  nunca tocar); a [15] 120252975443070445 fica vazia e pausada.
 - **Teto é a soma:** app + 13 + seguidores nunca passam de R$ 100/dia.
   Desde 26/10, 10h18 (Mateus: "fica 30 naquele anúncio que a gente está em
   testes [...] fica 20 por dia nesse do diagnóstico"): 13 em R$ 30 e 14b em

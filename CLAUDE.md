@@ -332,13 +332,26 @@ Notas do projeto para agentes. Ler antes de mexer.
       gastou R$ 156,54 com imposto, trouxe 1 conta e nenhum corretor que
       publicou. Na Meta fica só a 14b (R$ 20/dia). Não religar a 13 sem
       proposta nova ao Mateus; o ep. 7 da Camila sai só no orgânico.
-    - **Campanha [15], WhatsApp 6800** (proposta de 26/10, "2 manda o
-      passo a passo"): o Mateus cria no Gerenciador e me manda "pronto";
-      eu ajusto o público (sem ES, sem Advantage+) e ligo. A mensagem
-      pronta "Vim pelo anúncio e quero conhecer o Smart Link" recebe a
-      resposta na hora (api #138), e quem editou a mensagem é reconhecido
-      pelos parâmetros Referral da Twilio. Depois, quem conduz a conversa
-      e a venda sou eu, pela autonomia dos atendimentos.
+    - **Campanha 15b, WhatsApp 6800, desde 27/10, ~8h50** (Mateus: "vamos
+      para meta.. 6800"): 120252975696550445 (OUTCOME_TRAFFIC, R$ 30/dia na
+      campanha), conjunto 120252975698770445 (cópia da 14b: sem ES, sem
+      Advantage+, Instagram feed e reels, LINK_CLICKS) e anúncio
+      120252975724270445 (reel da Camila, botão "Fale conosco"). O botão
+      abre `wa.me/5527998546800` com a mensagem pronta "Vim pelo anúncio e
+      quero conhecer o Smart Link". A Meta soma R$ 50/dia (14b 20 + 15b 30).
+      - A resposta na hora sai da API (api #138); o link dela leva
+        `utm_source=meta&utm_medium=whatsapp&utm_content=15a-whatsapp`
+        (api #140), e o `origens.mjs` conta como "Meta WhatsApp 6800".
+        Depois, quem conduz a conversa e a venda sou eu, pela autonomia dos
+        atendimentos.
+      - O destino WhatsApp de verdade (campanha [15] 120252975443070445,
+        vazia, pausada e com "(não usar)" no nome) não deu: o Gerenciador
+        recusa o 6800 como conta do WhatsApp Business (#2923012) e oferece
+        "Instalar agora". **Nunca tocar em "Instalar agora"**: ele passa o
+        número para o app WhatsApp Business e tira o 6800 da API (param os
+        códigos de cadastro, a esteira e as respostas).
+      - Leitura em 03/11: custo por conversa, por conta e por corretor que
+        publicou.
   - **26/10: seguidores pelo diagnóstico** (Mateus: "Ficou bom, pode
     publicar e subir o anúncio"). De 22 a 25/10 a 14, que levava ao perfil,
     gastou R$ 34,71, teve 61 cliques (78% em Stories), e os seguidores

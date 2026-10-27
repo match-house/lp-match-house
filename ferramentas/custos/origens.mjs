@@ -35,6 +35,8 @@ function origem(it) {
   if (organicoInstagram(it)) return ['Instagram sem anúncio', cont === 'link_in_bio' ? 'link da bio no Instagram' : null];
   // 26/10: a 14b leva ao diagnóstico (utm_content 14d-diagnostico), não à LP.
   if (META.has(src) && (cont.endsWith('-diagnostico') || (it.utm_campaign || '').includes('diagnostico'))) return ['Meta diagnóstico', null];
+  // 27/10: a 15b leva ao WhatsApp do 6800; o link da resposta leva utm_content 15a-whatsapp.
+  if (META.has(src) && (cont.endsWith('-whatsapp') || med === 'whatsapp')) return ['Meta WhatsApp 6800', null];
   if (META.has(src)) return [(!cont || cont.endsWith('-app')) ? 'Meta app' : 'Meta LP', null];
   if (src === 'smartli.ink') {
     const slug = cont.startsWith('perfil-') ? cont.slice('perfil-'.length) : null;
