@@ -712,6 +712,27 @@ para aquela mensagem.
   - A página do "Parar de receber" diz "lembretes e novidades": o
     `activation_opt_out_at` para a esteira e os envios do backoffice.
 
+## Áudio no 6800 e no Direct: transcrito pela IA (ligado em 27/10, 10h26)
+
+- Pedido do Mateus em 26/10: "Conseguimos implementar audio tb?" e depois
+  "1 pode começar". A política foi liberada com o "pode" dele em 27/10
+  (main 4f52bca, seções 10.6 e 10.7, sem nome de fornecedor).
+- Áudio que chega no 6800 ou no Direct é transcrito (api #137). O texto
+  entra no e-mail da caixa, depois da mensagem, com "Transcrição do áudio
+  (feita por IA; pode ter erros)". O áudio não fica guardado.
+- Tetos: 3 MB por áudio, 200 por dia, US$ 1 por dia, 10 por remetente e 2
+  ao mesmo tempo. Custa cerca de US$ 0,0001 por áudio.
+- Ligar e desligar: `POST /backoffice/transcricao/preview` com
+  `{ligar: true|false}`, depois `POST /backoffice/transcricao` com o código.
+  O estado sai em `GET /backoffice/transcricao`. Não precisa de revisão do
+  ECS.
+- Fica pendente: a política diz que as conversas ficam "até 30 dias", mas os
+  e-mails da caixa ficam mais tempo no Gmail. Levei ao Mateus em 27/10 duas
+  saídas: trocar o texto pelo prazo real, ou limpar esses e-mails depois de
+  30 dias.
+- O "Preencher com a IA" por áudio, no app, ainda não foi feito. Fica
+  desligado até a volta do Mateus (11/11), só para as contas 39 e 999.
+
 ## Limite de imóveis no ar: 100 (desde 29/09/2026)
 
 - Em 29/09, às 10h29, o Mateus subiu para 100 o limite do plano de entrada
