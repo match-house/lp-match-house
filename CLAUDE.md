@@ -334,11 +334,12 @@ Notas do projeto para agentes. Ler antes de mexer.
       proposta nova ao Mateus; o ep. 7 da Camila sai só no orgânico.
     - **Campanha 15b, WhatsApp 6800, desde 27/10, ~8h50** (Mateus: "vamos
       para meta.. 6800"): 120252975696550445 (OUTCOME_TRAFFIC, R$ 30/dia na
-      campanha), conjunto 120252975698770445 (cópia da 14b: sem ES, sem
-      Advantage+, Instagram feed e reels, LINK_CLICKS) e anúncio
-      120252975724270445 (reel da Camila, botão "Fale conosco"). O botão
-      abre `wa.me/5527998546800` com a mensagem pronta "Vim pelo anúncio e
-      quero conhecer o Smart Link". A Meta soma R$ 50/dia (14b 20 + 15b 30).
+      campanha), conjunto 120252975698770445 (cópia da 14b: semelhante de
+      corretores, 25+, sem ES, sem Advantage+, Instagram feed, reels e story,
+      LINK_CLICKS) e anúncio 120252975724270445 (reel da Camila, título "A IA
+      que atende seus clientes na hora", botão "Fale conosco"). O botão abre
+      `wa.me/5527998546800` com a mensagem pronta "Quero conhecer o Smart
+      Link" (Mateus, 27/10; api #141 reconhece as duas frases). A Meta soma R$ 50/dia (14b 20 + 15b 30).
       - A resposta na hora sai da API (api #138); o link dela leva
         `utm_source=meta&utm_medium=whatsapp&utm_content=15a-whatsapp`
         (api #140), e o `origens.mjs` conta como "Meta WhatsApp 6800".
