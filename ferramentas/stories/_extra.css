@@ -1,0 +1,15 @@
+<style>
+  .s-foot { position: absolute; left: 72px; right: 72px; top: 1610px; display: flex; justify-content: space-between; align-items: center;
+            font-size: 26px; color: #9aa3e0; }
+  .s-foot b { color: #fff; font-weight: 600; }
+  .s-q { position: absolute; left: 72px; right: 72px; top: 560px; font-weight: 800; font-size: 104px; line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  .s-q span { color: var(--cyan); }
+  .s-resp { position: absolute; left: 72px; right: 72px; top: 1330px; display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 36px; }
+  .s-resp svg { width: 54px; height: 54px; color: var(--cyan); flex: none; }
+  .s-passos { position: absolute; left: 72px; right: 72px; top: 830px; }
+  .s-passos .passos li { font-size: 34px; }
+  .s-passos .passos .fim { font-size: 32px; }
+</style>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="seta" viewBox="0 0 48 48"><path d="M24 6v32M12 26l12 12 12-12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
