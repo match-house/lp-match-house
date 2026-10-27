@@ -345,6 +345,22 @@ Notas do projeto para agentes. Ler antes de mexer.
         (api #140), e o `origens.mjs` conta como "Meta WhatsApp 6800".
         Depois, quem conduz a conversa e a venda sou eu, pela autonomia dos
         atendimentos.
+      - Desde 27/10, ~14h40, o link da resposta é o curto
+        `https://app.smartli.ink/comecar` (Mateus: "pode trocar"; app #166
+        e api #144). O `vercel.json` do app redireciona para o mesmo
+        endereço com os utm. O redirect fica lá para sempre.
+      - **Medir do clique ao corretor ativo** (Mateus, 27/10: "temos que
+        medir se esta gerando clique no link e se estao gerando clientes
+        ativos"). Ativo é quem publicou pelo menos 1 imóvel. No relatório
+        diário, bloco "Anúncio 15b (WhatsApp 6800)", com ontem e desde
+        27/10, cada etapa com o custo (com os 13,83%):
+        1. cliques no link do anúncio (Windsor);
+        2. conversas no 6800 vindas do anúncio, fora as internas. Cada uma
+           é anotada na hora em `campanha15b.conversas` do `estado.json`;
+        3. quantas continuaram a conversa;
+        4. toques no link da resposta: Amplitude, `amplitude_id` distintos
+           com `utm_content=15a-whatsapp`;
+        5. contas, concluíram, publicaram e Pro (`origens.mjs`).
       - O destino WhatsApp de verdade (campanha [15] 120252975443070445,
         vazia, pausada e com "(não usar)" no nome) não deu: o Gerenciador
         recusa o 6800 como conta do WhatsApp Business (#2923012) e oferece
