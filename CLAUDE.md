@@ -345,10 +345,17 @@ Notas do projeto para agentes. Ler antes de mexer.
         (api #140), e o `origens.mjs` conta como "Meta WhatsApp 6800".
         Depois, quem conduz a conversa e a venda sou eu, pela autonomia dos
         atendimentos.
-      - Desde 27/10, ~14h40, o link da resposta é o curto
+      - Desde 27/10, ~14h40, o link é o curto
         `https://app.smartli.ink/comecar` (Mateus: "pode trocar"; app #166
         e api #144). O `vercel.json` do app redireciona para o mesmo
         endereço com os utm. O redirect fica lá para sempre.
+      - **A conversa do anúncio é conversa de verdade** (Mateus, 27/10:
+        "parar com mensagem grande e link", "abrir tipo uma conversa mesmo"
+        e "qd ele pedir vc manda o link começar"; api #145). A resposta
+        automática só se apresenta e pergunta venda ou locação e a cidade,
+        sem link. Daí em diante, eu respondo curto, uma pergunta por vez, e
+        o `app.smartli.ink/comecar` vai só quando a pessoa pedir o link ou
+        disser que quer criar.
       - **Medir do clique ao corretor ativo** (Mateus, 27/10: "temos que
         medir se esta gerando clique no link e se estao gerando clientes
         ativos"). Ativo é quem publicou pelo menos 1 imóvel. No relatório
