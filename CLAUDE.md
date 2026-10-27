@@ -1568,6 +1568,20 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   - Codificar com `jq -Rrs @uri arquivo.txt`. Não usar python para isso:
     python pede aprovação a ele a cada vez.
 
+## E-mail com código: sempre no formato de copiar (Mateus, 27/10)
+
+- Nas palavras dele: "quanto tivermos email com codigo para o cliente ja
+  coloca assim para copiar igual openrouter faz, facilita muito".
+- O código abre o assunto ("424780 é o seu código de verificação da Match
+  House") e aparece sozinho no corpo, em letra grande, num quadro só, com a
+  validade. É isso que faz o Gmail mostrar o "Copiar código" e o iPhone
+  oferecer o código para preencher.
+- Modelo: `sendCode.hbs` e `MailService.sendCode` da API (api #139). Hoje é
+  o e-mail de redefinição de senha. Todo e-mail de código novo usa esse
+  modelo.
+- O código do cadastro sai por SMS ou WhatsApp. O modelo de autenticação do
+  WhatsApp já tem o botão "Copiar código" da Meta.
+
 ## O que dizer ao corretor — bio em toda resposta (regra do Mateus, 29/09)
 
 - Pedido dele: "em todas as mensagens falar para colocarem no link da bio, do
