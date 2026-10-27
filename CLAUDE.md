@@ -820,6 +820,13 @@ para aquela mensagem.
     - em 05/11, à 0h, vale para todos, menos os de fora.
     - Depois da revisão no ar: `POST /backoffice/clientes/varrer-historico`
       com `{"dias": 120}` e o teste nas contas 39 e 999.
+    - **Feito em 26/10, por volta das 22h (Brasília):** o Mateus pôs as três
+      variáveis e atualizou o serviço ("pronto!"); o freio mostrou
+      `modo_da_variavel: on`. A leitura de 120 dias rodou em seguida.
+    - Teste na conta 39 (smartli.ink/matchhouse, plano de entrada): o Mateus
+      faz em 27/10, antes de viajar (duas conversas com nome e celular de
+      teste; a 2ª deve aparecer como "Cliente novo"). A 999 é Pro até 19/11,
+      então lá nada fica retido.
   - **Freio sem o ECS** (api #134): `GET /backoffice/clientes/regra/freio`,
     `POST …/freio/preview` e `POST …/freio` com `{pausar: true|false}` e o
     código. Puxado, nada fica retido, o painel mostra os contatos na hora e
