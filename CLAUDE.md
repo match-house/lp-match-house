@@ -111,6 +111,54 @@ Notas do projeto para agentes. Ler antes de mexer.
 ## Meta Ads — regras fixas do usuário
 
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
+- **Nunca anunciar no Espírito Santo** (Mateus, 22/10: "nao quero que a
+  campanha da meta rode no espírito santo"). Todo conjunto do Meta, inclusive
+  o de seguidores, exclui a região 445 (`excluded_geo_locations`). Tirado do
+  conjunto do app (120252351113480445) às 16h37 do mesmo dia. Em outubro, até
+  ali, o ES tinha levado R$ 19,79. Detalhe em `ferramentas/meta-auto/LEIA-ME.md`.
+  **Também fora do orgânico** (Mateus, 22/10: "espirito santo fora do organico
+  e dos anuncios"): nenhum post, story ou exemplo se passa no ES (a Camila é
+  de São Paulo), e todo impulsionamento exclui a região 445.
+- **Campanha 13, Modo Desbloqueado, desde 22/10, ~17h** (Mateus: "vamos usar
+  para trafego pago tb blza"), a campanha do Claude Design: 120252905488250445,
+  R$ 40/dia (R$ 30 desde 26/10, 10h18), anúncios 13a ("Desbloqueado às
+  22h14") e 13b ("Quem atende o seu cliente agora?"). O teto de R$ 100/dia
+  é a soma de app (R$ 50, pausado desde 24/10), 13 (R$ 30) e a 14b do
+  diagnóstico (R$ 20, desde 26/10). Conjunto novo pela API só
+  por `duplicate_adset`: o `create_adset` pede o anunciante verificado.
+  Leitura em 29/10.
+- **Campanha 14, seguidores, desde 22/10, 20h45** (Mateus: "vamos comecar
+  agora"): 120252906629350445, R$ 10/dia, leva ao perfil .br com o
+  reel do exemplo da Camila. Público igual ao do app, sem ES. A campanha 13
+  está pausada até 05/11, então hoje o Meta soma R$ 60/dia (app 50 +
+  seguidores 10). Detalhe em `ferramentas/meta-auto/LEIA-ME.md`.
+- **Modo Desbloqueado, decisões do Mateus em 22/10** (proposta do Claude Design,
+  "Modo-Desbloqueado-campanha"):
+  - a provocação fica para 05/11, junto com a regra nova. Ele viaja em 28/10 e
+    volta em 10/11 ("mas vc pode tocar?"): eu toco o orgânico e os anúncios nesse
+    período. O que precisa do "pode" dele sai antes de 28/10;
+  - **o que o Modo Desbloqueado quer dizer** (Mateus, 22/10): é como o modo
+    avião. O corretor fica livre para fazer o que quiser enquanto a IA trabalha
+    por ele. Nunca mostrar o corretor pegando o celular na hora livre: "Desbloqueado
+    às 22h14" podia ser lido como "desbloqueou o celular no jantar". A campanha 13
+    foi pausada antes de entregar para refazer as artes;
+  - o Jantar Desbloqueado não vai ser feito. O clube vai (nome ainda a escolher);
+  - ele gostou do cadeado abrindo como gesto da marca;
+  - ele sugeriu contar a história da Camila. Ela é personagem e aparece sempre
+    como personagem (selo "Exemplo"), nunca como cliente de verdade.
+  - na revisão do Claude Design (22/10, à noite), as respostas dele: o "assinante Pro"
+    vai junto da frase em que o contato do cliente chega na hora para a Camila
+    ("Como a Camila é assinante Pro, o contato chegou na hora"), sem explicar o
+    plano de entrada e sem preço. A IA atender na hora vale para todos e fica
+    sem o Pro; a campanha de seguidores começa já ("vamos comecar agora"), não
+    em 26/10; o resto da revisão, ok. Nome do clube: "Desbloqueados"; selo no
+    Smart Link: "Modo Desbloqueado".
+  - **A história da Camila começa já, de 23 a 28/10** (Mateus, 22/10, à noite:
+    "entao acho q podemos começar a campanha amanha mesmo..." e "Pode"), e não
+    em 05/11. O nome fica Modo Desbloqueado (ele perguntou de "Modo IA"; o Google
+    já usa "Modo IA" na busca em português). Um episódio por dia na hora da cena;
+    do ep. 2 em diante cada um vira anúncio na campanha 13. Roteiro, legendas e
+    lembretes em `ferramentas/meta-auto/semana-camila/` da branch de trabalho.
 - **Não renomear o evento `Lead`** do pixel (1159381878670820) — a campanha otimiza por ele e renomear zera o aprendizado (aviso também no `tracking.js`).
 - **Autonomia desde 29/09**, nas palavras do Mateus: "te dei autonomia no MCP para controlar a campanha, distribuir recursos, alterar LP, fazer novos criativos". Com dois limites que ele escolheu no mesmo dia:
   - **Teto de R$ 125/dia no Meta** somando as campanhas. Desde 02/10, às 9h30,
@@ -189,6 +237,81 @@ Notas do projeto para agentes. Ler antes de mexer.
     - No mesmo dia, sobre os criativos: "Lembra que ja te concedi as
       permissoes". Subir criativo, pausar e redistribuir dentro do teto é
       sem perguntar; depois, contar no relatório.
+  - **20/10, de manhã: o Mateus pausou o 11d** (cole-o-link, 120252806128330445)
+    no Gerenciador ("desativei um criativo na Meta.."). Era o que mais gastava
+    no conjunto do app: R$ 144 desde 16/10, contra R$ 25 do 11b e R$ 0,36 do
+    11c. Ficam no ar o 11b e o 11c. Não religar sem ele.
+  - **Desde 22/10: Meta no automático, com autonomia total** (Mateus: "pode
+    subir e ligar direto e me manda para eu checar depois. mas vc vai ter
+    autonomia para agir.. confio em vc, estmaos juntos").
+    - Respostas dele, 22/10:
+      - religar: "sim", com criativos novos; a primeira leva vem do Fable;
+      - teto: "100,00/dia" (vale acima dos R$ 125 de 29/09);
+      - meta e freio: "Isso 40 e pausa se passar de 120". A meta é R$ 40
+        por corretor que publicou, com imposto. Acima de R$ 120 nos 7 dias,
+        pausar tudo e avisar.
+    - Eu crio, subo, ligo, pauso e mudo a verba sem perguntar e mando a
+      ele o que mudou para ele checar depois.
+    - Regras, modelo do anúncio e passo a passo em
+      `scratchpad/meta-auto/LEIA-ME.md` (cópia em `ferramentas/meta-auto/`
+      da branch de trabalho). O estado vivo fica em
+      `scratchpad/meta-auto/estado.json`, que tem gasto e por isso não vai
+      ao repositório.
+    - Rotinas desta conversa:
+      - regras do dia às 07h37;
+      - criativos novos e comparação com o ChatGPT na segunda e na quinta,
+        às 08h17.
+    - Vale acima do que a rotina do relatório diário diz da verba, dos
+      anúncios permitidos e do alerta de orçamento. A verba configurada é a
+      do `estado.json`.
+    - Continua: segmentação manual (nunca Advantage+), evento `Lead` sem
+      renomear, pausa noturna e as regras de texto.
+    - **Instagram orgânico e seguidores** (Mateus, 22/10: "Pode ser assim!
+      otimo"):
+      - eu publico direto no @matchhouse.br e mostro depois;
+      - 3 posts no feed por semana, story todo dia útil e 1 reels por
+        semana, com os temas e as regras da seção no `LEIA-ME.md`;
+      - seguidores com R$ 10/dia dentro do teto de R$ 100/dia, impulsionando
+        o melhor post da semana.
+      - O Instagram (conta 17841456747581112) foi conectado no Windsor em
+        22/10, e o Mateus subiu o plano para o Essential (o Basic aceita só
+        3 fontes e pausou todas as leituras com 4). O 1º post do feed saiu
+        no mesmo dia, com o "Pode postar" dele.
+      - A rotina `trig_01CGQkw8UcHiNqFKT6HYiyKw` publica sozinha nos dias
+        úteis, às 09h17. O modo Auto recusou criá-la duas vezes. Ela foi
+        criada com o Mateus no modo Accept edits, com a aprovação dele na
+        tela.
+      - **Meta de seguidores** (Mateus, 22/10: "nossa meta é engajamento e
+        chegar a 10 mil seguidores em 3 meses"): eram 1.789 em 22/10. Os
+        marcos são 3.500 em 21/11, 6.500 em 21/12 e 10.000 em 22/01. Reels
+        passou para 3 por semana ("1 sim!"): segunda, quarta e sexta. O
+        carrossel prático sai na quinta, e os comentários são respondidos em
+        até um dia útil. Em 02/11 levo a ele o custo real por seguidor da
+        1ª semana para decidir a verba do Instagram ("2 - combinado").
+      - **Siga a Match House no Instagram** (Mateus, 22/10: "pode tudo"):
+        - no app, cartão "Siga a Match House no Instagram" na Visão geral e
+          no Divulgar, só para quem tem imóvel no ar. Some por 30 dias
+          depois do toque. Evento `instagram_seguir_click` {onde}. No ar
+          desde 22/10 (app #160);
+        - e-mail a todos os cadastros a partir de 29/10, 150 por dia, quem
+          tem imóvel primeiro (887 na lista de 22/10; acaba por volta de
+          03/11). O link é rastreado (`/r/<token>`, api #126) e a lista
+          de quem tocou sai em `GET /backoffice/links/seguir-instagram-1`;
+        - 3 dias depois, WhatsApp com o modelo `mh_seguir_instagram_1`
+          para quem não tocou e tem Smart Link;
+        - **WhatsApp de campanha: no máximo 30 por dia, somando todas**
+          (Mateus, 22/10, à noite: "Baixa para 30"; antes eram 35). O teto
+          do backoffice é 50 por dia. Em 22/10 ele acabou duas vezes antes
+          do fim do dia e segurou respostas de atendimento (Pro Futuro e
+          Juceli). Os scripts param em 30;
+        - o reel do exemplo da Camila saiu em 22/10
+          (https://www.instagram.com/reel/DezqxHUFVx3/), com o "pode" dele;
+        - scripts em `scratchpad/seguir-insta/` (cópia em
+          `ferramentas/seguir-insta/` da branch de trabalho).
+      - A linha proposta em 22/10 é a série "Enquanto você…": liberdade e
+        eficiência de ter a IA com o seu nome atendendo. Ela e o calendário
+        ficam em `estado.json` (`organico.linha`). Vale quando o Mateus
+        aprovar; até lá, os temas do `LEIA-ME`.
   - **Desde 24/10, às 6h55: campanha do app pausada pelo freio** (Mateus:
     "blz, deixa a Meta app pausada"). Desde a religada de 22/10 ela passou
     do freio (acima de R$ 120 por corretor que publicou, com pelo menos
@@ -233,6 +356,112 @@ Notas do projeto para agentes. Ler antes de mexer.
       quantos concluem, cliques no "Seguir" e seguidores novos.
     - Não religar o app nem criar criativo para ele sem o Mateus. Gasto da
       campanha do app é alerta (alguém religou).
+  - **22/10, 13h45: Meta religada com a onda 1 do Fable** (Mateus: "Blza
+    pode seguir"). Os anúncios 12a cena-0715, 12c ia-corretor e 12d
+    ia-na-bio entraram no conjunto do app, com R$ 50/dia, e o 11b e o 11c
+    foram pausados.
+    - As ondas 2 e 3 já estão prontas: 12f, 12g e 12b, depois 12e e
+      variações do vencedor. As artes estão em `anuncios/` da branch de
+      trabalho, e o material do Fable está em
+      https://claude.ai/artifact/WFd1PgHdKQvPz4Z2dzhjt7.
+  - **De 21/10, às 7h32, a 22/10: Meta inteira pausada** (Mateus: "Vamos
+    pausar a meta"). A campanha do app (120252349246370445) está em PAUSED, com o
+    orçamento em 5000 e os anúncios 11b e 11c como estavam. A LP já estava
+    pausada desde 07/10.
+    - Números que levaram à decisão, de 14 a 20/10: Meta app R$ 388 com
+      imposto, 9 contas e 2 que publicaram (R$ 194 por corretor que
+      publicou); ChatGPT R$ 656, 73 contas e 19 que publicaram (R$ 34,50).
+    - A regra noturna religa os conjuntos às 07h13, mas não a campanha: com
+      a campanha pausada, nada gasta. Gasto zero e nenhum cadastro da Meta
+      não são alerta; gasto da Meta é (alguém religou).
+    - Para voltar: `enable_campaign`, só com o Mateus.
+    - Isto vale acima do que a rotina do relatório diário diz da Meta.
+    - **ChatGPT fica em R$ 100/dia por enquanto** (Mateus, 21/10: "Vamos
+      manter o chat e decidimos o aumento na semana que vem"). Levar os
+      números do ChatGPT na segunda, 26/10, para ele decidir se sobe. Quem
+      mexe na verba é ele, no painel da OpenAI.
+  - **20/10: Meta continua no ar; decisão no fim da semana.** Entendi um
+    "Pode" do Mateus como sim à minha proposta de passar os R$ 50/dia da
+    Meta para o ChatGPT e pausei a campanha do app às 6h37. Ele
+    respondeu: "Sobre a meta vamos esperar essa semana para decidir".
+    Religuei às ~6h50, com a mesma verba (5000) e os mesmos anúncios 11.
+    - Números da proposta, de 13 a 19/10:
+      - Meta: R$ 418 com imposto, 12 contas e 3 que publicaram (R$ 139
+        por corretor que publicou);
+      - ChatGPT: R$ 625, 67 contas e 19 que publicaram (R$ 33).
+    - Levar de novo no fim da semana, com os 7 dias novos. Até lá, não
+      pausar a Meta.
+  - **`DIAS` do funil diário leva toda a mídia** (Mateus, 21/10: "Pq o custo
+    do cadastro esta 2,17 se tivemos 22 cadastros"). O `gasto` de cada dia
+    é Meta com os 13,83% + Google + ChatGPT, como no CAC da área de custos,
+    e não mais "Meta + Google sem imposto". Antes o ChatGPT ficava fora e o
+    custo por cadastro saía baixo demais (R$ 2,17 em vez de R$ 6,98 em
+    20/10). Vale acima do que a rotina do relatório diário diz de `DIAS`.
+  - **De onde vêm todos os corretores: uma linha fixa no relatório diário**
+    (Mateus, 22/10: "precisamos saber de onde vem todos os corretores").
+    - Rodar `python3 scratchpad/custos/origens.py <ontem>` (cópia em
+      `ferramentas/custos/origens.py` da branch de trabalho; usa o `cac.py`
+      da mesma pasta). Ele dá, para ontem, 7 dias e o mês, as contas, quem
+      concluiu e quem publicou por origem.
+    - Origens:
+      - ChatGPT, Meta app, Meta LP e Google;
+      - página de outro corretor: o botão "Crie seu Smart Link" do site, no
+        perfil (`utm_medium=perfil`), em cada imóvel (`imovel`) e no rodapé
+        (sem medium);
+      - convite do Indique e Ganhe (`utm_medium=indicacao`);
+      - Instagram sem anúncio (`utm_source=org-instagram`; com
+        `utm_content=bio`, é o link da bio do @matchhouse.br);
+      - busca no Google, WhatsApp e outro site (os outros `org-*` da LP);
+      - digitou smartli.ink (`utm_medium=direto`), QR, cartão NFC e sem
+        origem.
+      - Na página e no convite, dizer qual corretor trouxe (o slug).
+    - A página de outro corretor, o convite do Indique e Ganhe e o Instagram
+      sem anúncio aparecem sempre, mesmo com zero (Mateus, 22/10: "pagina de
+      outro corretor e o indique e ganhe temos que ter no relatorio" e "Os
+      sem origem podem ter vindo do instagram, la tem o site d a LP e o
+      app").
+    - Links da bio do @matchhouse.br, com a marca (dados ao Mateus em 22/10;
+      quem troca é ele, no Instagram):
+      `https://app.smartli.ink/?utm_source=org-instagram&utm_medium=organico&utm_content=bio`
+      e o mesmo final em `https://www.matchhouse.com.br/`. A LP repassa a
+      marca ao app (testado em 22/10). Sem ela, quem toca no link do app da
+      bio fica "sem origem": o app não lê o site de origem, só a LP lê.
+    - Os 7 "sem origem" de outubro (até 21/10), olhados no Amplitude em
+      22/10: nenhum passou pelo navegador do Instagram. Quatro parecem ser
+      a segunda conta de quem já tinha uma, todas vazias; os outros vieram
+      sem site de origem ou sem rastro.
+    - O `utm_medium` sai no `/backoffice/signups` desde 22/10 (api #123).
+      Antes disso os dois ficavam juntos.
+    - A 1ª indicação de verdade: o Edmilson (1293, montoyaconsultorimob)
+      trouxe o André Telles (1421) pela página dele, em 21/10. Fica "a
+      conferir" até o imóvel do André fazer 7 dias no ar (aprova ~29/10).
+  - **Na página do funil diário desde 23/10** (Mateus: "Coloque essas info
+    e o google no arquivo do funil diario"). Todo dia, além das constantes
+    que a rotina já troca:
+    - `ORIGEM_CORRETORES`: a saída do `origens.py` (ontem, 7 dias e mês,
+      `[contas, concluíram, publicaram]`), com o `total` do `cac.py`. A
+      página avisa se a soma não fechar.
+    - `CUSTO_CANAL`: ChatGPT, Meta app, Meta LP (quando gastou), Meta
+      seguidores (só gasto) e Google, mais o total de toda a mídia por todas
+      as contas, para ontem, 7 dias e mês. A página confere a soma do gasto.
+    - Google como 4ª coluna em `CAMPANHAS` (conector `google_ads`), e
+      `ORIGENS` com Meta e Google em linhas separadas.
+    - Conta sem utm com origem achada no Amplitude vai em `ORIGEM_ACHADA`
+      do `origens.py`. `utm_source=chatgpt.com` é "ChatGPT sem anúncio": o
+      smartli.ink citado numa resposta do ChatGPT.
+  - **Custo por cadastro sempre por canal** (Mateus, 21/10: "acho q nao
+    esta considerando so custos do chatgpt, numeros n batem").
+    - A tabela do CAC do relatório junta Meta, Google e ChatGPT e divide
+      por todas as contas, inclusive as que vieram sem anúncio. Lida
+      sozinha, parecia ser só o ChatGPT.
+    - Daqui em diante, o relatório traz uma tabela por canal (ChatGPT,
+      Meta app, total), com ontem, 7 dias e mês. Cada canal entra só com o
+      gasto dele (a Meta com os 13,83%) e as contas que ele trouxe.
+    - Para cada canal: custo por conta criada, por quem concluiu o
+      cadastro e por quem publicou. Dizer sempre que "conta" é quem entrou
+      e "concluiu" é quem passou do código.
+    - O total vem depois, com o aviso de que o Google está sem gasto por
+      dia desde 17/10.
   - **Só UMA conversa mexe na campanha, na LP e nos criativos**: a sessão `session_01AcwN8eqkNLzNHMM46binBv`. Se você é outra conversa, não pause, não ligue, não crie anúncio e não mude verba; leia os números e, se achar que algo precisa mudar, diga ao Mateus. Em 28/09 duas conversas mexeram ao mesmo tempo (7a e 7b pausados, 10g e 10a criados, pausa das 23h13 perdida) e uma não sabia o que a outra tinha feito.
     Em 02/10 aconteceu de novo: outra conversa religou o anúncio 7a, que esta
     tinha pausado pelo critério. O Mateus mandou pausar e reafirmou: "Agora
@@ -245,11 +474,27 @@ Notas do projeto para agentes. Ler antes de mexer.
   `trig_01GNLbMWdWC3DBgkeXWCuWzt` (pausa) e `trig_013D2UoHoJwwzqVjQLHzcuZZ`
   (religar) foram desligadas, não apagadas, para não haver dois controles.
   Se a regra falhar de novo, religar as duas rotinas e avisar o Mateus.
-- Google Ads não está conectado no MCP: dá para ler (via GA4), não para mudar.
+- **Google Ads no Windsor desde 22/10** (conector `google_ads`, conta
+  454-477-3035, "[MH] Match House"). O Mateus conectou com o espaço do plano
+  Essential ("conectei o google, esta com 10,00 dia").
+  - O gasto, os cliques e as impressões por dia vêm daí. Isto vale acima do
+    que a rotina do relatório diário ainda diz sobre o GA4 e o e-mail
+    semanal. O e-mail semanal fica só como conferência.
+  - Só leitura. O conector aceita pausar e mudar verba, mas no Google isso é
+    com o Mateus: ele não deu autonomia lá.
+  - O Google marca 0 conversões: o cadastro não é importado como conversão.
+    O custo por cadastro sai do backoffice (origem google).
+  - De 16 a 22/10: R$ 83,28 (média de R$ 11,90 por dia), 27 cliques.
+  - O GA4 continua fora do Windsor. Recomendei religar (propriedade
+    387457360) e, depois, o Search Console.
   - **Desde 15/10: Google em R$ 10/dia** (antes R$ 30). Nas palavras do
     Mateus, em 16/10: "No google desde ontem reduzi para 10,00 por dia".
     Dia de até R$ 20 é normal. Alerta se passar disso ou se a média de 7
     dias passar de R$ 10.
+  - **Desde 27/10, ~0h: Google pausado** (Mateus, antes da viagem: "pausa
+    o google agora"). Pausadas pelo Windsor as duas ativas: "Validacao PMF -
+    202604" (23704816236, R$ 72 nos 7 dias antes) e "[TP]Leads-Search-04.07"
+    (20345565295, sem gasto). Não religar sem ele. Gasto no Google é alerta.
 - **ChatGPT (OpenAI Ads)**, fora do MCP e fora do teto do Meta; quem mexe é o
   Mateus, no painel dele. Em 02/10 a conta mostrou que todos os 4 cadastros
   completos (1166 a 1169) vieram da campanha "Smart Link - Registro completo"
@@ -267,6 +512,28 @@ Notas do projeto para agentes. Ler antes de mexer.
   - "Campanha Smartlink" (por clique, pausada em 02/10): R$ 228, com 3
     cadastros e nenhum concluído.
   - Detalhe em `scratchpad/openai-ads/resumo.md`.
+
+## Fila: campanha pelos termos de busca (Mateus, 19/10)
+
+- Pedido dele: "coloca na fila a ideia para fazermos uma campanha link da bio
+  para corretores de imóveis e IA para corretores de imóveis, IA no link da
+  bio para corretores e link da bio de imóveis com IA para corretores, vamos
+  fazer criativos e testar na meta e no chatgpt".
+- Seis ângulos, um criativo (e um texto) por ângulo:
+  1. link da bio para corretores de imóveis;
+  2. IA para corretores de imóveis;
+  3. IA no link da bio para corretores;
+  4. link da bio de imóveis com IA para corretores;
+  5. a loja online do corretor de imóveis com IA;
+  6. a imobiliária digital com IA do corretor de imóveis.
+- Os dois últimos entraram no mesmo dia (Mateus: "acrecente a ideia da
+  campanha: a loja online do corretor de imoveis com IA, a imobiliária
+  digital com IA do corretor de imóveis").
+- Meta: criativos 4x5 e 9:16, como os 11a a 11d, dentro do teto de
+  R$ 125/dia. ChatGPT: os textos vão para o Mateus subir no painel dele.
+- Mesmo critério de sempre: quando cada um somar uns R$ 30, comparar custo
+  por cadastro e por corretor que publicou, e pausar o pior.
+- Ainda não começado: entra depois da abertura do Pro.
 
 ## Contas de teste e internas — fora de qualquer número (confirmado em 29/09)
 
@@ -294,6 +561,9 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   - Achadas em 18 e 19/10, as duas criadas com Gmail por quem já tinha
     conta pela Apple: 1373 (1351) e 1372 (1317). Saíram da esteira em
     19/10, às 6h41, com o "pode" do Mateus.
+  - Achada em 20/10, sem telefone, sem link e sem imóvel: 1361 (1191),
+    criada em 17/10 quando o telefone dele barrou o cadastro novo. Saiu
+    da esteira em 20/10, às 15h42, pela regra de higiene.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
@@ -484,6 +754,41 @@ para aquela mensagem.
     WhatsApp e tela) ainda não saiu: cada envio em massa precisa do "pode".
   - Plano completo em `scratchpad/pro/regra-atraso.md`, nos arquivos desta
     conversa.
+- **Pro aberto para todos no cartão desde 19/10, ~15h41** (revisão
+  `matchhouse-back:26`: `BILLING_MODE=on` e `NFSE_DESDE=2026-10-19`, postas
+  pelo Mateus). Conferir em `GET /backoffice/pro/status` (api #108).
+  - **Desistência nos 7 dias com estorno automático** (api #107): cancelar no
+    app até as 23h59 do 7º dia depois do pagamento devolve no cartão e
+    encerra o Pro na hora. Só na 1ª mensalidade do cartão. O pagamento fica
+    "refunded" e não volta a valer. A taxa do Stripe não volta (no teste,
+    R$ 12,52 de R$ 147).
+  - **E-mail à equipe a cada cancelamento**, com o motivo da pesquisa.
+  - **NFS-e da 1ª mensalidade espera 7 dias** (ideia do Mateus), nunca
+    depois das 18h do último dia do mês. A desistência tira a nota da fila
+    ou pede o cancelamento sozinha (motivo 9). Renovação não espera.
+    Confirmar com a Contabilizei (texto dado ao Mateus em 19/10).
+  - Pro com 300 imóveis no banco (migração da api #107).
+  - App #150: tela com 300 imóveis, texto dos 7 dias, conserto do cartão e
+    o aviso de 05/11 na visão geral (com o "pode subir" do Mateus).
+  - O e-mail do anúncio assina só "Match House" (Mateus: "retirar meu nome
+    do email"). Texto em `scratchpad/pro/email-anuncio.txt`.
+  - O Stripe no Brasil repassa o cartão em 30 dias.
+  - **Atendimento sobre o Pro em todos os canais** (Mateus, 19/10: "sim
+    pode ajustar a mensagem em todos os pontos de contato com os
+    clientes"). No 6800, no Direct, no e-mail e nas respostas, a dúvida
+    sobre o Pro se responde com o que está no e-mail aprovado. É dúvida de
+    uso: entra na autonomia.
+    - R$ 147 por mês, no cartão. O Pix entra depois (C6).
+    - Todos os clientes chegam na hora, e as visitas podem ser marcadas
+      a partir de 1 h. O plano tem 300 imóveis; o plano de entrada, 100.
+    - Desistência nos 7 dias devolve o valor sozinha. Cancelar é no app:
+      Plano Pro > Cancelar assinatura.
+    - A regra do plano de entrada começa em 05/11.
+    - Nunca "30 leads" nem "30 clientes", e nunca dizer que a Match House
+      traz clientes.
+    - O desconto da indicação ainda não vale: não prometer.
+    - Continuam com o "pode": desistência ou devolução fora do app,
+      reclamação, cancelamento fora do app e qualquer promessa nova.
 - **Aviso de cliente novo para todos os planos: no ar desde 24/10, 16h12**
   (api #128 e #129; Mateus: "Sim pode ligar").
   - Quando um cliente deixa nome e celular válido na IA do Smart Link, o
@@ -505,6 +810,24 @@ para aquela mensagem.
   - A regra das 36 h foi junto para o servidor, desligada
     (`REGRA_CLIENTES` sem valor). Os números do mês saem em
     `GET /backoffice/clientes/regra`.
+  - **27/10: a regra fica para 05/11, mesmo com o Mateus viajando** (ele
+    escolheu "Manter 05/11"). Uma revisão do ECS só, feita por ele antes de
+    viajar, faz as três etapas (api #134):
+    - `REGRA_CLIENTES=on`, `REGRA_CLIENTES_TESTE_IDS=39,999` e
+      `REGRA_CLIENTES_FORA_IDS=3,39,56,937,941,980,999,1011,1014,1033,1095,1096`;
+    - antes de 05/11, o on registra a ordem de todos e já retém nas contas
+      39 e 999 (o mês inteiro). Ao BFF vai "registro" até a data;
+    - em 05/11, à 0h, vale para todos, menos os de fora.
+    - Depois da revisão no ar: `POST /backoffice/clientes/varrer-historico`
+      com `{"dias": 120}` e o teste nas contas 39 e 999.
+  - **Freio sem o ECS** (api #134): `GET /backoffice/clientes/regra/freio`,
+    `POST …/freio/preview` e `POST …/freio` com `{pausar: true|false}` e o
+    código. Puxado, nada fica retido, o painel mostra os contatos na hora e
+    as visitas não esperam as 40 h. Puxar se a regra esconder contato de
+    quem não devia, ou se o Pro não liberar. Contar ao Mateus na hora.
+  - BFF #16 (a máscara nas conversas da Intelliway) e o app (IA & Leads:
+    "Cliente novo", "Contato libera sexta, 30/10, às 15h" e "Ver agora com
+    o Pro", evento `regra_ver_pro`) foram ao ar em 27/10.
   - O 1º deploy (#128) não subiu: faltava o `ConfigService` no `LeadModule`.
     O container antigo seguiu no ar, e o #129 corrigiu. Antes de publicar
     mudança de módulo na API, subir o `dist` com variáveis falsas e ver se
@@ -522,6 +845,80 @@ para aquela mensagem.
   - O relatório diário traz a linha "Cancelamentos do Pro": quantos houve
     ontem e os motivos, lidos em `/backoffice/pro/cancelamentos`. Se não
     houver nenhum, a linha diz "nenhum".
+  - **Relatório diário: bloco "Pro: Stripe e Pix do C6"** (Mateus, 20/10:
+    "pode incluir no relatório o stripe e o pix c6"). Vale acima do roteiro
+    da rotina, que ainda não fala dele.
+    - **Stripe:** o conector Stripe foi ligado pelo Mateus em 20/10. É só
+      leitura: cobrar,
+      devolver, cancelar ou mexer em assinatura só com o "pode" dele.
+      Ler as assinaturas (`GetSubscriptions`, com status active, incomplete
+      e canceled) e as cobranças de ontem (`GetCharges` com `created`).
+      O `metadata.id_user` diz de quem é.
+    - **Pix do C6:** `GET /backoffice/pro/pix?dias=2` (api #115) e
+      `pix_c6` em `/backoffice/pro/status` (ligado ou não). Enquanto o C6
+      não liberar a produção, a linha diz "desligado".
+    - **Pix recebido na conta do C6** (Mateus, 20/10: "o C6 manda email
+      toda vez que recebemos pix"):
+      - Ler no Gmail os e-mails de ontem com
+        `from:no-reply@c6bank.com.br "recebeu um Pix"`. O assunto é
+        "Confira os detalhes da transação.", e o texto traz valor, quem
+        pagou e a data.
+      - Separar o que é dele (aporte do sócio, não é receita) do que é
+        pagamento de corretor (o nome ou o documento batem com uma conta)
+        e do que é outra entrada.
+      - Os "Pix enviado" do mesmo remetente entram só como total do dia.
+    - O que vai no bloco: assinaturas novas, renovações pagas, pagamentos
+      que falharam, cancelamentos (com os motivos de `pro/cancelamentos`),
+      devoluções dos 7 dias e quem começou a assinar e não terminou.
+      Também o total de assinantes ativos e a receita do mês **só de
+      corretores**. Fora: as contas internas, de teste e duplicadas.
+    - O painel antigo (backoffice.matchhouse.com.br, "Total arrecadado
+      por mês") soma as cobranças das contas internas e as já devolvidas.
+      Não usar esse número.
+    - Assinantes, receita e quem pagou ficam só no relatório e em
+      `scratchpad/pro/`. Este repositório é público.
+  - **Vendas no funil diário e no Funil Smart Link** (Mateus, 21/10: "as
+    vendas podem entrar no funil diario e no funil").
+    - A fonte é `GET /backoffice/pro/vendas?dias=N` (api #116). Ela lista
+      quem está com o Pro ativo e os pagamentos do Pro do período. Funciona
+      mesmo sem o conector do Stripe; quando o Stripe estiver na sessão,
+      conferir com ele.
+    - Na página do funil diário, o cartão "Vendas do Pro" lê a constante
+      `VENDAS`, trocada todo dia junto com as outras: vendas do dia, vendas
+      do mês, assinantes ativos, receita do mês e a lista do mês.
+    - O Funil Smart Link (`gerar.py`) monta sozinho a seção "Vendas do Pro".
+    - **A venda é a última etapa dos dois funis** (Mateus, 21/10: "depois do
+      publicou agora, é o venda [...] quantos dos que publicaram compraram,
+      e do funil inteiro").
+      - Funil diário: `FUNIL` tem a 5ª etapa "Compraram o Pro" (vendas
+        pagas no dia, de qualquer conta, com `semPior: true`), e `ORIGENS`
+        tem a coluna `compraram`, pela origem da conta de quem comprou. A
+        etapa pode passar da anterior: quem compra no dia raramente se
+        cadastrou no mesmo dia. Dizer isso no `fonte`.
+      - Tabela "Campanha por campanha" (Mateus, 21/10: "Aq tb precisamos do
+        numero de vendas"): cada coluna de `CAMPANHAS.lista` tem `vendas`
+        (vendas pagas no período, pela origem da conta de quem pagou). A
+        tabela mostra "Compraram o Pro", "Publicou → comprou", "Por venda" e
+        "Vendas por R$ 100". `CAMPANHAS.vendas_nota` diz de onde vieram as
+        vendas do período, inclusive as que não vieram de anúncio.
+      - Régua do PLG, linha "Freemium → pago" (Mateus, 21/10: "Aqui tb
+        temos que incluir as vendas"): um ponto só, de todos os canais. A
+        conta é corretores que pagaram ÷ corretores com imóvel no ar
+        (todos os tempos, sem contas internas). Em 21/10 deu 1 de 137, ou
+        0,73%. A régua não é diária, mas essa linha muda quando houver
+        venda nova: trocar `geral` no `PLG` (fonte: `/pro/vendas` e
+        `/agents` com publicados > 0).
+      - Funil Smart Link: etapa 5 "Comprou o Pro". Ela conta a primeira
+        compra de cada corretor pela data da compra, não do cadastro, nos
+        cartões, no gráfico por mês e no semana a semana (Mateus, 21/10: "o
+        enio deveria aparecer"). Assim entram as contas de antes de 1º/07,
+        como o Enio (196). Na lista de usuários, quem pagou fica com a
+        etapa "Comprou o Pro".
+    - Contam só corretores: as contas internas e de teste ficam fora (a 999
+      inclusive). Receita é o que foi pago e não devolvido.
+    - Venda é status `succeeded` ou `paid` com valor acima de zero.
+      `refunded` é devolvida, e os outros status são pagamento que não
+      terminou.
 
 - Cobra-se pelos leads que a IA qualifica (nome + celular), não por imóvel.
   Imóvel fica em até 100 em todos os planos: são os imóveis que enchem as
@@ -675,6 +1072,87 @@ para aquela mensagem.
       cadastro, é preciso um IP fixo de saída.
     - O NAT foi tirado de propósito em 16/10 (cerca de US$ 33/mês), pelo
       Vitor, o dev. Volta a ser avaliado só se um parceiro exigir IP fixo.
+  - **19/10, à noite:** o C6 mandou o contrato para assinar. O Mateus acha
+    que o Pix sai em 20/10.
+  - **21/10: credenciais de produção saíram.** O Mateus criou no portal do
+    C6 o Client ID, o Client Secret e o certificado novos. Falta pôr no ECS:
+    a revisão feita à tarde se perdeu quando o login da AWS venceu, e ele
+    refaz em casa. Passo a passo (variáveis, teste na 999 e abertura) na
+    página "Pix C6 no ar": https://claude.ai/artifact/TuDY3bkC4gFbetn8xjtDqx.
+    - Na revisão 28, a partir da 27: `C6_CERT` e `C6_KEY` (base64 do .crt e
+      do .key), `C6_USERNAME` e `C6_PASSWORD` novos, `C6_CONTA` e
+      `C6_AGENCIA`. O resto do C6 já estava em produção.
+    - **Trava `C6_PIX_SO_CONTAS` (api #118, no ar em 21/10).** Com
+      `BILLING_MODE=on` (já ligado em produção), ligar o `C6_PIX_AUTOMATICO`
+      abriria o Pix a todo corretor de uma vez. Com `C6_PIX_SO_CONTAS=999`,
+      o Pix abre só para a 999. Tirar a variável abre para todos. Quem já
+      assina segue cobrado com ou sem ela.
+    - Ordem: revisão 28 → eu confiro o login no C6 e cadastro os webhooks →
+      revisão 29 com `C6_PIX_AUTOMATICO=on` e `C6_PIX_SO_CONTAS=999` → Pix
+      real de R$ 147 na 999 (com o "pode" dele) e desistência nos 7 dias →
+      abrir para todos só com o "ok" dele.
+    - **Feito em 21/10, à noite.** Revisão 28 (credenciais, certificado,
+      conta e agência) às 20h00, login no C6 e webhooks `rec` e `cobr`
+      cadastrados. Revisão 29 (`C6_PIX_AUTOMATICO=on`, `C6_PIX_SO_CONTAS=999`)
+      às 20h12.
+    - A 999 já era Pro no cartão até 19/11 e não podia assinar o Pix. O login
+      do Mateus abre a 39 (smartli.ink/matchhouse), que entrou na trava pelo
+      código (api #119, `PIX_C6_CONTAS_INTERNAS`).
+    - **Teste real na 39, 20h25 a 20h28:** QR pago em 70 s, autorização
+      APROVADA, Pro até 21/11; desistência pelo app, autorização CANCELADA no
+      C6 e devolução dos R$ 147 conferida pelo Mateus na conta ("Devolveu o
+      valor tudo ok!"). A 39 está fora da nota fiscal.
+    - O relógio do Mac do Mateus estava um dia atrasado, e o login da AWS
+      vencia em minutos ("security token ... expired"). Acertado, parou.
+    - **Aberto para todos em 21/10, às 20h34** (revisão 31, sem
+      `C6_PIX_SO_CONTAS`, com o "ok" do Mateus).
+    - **CNPJ no Pix desde 22/10** (api #120, app #158; Mateus: "se for
+      empresa precisa de campo para o CNPJ"): o campo é "CPF ou CNPJ"; com
+      CNPJ, pede a razão social, o devedor no C6 é a empresa e a nota sai
+      para ela. O CNPJ fica só na recorrência, não no cadastro.
+    - **Desconto da indicação também no Pix desde 22/10** (api #122, app
+      #159; Mateus: "o desconto precisa valer para o PIX tb" e "Perfeito,
+      pode construir assim! Pro R$ 147/mês, menos desconto").
+      - A autorização nova é de valor variável (`valorMinimoRecebedor` =
+        R$ 147), com o objeto "Pro R$ 147/mês, menos desconto". No banco
+        aparece "valor variável"; o limite que o corretor puser não fica
+        abaixo de R$ 147.
+      - O 1º mês sai com o desconto de agora. Cada mensalidade usa o
+        desconto do dia do vencimento, como o cupom do cartão.
+      - Mês com 100%: nada vai ao C6, o mês fica pago com R$ 0 (sem nota) e
+        a autorização continua. Assinar com 100%: a tela mostra só "Liberar
+        o Pro" (sem cobrança).
+      - Falta o teste real na 39 (Pix de R$ 147 e desistência), combinado
+        com o Mateus para 22/10 ("vamos testar amanha sim"): conferir no
+        banco o "valor variável" e o texto.
+    - Falta: revogar a credencial antiga no portal do C6 e as perguntas de
+      antecedência, tarifas e IP fixo.
+  - **Desistência nos 7 dias também no Pix** (api #111 e app #153, 19/10):
+    o e-mail do anúncio e os termos prometem o valor de volta em qualquer
+    forma de pagamento. Antes, a devolução automática só existia no cartão.
+    - A devolução vai pelo C6 (`PUT /pix/{e2e}/devolucao/{id}`), e o Pro só
+      termina com ela aceita.
+    - Vale também para quem parou o débito no banco dentro dos 7 dias.
+    - O tick de hora em hora retoma desistência que ficou no meio, confere
+      as devoluções que ainda estão saindo e alerta a equipe se uma não
+      sair.
+    - Detalhe no Apêndice A.x de `api/docs/cobranca-pro.md`.
+    - **Escopos pedidos ao C6 em 19/10, à noite** (o Mateus mandou o
+      complemento ao homologacaoapi@c6bank.com). A lista completa:
+      `cob.write`, `cob.read`, `payloadlocationrec.write`, `rec.write`,
+      `rec.read`, `cobr.write`, `cobr.read`, `webhookrec.write`,
+      `webhookrec.read`, `webhookcobr.write`, `webhookcobr.read`,
+      `pix.write` e `pix.read`. O pedido de 15/10 tinha só os 5 `.write`
+      do Pix Automático.
+      - Sem o `pix.write`, ninguém consegue desistir pelo Pix.
+    - Os termos de uso das APIs do C6 foram assinados pelo Mateus em 19/10.
+      São os termos padrão para desenvolvedores e não falam de escopo nem
+      de produto: o que libera cada função é a chave.
+    - Para ligar: as credenciais e o certificado de produção, `C6_CONTA` e
+      `C6_AGENCIA` no ECS, os webhooks pelo backoffice e, por último,
+      `C6_PIX_AUTOMATICO=on`.
+    - Teste na 999: um Pix de verdade de R$ 147, a desistência e a
+      conferência da devolução e da nota.
 - **Pix Automático: parte da API no ar em 02/10 (PR api #47), desligada.**
   - O que entrou:
     - `assinaturaPro` / `assinarPro(metodo: pix|card)`, com login;
@@ -933,7 +1411,11 @@ IA, pagando o preço de cada um, como uma revenda de tokens.
 Dá para fazer? Conferido em 01/10:
 
 - **IA do app (BFF):** já roda pelo OpenRouter, com o modelo padrão
-  `openai/gpt-4o-mini` em `OPENROUTER_MODEL`. O provider já aceita um modelo
+  `openai/gpt-4o-mini` em `OPENROUTER_MODEL`.
+  - **Trocar antes de 14/01/2027.** Em 19/10 chegou o aviso do OpenRouter
+    "GPT-4o and GPT-4.1 models retire January 14, 2027". Escolher o
+    substituto, testar a importação (link, fotos, PDF e texto) e trocar a
+    variável. O provider já aceita um modelo
   por pedido (`req.model`). Por isso, a parte técnica de trocar de modelo por
   corretor é pequena.
 - **IA que atende o cliente no smartli.ink:** é da Intelliway (EvaGPT), não
@@ -976,6 +1458,16 @@ IA dentro do plano, a preço fixo.
   conversas e os leads dela.
 - Se perguntarem, responder com educação que esses números são internos e
   voltar para o que a pessoa precisa.
+- **Nem informação interna da IA** (Mateus, 21/10: "nunca forneça
+  informações internas, nem suas"). Em 21/10 um corretor perguntou no 6800
+  "qual a plataforma base da sua IA, chatgpt, gemini?".
+  - Não dizer fornecedor, modelo, parceiro (Intelliway, EvaGPT,
+    OpenRouter, GPT, Claude), prompts nem como a IA funciona por dentro. Vale
+    para a IA do Smart Link e para a do atendimento.
+  - Resposta: dizer o que a IA faz pelo corretor e que fornecedor e modelo
+    são informação interna da Match House.
+  - Continua valendo dizer que as respostas são feitas com a ajuda de IA,
+    com a equipe acompanhando: isso é transparência, não detalhe interno.
 - Os relatórios, a área de custos e os funis são só para o Mateus e não saem
   daqui.
 
@@ -1034,6 +1526,14 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   quando for WhatsApp, um botão verde que abre a conversa da pessoa já com o
   texto dentro (`https://wa.me/55DDDNUMERO?text=` + texto codificado).
 - Telefone e e-mail saem do `contatos-ativacao-ACUMULADO.csv` no Drive.
+- **Nunca o nome do Mateus nas mensagens** (Mateus, 22/10: "Nao coloque meu
+  nome nas mensagens lembra??"). Em 22/10, os textos para a Thaís (580) e o
+  Bruno (1430), que ele manda do WhatsApp dele, abriam com "Aqui é o Mateus,
+  da Match House".
+  - Quem fala é sempre a Match House ("Aqui é a Match House" ou "Aqui é o
+    atendimento da Match House"), mesmo quando quem envia é ele.
+  - Vale para WhatsApp, e-mail, Direct, assinatura ("Match House", nunca
+    "Mateus, da Match House") e modelos.
 - **Toda mensagem pronta vai com os links (Mateus, 03/10: "O link, lembra?
   Salva isso").** Em 03/10 entreguei respostas sem link e ele cobrou duas vezes.
   - **Dentro da mensagem, o link que a pessoa precisa.** Quem ainda não tem
@@ -1055,6 +1555,18 @@ Errei os três na mesma manhã. Ficam escritas para não repetir.
   `smartli.ink/<slug>` na bio do Instagram e nas redes. O caminho no app é o
   botão "Cole o link na bio do Instagram", em Divulgar. Primeiro resolver a
   dúvida dele; o convite fecha a mensagem.
+- **O SAIR vem depois do convite, em itálico, como rodapé** (Mateus, 21/10:
+  "pode fazer assim, com o itálico").
+  - Linha separada, no fim: `_Se não quiser mais receber essas mensagens, é
+    só responder SAIR._`. No WhatsApp não dá para diminuir a letra, então o
+    itálico faz a vez de nota de rodapé.
+  - Só quando a pessoa está respondendo a uma mensagem automática (aviso ou
+    esteira). Não vai em toda resposta.
+  - No e-mail nada muda: o "Parar de receber" já fica no rodapé, cinza, em
+    12 px.
+  - Nos modelos do WhatsApp, quando houver versão nova, o SAIR vai no campo
+    de rodapé da Meta, que já sai pequeno e cinza. Não trocar os aprovados
+    só por isso.
 - Dúvida sobre qualquer tela do app (Divulgar, Métricas, IA & Leads, Imóveis,
   Redes, Editar perfil) se responde pelo guia
   **`ferramentas/guia-respostas-corretor.md`**. Ele foi levantado no código do
@@ -1332,6 +1844,30 @@ quando quem cortou foi o nosso limite (app #125).
   - Depois de publicada, saem as mensagens aos corretores dos imóveis com
     tipo errado, primeiro por e-mail.
 
+## Login vencido e o link dos avisos (app #157, no ar desde 21/10, 11h33)
+
+- Defeito visto no vídeo do Guilherme (1012), em 21/10. Ele tocou no link
+  do aviso por e-mail (`/dashboard/indique`), viu "Entre na sua conta" e,
+  ao tocar em "Fazer login", caiu em "Criar conta — Passo 2 de 2", com
+  "Sua sessão expirou" e um botão que não fazia nada.
+  - Causa: todo login gravava no navegador um "cadastro em andamento",
+    também para quem já tem link, e esse registro nunca saía. Quando a
+    sessão vencia, a entrada achava o registro e retomava a criação do
+    link, com um login de mais de 40 dias (o login da API vale 40 dias).
+- O que mudou:
+  - login de conta pronta apaga esse registro;
+  - a entrada descarta o registro com o login vencido, e também o de quem
+    já tem link nesse navegador;
+  - se a sessão cair no passo do link, a pessoa volta ao login com "Sua
+    sessão expirou. Entre de novo para continuar.";
+  - **o painel sem sessão abre direto a tela de entrada** (Mateus: "já
+    pode abrir direto?"). Não existe mais a tela "Entre na sua conta para
+    abrir o painel". Depois do login, a pessoa cai na tela do link que
+    tocou.
+- Publicação do app: em 21/10 o merge não disparou o "📦 Vercel Deploy"
+  sozinho. Se acontecer de novo, rodar o workflow à mão (`deploy.yml`,
+  workflow_dispatch na `main`).
+
 ## Entrar no app pelo Instagram no iPhone (decisões do Mateus, 09/10)
 
 - Números de 02 a 08/10: 36 pessoas abriram o app dentro do Instagram no
@@ -1551,6 +2087,27 @@ quando quem cortou foi o nosso limite (app #125).
 - O app aceita `/dashboard/imoveis/novo?link=...` (link pronto), mas ele não
   é para mandar a corretor.
 
+## Vitrine (matchhouse.co): imóveis do Pro na frente (api #117, no ar desde 21/10, 12h20)
+
+- Pedido do Mateus em 21/10: "colocar os clientes pro com os imóveis
+  sempre na frente no matchhouse.co".
+- A busca externa (`findAllPropertyPageExternal`) sem `id_agent` nem
+  `id_property` devolve primeiro os imóveis de quem tem o Pro valendo e
+  depois os outros. Cada bloco vai do mais novo para o mais antigo, e a
+  paginação corre pelos dois como uma lista só.
+- O que conta como Pro: plano Pro ativo, pela mesma regra do cron que
+  desliga o plano (`cronDisableAt`). No cartão, vale a validade mais 10 dias
+  de folga; com cancelamento pedido, até o fim do período; no Pix do C6,
+  a própria validade. A conta interna 999 não entra.
+- Ficam como eram: a página de um corretor (Smart Link e IA), um imóvel
+  só e a contagem (`take -1`). Se o destaque falhar, volta à ordem de
+  sempre.
+- Conferido no ar em 21/10: a lista inteira com cada imóvel uma vez só, e
+  os 15 do Enio (corretor 132) na frente.
+- A revisão pegou que o Prisma recusa `id_agent: null`, porque o campo é
+  obrigatório. Os testes com o banco simulado não pegam esse tipo de erro:
+  filtro novo do Prisma se testa com um Postgres de verdade.
+
 ## O corretor responde pelo que publica no Smart Link (Mateus, 23/10)
 
 - Nas palavras dele: "o corretor, ele que é o responsável por administrar
@@ -1760,8 +2317,11 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - **Autonomia nas conversas de ajuda** (Mateus, 04/10: "sim pode responder e me
   avisa"): quando a pessoa continua a conversa com uma dúvida de uso ou de
   cadastro, eu respondo pelo 6800 SEM pedir "pode" e aviso o Mateus depois,
-  com o que ela disse e o que eu respondi. Continuam precisando do "pode":
-  preço e planos, reclamação, cancelamento, promessa em nome da Match House e
+  com o que ela disse e o que eu respondi. Desde 19/10, dúvida sobre o Pro
+  (preço, o que tem, como assinar e cancelar) também entra, com o texto do
+  e-mail aprovado (ver "Atendimento sobre o Pro em todos os canais").
+  Continuam precisando do "pode": desistência ou devolução fora do app,
+  reclamação, cancelamento fora do app, promessa em nome da Match House e
   qualquer mensagem fora da janela de 24 h.
 - **Quem ainda não tem conta** responde-se por `id_inbound`: POST
   `/backoffice/messages/preview` e depois `/send` com
@@ -1772,6 +2332,21 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   depois dela. O telefone fica na API só essas 24 h.
 - O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
   6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
+
+## Perfil do @matchhouse.br (23/10)
+
+- O Mateus arquivou em 23/10 os posts da marca antiga (2023 a agosto de
+  2025: imóveis de luxo, "baixe o app", Web Summit, matchhouse.co). Não
+  republicar nada deles.
+- Bio desde 23/10: "Desbloqueie seu tempo. A IA no link da sua bio atende
+  seus clientes na hora, com o seu nome. Crie o seu Smart Link:
+  app.smartli.ink".
+- O link da bio é só `app.smartli.ink`, sem utm. Mateus: "deixar mt coisa
+  depois da / o cliente pode desconfiar do link". Não propor link longo.
+- Desde o app #162 (23/10), quem chega ao app sem utm vindo do Instagram
+  vira `org-instagram` ("Instagram sem anúncio" no relatório). Num aparelho
+  que já tem conta, nada é marcado.
+- Arquivar post e mudar a bio não dá pela API: quem faz é o Mateus, no app.
 
 ## Direct do Instagram (@matchhouse.br) — automação nativa desde 04/10
 
@@ -1817,11 +2392,12 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
     avisar na hora. Cada envio é anotado em `envios_instagram`
     (`scratchpad/mensagens-vistas.json`), com o que ficou resolvido, e o
     relatório diário mostra isso no bloco "Mensagens".
-    - As regras de conteúdo continuam: nada de preço do Pro (falar em plano
-      de entrada), nunca prometer recurso que não existe, sem "grátis" e
-      convite da bio no fim.
-    - No 6800 nada mudou: preço, reclamação, cancelamento e promessa ainda
-      pedem o "pode".
+    - As regras de conteúdo continuam: nunca prometer recurso que não
+      existe, sem "grátis" e convite da bio no fim. Desde 19/10 o Pro e o
+      preço dele entram nas respostas, com o texto do e-mail aprovado (ver
+      "Atendimento sobre o Pro em todos os canais").
+    - No 6800: desistência, devolução, reclamação, cancelamento fora do app
+      e promessa ainda pedem o "pode".
     - Primeiro envio nessa regra: o @guilhermepicorelli (id_instagram 5), em
       05/10.
   - A rotina de hora em hora já lê esses e-mails.
@@ -1896,7 +2472,103 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - recomendação: 10% por colega, até 100%, cada 10% válido por 6 meses;
   - o colega indicado também ganha 10% por 6 meses;
   - o desconto fica guardado até o Pro abrir e vale até 90 dias depois disso;
-  - o prazo final (6 meses ou 1 ano) ainda está com ele.
+  - **Regras fechadas pelo Mateus em 19/10 ("1, 2, 3 e 4 - sim!"):**
+    1. cada 10% vale **6 meses**, contados da aprovação do colega;
+    2. com **100%** (10 colegas ativos), o Pro fica liberado sem cobrança
+       enquanto os 100% durarem, direto pela API, sem passar pelo Stripe;
+    3. o desconto **não cai** se o colega tirar os imóveis do ar ou apagar
+       a conta: só acaba quando passam os 6 meses;
+    4. o **colega indicado também ganha 10% por 6 meses**, contados da
+       aprovação dele.
+    - Em 19/10 não havia nenhuma indicação de corretor real (só as 2
+      antigas da conta 56, interna), e o desconto continua desligado
+      (`INDICACAO_DESCONTO`). Liga só depois de construído e testado.
+    - Nos 13 dias até 19/10 houve 167 cadastros e só 1 veio de convite
+      de perfil (a duplicada 1240, do próprio Enio). A contagem funciona;
+      ninguém indicava porque não havia tela.
+  - **Tela do Indique e Ganhe: pronta em 19/10 e escondida** (Mateus:
+    "pode fazer e crie a tela do indique e ganhe"). API #109 e #110, app
+    #152.
+    - `/dashboard/indique` mostra:
+      - o desconto de agora;
+      - o link de convite ("Enviar para um colega" e "Copiar link");
+      - o "Como funciona";
+      - os colegas por etapa, sem nome nem contato (`meuIndiqueGanhe`).
+    - O menu e o cartão na Visão geral só aparecem com
+      `INDICACAO_DESCONTO=on`.
+    - **O convite passa a valer mais que a origem anterior** (app #152):
+      quem chegou antes por um anúncio e depois cria a conta pelo convite
+      fica com a origem do convite (`smartli.ink / indicacao`). Os ids do
+      clique continuam. Aparelho que já tem conta não muda de origem. Isso
+      tira esses poucos cadastros da conta do anúncio no CAC.
+    - Aviso 7 dias antes de os 100% acabarem, em duas versões:
+      - com cartão salvo: a renovação é cobrada nele e o cancelamento é
+        pelo app;
+      - sem cartão: o pagamento sai pelo link do e-mail.
+      - Sai uma vez por data de fim. A marca `mh_aviso_fim_dos_cem` fica
+        na assinatura do Stripe.
+    - Renovação sem cartão nenhum: o e-mail é de pagar, e não de "cartão
+      recusado".
+    - **Cupom testado de verdade na 999 em 19/10**, pela rota
+      `POST /backoffice/pro/desconto-teste` (prévia e código; só a 999,
+      fixo no código).
+      - O teste achou um defeito: o cupom entrava e não saía. Consertado
+        na api #110, com string vazia no Stripe.
+      - Depois do conserto, 30% → 20% → 0% deu certo, e a 999 ficou sem
+        cupom.
+    - Ainda fora:
+      - o Pix segue com preço cheio até o C6;
+      - o Partner não aparece na tela, porque o selo e o destaque não
+        existem;
+      - não foi testado no Stripe se pagar pelo link da fatura salva o
+        cartão.
+    - Ligar: o Mateus põe `INDICACAO_DESCONTO=on` numa revisão nova do ECS,
+      como fez com o `BILLING_MODE`. Depois de ligado:
+      - conferir `desconto_indicacao: true` em `/backoffice/pro/status`;
+      - tirar dos textos de resposta (rotina de hora em hora, guia e
+        CLAUDE.md) o "o desconto da indicação ainda não vale".
+    - **Ligado desde 20/10, 8h27** (revisão 27 do ECS, posta pelo Mateus).
+      `/backoffice/pro/status` mostra `desconto_indicacao: true`. Vale
+      acima de qualquer "desconto ainda não está ligado: não oferecer" que
+      sobrar em texto antigo. A rotina de hora em hora, o guia (seção 12) e
+      o e-mail do aviso de 05/11 já falam dele.
+    - O WhatsApp do aviso de 05/11 é o `mh_aviso_regra_clientes_2`, com o
+      Indique e Ganhe e o botão "Ver meu convite", aprovado pela Meta em
+      20/10 (api #113).
+    - **Link de convite curto desde 20/10** (app #155, merge 15ce197). Mateus: "consegue
+      deixar o link mais amigável, com nome do corretor ou algo do tipo?".
+      - É `app.smartli.ink/convite/<slug>`. O `vercel.json` redireciona
+        (307) para o destino de antes, com `utm_medium=indicacao`,
+        `utm_content=perfil-<slug>` e `ref`. A API conta a indicação como
+        antes, e o card do WhatsApp continua "Crie seu Smart Link".
+      - O redirect fica no `vercel.json` para sempre: sem ele, os links já
+        mandados caem no 404. Não voltar a produção para um deploy de antes
+        do #155.
+      - Ponto no fim do slug vai como %2E, porque o WhatsApp corta o ponto
+        final do link.
+    - **Convite pelo WhatsApp desde 20/10, 14h26** (app #156). Mateus: "o
+      compartilhamento tem que ser pelo whatsapp". "Enviar para um colega"
+      abre o WhatsApp direto, com o texto e o link.
+    - **Cada colega conta uma vez só, desde 20/10, 14h31** (api #114, merge
+      40c60f6). Mateus: "veja se nao conta duplicada ou mais, e se nao conta
+      o mesmo duas vezes".
+      - O desconto, a tela e o nível contam cada colega uma vez. Se dois
+        corretores convidarem a mesma conta, só o primeiro convite vale.
+      - Quando o colega passa a contar, a indicação guarda um código
+        cifrado do celular e do login dele. A mesma pessoa não conta de
+        novo, nem com outro celular, nem com outra conta, nem depois de
+        excluir a conta.
+      - O código se apaga sozinho 1 ano depois. Está na Política de
+        Privacidade (10.8 e 11). Mateus: "fica guardado para evitar fraude
+        ou algo do tipo mas sem nenhum uso e podemos colocar um prazo para
+        apagar automaticamente, 1 ano".
+      - Aprovar à mão (do 6º colega do mês em diante) é só pelo `decidir` do
+        backoffice.
+        - Não se aprova à mão: mesmo login, mesmo celular, e-mail ou CPF do
+          indicador, e colega que já conta.
+        - Quando só o celular é igual, a prévia avisa e a aprovação à mão é
+          permitida (pode ser número reciclado pela operadora).
+      - O detalhe de segurança fica só em `scratchpad/seguranca/`.
   - Simulador: https://claude.ai/artifact/NLLZNoAwAEm7yNZSbwujMY
   - Só conta colega com conta nova, celular verificado e 1º imóvel publicado
     há 7 dias.
@@ -1920,8 +2592,14 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - **promoção por tempo limitado**, nunca "os primeiros 100", que exigiria
     autorização da SPA (Lei 5.768/71);
   - o CRECI vai no cartão (exigência do COFECI);
-  - o endereço é pedido só a quem bateu a meta, e apagado 30 dias depois da
-    entrega.
+  - o endereço é pedido só a quem bateu a meta e **fica guardado** (Mateus,
+    20/10: "temos que ter o endereço de nossos clientes"). Vale acima do
+    "apagado 30 dias depois da entrega" de 07/10. A API não tem rotina que
+    apague o endereço.
+    - O endereço serve para entregar o cartão, em casa ou no escritório, e
+      só isso. Marketing por correio está fora (Mateus, 20/10:
+      "provavelmente nao vamos mandar nada em papel. somos digital!"). Não
+      pôr opção de correspondência no pedido do cartão.
 - **QR por imóvel**: no ar desde 07/10 (PR app #122). Ver a seção "QR code
   por imóvel".
 - **"Crie seu Smart Link" maior** no perfil e em cada imóvel (aprovado). Passa
@@ -2030,6 +2708,43 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O PDF da amostra da INMC enviado à Vixcard está em `original/`.
   - Remontado em 16/10. Mateus: "ele ja remontou la com dados da camila..
     mas pode fazer tb e salve aqui".
+- **Versão 2 (19/10), depois da amostra impressa.** A amostra funcionou
+  (NFC e QR), mas, nas palavras do Mateus: "ficou muito pequeno para
+  leitura e as cores muito escuras nao da para diferenciar o azul do
+  verde". No PVC, os fundos saíram quase pretos.
+  - Ficaram o mesmo verde escuro e o mesmo azul-noite, mais claros. Texto
+    branco a partir de 2,6 mm. O QR do verso tem 17 mm.
+  - Recusados por ele no mesmo dia; não propor de novo:
+    - verde e azul claros: "assim nao ficou um alto padrão";
+    - a marca na vertical, à direita (as duas opções): "Nada disso ficou
+      bom, volte ao que era".
+  - Amostra 2 (INMC): `ferramentas/cartao/amostra-inmc-v2.pdf`. A
+    mensagem à Thaisa (cor e número do chip) foi dada ao Mateus.
+  - **20/10, decisão final: o desenho e as medidas da amostra impressa.**
+    Mateus: "Vamos voltar tudo para o tamanho que estava antes.. a cor ja
+    vai resolver o problema. entao resumindo: so vamos mudar do que foi
+    impresso de teste, a cor e a retirada da marcaçao do chip".
+    - Mudam só a cor (fundos clareados; texto e wordmark brancos) e o chip,
+      que sai da frente.
+    - O M da frente fica sem brilho em volta: branco sólido no Green e no
+      degradê da marca no Blue ("tira a fumaça em volta do M").
+    - Letra, QR, marca e posições são os da amostra. As tentativas com
+      letra e QR maiores (19 e 20/10, commit 2bfb38c da branch de
+      trabalho) foram descartadas: não propor de novo.
+    - Amostra 2 da INMC para a Vixcard refeita assim (commit 87009a7).
+      **Mandada à gráfica pelo Mateus em 20/10, de manhã** ("Ja mandei para
+      a gráfica o cartao novo, cores + claras"). Quando chegar: testar o
+      NFC e o QR num iPhone e num Android e ver se o verde e o azul se
+      distinguem no PVC.
+    - O pedido de orçamento da carta-berço para gráfica está em
+      `ferramentas/cartao/pedido-carta-berco.md` da branch de trabalho.
+      A Vixcard e a BPD não fazem.
+- **No app, o cartão mostra o nome e o link do próprio corretor antes do
+  pedido** (app #154, 19/10). Mateus: "consegue colocar o nome do corretor
+  no cartao dele para ele ver no app? antes de pedir".
+  - Na frente vão "<primeiro nome> IA" e `smartli.ink/<slug>`, sem número.
+  - A arte do app ainda tem as cores da v1 e o chip. Passar para a v2 (só
+    a cor nova e sem o chip) quando a amostra 2 for aprovada.
 - **Fornecedor: Vixcard (Victor e Thaisa).**
   - **Orçamento nº 32481, de 07/10:** chip Mifare 1K com gravação do ID.
     Por cartão: 100 un. R$ 9,89; 250 un. R$ 8,99; 500 un. R$ 6,99. Frete
@@ -2071,6 +2786,16 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       e-mail "Carta berço" do Mateus, 08/10.
   - **Nenhum dado de corretor vai para o fornecedor.** A amostra sai com a
     conta interna.
+  - **Pedidos em lotes de 10, na planilha da Vixcard** (Mateus, 20/10: "eles
+    vao me mandar uma planilha para prenchermos e podemos pedir de 10 em 10.
+    dai fazemos tudo no modelo deles"). Quando a planilha chegar, eu
+    preencho com os pedidos do app (`GET /backoffice/cartoes`, mais o CRECI e
+    o link de cada um), 10 por vez. O envio também segue o modelo deles.
+    - Mudar a Política de Privacidade para isso: o Mateus achou
+      desnecessário (20/10). Não propor de novo.
+    - A carta-berço (luva + cartela) está em `ferramentas/cartao/carta-berco/`
+      da branch de trabalho. Em 20/10 o Mateus mandou o orçamento a duas
+      gráficas.
 
 ### Pendências do Indique e Ganhe (revisão de 07/10)
 
@@ -2114,6 +2839,70 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   e fornecedor").
 - A conta 56 (interna) tem 2 indicações antigas aprovadas, que contam para o
   nível. A trava de conta interna só vale para as novas.
+
+## Ranking dos corretores (Mateus, 22/10)
+
+- Pedido dele: "queria ter um ranking de corretores, os que mais colocaram
+  imoveis, link na bio, receberam visitas, indicaram, geraram novos usuarios
+  pelos seus links". Só para ele (dado de corretor: nunca mostrar a outro
+  corretor nem pôr neste repositório).
+- Página: https://claude.ai/artifact/124MpbwDZnk61LFdLivtBK (painel). Os 10
+  primeiros em cada critério e a tabela com todos, com busca e ordenação.
+- **Vai todo dia no relatório diário, junto com o funil** (Mateus, 22/10:
+  "Manda todos os dias junto com o funil blza"). Vale acima da lista de
+  entregas e de links da rotina do relatório, que ainda não cita o ranking.
+  1. Depois do export do funil, baixar o CSV das visitas do Drive
+     (1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK) para `scratchpad/ranking/visitas.csv`.
+  2. `python3 scratchpad/ranking/gerar.py scratchpad/ranking/visitas.csv`
+     (cópia em `ferramentas/ranking/`). Ele escreve
+     `scratchpad/ranking/corretores.json` e imprime os totais.
+  3. Subir o arquivo como asset do painel (Artifact `publish` com
+     `asset: true`) e trocar `source` (com o url novo) e `updated` do
+     documento `datasets/corretores` (ArtifactData `update`, com o
+     `if_version`). Não mexer em `files/index.html`.
+  4. No chat, ao lado do link do funil diário: o link do ranking e uma linha
+     (com imóvel no ar, bio confirmada, indicações, cadastros trazidos e quem
+     entrou no topo).
+- Fontes: `/backoffice/signups` (imóveis no ar e os links),
+  `GET /backoffice/instagram/visitas?days=90` (api #124, no ar desde 22/10:
+  visitas pelo navegador do Instagram, contadas desde 17/10, e a lista
+  `bio_marcada` de quem marcou "colei o link"), `/backoffice/indicacao/indicacoes`
+  e os cadastros com `utm_content=perfil-<slug>`.
+- **Visitas ao Smart Link chegam desde 22/10, 9h20.** O Mateus copiou o
+  `POSTGRES_URL` da Vercel para o segredo `METRICS_DATABASE_URL` do GitHub
+  (api), direto, sem passar pelo chat. A exportação diária do funil (branch
+  `claude/post-deploy-api-export-csv-2qpvzq`) grava
+  `visitas-corretores-ACUMULADO.csv` (Drive 1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK),
+  lido da `agent_metrics` do site. A coluna `primeiro_clique_link` do funil
+  passa a vir preenchida.
+  - Baixar o CSV pelo Drive (`download_file_content`), nunca pelo artifact
+    do GitHub Actions: o endereço dele (blob.core.windows.net) é bloqueado
+    na rede desta conversa. O Drive devolve base64: gravar, decodificar com
+    `base64 -d` e conferir cada linha (9 campos, datas válidas) antes de
+    rodar o gerar.py.
+  - Desde dd77ff7e o banco do site tem prazo (20 s para conectar, 2 min por
+    consulta): se falhar, o CSV das visitas não sai e o resto do export segue.
+  - Trocar depois por um usuário só de leitura do banco (com o Vitor).
+
+## Origem de cada visita ao Smart Link (desde 22/10)
+
+- Pedidos do Mateus: "Pode começar a gravar a origem das visitas" e "Grave
+  tb linkedin, e outras redes que ele adicionar no smart link". Base do
+  relatório de origem das visitas do Pro (só para o Pro; o total de visitas
+  e o "chegaram visitas pelo Instagram" do Divulgar continuam para todos).
+- api #125 e site #238. A página do corretor (e a de cada imóvel dele) manda,
+  uma vez por aba, só a categoria: instagram, facebook, linkedin, tiktok,
+  youtube, whatsapp, site_corretor (o link "Site" dele), qr, nfc, google,
+  busca, chatgpt, vitrine (matchhouse.co), outro_site ou direto. O WhatsApp
+  quase sempre chega como direto. O imóvel vai quando a visita abriu nele.
+  Nada de quem visitou.
+- Leitura: `GET /backoffice/visitas/origens?days=7` (1 a 90): total, por
+  dia, por corretor e por imóvel. Tirar as contas internas pelo `id_users`.
+- Tetos: 500 por dia por origem e imóvel e 1.000 por dia por corretor
+  (a gravação é pública e a API não tem limite por conexão). Corretor com
+  1.000 exatos no dia é sinal de fraude: olhar.
+- Falta (ideia, não feito): o "Ver meu Smart Link" do app não marca a
+  visita do próprio corretor, que conta como direto.
 
 ## Planilhas do funil: etapas de leads da IA (Mateus, 07/10)
 
@@ -2185,6 +2974,32 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   - O nome de cada fatia leva a % dela ("Sem imóvel nem conversa · 63%").
     A API não escreve texto dentro da fatia: `pieSliceText` é ignorado sem
     erro (testado em 15/10). Dentro da fatia, só pelo editor do gráfico.
+- **Vendas no Painel do PRO (Mateus, 21/10: "pode fazer as vendas agora").**
+  - Etapa "7. Compraram o Pro" em Painel!L9:M9. Ela conta as linhas da aba
+    "Vendas Pro" (sheetId 1855183834), menos as devolvidas: uma linha por
+    corretor, pela primeira compra paga, sem contas internas, de teste e
+    duplicadas.
+  - Conta toda venda desde a abertura (19/10), também de conta de antes de
+    14/07, como no Funil Smart Link. O Enio (196), a 1ª venda, tem conta
+    desde 12/2024.
+  - A % da etapa 7 é sobre quem publicou (etapa 4) e sobre os logins, e não
+    sobre a etapa 6: comprar não depende de ter recebido lead.
+  - O funil desenhado foi para H11:K28, com a etapa 7 em verde (gerador
+    `ferramentas/painel-pro/gera-funil.mjs`). O 💡 da aba Dados desceu para
+    B29.
+  - O gráfico de cima ("Funil — do login à compra do Pro") lê L2:M9, e os
+    rótulos dele saem de 'Vendas Pro'!K2:K9: K3:K8 repetem a Base, e K9
+    é o da venda. O robô do export não mexe em nada disso (ele grava a
+    Base A1:C13 e as etapas 1 a 6).
+  - Atualização: a rotina das 06h47 (`trig_011zZvcgNN73kVfWyPypb1dc`) roda
+    `ferramentas/painel-pro/vendas.sh` e grava a aba a partir de A3.
+  - Na parte de baixo (Mateus, 21/10: "aqui tb precisa refletir as
+    vendas"): o cartão "COMPRARAM O PRO 💳" em K33:K34 (=$M$9), e o
+    "Funil completo" do robô com a etapa 7 em verde (api a9886f0, na branch
+    do robô). Com isso a Base desceu uma linha: etapas em A2:C8, pizza em
+    A9:B12, apoio em B13 e imóveis no total em B14.
+  - A pizza continua só até o lead da IA: ela é a turma desde 14/07, e o
+    Enio (a 1ª venda) é de antes.
 - Números de 07/10, desde 14/07, contando as contas internas que estão no
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
@@ -2209,6 +3024,7 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
       `link_in_bio`) é orgânica: entra como "Instagram sem anúncio", fora
       do custo da Meta.
   - `contas-fora/ONDE.md`: onde ficam as listas de contas fora dos números.
+  - `painel-pro/vendas.sh`: a aba "Vendas Pro" do Painel (rotina das 06h47).
   - `cartao/`: o cartão Smart Link (Green e Blue), com o HTML, o PDF e o
     LEIA-ME.
 - A página do funil diário volta pelo Artifact (`read` com `path`
