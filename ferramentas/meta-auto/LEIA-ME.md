@@ -40,9 +40,9 @@ anúncios) e pela seção "Meta no automático" do CLAUDE.md.
   custo por corretor que publicou com a do app).
 - **Campanha 15b, WhatsApp 6800** (27/10): 120252975696550445
   (OUTCOME_TRAFFIC, R$ 30/dia na campanha), conjunto 120252975698770445
-  (cópia da 14b, LINK_CLICKS) e anúncio 120252975724270445: reel da Camila
+  (cópia da 14b, LINK_CLICKS; 25+, feed, reels e story) e anúncio 120252975724270445: reel da Camila
   (video_id 3002305903435672), botão CONTACT_US para
-  `https://wa.me/5527998546800?text=Vim%20pelo%20an%C3%BAncio%20e%20quero%20conhecer%20o%20Smart%20Link`.
+  `https://wa.me/5527998546800?text=Quero%20conhecer%20o%20Smart%20Link`.
   Contas por `utm_content=15a-whatsapp` (o link da resposta automática).
   Regras por anúncio iguais às do app. O destino WhatsApp do Gerenciador
   não aceita o 6800 (pede "Instalar agora", que tiraria o número da API:
