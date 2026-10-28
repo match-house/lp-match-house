@@ -2185,6 +2185,16 @@ quando quem cortou foi o nosso limite (app #125).
     acaso. O detalhe está em `scratchpad/ab/leitura-1710.md`, nos arquivos
     desta conversa. Lembrete em 28/10, às 9h07
     (`trig_01GpTE6LuF26QoT3s1cvntn6`). Não encerrar antes sem o Mateus.
+  - **Encerrado em 28/10, com a de hoje** (Mateus: "Ficar com a atual"; app
+    #173, merge ebf0634). De 14 a 27/10, por pessoa, sem robôs e sem a
+    revisão da Meta: 553 x 559 viram, 28,9% x 29,2% tocaram, 10,7% x 8,8%
+    concluíram (p 0,28) e 17 x 17 publicaram. Detalhe em
+    `scratchpad/ab/leitura-2810.md` (script `ab-final.mjs`).
+    - `isTesteLigado` ficou `false`: todo mundo vê a de hoje, também quem
+      tinha a "b" guardada; `?mh_tela=b` ainda abre a "b" para conferir.
+      Os testes do sorteio o ligam de novo por `setSorteioLigadoParaTestes`.
+    - A propriedade `tela_entrada` do Amplitude continua nos eventos de
+      quem esteve no teste: não ler depois de 28/10.
 - **O exemplo é fictício, sempre com o selo "Exemplo".**
   - Corretora, imóveis e conversa são de mentira. Nunca vai para o site
     público, onde geraria lead falso.
