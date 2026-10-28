@@ -630,9 +630,9 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   - Achada em 28/10: 1502 (1498), criada com Hotmail em 27/10, sem
     telefone, sem link e sem imóvel. A principal (Gmail, link welington)
     publicou 2 imóveis, e o nome no WhatsApp e no e-mail é o mesmo
-    (Welington Barbosa). Já está fora dos números. Tirar da esteira ficou
-    para o "pode" do Mateus: a trava de permissão recusou o
-    `/activation/sair` em 28/10.
+    (Welington Barbosa). Já está fora dos números. Saiu da esteira em
+    28/10, às 9h22, com o "pode" do Mateus (antes, a trava de permissão
+    tinha recusado o `/activation/sair`).
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
