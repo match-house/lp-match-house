@@ -616,6 +616,12 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
   - Achada em 20/10, sem telefone, sem link e sem imóvel: 1361 (1191),
     criada em 17/10 quando o telefone dele barrou o cadastro novo. Saiu
     da esteira em 20/10, às 15h42, pela regra de higiene.
+  - Achada em 28/10: 1502 (1498), criada com Hotmail em 27/10, sem
+    telefone, sem link e sem imóvel. A principal (Gmail, link welington)
+    publicou 2 imóveis, e o nome no WhatsApp e no e-mail é o mesmo
+    (Welington Barbosa). Já está fora dos números. Tirar da esteira ficou
+    para o "pode" do Mateus: a trava de permissão recusou o
+    `/activation/sair` em 28/10.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
@@ -3125,8 +3131,9 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   entregas e de links da rotina do relatório, que ainda não cita o ranking.
   1. Depois do export do funil, baixar o CSV das visitas do Drive
      (1DSvxpfc51EWIvAcFBNCI8dQutLQFy8oK) para `scratchpad/ranking/visitas.csv`.
-  2. `python3 scratchpad/ranking/gerar.py scratchpad/ranking/visitas.csv`
-     (cópia em `ferramentas/ranking/`). Ele escreve
+  2. `node scratchpad/ranking/gerar.mjs scratchpad/ranking/visitas.csv`
+     (cópia em `ferramentas/ranking/`; desde 28/10 em node, o `gerar.py`
+     fica só como referência). Ele escreve
      `scratchpad/ranking/corretores.json` e imprime os totais.
   3. Subir o arquivo como asset do painel (Artifact `publish` com
      `asset: true`) e trocar `source` (com o url novo) e `updated` do
