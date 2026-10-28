@@ -2396,7 +2396,7 @@ quando quem cortou foi o nosso limite (app #125).
   - Na aba privada a lista do Google só tem a conta que entrou nela; outra
     conta é por "Usar outra conta".
   - Medir no `auth_completed` com `mode: "redirect"` e `provider: "google"`.
-- **Relatório do Pro com visual novo (app #171).** Mateus: "precisamos
+- **Relatório do Pro com visual novo (app #171, merge 667d14c; no ar desde 28/10, 02h58 UTC).** Mateus: "precisamos
   melhorar o design" e "Muito texto tem que ser intuitivo"; nas prévias,
   "Muito melhor".
   - Números no topo (valor em cima, nome curto embaixo), a barra de quando os
@@ -2407,7 +2407,7 @@ quando quem cortou foi o nosso limite (app #125).
     disse "nao coloque no ar ainda" antes do visual novo).
   - No tema do app, `text-3.25`, `text-3.5`, `rounded-4` e `rounded-5` não
     geram CSS (não há `--text-3.25` nem `--radius-5`): usar valores em px.
-- **Cadastro de imóvel: as 4 opções como caminho único (app #172).** Mateus:
+- **Cadastro de imóvel: as 4 opções como caminho único (app #172, merge ce84cb3).** Mateus:
   "Temos que ter um padrão" e "Pode fazer as 4 opções como único caminho, na
   ordem que você checou".
   - A caixa única do primeiro imóvel (de 01 a 28/10) saiu. De 18 a 26/10 ela
@@ -2419,6 +2419,8 @@ quando quem cortou foi o nosso limite (app #125).
   - `property_create_viewed` vai com `layout: "completo"` para todos e
     `primeiro_imovel: true|false`. Comparar com a caixa (`layout:
     "primeiro"`) pela parte que escolhe um caminho e pela que publica.
+  - Um link sozinho colado em "Colar o texto" vai pela importação do link
+    (como a caixa fazia), fora da tela de falha do link.
   - O guia de respostas (seção 7) já usa os nomes novos dos botões.
 
 ## QR code por imóvel (no ar desde 07/10)
