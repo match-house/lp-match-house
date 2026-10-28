@@ -155,22 +155,18 @@ Limites:
 
 ### Cadastrar (app.smartli.ink/dashboard/imoveis/novo)
 
-**Primeiro imóvel (desde 01/10, PR app #106).** Quem acaba de escolher o link
-cai direto nesta tela, e quem ainda não tem imóvel publicado vê uma caixa só:
-
-- título "Seu link está no ar." / "Agora o primeiro imóvel — leva 1 minuto.";
-- a caixa "Cole aqui o link do anúncio ou o texto do imóvel" e o botão
-  **"Preencher com a IA"**: se for só um link, ele importa o anúncio; se for
-  texto, organiza o texto;
-- **"Prefiro mandar as fotos"**: o mesmo que "Subir fotos";
-- **"Ver outras formas (PDF, arquivo do CRM)"**: abre os quatro jeitos abaixo.
-
-Quem já tem imóvel publicado vê direto os quatro jeitos.
+**Uma tela só, desde 28/10 (app #172).** Quem acaba de escolher o link cai
+direto nesta tela, e o primeiro imóvel abre igual a qualquer imóvel novo
+(Mateus: "Temos que ter um padrão"). Título "Cadastre seu imóvel." / "A IA
+preenche e você só confere.", e os quatro jeitos abaixo. A caixa única de
+antes ("Seu link está no ar.", "Preencher com a IA", "Prefiro mandar as
+fotos", "Ver outras formas") não existe mais: não citar.
 
 **Não cadastrar imóvel pelo corretor (decisão do Mateus, 01/10).** Quem
 manda o link de um anúncio pede ajuda para publicar: a resposta ensina a
-fazer no app ("Imóveis" → colar o link na caixa → "Preencher com a IA" →
-conferir → "Publicar imóvel →"), não devolve cadastro pronto. Motivo dele:
+fazer no app ("Imóveis" → "Colar o link do anúncio" → colar →
+"Importar e preencher →" → conferir → "Publicar imóvel →"), não devolve
+cadastro pronto. Motivo dele:
 "o corretor deve mandar direto na aplicação e já publicar.. assim ele
 aprende e faz as próximas". O app aceita
 `/dashboard/imoveis/novo?link=<anúncio codificado>` (PR #106), mas esse
@@ -178,16 +174,17 @@ link não é para mandar a corretor.
 
 Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar.
 
-1. **"Descrever em texto":** colar o que ele tem (WhatsApp, anotação), até
-   5000 caracteres.
-2. **"Importar de um link":** colar o link do anúncio (site dele ou portal) →
-   "Importar e preencher →". Se o link não ler, a tela pede para colar o texto
-   do anúncio.
-3. **"Subir fotos":** a IA olha até 8 fotos e monta a descrição. As outras
+1. **"Colar o texto":** colar o que ele tem (WhatsApp, anúncio, anotação), até
+   5000 caracteres. É o jeito que mais publica.
+2. **"Colar o link do anúncio":** colar o link do anúncio (site dele ou
+   portal) → "Importar e preencher →". Se o link não ler, a tela pede para
+   colar o texto do anúncio. Link de Instagram, Facebook ou WhatsApp vai
+   direto para o texto.
+3. **"Mandar fotos":** a IA olha até 8 fotos e monta a descrição. As outras
    entram só na galeria.
 4. **"Anexar PDF":** ficha do CRM, memorial ou matrícula, até 40 MB e 40
    páginas. PDF escaneado não funciona; aí o caminho é tirar foto das páginas
-   e usar "Subir fotos".
+   e usar "Mandar fotos".
 
 **Carteira inteira** ("Carteira inteira de uma vez"):
 
