@@ -2342,6 +2342,24 @@ quando quem cortou foi o nosso limite (app #125).
   - Conferir os números de um corretor: `GET /backoffice/relatorio-pro?id_agent=&dias=`.
   - Eventos: `relatorio_pro_visto` {pro, periodo} e `regra_ver_pro`
     {onde: "metricas"}.
+  - **No ar desde 28/10, ~0h30 UTC, só nas contas 39 e 999** (api #147,
+    squash 3f3cd9c; BFF #18, 6a9098e; app #169, merge 5082726). Revisão de
+    um agente sem nada grave; os achados baixos foram corrigidos antes:
+    - a hora do cliente é a mais antiga entre `contato_em` e
+      `created_at` (o reprocessamento de 26/10 pôs ~22h em quem estava
+      sem hora);
+    - o BFF só aceita o período e usa o fuso de Brasília; com a IA própria
+      falhando, guarda só 1 minuto;
+    - o plano de entrada nem pede o relatório: só o `/evagpt/summary`;
+    - sem saber o plano, a seção avisa o erro em vez de trancar;
+    - a origem `chatgpt` aparece como "Assistentes de IA".
+  - Conferido em 28/10 pela rota do backoffice: Enio (132) com 3 visitas
+    com origem desde 22/10 e nenhum cliente; INMC (804) com 1 cliente e 6
+    visitas.
+  - Falta: o Mateus olhar a tela na 39 e, se estiver certo, abrir para
+    todos (`isAbertoParaTodos = true`). Antes de abrir, lembrar que cada
+    abertura de Métricas de um Pro lê todas as conversas do período na
+    Intelliway (guardado 10 min).
 - **Métricas de hoje: não mexer** ("sobre as marcações nas métricas de 7d, 30d,
   tudo, deixe como está" e "nao vamos mexer nisso"). O caso do Enio (100 e 360)
   são dois períodos: 30 dias e Tudo. Não propor de novo o período escrito no
