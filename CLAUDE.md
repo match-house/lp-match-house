@@ -371,7 +371,10 @@ Notas do projeto para agentes. Ler antes de mexer.
       - **No funil diário desde 28/10** (Mateus: "A campanha de whatsapp vai
         entrar como no funil diario?"): o cartão "Meta → WhatsApp 6800", com as
         mesmas etapas (ontem e total desde 27/10, custo de cada uma), lê a
-        constante `WHATSAPP_15B`, trocada todo dia com as outras. Em `ORIGENS`,
+        constante `WHATSAPP_15B`, trocada todo dia com as outras. A última
+        etapa é "Compraram o Pro" (Mateus, 28/10: "Inclua o comprou na lista
+        ja que nosso objetivo é vender"): vendas pagas e não devolvidas de
+        `/pro/vendas`, de contas com essa origem. Em `ORIGENS`,
         quem chega à tela de entrada pelo link da conversa é a linha "Meta
         WhatsApp 6800" (utm_medium whatsapp ou utm_content 15a-whatsapp), fora
         do bloco do anúncio. Em `CUSTO_CANAL` e `ORIGEM_CORRETORES`, a mesma
