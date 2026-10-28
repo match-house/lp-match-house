@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Post em parceria Enio</title>
+<style>
+  @font-face { font-family: P; src: url("../../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: P; src: url("../../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: P; src: url("../../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: P; src: url("../../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: P; src: url("../../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+
+  :root { --navy: #00073e; --navy2: #0a1470; --cyan: #00efff; --soft: #c9cff5; --muted: #9aa3e0; --ink: #0b1240; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; font-family: P, sans-serif; padding: 40px; }
+  .art { position: relative; overflow: hidden; width: 1080px; height: 1350px; color: #fff; background: var(--navy); }
+
+  .foto { position: absolute; inset: 0 0 auto 0; height: 640px; background: url("p1163.jpg") center 35% / cover no-repeat; }
+  .foto::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,7,62,.55) 0%, rgba(0,7,62,0) 18%, rgba(0,7,62,.15) 52%, #00073e 96%); }
+  .legenda-foto { position: absolute; right: 56px; top: 600px; z-index: 2; font-size: 20px; font-weight: 500; color: rgba(255,255,255,.82); }
+
+  .topo { position: absolute; left: 56px; right: 56px; top: 52px; display: flex; align-items: center; z-index: 3; }
+  .topo img { height: 48px; display: block; filter: drop-shadow(0 2px 8px rgba(0,7,62,.5)); }
+  @font-face { font-family: PH; src: url("../fontes/Phosphor-Fill.woff2"); }
+  .aperto { margin-left: auto; width: 84px; height: 84px; border-radius: 50%; background: var(--cyan); display: grid; place-items: center;
+            box-shadow: 0 6px 20px rgba(0,7,62,.25); }
+  .aperto i { font-family: PH; font-style: normal; font-size: 52px; line-height: 1; color: var(--navy); }
+  .pill { margin-left: auto; font-weight: 700; font-size: 21px; letter-spacing: .16em; text-transform: uppercase; color: var(--navy);
+          background: var(--cyan); padding: 8px 20px; border-radius: 999px; box-shadow: 0 6px 20px rgba(0,7,62,.25); }
+
+  .texto { position: absolute; left: 56px; right: 56px; top: 556px; z-index: 2; }
+  .kicker { font-weight: 700; font-size: 22px; letter-spacing: .2em; text-transform: uppercase; color: var(--cyan); }
+  h1 { margin-top: 12px; font-weight: 800; font-size: 74px; line-height: 1.04; letter-spacing: -.01em; }
+  h1 em { font-style: normal; color: var(--cyan); }
+  .sub { margin-top: 18px; font-size: 28px; line-height: 1.38; color: var(--soft); max-width: 880px; }
+
+  .card { position: absolute; left: 56px; right: 56px; top: 878px; z-index: 2; background: #fff; color: var(--ink);
+          border-radius: 34px; padding: 26px 26px 24px; box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  .perfil { display: flex; align-items: center; gap: 18px; }
+  .perfil img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: center 18%; flex: none;
+                border: 3px solid var(--cyan); }
+  .perfil .nome { font-weight: 700; font-size: 30px; line-height: 1.1; }
+  .perfil .creci { margin-top: 4px; font-size: 19px; color: #5a6290; }
+  .ia { margin-left: auto; display: flex; align-items: center; gap: 10px; background: #eef0ff; color: var(--navy2);
+        font-weight: 600; font-size: 19px; padding: 10px 16px; border-radius: 999px; white-space: nowrap; }
+  .ia i { width: 12px; height: 12px; border-radius: 50%; background: #17c964; box-shadow: 0 0 0 4px rgba(23,201,100,.18); display: block; }
+
+  .imoveis { margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .im { border-radius: 20px; overflow: hidden; background: #f3f4fb; }
+  .im .ft { height: 150px; background-size: cover; background-position: center; }
+  .im .tx { padding: 10px 14px 12px; }
+  .im b { display: block; font-weight: 700; font-size: 21px; line-height: 1.15; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .im span { display: block; margin-top: 3px; font-size: 16px; color: #5a6290; white-space: nowrap; }
+
+  .rodape { position: absolute; left: 56px; right: 56px; bottom: 40px; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .link { font-weight: 600; font-size: 25px; color: #fff; }
+  .link em { font-style: normal; color: var(--cyan); }
+  .mh { font-size: 20px; color: var(--muted); text-align: right; line-height: 1.3; }
+</style>
+</head>
+<body>
+<div class="art" id="enio">
+  <div class="foto"></div>
+  <div class="topo"><img src="../../posts-gente/logo-dark.png" alt="match house"><span class="aperto" title="Em parceria"><i>&#xe582;</i></span></div>
+
+
+  <div class="texto">
+    <div class="kicker">Gramado e Canela · RS</div>
+    <h1>Os imóveis do Enio, <em>num link só.</em></h1>
+    <p class="sub">Quem chega pelo link da bio vê os imóveis com fotos e fala na hora com a IA dele, até de madrugada.</p>
+  </div>
+
+  <div class="card">
+    <div class="perfil">
+      <img src="perfil.jpg" alt="">
+      <div>
+        <div class="nome">Enio Volmar</div>
+        <div class="creci">Consultor de imóveis · CRECI 59432/RS</div>
+      </div>
+      <div class="ia"><i></i>IA atende na hora</div>
+    </div>
+    <div class="imoveis">
+      <div class="im"><div class="ft" style="background-image:url('p1199.jpg')"></div><div class="tx"><b>SOHO</b><span>Cobertura · Gramado</span></div></div>
+      <div class="im"><div class="ft" style="background-image:url('p1167.jpg')"></div><div class="tx"><b>Casa De Pedra</b><span>2 quartos · Gramado</span></div></div>
+      <div class="im"><div class="ft" style="background-image:url('p1008.jpg'); background-position: center 30%"></div><div class="tx"><b>Gartenhaus</b><span>3 suítes · Gramado</span></div></div>
+    </div>
+  </div>
+
+  <div class="rodape">
+    <div class="link">smartli.ink/<em>eniovolmar_consultor_imoveis</em></div>
+    <div class="mh">Smart Link com IA<br>@matchhouse.br</div>
+  </div>
+</div>
+</body>
+</html>
