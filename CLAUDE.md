@@ -2376,6 +2376,51 @@ quando quem cortou foi o nosso limite (app #125).
   com imposto, 31 cliques, nenhuma conversa. Leitura em 28/10, 19h37; sem
   conversa, pausar e deixar a verba parada.
 
+## Entrada, métricas e cadastro: madrugada de 28/10
+
+- **Entrada do app (app #170, merge 22c5c12).** O Mateus tentou várias vezes
+  entrar pelo iPhone: maçã em quadrado, foto quebrada, "Não foi possível abrir
+  o login do Google" e a segunda aba "Processando seu pedido". Nas palavras
+  dele: "temos que deixar a entrada facil. Abrir direto" e "Sem essa segunda
+  aba [...] perder na entrada é muito ruim".
+  - Os ícones da tela de entrada são SVG na própria página (`IconeFixo`), sem
+    a fonte da Phosphor, e as fotos do exemplo saem de `public/images/`. A
+    regra `.icone-fixo` fica em `@layer base`, para o `display: none` das
+    telas continuar valendo.
+  - **Google na mesma aba em todo celular** (`GOOGLE_REDIRECT_EM = "celular"`
+    em `src/config/google.ts`). O Mateus testou antes no iPhone, numa aba
+    privada, com `?google_teste=ida`, e entrou. No computador continua a
+    janela. Os dois botões ficam no iPhone (Apple e Google): ele escolheu
+    "Google sem 2ª aba" em vez de só a Apple, que criaria conta duplicada para
+    quem entra pelo Google.
+  - Na aba privada a lista do Google só tem a conta que entrou nela; outra
+    conta é por "Usar outra conta".
+  - Medir no `auth_completed` com `mode: "redirect"` e `provider: "google"`.
+- **Relatório do Pro com visual novo (app #171).** Mateus: "precisamos
+  melhorar o design" e "Muito texto tem que ser intuitivo"; nas prévias,
+  "Muito melhor".
+  - Números no topo (valor em cima, nome curto embaixo), a barra de quando os
+    clientes chegam, as origens com ícone e os imóveis com a foto.
+  - O plano de entrada vê uma prévia borrada (só desenho, sem número), o
+    cadeado e "Ver tudo com o Pro".
+  - Segue só nas contas 39 e 999. Abrir para todos só com o Mateus (ele
+    disse "nao coloque no ar ainda" antes do visual novo).
+  - No tema do app, `text-3.25`, `text-3.5`, `rounded-4` e `rounded-5` não
+    geram CSS (não há `--text-3.25` nem `--radius-5`): usar valores em px.
+- **Cadastro de imóvel: as 4 opções como caminho único (app #172).** Mateus:
+  "Temos que ter um padrão" e "Pode fazer as 4 opções como único caminho, na
+  ordem que você checou".
+  - A caixa única do primeiro imóvel (de 01 a 28/10) saiu. De 18 a 26/10 ela
+    foi vista por 83 pessoas: 50 escolheram um caminho (60%) e 25 publicaram
+    (30%), o mesmo de setembro com as 4 opções (55% escolheram).
+  - Ordem pelo que mais publica (texto 62%, link 50%, fotos 40%): "Colar o
+    texto", "Colar o link do anúncio", "Mandar fotos" e "Anexar PDF". Título
+    "Cadastre seu imóvel. A IA preenche e você só confere."
+  - `property_create_viewed` vai com `layout: "completo"` para todos e
+    `primeiro_imovel: true|false`. Comparar com a caixa (`layout:
+    "primeiro"`) pela parte que escolhe um caminho e pela que publica.
+  - O guia de respostas (seção 7) já usa os nomes novos dos botões.
+
 ## QR code por imóvel (no ar desde 07/10)
 
 - PR app #122 (merge 1c0988f). O corretor gera um QR para imprimir na placa
