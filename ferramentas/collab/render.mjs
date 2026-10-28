@@ -1,0 +1,10 @@
+import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }).catch(() => chromium.launch());
+const p = await b.newPage({ viewport: { width: 1200, height: 1500 }, deviceScaleFactor: 1 });
+const erros = []; p.on('pageerror', e => erros.push(String(e))); p.on('requestfailed', r => erros.push('falhou ' + r.url()));
+await p.goto('file://' + process.cwd() + '/arte.html'); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(600);
+const fam = await p.evaluate(() => [...document.fonts].filter(f => f.status === 'loaded').length);
+const over = await p.evaluate(() => [...document.querySelectorAll('.art *')].filter(e => e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflow !== 'visible').map(e => e.className || e.tagName));
+await p.locator('#enio').screenshot({ path: 'enio-collab.jpg', type: 'jpeg', quality: 92 });
+console.log('fontes:', fam, 'cortes:', over, 'erros:', erros);
+await b.close();
