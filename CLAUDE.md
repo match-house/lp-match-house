@@ -2318,16 +2318,55 @@ quando quem cortou foi o nosso limite (app #125).
     ninguém soube).
   - C: depois da falha, o texto é a saída principal, com "Colar o que copiei" e
     o passo a passo; "Tentar outro link" fica menor.
+  - **No ar em 27/10, à noite:** A e C no app #168 (merge 46d53da; portais em
+    `blockedPortalName`, `link-site.utils.ts`; eventos `property_import`
+    com `motivo: "portal_bloqueia"` e `link_falha_colar`). B no BFF #17
+    (eb009e0: `OPENROUTER_MODEL_RESERVA`, padrão `google/gemini-2.5-flash`,
+    vazio desliga, só dentro de 25 s) e na API #146 (03b780f: o `/health/ia`
+    do BFF diz "falhando" com 3 falhas seguidas, e a API manda o e-mail "A IA
+    do app está falhando", um por dia). Crédito e chave não contam como falha.
 - **Métricas especiais do Pro: construir já** ("vamos fazer agora"), escondidas
   e ligadas só nas contas 39 e 999. Primeiro o atendimento fora do horário; no
   plano de entrada, só o total de atendimentos da IA, o resto trancado com "Ver
-  tudo com o Pro". Ligar para todos só com o "pode" dele.
+  tudo com o Pro".
+  - Abrir para todos depois do teste, sem pedir de novo (Mateus: "as metricas
+    pode subir e ficando certo ja fazemos para todos pq so tem o Enio"). A
+    trava é `isAbertoParaTodos` em `app/src/shared/utils/relatorio-pro.utils.ts`.
+  - Construído em 27/10, à noite: API `meuRelatorioPro(dias)` (módulo
+    `relatorio-pro`: clientes com nome e celular, os que chegaram fora do
+    horário, origem das visitas desde 22/10 e imóveis que trouxeram clientes;
+    fora do Pro só `pro: false`), BFF `GET /evagpt/relatorio` (conversas
+    e as fora do horário) e a seção "Relatório do Pro" no fim de Métricas.
+  - Fora do horário: de segunda a sexta, das 19h às 8h, e sábado e domingo,
+    no horário de Brasília. Cliente é um celular, sem o do próprio corretor.
+  - Conferir os números de um corretor: `GET /backoffice/relatorio-pro?id_agent=&dias=`.
+  - Eventos: `relatorio_pro_visto` {pro, periodo} e `regra_ver_pro`
+    {onde: "metricas"}.
+  - **No ar desde 28/10, ~0h30 UTC, só nas contas 39 e 999** (api #147,
+    squash 3f3cd9c; BFF #18, 6a9098e; app #169, merge 5082726). Revisão de
+    um agente sem nada grave; os achados baixos foram corrigidos antes:
+    - a hora do cliente é a mais antiga entre `contato_em` e
+      `created_at` (o reprocessamento de 26/10 pôs ~22h em quem estava
+      sem hora);
+    - o BFF só aceita o período e usa o fuso de Brasília; com a IA própria
+      falhando, guarda só 1 minuto;
+    - o plano de entrada nem pede o relatório: só o `/evagpt/summary`;
+    - sem saber o plano, a seção avisa o erro em vez de trancar;
+    - a origem `chatgpt` aparece como "Assistentes de IA".
+  - Conferido em 28/10 pela rota do backoffice: Enio (132) com 3 visitas
+    com origem desde 22/10 e nenhum cliente; INMC (804) com 1 cliente e 6
+    visitas.
+  - Falta: o Mateus olhar a tela na 39 e, se estiver certo, abrir para
+    todos (`isAbertoParaTodos = true`). Antes de abrir, lembrar que cada
+    abertura de Métricas de um Pro lê todas as conversas do período na
+    Intelliway (guardado 10 min).
 - **Métricas de hoje: não mexer** ("sobre as marcações nas métricas de 7d, 30d,
   tudo, deixe como está" e "nao vamos mexer nisso"). O caso do Enio (100 e 360)
   são dois períodos: 30 dias e Tudo. Não propor de novo o período escrito no
   número, o padrão de 30 dias nem o "–" ao trocar.
-- **Stories todo dia, 4 por dia** ("tudo"): 8h07, 12h13, 17h17 e 21h23,
-  sábado e domingo incluídos. As 28 artes da semana saem de uma vez na segunda,
+- **Stories todo dia, 4 por dia** ("tudo"): 8h07, 12h07, 17h07 e 21h07,
+  sábado e domingo incluídos (rotina `trig_017QGK5KC14zdoHbZ8AdoA7Z`; as
+  artes da semana, `trig_01HWVLSEj21XzivXqUqv9VEu`, segunda às 6h41). As 28 artes da semana saem de uma vez na segunda,
   e uma rotina só publica. Publico sem mostrar antes e conto no relatório.
 - **14b do diagnóstico: fica até a leitura de 02/11** ("tudo", com a minha
   recomendação de esperar a 1ª semana inteira).
