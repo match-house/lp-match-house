@@ -368,6 +368,14 @@ Notas do projeto para agentes. Ler antes de mexer.
         4. toques no link da resposta: Amplitude, `amplitude_id` distintos
            com `utm_content=15a-whatsapp`;
         5. contas, concluíram, publicaram e Pro (`origens.mjs`).
+      - **No funil diário desde 28/10** (Mateus: "A campanha de whatsapp vai
+        entrar como no funil diario?"): o cartão "Meta → WhatsApp 6800", com as
+        mesmas etapas (ontem e total desde 27/10, custo de cada uma), lê a
+        constante `WHATSAPP_15B`, trocada todo dia com as outras. Em `ORIGENS`,
+        quem chega à tela de entrada pelo link da conversa é a linha "Meta
+        WhatsApp 6800" (utm_medium whatsapp ou utm_content 15a-whatsapp), fora
+        do bloco do anúncio. Em `CUSTO_CANAL` e `ORIGEM_CORRETORES`, a mesma
+        linha.
       - O destino WhatsApp de verdade (campanha [15] 120252975443070445,
         vazia, pausada e com "(não usar)" no nome) não deu: o Gerenciador
         recusa o 6800 como conta do WhatsApp Business (#2923012) e oferece
