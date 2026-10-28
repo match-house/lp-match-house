@@ -16,10 +16,10 @@ import { fileURLToPath } from 'node:url';
 
 // Mesma lista do Funil Smart Link (confirmada pelo Mateus em 29/09; 993 é teste pelo nome).
 // Duplicadas (regra de higiene da lista): 1240, 1241, 1242 (10/10); 836, 1103, 1128,
-// 1187, 1196, 1238 (11/10); 1373 (da 1351), 1372 (da 1317) e 1361 (da 1191).
+// 1187, 1196, 1238 (11/10); 1373 (da 1351), 1372 (da 1317), 1361 (da 1191) e 1502 (da 1498).
 // 39: conta interna (smartli.ink/matchhouse, Mateus em 12/10).
 export const INTERNOS = new Set([1011, 1014, 1033, 1095, 1096, 980, 941, 937, 999, 993, 3, 56, 39,
-  1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238, 1373, 1372, 1361]);
+  1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238, 1373, 1372, 1361, 1502]);
 export const PAGOS = new Set(['meta', 'ig', 'fb', 'facebook', 'instagram', 'google', 'chatgpt', 'openai']);
 export const META = new Set(['meta', 'ig', 'fb', 'facebook', 'instagram']);
 // Cadastros que chegaram sem utm, com a origem achada no Amplitude (detalhe de
