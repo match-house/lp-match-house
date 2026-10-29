@@ -2467,6 +2467,21 @@ quando quem cortou foi o nosso limite (app #125).
   - Um link sozinho colado em "Colar o texto" vai pela importação do link
     (como a caixa fazia), fora da tela de falha do link.
   - O guia de respostas (seção 7) já usa os nomes novos dos botões.
+  - **29/10: conserto do "Colar o texto" (app #175, merge 9e8c411).** A
+    conferência com vários agentes (Mateus: "faca conferencia com varios
+    agentes e angulos") achou o defeito do #172. Depois do toque em "Colar
+    o texto", a primeira caixa da tela era a de "Vários anúncios de uma vez"
+    (só links), e a do texto ficava embaixo, sem rótulo. Em 28/10, no 1º
+    imóvel, 0 de 4 que tocaram no cartão mandaram o texto (de 21 a 27/10,
+    10 de 13).
+    - Agora a caixa vem logo abaixo dos cartões, com "Cole ou escreva aqui
+      o texto do imóvel", "Preencher com a IA" e "Colar o que copiei"
+      (`texto_colar` {resultado}). O XML e os vários links ficam no fim.
+    - O Enter só pula a linha; no computador, Ctrl+Enter envia.
+    - Se a IA falha, o erro aparece na caixa e a tela rola até ela.
+    - Em "Vários anúncios", só conta link com domínio de verdade.
+    - Medir pelo envio (`property_import` text), não pelo toque no cartão:
+      desde o #172 o `property_method_selected` conta no toque.
 
 ## QR code por imóvel (no ar desde 07/10)
 
