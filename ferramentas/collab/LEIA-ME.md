@@ -17,3 +17,12 @@
   post não entrou no nosso perfil; aí o Mateus reposta); o Mateus aceita o convite no app do
   Instagram (pela API não dá). Story em que ele marcar a gente, o Mateus
   reposta.
+- Melhorias para os próximos (Mateus, 28/10: "deixa como está, vamos melhorar
+  para os próximos"). O Enio publicou só com "Enio Volmar" na legenda e marcou
+  em vez de convidar:
+  - a legenda vai num bloco separado, sozinha, para copiar com um toque (e, se o
+    corretor preferir, também pelo WhatsApp dele, que copia melhor no celular);
+  - o passo a passo vem em 3 linhas curtas, com "Convidar colaborador" em
+    destaque e um print da tela de onde fica;
+  - depois que ele publicar, conferir a legenda e o colaborador antes de dar
+    por encerrado.
