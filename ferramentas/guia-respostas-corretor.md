@@ -159,8 +159,8 @@ Limites:
 direto nesta tela, e o primeiro imóvel abre igual a qualquer imóvel novo
 (Mateus: "Temos que ter um padrão"). Título "Cadastre seu imóvel." / "A IA
 preenche e você só confere.", e os quatro jeitos abaixo. A caixa única de
-antes ("Seu link está no ar.", "Preencher com a IA", "Prefiro mandar as
-fotos", "Ver outras formas") não existe mais: não citar.
+antes ("Seu link está no ar.", "Prefiro mandar as fotos", "Ver outras
+formas") não existe mais: não citar.
 
 **Não cadastrar imóvel pelo corretor (decisão do Mateus, 01/10).** Quem
 manda o link de um anúncio pede ajuda para publicar: a resposta ensina a
@@ -174,8 +174,12 @@ link não é para mandar a corretor.
 
 Há quatro jeitos. Em todos, a IA preenche e o corretor revisa antes de publicar.
 
-1. **"Colar o texto":** colar o que ele tem (WhatsApp, anúncio, anotação), até
-   5000 caracteres. É o jeito que mais publica.
+1. **"Colar o texto":** abre, logo abaixo dos cartões, a caixa "Cole ou
+   escreva aqui o texto do imóvel". Ele cola o que tem (WhatsApp, anúncio,
+   anotação), até 5000 caracteres, e toca em "Preencher com a IA". "Colar o
+   que copiei" põe na caixa o que ele copiou. O Enter só pula a linha. É o
+   jeito que mais publica. Desde 29/10 (app #175); antes, a caixa ficava
+   embaixo da de "Vários anúncios de uma vez".
 2. **"Colar o link do anúncio":** colar o link do anúncio (site dele ou
    portal) → "Importar e preencher →". Se o link não ler, a tela pede para
    colar o texto do anúncio. Link de Instagram, Facebook ou WhatsApp vai
