@@ -387,6 +387,19 @@ Notas do projeto para agentes. Ler antes de mexer.
         códigos de cadastro, a esteira e as respostas).
       - Leitura em 03/11: custo por conversa, por conta e por corretor que
         publicou.
+    - **29/10, ~9h30: artes novas para quem quer uma IA e 14b pausada**
+      (Mateus: "A para substituir", "acho melhor até pausar ela" e, para a B
+      e a C, "No WhatsApp, R$ 20"). A Meta soma R$ 50/dia (15b 30 + 15c 20).
+      - 15b: anúncio 15c "Quer uma IA atendendo os seus clientes?"
+        (120253014459460445) no lugar do reel da Camila, que sai quando o 15c
+        entregar.
+      - 15c, campanha nova 120253014488170445 (OUTCOME_TRAFFIC, R$ 20/dia),
+        conjunto 120253014490030445 (cópia do da 15b) e anúncios 15d
+        "Converse com uma IA" (120253014495980445) e 15e "Tenha a sua IA"
+        (120253014498140445). Mesmo destino, mesma frase e mesmo freio.
+      - As conversas das duas contam juntas como "Meta WhatsApp 6800".
+      - 14b (diagnóstico, 120252956827030445) pausada: de 22 a 28/10 os
+        seguidores ficaram em ~1.790. Não religar sem o Mateus.
   - **26/10: seguidores pelo diagnóstico** (Mateus: "Ficou bom, pode
     publicar e subir o anúncio"). De 22 a 25/10 a 14, que levava ao perfil,
     gastou R$ 34,71, teve 61 cliques (78% em Stories), e os seguidores
