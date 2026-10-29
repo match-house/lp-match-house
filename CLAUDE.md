@@ -2632,6 +2632,22 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
 - O "Tenho interesse" de imóvel cujo corretor não tem telefone também cai no
   6800: é um COMPRADOR, não corretor. Avisar o Mateus na hora.
 
+
+## Série "Corretores com IA" (Mateus, 28/10)
+
+- Post em parceria com um corretor de verdade por semana, a partir de 12/11
+  (escolha dele: "Corretores com IA, 1/semana"). O 1º foi o do Enio (196), em
+  29/10: ele marcou em vez de convidar colaborador, e o Mateus repostou e
+  comentou ("deixa como está, vamos melhorar para os próximos").
+- Convites toda terça, às 14h37, a uns 5 corretores novos por e-mail (rotina
+  `trig_01T5MFS4rCMNavCJ2JL19epw`, com o "pode criar a rotina dos convites" dele).
+  O e-mail divide o teto de 150 por dia.
+- Regras, modelo da arte (aperto de mão no topo, no lugar de "Em parceria") e
+  melhorias em `ferramentas/collab/LEIA-ME.md` da branch de trabalho. A fila
+  com os nomes fica só em `scratchpad/collab/fila.json` (não vai ao repositório).
+- Nada do Espírito Santo, nenhum dado de cliente, sem preço na arte. O
+  comentário da Match House vai pronto, em 2 ou 3 opções curtas com o @.
+
 ## Perfil do @matchhouse.br (23/10)
 
 - O Mateus arquivou em 23/10 os posts da marca antiga (2023 a agosto de
