@@ -26,3 +26,9 @@
     destaque e um print da tela de onde fica;
   - depois que ele publicar, conferir a legenda e o colaborador antes de dar
     por encerrado.
+- Comentário da Match House no post do corretor: vai pronto, em bloco de
+  código, junto com a arte, para o Mateus colar assim que o post sair. No do
+  Enio foi "Que bom ter você com a gente, Enio! Quem quiser conhecer os imóveis
+  dele em Gramado e Canela é só tocar no link da bio: a IA dele atende na hora,
+  a qualquer hora." Mateus, 28/10: "Nos próximos vamos melhorar o comentário".
+  Levar 2 ou 3 opções mais curtas, com o @ do corretor, para ele escolher.
