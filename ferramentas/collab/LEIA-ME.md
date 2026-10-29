@@ -13,6 +13,7 @@
   a fonte em `scratchpad/collab/fontes/` e `node render.mjs`.
 - Fluxo: convite por e-mail; o corretor responde sim e o @; a arte e a
   legenda vão para ele aprovar; ele publica no feed com Marcar pessoas >
-  Convidar colaborador > @matchhouse.br; o Mateus aceita o convite no app do
+  Convidar colaborador > @matchhouse.br (não "Marcar pessoas": o Enio marcou e o
+  post não entrou no nosso perfil; aí o Mateus reposta); o Mateus aceita o convite no app do
   Instagram (pela API não dá). Story em que ele marcar a gente, o Mateus
   reposta.
