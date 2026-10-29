@@ -32,3 +32,19 @@
   dele em Gramado e Canela é só tocar no link da bio: a IA dele atende na hora,
   a qualquer hora." Mateus, 28/10: "Nos próximos vamos melhorar o comentário".
   Levar 2 ou 3 opções mais curtas, com o @ do corretor, para ele escolher.
+
+## Série "Corretores com IA" (Mateus, 28/10: "Corretores com IA, 1/semana")
+
+- Um corretor de verdade por semana, em parceria, a partir de 12/11. O nome
+  vai no topo da arte (linha ciano: "Corretores com IA · <Cidade>, <UF>"), com o
+  aperto de mão à direita, e a legenda termina com #CorretoresComIA.
+- Quem entra: foto de perfil, pelo menos 3 imóveis no ar com foto boa (sem
+  texto nem telefone por cima), de preferência com o link na bio. Ninguém do
+  Espírito Santo (CRECI ES ou imóveis no ES). Nunca dado de cliente.
+- Convites: toda terça, por e-mail, a uns 5 corretores novos (rotina desta
+  conversa). O e-mail divide o teto de 150 por dia com os outros envios.
+- Quem disser sim: arte + legenda num bloco separado + 3 linhas com "Convidar
+  colaborador" + 2 ou 3 opções de comentário da Match House para o Mateus.
+- Fila: os aceites esperam a vez, um por semana; quem respondeu primeiro vai
+  primeiro. Medir alcance, seguidores novos e visitas do Instagram ao Smart Link
+  do corretor na semana do post.
