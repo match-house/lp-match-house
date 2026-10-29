@@ -39,7 +39,12 @@ while read -r p; do
   [ -z "$slug" ] || [ -z "$nome" ] && continue
   body=$(jq -n --argjson id "$id" --arg sid "$SID" --arg n "$nome" --arg l "smartli.ink/$slug" \
     '{id_user: $id, channel: "whatsapp", kind: "modelo", template_sid: $sid, variables: {"1": $n, "2": $l}}')
-  pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+  # 29/10: o backoffice tem limite de chamadas por minuto; esperar e tentar de novo (3x), em vez de pular a pessoa
+  for _t in 1 2 3; do
+    pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+    grep -q "limite de chamadas por minuto" <<<"$pv" || break
+    sleep 30
+  done
   conf=$(jq -r '.confirmacao // empty' <<<"$pv" 2>/dev/null)
   if [ -z "$conf" ]; then
     registra "$(jq -nc --argjson id "$id" --arg m "$(jq -r '.message // .' <<<"$pv" 2>/dev/null | head -c 300)" '{id_user: $id, status: "previa_recusada", motivo: $m, em: (now|todate)}')"
@@ -52,6 +57,7 @@ while read -r p; do
   fi
   code=$(curl -sS -o "$D/.resp" -w '%{http_code}' -X POST "$API/messages/send" -H 'content-type: application/json' \
     -d "$(jq -c --arg c "$conf" '. + {confirmacao: $c}' <<<"$body")")
+  if [ "$code" = "429" ] && grep -q "limite de chamadas por minuto" "$D/.resp"; then sleep 30; continue; fi
   if [ "$code" = "429" ]; then
     registra "$(jq -nc --argjson id "$id" '{id_user: $id, status: "teto_do_dia", em: (now|todate)}')"
     break

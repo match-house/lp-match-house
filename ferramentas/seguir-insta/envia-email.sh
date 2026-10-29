@@ -81,7 +81,12 @@ while read -r p; do
   simples=$(jq -n --argjson id "$id" --arg s "$SUBJ" --arg t "$(texto_simples "$nome" "$slug" "$url")" \
     '{id_user: $id, channel: "email", kind: "texto", subject: $s, text: $t}')
   if [ "$ARTE" = "1" ]; then body=$(corpo_arte "$id" "$nome" "$slug" "$url"); else body=$simples; fi
-  pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+  # 29/10: o backoffice tem limite de chamadas por minuto; esperar e tentar de novo (3x), em vez de pular a pessoa
+  for _t in 1 2 3; do
+    pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
+    grep -q "limite de chamadas por minuto" <<<"$pv" || break
+    sleep 30
+  done
   if [ "$ARTE" = "1" ] && grep -q "campo desconhecido: arte" <<<"$pv"; then
     echo "API sem o e-mail com arte: seguindo só com texto"
     ARTE=0; body=$simples
@@ -99,6 +104,7 @@ while read -r p; do
   fi
   code=$(curl -sS -o "$D/.resp" -w '%{http_code}' -X POST "$API/messages/send" -H 'content-type: application/json' \
     -d "$(jq -c --arg c "$conf" '. + {confirmacao: $c}' <<<"$body")")
+  if [ "$code" = "429" ] && grep -q "limite de chamadas por minuto" "$D/.resp"; then sleep 30; continue; fi
   if [ "$code" = "429" ]; then
     registra "$(jq -nc --argjson id "$id" '{id_user: $id, status: "teto_do_dia", em: (now|todate)}')"
     break
