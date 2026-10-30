@@ -110,6 +110,20 @@ Notas do projeto para agentes. Ler antes de mexer.
 
 ## Meta Ads — regras fixas do usuário
 
+- **Desde 30/10, ~15h10 (Brasília): Meta inteira pausada, mídia paga só no
+  ChatGPT** (Mateus: "Pode pausar a meta. Vamos ficar somente com chatgpt").
+  Vale acima de tudo o que esta seção diz de verba, criativos, freio e
+  leituras da Meta.
+  - Pausadas a 15b (120252975696550445), a 15c (120253014488170445) e a
+    antiga da LP "Agosto 2026" (120251646585140445). As outras já estavam
+    pausadas. De 27 a 30/10, a 15b e a 15c gastaram R$ 131,53 com imposto,
+    tiveram 268 cliques e 2 conversas no 6800, e nenhuma conta saiu delas.
+  - Não religar, não criar anúncio e não mudar verba sem ele. A rotina das
+    07h37 só confere que nada gasta: gasto na Meta é alerta. A rotina dos
+    criativos e o freio da 15b/15c foram desligados.
+  - O pedido de teste de R$ 30/dia a partir de 04/11 fica sem efeito. As
+    leituras de 02/11 (14b) e 03/11 (15b/15c) viram só o resultado final.
+  - O Instagram orgânico (posts, stories, reels e Direct) continua.
 - **NUNCA ligar a expansão de público (Advantage+ audience / `advantage_audience`)** em nenhum conjunto de anúncios. Decisão explícita do usuário em 17/08/2026: a segmentação é sempre manual. Não propor de novo, não ligar "para testar".
 - **Nunca anunciar no Espírito Santo** (Mateus, 22/10: "nao quero que a
   campanha da meta rode no espírito santo"). Todo conjunto do Meta, inclusive
