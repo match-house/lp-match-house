@@ -1444,7 +1444,15 @@ para aquela mensagem.
     carregado, sem problemas de configuração. Se a abertura do Pro mudar de
     dia, trocar o `NFSE_DESDE`.
     - `charge.refunded` marcado no webhook do Stripe pelo Mateus em 19/10.
-    - Na primeira nota real, conferir a inscrição municipal (E0116/E0120).
+    - **1ª nota real: recusada em 28/10 e emitida em 30/10.** A do Pro do
+      Enio (nota 7, de 20/10) voltou da Sefin com E0120: a inscrição
+      municipal não pode ir, porque Vitória não tem o cadastro complementar
+      (CNC). Ninguém foi avisado (o resumo das 07h40 não chegou nesta caixa).
+      Desde a api #149 (30/10) a IM não vai por padrão, e a nota recusada
+      avisa o dono na hora ("NFS-e recusada: nota N"). Reenviada em 30/10,
+      às 12h03: NFS-e nº 1, emitida, competência 20/10.
+    - O resumo das 07h40 e o aviso novo vão para `NFSE_EMAIL_DONO`. Conferir
+      com o Mateus para onde aponta: nenhum chegou em matchhouse.br@gmail.com.
   - **Webhook do Stripe, 19/10 (api #106):** de 13 a 19/10, 427 das 805
     entregas falharam com 404 no `invoice.paid` da fatura de R$ 0 do teste
     do plano de entrada, que todo cadastro cria. Agora a fatura de R$ 0 sem
