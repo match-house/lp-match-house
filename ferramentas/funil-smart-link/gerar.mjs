@@ -42,6 +42,7 @@ const INTERNOS = {
   1373: 'conta duplicada (2ª conta; a principal é a 1351)',
   1361: 'conta duplicada (2ª conta; a principal é a 1191)',
   1502: 'conta duplicada (2ª conta; a principal é a 1498)',
+  1559: 'conta duplicada (2ª conta; a principal é a 1551)',
   1372: 'conta duplicada (2ª conta; a principal é a 1317)',
 };
 

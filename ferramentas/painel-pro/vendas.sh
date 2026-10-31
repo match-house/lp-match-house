@@ -17,7 +17,7 @@ S=/tmp/claude-0/-home-user-lp-match-house/0de051d8-2c6b-51ea-afb4-9db8eff21ef6/s
 B=https://api.matchhouse.com.br/backoffice
 D="$S/painel-pro"
 mkdir -p "$D"
-FORA='[1011,1014,1033,1095,1096,980,941,937,999,993,3,56,39,1240,1241,1242,836,1103,1128,1187,1196,1238,1373,1361,1372,1502]'
+FORA='[1011,1014,1033,1095,1096,980,941,937,999,993,3,56,39,1240,1241,1242,836,1103,1128,1187,1196,1238,1373,1361,1372,1502,1559]'
 
 code=$(curl -s -m 60 -o "$D/vendas-bruto.json" -w '%{http_code}' "$B/pro/vendas?dias=400")
 if [ "$code" != 200 ] || ! jq -e '.pagamentos' "$D/vendas-bruto.json" >/dev/null 2>&1; then

@@ -23,3 +23,4 @@ Lista em 13/10:
 - Duplicadas: 1240, 1241, 1242, 836, 1103, 1128, 1187, 1196, 1238, 1373 e 1372 (as duas em 19/10), 1361 (20/10; a principal é a 1191).
 - Em dúvida (continuam nos números até o Mateus responder): 1234, 1092, 1164.
 - Não confirmada: 955.
+- 31/10: 1559 (2ª conta da 1551, ferrazimoveisrj; criada com outro Gmail às 18h59 e barrada pelo telefone; vazia). Fora da esteira às 19h02.
