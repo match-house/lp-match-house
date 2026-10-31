@@ -665,6 +665,12 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
     (Welington Barbosa). Já está fora dos números. Saiu da esteira em
     28/10, às 9h22, com o "pode" do Mateus (antes, a trava de permissão
     tinha recusado o `/activation/sair`).
+  - Achada em 31/10: 1559 (1551), criada às 15h59 com outro Gmail, sem
+    telefone, sem link e sem imóvel. Em seguida a pessoa tocou em "Meu
+    telefone já está em outra conta" no 6800. A principal (ferrazimoveisrj,
+    criada de manhã pelo ChatGPT) tem o celular confirmado e um imóvel
+    publicado. Saiu da esteira às 16h02, pela regra de higiene, e a pessoa
+    recebeu pelo 6800 o caminho para entrar na principal.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
