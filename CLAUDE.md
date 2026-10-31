@@ -607,6 +607,12 @@ Notas do projeto para agentes. Ler antes de mexer.
   - "Campanha Smartlink" (por clique, pausada em 02/10): R$ 228, com 3
     cadastros e nenhum concluído.
   - Detalhe em `scratchpad/openai-ads/resumo.md`.
+  - **CNPJ no Ads Manager até 22/11/2026.** Em 31/10 a OpenAI pediu, por
+    regra nova do Brasil, o CNPJ de quem compra os anúncios (e-mail
+    "Action required: Update your information to advertise in Brazil").
+    Sem ele, a campanha pode parar depois de 22/11, e desde 30/10 o
+    ChatGPT é a única mídia paga. Quem preenche é o Mateus, no painel
+    dele. Lembrete em 12/11, às 9h13 (`trig_01Mro6bsjPPNFonaaJgtomDC`).
 
 ## Fila: campanha pelos termos de busca (Mateus, 19/10)
 
