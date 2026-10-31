@@ -1473,6 +1473,11 @@ para aquela mensagem.
       matchhouse.br@gmail.com. Mateus, 31/10: "precisavamos trocar para o
       .br vamos fazer isso qd eu voltar". A troca vai na mesma revisão do
       ECS do certificado (lembrete de 12/11, `trig_01QyGqzghFVcFUmBCVH4p5zB`).
+    - **Certificado novo criado em 31/10, falta ativar** (Mateus: "Ja criei
+      o novo certificado mas falta fazer a call de ativacao na contabilizei,
+      fica para a volta tb"). Na volta: chamada de ativação com a
+      Contabilizei, .pfx no S3 (`ecnpj.pfx`) e a revisão do ECS com a senha
+      e o `NFSE_EMAIL_DONO`. O certificado de agora vale até 29/11.
   - **Webhook do Stripe, 19/10 (api #106):** de 13 a 19/10, 427 das 805
     entregas falharam com 404 no `invoice.paid` da fatura de R$ 0 do teste
     do plano de entrada, que todo cadastro cria. Agora a fatura de R$ 0 sem
