@@ -1397,10 +1397,13 @@ para aquela mensagem.
   - Certificado e-CNPJ A1: vem no plano da Contabilizei (Certisign), válido
     até 29/11/2026. A renovação abre 30 dias antes, de graça, na plataforma
     deles. Ao renovar, trocar o certificado no servidor (ECS).
-- **Todo mês, até o dia 5:** a Contabilizei não tem integração com a nossa
-  emissão. O Mateus confere na plataforma deles se todas as notas do mês
-  anterior foram importadas, para o DAS sair certo. Mandar a ele a lista das
-  notas do mês antes do dia 5.
+- **Todo mês, até o dia 5:** o Mateus confere na plataforma da Contabilizei
+  se todas as notas do mês anterior foram importadas, para o DAS sair certo.
+  Mandar a ele a lista das notas do mês antes do dia 5.
+  - A Contabilizei importa sozinha do sistema nacional as notas que a API
+    emite: em 31/10, às 3h07, chegou "Importação realizada com sucesso" com
+    1 nota (a NFS-e nº 1, do Enio). Substituída ou cancelada, e nota que
+    faltar, se informam lá até o dia 5.
 - O certificado nunca passa pelo chat: vai direto para o ECS.
 - **Segunda resposta da Contabilizei (06/10), a duas das três perguntas:**
   - **Alíquota:** para eles, mesmo sem retenção a alíquota vai na nota. Só
