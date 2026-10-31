@@ -1468,8 +1468,11 @@ para aquela mensagem.
       Desde a api #149 (30/10) a IM não vai por padrão, e a nota recusada
       avisa o dono na hora ("NFS-e recusada: nota N"). Reenviada em 30/10,
       às 12h03: NFS-e nº 1, emitida, competência 20/10.
-    - O resumo das 07h40 e o aviso novo vão para `NFSE_EMAIL_DONO`. Conferir
-      com o Mateus para onde aponta: nenhum chegou em matchhouse.br@gmail.com.
+    - O resumo das 07h40 e o aviso novo vão para `NFSE_EMAIL_DONO`, que
+      aponta para o Gmail antigo (matchhouse22), e não para o
+      matchhouse.br@gmail.com. Mateus, 31/10: "precisavamos trocar para o
+      .br vamos fazer isso qd eu voltar". A troca vai na mesma revisão do
+      ECS do certificado (lembrete de 12/11, `trig_01QyGqzghFVcFUmBCVH4p5zB`).
   - **Webhook do Stripe, 19/10 (api #106):** de 13 a 19/10, 427 das 805
     entregas falharam com 404 no `invoice.paid` da fatura de R$ 0 do teste
     do plano de entrada, que todo cadastro cria. Agora a fatura de R$ 0 sem
