@@ -313,6 +313,11 @@ Notas do projeto para agentes. Ler antes de mexer.
           de quem tocou sai em `GET /backoffice/links/seguir-instagram-1`;
         - 3 dias depois, WhatsApp com o modelo `mh_seguir_instagram_1`
           para quem não tocou e tem Smart Link;
+        - **Fim em 01/11, à noite** (Mateus: "Vamos parar os whatsapp para
+          seguir a Match.. custo alto"). O e-mail acabou no mesmo dia (971
+          enviados) e saíram 120 WhatsApps (30 por dia, de 29/10 a 01/11).
+          Só 3 corretores tocaram no link, e os seguidores foram de 1.794 a
+          1.796. Não mandar mais WhatsApp desta campanha sem ele pedir;
         - **WhatsApp de campanha: no máximo 30 por dia, somando todas**
           (Mateus, 22/10, à noite: "Baixa para 30"; antes eram 35). O teto
           do backoffice é 50 por dia. Em 22/10 ele acabou duas vezes antes
