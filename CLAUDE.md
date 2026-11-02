@@ -682,6 +682,11 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
     criada de manhã pelo ChatGPT) tem o celular confirmado e um imóvel
     publicado. Saiu da esteira às 16h02, pela regra de higiene, e a pessoa
     recebeu pelo 6800 o caminho para entrar na principal.
+  - Achada em 02/11: 1572 (1568), criada em 01/11, às 12h37, com o mesmo
+    e-mail da principal, sem telefone, sem link e sem imóvel. Um minuto
+    depois a pessoa escreveu no 6800. A principal (ChatGPT, criada às 11h13)
+    tem 2 imóveis publicados. Saiu da esteira em 02/11, às 2h20, pela regra
+    de higiene.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
