@@ -1,0 +1,10 @@
+import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
+import fs from 'node:fs';
+const ids = fs.readdirSync('out2').filter(f => f.endsWith('.jpg')).sort();
+const html = `<html><body style="margin:0;background:#111;display:grid;grid-template-columns:repeat(7,180px);gap:8px;padding:8px;width:${7*188+8}px">${ids.map(f => `<div style="color:#fff;font:12px sans-serif"><img src="file://${process.cwd()}/out2/${f}" style="width:180px;display:block">${f.replace('.jpg','')}</div>`).join('')}</body></html>`;
+fs.writeFileSync('tira2.html', html);
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }).catch(() => chromium.launch());
+const p = await b.newPage({ viewport: { width: 7*188+16, height: 400 } });
+await p.goto('file://' + process.cwd() + '/tira2.html'); await p.waitForTimeout(500);
+await p.screenshot({ path: 'tira-semana2.jpg', fullPage: true, type: 'jpeg', quality: 80 });
+await b.close(); console.log('ok');
