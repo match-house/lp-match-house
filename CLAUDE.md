@@ -619,6 +619,28 @@ Notas do projeto para agentes. Ler antes de mexer.
     ChatGPT é a única mídia paga. Quem preenche é o Mateus, no painel
     dele. Lembrete em 12/11, às 9h13 (`trig_01Mro6bsjPPNFonaaJgtomDC`).
 
+## Para a volta do Mateus: converter vendas (03/11)
+
+- Pedido dele em 03/11: "precisamos converter vendas" e, depois, "anote tudo
+  isso para a volta… vamos ter muito trabalho". Nada disso anda na viagem:
+  tudo espera a volta (~11/11), com o "ok" dele em cada item.
+- Diagnóstico de 03/11: a publicação não está quebrada (redirecionamento ao
+  1º imóvel ok, sem erro ao gravar). Caiu a parte de quem conclui o cadastro
+  e nem começa o imóvel. Causas: Meta pausada; ChatGPT com mais cadastros e
+  não mais corretores que publicam (a campanha otimiza por cadastro); tela de
+  4 opções no 1º imóvel (app #172, 28/10), com metade das tentativas de
+  importar.
+- O gargalo da venda é o valor do Pro: quase nenhum corretor recebe cliente
+  com nome e celular, e pouquíssimos puseram o link na bio. A regra de 05/11
+  quase não morde (segura só o 2º cliente do mês).
+- Plano, por ordem: (1) IA própria nos ~5 corretores com mais conversas;
+  (2) venda direta aos ~15 mais engajados (é campanha, precisa do "pode");
+  (3) passo "cole na bio" dentro do cadastro; (4) caixa única ou A/B na tela
+  do 1º imóvel; (5) ChatGPT otimizando por imóvel publicado, ou R$ 75/dia
+  (painel dele); (6) oferta de entrada do Pro (preço é com ele).
+- Números, tabelas e o que eu deixo pronto: `scratchpad/volta/plano-volta.md`,
+  nos arquivos desta conversa (tem número da empresa: não vem para cá).
+
 ## Fila: campanha pelos termos de busca (Mateus, 19/10)
 
 - Pedido dele: "coloca na fila a ideia para fazermos uma campanha link da bio
