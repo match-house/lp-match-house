@@ -687,6 +687,12 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
     depois a pessoa escreveu no 6800. A principal (ChatGPT, criada às 11h13)
     tem 2 imóveis publicados. Saiu da esteira em 02/11, às 2h20, pela regra
     de higiene.
+  - Achada em 03/11: 1583 (1484), criada em 02/11, às 13h23, com Gmail e
+    sem origem, sem telefone, sem link e sem imóvel. Logo depois, ao pôr o
+    telefone, recebeu erro três vezes e tocou em "Meu telefone já está em
+    outra conta". A principal (mariamartasilva, ChatGPT, 26/10) tem o
+    celular confirmado e imóvel publicado, e o nome é o mesmo. Saiu da
+    esteira em 03/11, às 6h12, pela regra de higiene.
   - Com elas, setembro fecha em 96 cadastros (eram 98). Quem publicou não
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
