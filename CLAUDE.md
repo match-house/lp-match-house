@@ -618,6 +618,19 @@ Notas do projeto para agentes. Ler antes de mexer.
     Sem ele, a campanha pode parar depois de 22/11, e desde 30/10 o
     ChatGPT é a única mídia paga. Quem preenche é o Mateus, no painel
     dele. Lembrete em 12/11, às 9h13 (`trig_01Mro6bsjPPNFonaaJgtomDC`).
+  - **ChatGPT em R$ 75/dia desde 03/11, às 11h15** (Mateus, viajando e sem
+    computador: "Vc consegue mudar para 75,00 o chatgpt?"). Mudei pelo
+    Windsor (`set_campaign_budget` no conector `openai_ads`, conta 976,
+    campanha "Smart Link - Registro completo",
+    `cmpn_6abe5b33cee08196844861a56b82f6ea`) e conferi: 75. Antes, R$ 100.
+    Vale acima dos R$ 100/dia de 15/10 e 21/10.
+    - Motivo: a R$ 100 vieram mais cadastros, mas os corretores que publicam
+      ficaram em 15 a 19 por semana (R$ 32 → R$ 46 por corretor que publicou).
+    - O dia 03/11 mistura R$ 100 e R$ 75. Leitura em 7 dias (10/11): se quem
+      publica por semana se mantém.
+    - Pelo Windsor dá para mudar a verba e pausar ou religar a campanha; o
+      evento de otimização (imóvel publicado) só no painel dele. Mudar a
+      verba de novo só com o pedido dele.
 
 ## Para a volta do Mateus: converter vendas (03/11)
 
@@ -636,8 +649,8 @@ Notas do projeto para agentes. Ler antes de mexer.
 - Plano, por ordem: (1) IA própria nos ~5 corretores com mais conversas;
   (2) venda direta aos ~15 mais engajados (é campanha, precisa do "pode");
   (3) passo "cole na bio" dentro do cadastro; (4) caixa única ou A/B na tela
-  do 1º imóvel; (5) ChatGPT otimizando por imóvel publicado, ou R$ 75/dia
-  (painel dele); (6) oferta de entrada do Pro (preço é com ele).
+  do 1º imóvel; (5) ChatGPT otimizando por imóvel publicado (painel
+  dele; a verba já foi para R$ 75/dia em 03/11); (6) oferta de entrada do Pro (preço é com ele).
 - Números, tabelas e o que eu deixo pronto: `scratchpad/volta/plano-volta.md`,
   nos arquivos desta conversa (tem número da empresa: não vem para cá).
 
