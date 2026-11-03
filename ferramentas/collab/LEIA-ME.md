@@ -48,3 +48,11 @@
 - Fila: os aceites esperam a vez, um por semana; quem respondeu primeiro vai
   primeiro. Medir alcance, seguidores novos e visitas do Instagram ao Smart Link
   do corretor na semana do post.
+
+## Convite sem promessa do cartão (03/11)
+
+- O convite de 28/10 dizia "toque em Pedir meu cartão". Esse botão só aparece
+  para quem cumpre a meta do Green: 5 imóveis no ar e 1 indicação aprovada
+  (`cartao.rules.ts`, `CARTAO_GREEN_*`), com a bio confirmada no pedido.
+- Desde 03/11 o convite não fala do cartão. Se algum dos convidados de 28/10
+  responder perguntando, explicar a meta do cartão em vez de prometer.
