@@ -24,3 +24,4 @@ Lista em 13/10:
 - Em dúvida (continuam nos números até o Mateus responder): 1234, 1092, 1164.
 - Não confirmada: 955.
 - 31/10: 1559 (2ª conta da 1551, ferrazimoveisrj; criada com outro Gmail às 18h59 e barrada pelo telefone; vazia). Fora da esteira às 19h02.
+- 03/11: 1583 (2ª conta da 1484, mariamartasilva; criada em 02/11 às 13h23 com Gmail, sem origem; ao pôr o telefone recebeu erro 3 vezes e tocou em "Meu telefone já está em outra conta"; vazia). Fora da esteira às 6h12.
