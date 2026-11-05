@@ -653,6 +653,26 @@ Notas do projeto para agentes. Ler antes de mexer.
   dele; a verba já foi para R$ 75/dia em 03/11); (6) oferta de entrada do Pro (preço é com ele).
 - Números, tabelas e o que eu deixo pronto: `scratchpad/volta/plano-volta.md`,
   nos arquivos desta conversa (tem número da empresa: não vem para cá).
+- **Ideias de 05/11, de madrugada, para a volta: o assistente do corretor no
+  Pro.** Nada disso anda antes da volta.
+  - A IA própria continua a conversa com o cliente do corretor até a visita
+    marcada, com follow-up, no WhatsApp DO corretor, e manda o resumo para
+    ele (Mateus: "um assistente no pro").
+    - Caminho oficial: a coexistência da Meta (o mesmo número no WhatsApp
+      Business do corretor e na API).
+    - Falta confirmar se a Twilio faz. Se não fizer, Meta direto ou outro
+      integrador; o 6800 fica na Twilio.
+    - Nunca automação do WhatsApp Web.
+  - O app vira uma conversa, como o Claude, começando pelo 1º imóvel com
+    teste A/B.
+  - O app antigo da loja vira o app do corretor (Mateus: "Para o
+    corretor"). Recomendei um app novo em Expo publicado como atualização da
+    mesma ficha (com.matchhouse), sem reaproveitar o código de 2022. A conta
+    da Apple é nossa (Mateus, 05/11).
+  - Arquitetura, fases e as 4 decisões dele: no Google Drive, "Para a volta —
+    assistente do corretor e app (05/11)"
+    (https://docs.google.com/document/d/11Zd5aa8zMX5M0K_J5AVvJJY3k1AOJMIZG2L34cWfMqY/edit),
+    e em `scratchpad/volta/arquitetura-assistente.md`.
 
 ## Fila: campanha pelos termos de busca (Mateus, 19/10)
 
