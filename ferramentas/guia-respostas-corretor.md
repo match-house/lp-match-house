@@ -287,6 +287,11 @@ Para colocar as fotos: abra o imóvel, desça até "Fotos e mídia" e toque num 
 - Dá para mudar:
   - "Foto de perfil" (PNG, JPEG, JPG ou WEBP);
   - "Nome";
+  - "Como a sua IA fala de você": "a IA da <nome>", "a IA do <nome>" ou
+    "a IA de <nome>". Embaixo aparece a frase como sai na página ("Na sua
+    página: “Oi! Eu sou a IA da Camila”"). Sem escolha, fica "de". Vale
+    para a saudação da página, o campo do chat e a prévia do link no
+    WhatsApp (desde 05/11/2026);
   - "CRECI (opcional)" e "UF";
   - "Apelido", o `smartli.ink/<apelido>`;
 - depois tocar em "Salvar alterações".
