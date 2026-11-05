@@ -2348,6 +2348,18 @@ quando quem cortou foi o nosso limite (app #125).
 - No site, desde 14/10 (site #230): a IA se apresenta como "Oi! Eu sou a IA
   de Camila", e o campo diz "Responder à IA de Camila…". Antes era "o Camila
   IA" para toda corretora.
+- **"da", "do" ou "de": quem escolhe é o corretor, desde 05/11** (Mateus:
+  "Pode fazer a 1"; api #151, site #241, app #176).
+  - Em Editar perfil, "Como a sua IA fala de você", com a frase de exemplo.
+    O valor fica em `users.ia_artigo` (nulo = "de").
+  - Vale para a saudação, o campo do chat e a prévia do link no WhatsApp
+    ("Oi! Eu sou a IA da Camila"; antes, "Oi! Eu sou Camila IA").
+  - Não adivinhar pelo nome.
+  - Ficaram com "de":
+    - a prévia da tela de entrada do app;
+    - o nome no topo da página ("Camila IA");
+    - a IA própria (`deNome` em `atendimento.regras.ts`). Ajustar quando ela
+      abrir aos corretores.
 
 ## Imóvel é o corretor que publica (decisão do Mateus, 01/10)
 
