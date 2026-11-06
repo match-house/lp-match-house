@@ -1,358 +1,358 @@
 {
- "nota": "Stories 4 por dia (Mateus, 27/10: \"tudo\"). Horários de Brasília: 8h07, 12h07, 17h07 e 21h07 (a rotina roda no minuto 7). Nos dias com story da série (ep. 7 em 28/10 às 19h, s1 em 30/10 às 19h, s2 em 31/10 às 22h, s3 em 07/11 às 9h) o horário mais próximo não tem story nosso. Semana 2 (02 a 08/11): base https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/. Publicado = media_id.",
- "base": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/",
- "itens": [
-  {
-   "data": "2026-10-28",
-   "hora": 8,
-   "id": "d1028a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028a.jpg",
-   "publicado": "18132558109747182"
-  },
-  {
-   "data": "2026-10-28",
-   "hora": 12,
-   "id": "d1028b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028b.jpg",
-   "publicado": "17962539230999287"
-  },
-  {
-   "data": "2026-10-28",
-   "hora": 21,
-   "id": "d1028d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028d.jpg",
-   "publicado": "18411894757093075"
-  },
-  {
-   "data": "2026-10-29",
-   "hora": 8,
-   "id": "d1029a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029a.jpg",
-   "publicado": "18125460022909720"
-  },
-  {
-   "data": "2026-10-29",
-   "hora": 12,
-   "id": "d1029b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029b.jpg",
-   "publicado": "18118189828984098"
-  },
-  {
-   "data": "2026-10-29",
-   "hora": 17,
-   "id": "d1029c",
-   "tipo": "diagnostico",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029c.jpg",
-   "publicado": "18134895178737756"
-  },
-  {
-   "data": "2026-10-29",
-   "hora": 21,
-   "id": "d1029d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029d.jpg",
-   "publicado": "17941717908389956"
-  },
-  {
-   "data": "2026-10-30",
-   "hora": 8,
-   "id": "d1030a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030a.jpg",
-   "publicado": "17928113187427525"
-  },
-  {
-   "data": "2026-10-30",
-   "hora": 12,
-   "id": "d1030b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030b.jpg",
-   "publicado": "17878539966633676"
-  },
-  {
-   "data": "2026-10-30",
-   "hora": 21,
-   "id": "d1030d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030d.jpg",
-   "publicado": "18101838356540656"
-  },
-  {
-   "data": "2026-10-31",
-   "hora": 8,
-   "id": "d1031a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031a.jpg",
-   "publicado": "18114636947167482"
-  },
-  {
-   "data": "2026-10-31",
-   "hora": 12,
-   "id": "d1031b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031b.jpg",
-   "publicado": "18202443745377695"
-  },
-  {
-   "data": "2026-10-31",
-   "hora": 17,
-   "id": "d1031c",
-   "tipo": "diagnostico",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031c.jpg",
-   "publicado": "17978299869153997"
-  },
-  {
-   "data": "2026-11-01",
-   "hora": 8,
-   "id": "d1101a",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101a.jpg",
-   "publicado": "18144943108587958"
-  },
-  {
-   "data": "2026-11-01",
-   "hora": 12,
-   "id": "d1101b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101b.jpg",
-   "publicado": "17996280024108216"
-  },
-  {
-   "data": "2026-11-01",
-   "hora": 17,
-   "id": "d1101c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101c.jpg",
-   "publicado": "18456016675125859"
-  },
-  {
-   "data": "2026-11-01",
-   "hora": 21,
-   "id": "d1101d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101d.jpg",
-   "publicado": "18169972888466969"
-  },
-  {
-   "data": "2026-11-02",
-   "hora": 8,
-   "id": "d1102a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-02",
-   "hora": 12,
-   "id": "d1102b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-02",
-   "hora": 17,
-   "id": "d1102c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-02",
-   "hora": 21,
-   "id": "d1102d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-03",
-   "hora": 8,
-   "id": "d1103a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-03",
-   "hora": 12,
-   "id": "d1103b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-03",
-   "hora": 17,
-   "id": "d1103c",
-   "tipo": "diagnostico",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-03",
-   "hora": 21,
-   "id": "d1103d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-04",
-   "hora": 8,
-   "id": "d1104a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-04",
-   "hora": 12,
-   "id": "d1104b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-04",
-   "hora": 17,
-   "id": "d1104c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-04",
-   "hora": 21,
-   "id": "d1104d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-05",
-   "hora": 8,
-   "id": "d1105a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-05",
-   "hora": 12,
-   "id": "d1105b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-05",
-   "hora": 17,
-   "id": "d1105c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-05",
-   "hora": 21,
-   "id": "d1105d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-06",
-   "hora": 8,
-   "id": "d1106a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-06",
-   "hora": 12,
-   "id": "d1106b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-06",
-   "hora": 17,
-   "id": "d1106c",
-   "tipo": "diagnostico",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-06",
-   "hora": 21,
-   "id": "d1106d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-07",
-   "hora": 12,
-   "id": "d1107b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1107b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-07",
-   "hora": 17,
-   "id": "d1107c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1107c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-07",
-   "hora": 21,
-   "id": "d1107d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1107d.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-08",
-   "hora": 8,
-   "id": "d1108a",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1108a.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-08",
-   "hora": 12,
-   "id": "d1108b",
-   "tipo": "pergunta",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1108b.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-08",
-   "hora": 17,
-   "id": "d1108c",
-   "tipo": "dica",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1108c.jpg",
-   "publicado": null
-  },
-  {
-   "data": "2026-11-08",
-   "hora": 21,
-   "id": "d1108d",
-   "tipo": "noite",
-   "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1108d.jpg",
-   "publicado": null
-  }
- ]
+  "nota": "Stories 4 por dia (Mateus, 27/10: \"tudo\"). Horários de Brasília: 8h07, 12h07, 17h07 e 21h07 (a rotina roda no minuto 7). Nos dias com story da série (ep. 7 em 28/10 às 19h, s1 em 30/10 às 19h, s2 em 31/10 às 22h, s3 em 07/11 às 9h) o horário mais próximo não tem story nosso. Semana 2 (02 a 08/11): base https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/. Publicado = media_id.",
+  "base": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/",
+  "itens": [
+    {
+      "data": "2026-10-28",
+      "hora": 8,
+      "id": "d1028a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028a.jpg",
+      "publicado": "18132558109747182"
+    },
+    {
+      "data": "2026-10-28",
+      "hora": 12,
+      "id": "d1028b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028b.jpg",
+      "publicado": "17962539230999287"
+    },
+    {
+      "data": "2026-10-28",
+      "hora": 21,
+      "id": "d1028d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1028d.jpg",
+      "publicado": "18411894757093075"
+    },
+    {
+      "data": "2026-10-29",
+      "hora": 8,
+      "id": "d1029a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029a.jpg",
+      "publicado": "18125460022909720"
+    },
+    {
+      "data": "2026-10-29",
+      "hora": 12,
+      "id": "d1029b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029b.jpg",
+      "publicado": "18118189828984098"
+    },
+    {
+      "data": "2026-10-29",
+      "hora": 17,
+      "id": "d1029c",
+      "tipo": "diagnostico",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029c.jpg",
+      "publicado": "18134895178737756"
+    },
+    {
+      "data": "2026-10-29",
+      "hora": 21,
+      "id": "d1029d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1029d.jpg",
+      "publicado": "17941717908389956"
+    },
+    {
+      "data": "2026-10-30",
+      "hora": 8,
+      "id": "d1030a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030a.jpg",
+      "publicado": "17928113187427525"
+    },
+    {
+      "data": "2026-10-30",
+      "hora": 12,
+      "id": "d1030b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030b.jpg",
+      "publicado": "17878539966633676"
+    },
+    {
+      "data": "2026-10-30",
+      "hora": 21,
+      "id": "d1030d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1030d.jpg",
+      "publicado": "18101838356540656"
+    },
+    {
+      "data": "2026-10-31",
+      "hora": 8,
+      "id": "d1031a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031a.jpg",
+      "publicado": "18114636947167482"
+    },
+    {
+      "data": "2026-10-31",
+      "hora": 12,
+      "id": "d1031b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031b.jpg",
+      "publicado": "18202443745377695"
+    },
+    {
+      "data": "2026-10-31",
+      "hora": 17,
+      "id": "d1031c",
+      "tipo": "diagnostico",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1031c.jpg",
+      "publicado": "17978299869153997"
+    },
+    {
+      "data": "2026-11-01",
+      "hora": 8,
+      "id": "d1101a",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101a.jpg",
+      "publicado": "18144943108587958"
+    },
+    {
+      "data": "2026-11-01",
+      "hora": 12,
+      "id": "d1101b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101b.jpg",
+      "publicado": "17996280024108216"
+    },
+    {
+      "data": "2026-11-01",
+      "hora": 17,
+      "id": "d1101c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101c.jpg",
+      "publicado": "18456016675125859"
+    },
+    {
+      "data": "2026-11-01",
+      "hora": 21,
+      "id": "d1101d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/aca49f098966577b37eccc8b2de4b0e443c62d46/anuncios/organico/stories/semana1/d1101d.jpg",
+      "publicado": "18169972888466969"
+    },
+    {
+      "data": "2026-11-02",
+      "hora": 8,
+      "id": "d1102a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102a.jpg",
+      "publicado": "18115836641330777"
+    },
+    {
+      "data": "2026-11-02",
+      "hora": 12,
+      "id": "d1102b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102b.jpg",
+      "publicado": "18137543650655877"
+    },
+    {
+      "data": "2026-11-02",
+      "hora": 17,
+      "id": "d1102c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102c.jpg",
+      "publicado": "18126728278918185"
+    },
+    {
+      "data": "2026-11-02",
+      "hora": 21,
+      "id": "d1102d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1102d.jpg",
+      "publicado": "18120770387070413"
+    },
+    {
+      "data": "2026-11-03",
+      "hora": 8,
+      "id": "d1103a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103a.jpg",
+      "publicado": "18095885804680621"
+    },
+    {
+      "data": "2026-11-03",
+      "hora": 12,
+      "id": "d1103b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103b.jpg",
+      "publicado": "17959549029017496"
+    },
+    {
+      "data": "2026-11-03",
+      "hora": 17,
+      "id": "d1103c",
+      "tipo": "diagnostico",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103c.jpg",
+      "publicado": "17935000026414494"
+    },
+    {
+      "data": "2026-11-03",
+      "hora": 21,
+      "id": "d1103d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1103d.jpg",
+      "publicado": "18120388757072357"
+    },
+    {
+      "data": "2026-11-04",
+      "hora": 8,
+      "id": "d1104a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104a.jpg",
+      "publicado": "18472357963185214"
+    },
+    {
+      "data": "2026-11-04",
+      "hora": 12,
+      "id": "d1104b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104b.jpg",
+      "publicado": "18110137403263017"
+    },
+    {
+      "data": "2026-11-04",
+      "hora": 17,
+      "id": "d1104c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104c.jpg",
+      "publicado": "18425467462154228"
+    },
+    {
+      "data": "2026-11-04",
+      "hora": 21,
+      "id": "d1104d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1104d.jpg",
+      "publicado": "18108550165981418"
+    },
+    {
+      "data": "2026-11-05",
+      "hora": 8,
+      "id": "d1105a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105a.jpg",
+      "publicado": "18193369837404928"
+    },
+    {
+      "data": "2026-11-05",
+      "hora": 12,
+      "id": "d1105b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105b.jpg",
+      "publicado": "17885637582691143"
+    },
+    {
+      "data": "2026-11-05",
+      "hora": 17,
+      "id": "d1105c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105c.jpg",
+      "publicado": "18138096064680785"
+    },
+    {
+      "data": "2026-11-05",
+      "hora": 21,
+      "id": "d1105d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1105d.jpg",
+      "publicado": "17917664310542976"
+    },
+    {
+      "data": "2026-11-06",
+      "hora": 8,
+      "id": "d1106a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106a.jpg",
+      "publicado": "18133534915693172"
+    },
+    {
+      "data": "2026-11-06",
+      "hora": 12,
+      "id": "d1106b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/30f5946ecc93f49ee19d3a853e14b0db11166f05/anuncios/organico/stories/semana2/d1106b.jpg",
+      "publicado": "18016199588995381"
+    },
+    {
+      "data": "2026-11-06",
+      "hora": 17,
+      "id": "d1106c",
+      "tipo": "diagnostico",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1106c.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-06",
+      "hora": 21,
+      "id": "d1106d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1106d.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-07",
+      "hora": 12,
+      "id": "d1107b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1107b.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-07",
+      "hora": 17,
+      "id": "d1107c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1107c.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-07",
+      "hora": 21,
+      "id": "d1107d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1107d.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-08",
+      "hora": 8,
+      "id": "d1108a",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1108a.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-08",
+      "hora": 12,
+      "id": "d1108b",
+      "tipo": "pergunta",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1108b.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-08",
+      "hora": 17,
+      "id": "d1108c",
+      "tipo": "dica",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1108c.jpg",
+      "publicado": null
+    },
+    {
+      "data": "2026-11-08",
+      "hora": 21,
+      "id": "d1108d",
+      "tipo": "noite",
+      "url": "https://raw.githubusercontent.com/match-house/lp-match-house/8b22c157f4d39a13d5aac63548241e09a9163ee3/anuncios/organico/stories/semana2b/d1108d.jpg",
+      "publicado": null
+    }
+  ]
 }
