@@ -120,6 +120,7 @@ const artes = [
   dica("d1107c", "Legenda pronta para o seu post.", "Em Divulgar, toque em", "Copiar legenda", "Cole no post. O seu link já vai junto."),
   noite("d1107d", "Sábado, 21h.<br>Você no churrasco.<span>A IA atendendo.</span>",
     "Dá para visitar a casa amanhã cedo?", "Amanhã às 10h está livre. Me passa seu nome e celular que eu marco.", "Visita marcada: domingo, 10h."),
+  dica("d1107e", "QR do imóvel na placa de Vende-se.", "Ao editar o imóvel, toque em", "QR para placa", "Quem aponta a câmera fala com a sua IA."),
   dica("d1108a", "Seu QR no cartão de visita.", "Em Divulgar, toque em", "Ver QR code", "Baixe e ponha no cartão ou no panfleto."),
   pergunta("d1108b", "Domingo é dia de responder cliente?", "Sim, não ou só os importantes?"),
   dica("d1108c", "Lançamento? Marque a fase.", "Ao editar o imóvel, escolha a", "Fase", "O selo aparece no seu Smart Link."),
