@@ -390,7 +390,11 @@ Notas do projeto para agentes. Ler antes de mexer.
       - **No funil diário desde 28/10** (Mateus: "A campanha de whatsapp vai
         entrar como no funil diario?"): o cartão "Meta → WhatsApp 6800", com as
         mesmas etapas (ontem e total desde 27/10, custo de cada uma), lê a
-        constante `WHATSAPP_15B`, trocada todo dia com as outras. A última
+        constante `WHATSAPP_15B`, trocada todo dia com as outras.
+        **Escondido desde 08/11** (Mateus: "pode tirar aquele da campanha do
+        WhatsApp, porque ela não está ativa"): `WHATSAPP_15B.mostrar = false`.
+        Volta com `mostrar: true` quando a campanha do WhatsApp voltar (ele
+        falou do fim da semana de 09 a 15/11). A última
         etapa é "Compraram o Pro" (Mateus, 28/10: "Inclua o comprou na lista
         ja que nosso objetivo é vender"): vendas pagas e não devolvidas de
         `/pro/vendas`, de contas com essa origem. Em `ORIGENS`,
