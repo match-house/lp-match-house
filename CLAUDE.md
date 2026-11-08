@@ -1006,6 +1006,24 @@ para aquela mensagem.
     hora, inclusive à noite e no fim de semana." O `<title>` e a
     description da página (o que o Google lê) ficaram os de antes. Corretor
     sem IA não muda.
+  - **Sem a borda branca desde 08/11, 20h27** (site #244; Mateus: "tira a
+    borda branca"). A placa escura ocupa a imagem inteira; o conteúdo ficou
+    no mesmo lugar. Não voltar a moldura.
+  - **Aviso a quem já tem o link na bio** (Mateus, 08/11: "avise aos que ja
+    estao com link na bio, explica que fizemos atualizacao e manda uma
+    previa de como vai ficar e o que eles tem que fazer para colocar no
+    ar"). São 27 corretores: visitas pelo Instagram ou "colei o link"
+    marcado.
+    - E-mail com a prévia (`anuncios/email/bio-cartao-novo.jpg`, exemplo da
+      Camila) em 09/11, às 9h05, e WhatsApp `mh_bio_cartao_1` (api #160 e
+      #161, modelo com imagem, `twilio/card`) às 10h05, se a Meta aprovar.
+    - O passo é apagar o link da bio e colar de novo, com o título "Fale com
+      a minha IA": o Instagram guarda a imagem antiga. O botão abre a página
+      da bio (`mh_src=email-bio-cartao-1` e `whatsapp-bio-cartao-1`).
+    - Esses 27 saíram da campanha "ponha a sua IA para trabalhar", para não
+      receber duas vezes a mesma coisa.
+    - Scripts em `scratchpad/bio-aviso/` (cópia em `ferramentas/bio-aviso/`
+      da branch de trabalho). A lista tem nome de corretor e não vem para cá.
 - **Título sugerido: "Fale com a minha IA"** (Mateus, 08/11). É o que aparece
   ao lado da foto na lista de links. Está na página da bio (app #181), no
   passo 1 do e-mail e na 4ª mensagem do "Quero os textos" (api #159).
