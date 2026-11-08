@@ -955,7 +955,10 @@ para aquela mensagem.
     ainda pode publicar.
 - Dizer sempre que as contas dos últimos dias ainda vão publicar: a conta
   por quem publicou melhora com o tempo.
-- Os números ficam só no relatório. Este repositório é público.
+- Também na página do funil diário (Mateus, 08/11: "coloca no funil diário
+  tb"): cartão "CAC do mês", logo depois de "Custo por canal". Ele lê a
+  constante `CAC_MES`, trocada todo dia junto com as outras.
+- Os números ficam só no relatório e na página. Este repositório é público.
 
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
