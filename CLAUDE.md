@@ -929,6 +929,31 @@ para aquela mensagem.
     sem ele. Em 11/10 ficou com ele a pergunta à Contabilizei sobre o
     valor mínimo.
 
+## CAC do mês no relatório diário, todo dia (Mateus, 08/11)
+
+- Pedido dele, depois de ver o CAC de outubro e o de novembro até ontem:
+  "Coloca isso no relatório diário todo dia". Vale acima do roteiro da
+  rotina do relatório diário, que ainda não fala disso.
+- O relatório traz um bloco "CAC do mês", do dia 1º até ontem, ao lado do
+  mês anterior fechado:
+  - uma tabela por canal: ChatGPT, Meta app, Meta LP, outras campanhas da
+    Meta (as que não trazem conta) e Google, mais o total;
+  - em cada linha, o gasto (a Meta com os 13,83%) e o custo por conta, por
+    quem concluiu e por quem publicou, com as quantidades;
+  - quantos por cento das contas publicaram, por canal;
+  - se a verba mudou no mês, os mesmos números para cada período de verba;
+  - o custo total por corretor que publicou: mídia, uso e fixos
+    proporcionais aos dias do período.
+- Fontes:
+  - contas, concluíram e publicaram: `custos/cac.mjs <mês>` e
+    `custos/origens.mjs <último dia>`;
+  - o gasto: a área de custos, coleção `meses`.
+  - O mês anterior é recontado todo dia, porque quem se cadastrou nele
+    ainda pode publicar.
+- Dizer sempre que as contas dos últimos dias ainda vão publicar: a conta
+  por quem publicou melhora com o tempo.
+- Os números ficam só no relatório. Este repositório é público.
+
 ## Planos por lead qualificado (decidido pelo Mateus em 29/09, ainda não lançado)
 
 - **19/10: atraso em vez de bloqueio** (direção do Mateus, ainda não
