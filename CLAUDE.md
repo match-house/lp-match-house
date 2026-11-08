@@ -945,9 +945,12 @@ para aquela mensagem.
   - o custo total por corretor que publicou: mídia, uso e fixos
     proporcionais aos dias do período.
 - Fontes:
-  - contas, concluíram e publicaram: `custos/cac.mjs <mês>` e
-    `custos/origens.mjs <último dia>`;
-  - o gasto: a área de custos, coleção `meses`.
+  - o bloco sai pronto de `node custos/cac-mes.mjs <ontem> <pasta>` (cópia
+    em `ferramentas/custos/` da branch de trabalho). A pasta é o `out_dir`
+    de um `ArtifactData` da área de custos, com `meses/` dos dois meses e
+    `fixos/`, lido depois de gravar o dia;
+  - por dentro ele usa `custos/origens.mjs` para contas, concluíram e
+    publicaram, e a coleção `meses` para o gasto.
   - O mês anterior é recontado todo dia, porque quem se cadastrou nele
     ainda pode publicar.
 - Dizer sempre que as contas dos últimos dias ainda vão publicar: a conta
