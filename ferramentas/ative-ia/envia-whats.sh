@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# WhatsApp "ponha a sua IA para trabalhar" (Mateus, 08/11), modelo
-# mh_ative_ia_1: {{1}} primeiro nome, {{2}} "5 imóveis" ou "1 imóvel",
+# WhatsApp "ponha a sua IA para trabalhar" (Mateus, 08/11), modelo mh_ative_ia_2 (com o passo do WhatsApp Business; antes
+# mh_ative_ia_1): {{1}} primeiro nome, {{2}} "5 imóveis" ou "1 imóvel",
 # {{3}} smartli.ink/<slug> e {{4}} <slug>?mh_src=whatsapp-ative-1 (o fim do
 # botão para app.smartli.ink/bio/...). Vai só a quem recebeu o e-mail num dia
 # anterior. No máximo LIMITE_DIA (30) por dia, somando as campanhas (regra de
@@ -16,8 +16,8 @@ touch "$LOG" "$EMAILS"
 LIMITE_DIA=${LIMITE_DIA:-30}
 HOJE=$(TZ=America/Sao_Paulo date +%F)
 
-SID=$(curl -sS "$API/templates" | jq -r '.modelos[] | select(.nome == "mh_ative_ia_1" and (.status|ascii_downcase) == "approved") | .sid' | head -1)
-[ -z "$SID" ] && { echo "mh_ative_ia_1 ainda não aprovado pela Meta: nada enviado"; exit 0; }
+SID=$(curl -sS "$API/templates" | jq -r '.modelos[] | select(.nome == "mh_ative_ia_2" and (.status|ascii_downcase) == "approved") | .sid' | head -1)
+[ -z "$SID" ] && { echo "mh_ative_ia_2 ainda não aprovado pela Meta: nada enviado"; exit 0; }
 
 # quem recebeu o e-mail antes de hoje (dia de Brasília)
 prontos=$(jq -sc --arg h "$HOJE" '[.[] | select(.status == "enviado") | select((.em | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 - 10800 | strftime("%Y-%m-%d")) < $h) | .id_user] | unique' "$EMAILS")

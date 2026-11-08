@@ -46,9 +46,10 @@ corpo() { # $1 linha da lista (json)
 
 $(numeros "$v30" "$ig")
 
-São 2 passos, 1 minuto:
+São 3 passos, 2 minutos:
 1. Toque no botão abaixo e cole o seu link como o 1º da bio do Instagram.
-2. Em Redes, coloque o seu Instagram no Smart Link."
+2. Em Redes, coloque o seu Instagram no Smart Link.
+3. No WhatsApp Business, ponha o seu link na mensagem de saudação e na de ausência. Quem escreve para você já é atendido pela sua IA, mesmo quando você não pode responder. Os textos prontos, com o botão de copiar, estão na página do botão abaixo."
   jq -n --argjson id "$id" --arg s "$assunto" --arg t "$texto" --arg img "$IMG" --arg h "$titulo" --arg u "$url" --arg n "$nota" \
     '{id_user: $id, channel: "email", kind: "texto", subject: $s, text: $t,
       arte: {image_url: $img, headline: $h, cta_label: "Colar meu link na bio", cta_url: $u, note: $n}}'
