@@ -951,11 +951,25 @@ para aquela mensagem.
     e quantas vieram do Instagram.
   - O botão "Colar meu link na bio" leva a
     `app.smartli.ink/bio/<slug>?mh_src=email-ative-1`.
-- **WhatsApp** `mh_ative_ia_1` (api #154, MARKETING), com o mesmo ciclo e
-  o botão para a mesma página (`mh_src=whatsapp-ative-1`).
-  - Sai só a quem recebeu o e-mail num dia anterior, 30 por dia, depois de
-    a Meta aprovar.
-- **A página `app.smartli.ink/bio/<slug>`** (app #178, no ar desde 08/11)
+- **WhatsApp** `mh_ative_ia_2` (api #156, MARKETING, aprovado em 08/11),
+  com o mesmo ciclo e o botão para a mesma página
+  (`mh_src=whatsapp-ative-1`). O `mh_ative_ia_1` (api #154) não tem o passo
+  do WhatsApp e ficou sem uso.
+  - Sai só a quem recebeu o e-mail num dia anterior, 30 por dia.
+- **3º passo: a IA no WhatsApp do corretor** (Mateus, 08/11: "o principal
+  é o WhatsApp dele" e "pode colocar nas mensagens dos 5 e de todos os
+  outros e a mensagem de saudação do whatsapp.. com o icone para copiar e
+  colar").
+  - O e-mail, o WhatsApp e a página pedem para pôr o Smart Link nas
+    mensagens de saudação e de ausência do WhatsApp Business.
+  - A página traz os dois textos prontos, cada um com o botão "Copiar"
+    (app #179), e o evento `whatsapp_texto_copiado` {tipo, origem}.
+  - O link vai sem utm (link limpo, regra da bio). Quem chega pela
+    mensagem conta como "direto".
+  - A ideia maior fica para a volta: a IA respondendo no WhatsApp do próprio
+    corretor, pela coexistência da Meta (mesmo número no app e na API).
+    Falta confirmar se a Twilio faz.
+- **A página `app.smartli.ink/bio/<slug>`** (app #178 e #179, no ar desde 08/11)
   abre sem login. Mateus: "só clicar ali e já copiar e colar. Já abrir ali
   no lugar onde ele já cola no link da bio".
   - Um toque copia `smartli.ink/<slug>` e abre a tela de editar perfil do
