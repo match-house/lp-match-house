@@ -933,6 +933,48 @@ para aquela mensagem.
     sem ele. Em 11/10 ficou com ele a pergunta à Contabilizei sobre o
     valor mínimo.
 
+## Campanha "ponha a sua IA para trabalhar" (Mateus, 08/11)
+
+- Para os corretores que publicaram pelo menos 1 imóvel, primeiro; depois
+  vai ao resto. A quantidade fica fora daqui (repositório público). Pede
+  duas coisas:
+  1. o Smart Link como 1º link da bio do Instagram;
+  2. o Instagram dele dentro do Smart Link (Redes).
+- **E-mail com arte** (`anuncios/email/hero-ciclo.jpg` da branch de
+  trabalho). A arte é o ciclo "Uma coisa puxa a outra": Instagram, Smart
+  Link, IA atende e Seguidores, com "Mais clientes" no meio. O fundo é
+  branco, a escolha do Mateus entre 3 opções de cor. Ele pediu: "precisa
+  ser mais facil de entender em segundos", "diminua um pouco os icones para
+  ter mais respiro" e "Use proporcao".
+  - O título é "Parabéns, <nome>! 👏 Você já tem N imóveis na Match House."
+  - O texto é curto e traz os números do próprio corretor: visitas do mês
+    e quantas vieram do Instagram.
+  - O botão "Colar meu link na bio" leva a
+    `app.smartli.ink/bio/<slug>?mh_src=email-ative-1`.
+- **WhatsApp** `mh_ative_ia_1` (api #154, MARKETING), com o mesmo ciclo e
+  o botão para a mesma página (`mh_src=whatsapp-ative-1`).
+  - Sai só a quem recebeu o e-mail num dia anterior, 30 por dia, depois de
+    a Meta aprovar.
+- **A página `app.smartli.ink/bio/<slug>`** (app #178, no ar desde 08/11)
+  abre sem login. Mateus: "só clicar ali e já copiar e colar. Já abrir ali
+  no lugar onde ele já cola no link da bio".
+  - Um toque copia `smartli.ink/<slug>` e abre a tela de editar perfil do
+    Instagram.
+  - O 2º botão leva a Redes.
+  - O toque gera `bio_link_click` com `onde: "campanha"` e `origem` (o
+    `mh_src`).
+- **Envios**, com o "Pode" dele em 08/11:
+  - e-mail: a 1ª leva em 09/11, às 9h, e o resto em 10/11, às 9h (até
+    100 por rodada; o teto da API é 150 por dia);
+  - WhatsApp: rotina diária às 10h13 (`trig_017CJv2swoXzLd4bk1TfwRjH`), que
+    se desliga quando acabar.
+  - Scripts e lista em `scratchpad/ative-ia/`. A lista tem nome e link de
+    corretor e não vem para cá.
+- Medir no relatório diário:
+  - e-mails e WhatsApps enviados;
+  - toques no botão por origem;
+  - quem passou a ter visitas pelo Instagram (bio confirmada).
+
 ## CAC do mês no relatório diário, todo dia (Mateus, 08/11)
 
 - Pedido dele, depois de ver o CAC de outubro e o de novembro até ontem:
