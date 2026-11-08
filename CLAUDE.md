@@ -999,6 +999,13 @@ para aquela mensagem.
     prévia fora do Next (`next/og` com as fontes Poppins da pasta).
   - Quem já tinha o link na bio só vê o cartão novo se tirar e colar o link
     de novo: o Instagram guarda a imagem antiga.
+  - **O texto embaixo do cartão também mudou** (site #243; Mateus, 08/11:
+    "Pode mudar o texto embaixo também"). Para corretor com IA, o
+    og:title é "Fale com a IA da/do/de <Nome>" e o og:description é "Veja
+    os imóveis, tire suas dúvidas e marque sua visita. A IA … responde na
+    hora, inclusive à noite e no fim de semana." O `<title>` e a
+    description da página (o que o Google lê) ficaram os de antes. Corretor
+    sem IA não muda.
 - **Título sugerido: "Fale com a minha IA"** (Mateus, 08/11). É o que aparece
   ao lado da foto na lista de links. Está na página da bio (app #181), no
   passo 1 do e-mail e na 4ª mensagem do "Quero os textos" (api #159).
