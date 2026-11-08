@@ -3,50 +3,72 @@
 @font-face{font-family:P;src:url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf");font-weight:600}
 @font-face{font-family:P;src:url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-ExtraBold.ttf");font-weight:800}
 body{margin:0}
-/* Vertical (1200×1600): no e-mail do celular a imagem fica com ~340 px de
-   largura, então o texto da arte tem de ser grande (Mateus, 08/11: "algo que
-   convença mais... uma coisa alimenta a outra... com gráfico"). */
-#hero{width:1200px;height:1600px;position:relative;overflow:hidden;font-family:P,Arial,sans-serif;
- background:radial-gradient(1000px 1000px at 50% 66%,#1b2fd6 0%,#000f90 50%,#00073e 100%);color:#fff}
-.topo{position:absolute;left:84px;top:72px;right:84px}
-.logo{height:64px;display:block;margin-bottom:56px}
-.k{font-weight:600;letter-spacing:.14em;font-size:34px;color:#00efff;text-transform:uppercase}
-h1{font-weight:800;font-size:84px;line-height:1.04;margin:18px 0 0;letter-spacing:-.015em}
-h1 em{font-style:normal;color:#00efff}
-#ciclo{position:absolute;left:0;top:590px;width:1200px;height:1000px}
+/* Mateus, 08/11: "Use novas cores". Mesma arte (v6, com respiro), 3 temas
+   escolhidos por #tema no endereço: claro, passos (uma cor por passo) e ciano. */
+#hero{width:1200px;height:1300px;position:relative;overflow:hidden;font-family:P,Arial,sans-serif;background:var(--bg);color:var(--txt)}
+.topo{position:absolute;left:96px;top:84px;right:96px}
+.logo{height:50px;display:block;margin-bottom:52px}
+h1{font-weight:800;font-size:82px;line-height:1.02;margin:0;letter-spacing:-.02em;color:var(--txt)}
+h1 em{font-style:normal;color:var(--destaque)}
+#ciclo{position:absolute;left:0;top:455px;width:1200px;height:1040px;transform:scale(.76);transform-origin:50% 0}
 .no{position:absolute;width:420px;text-align:center}
-.ic{width:150px;height:150px;margin:0 auto 14px;border-radius:50%;display:flex;align-items:center;justify-content:center;
- font-family:"Noto Color Emoji";font-size:74px;background:#fff;box-shadow:0 14px 40px rgba(0,0,0,.35);position:relative}
-.n{position:absolute;top:-4px;right:-4px;width:54px;height:54px;border-radius:50%;background:#00efff;color:#000f90;
- font-family:P;font-weight:800;font-size:30px;display:flex;align-items:center;justify-content:center}
-.no b{display:block;font-size:42px;line-height:1.1;font-weight:800}
-.no span{display:block;font-size:31px;line-height:1.25;color:#d3d9ff;margin-top:6px}
-.centro{position:absolute;left:450px;top:330px;width:300px;text-align:center}
-.bars{display:flex;align-items:flex-end;justify-content:center;gap:16px;height:150px}
-.bars i{display:block;width:40px;border-radius:9px 9px 3px 3px;background:linear-gradient(#00efff,#00a8d8)}
-.centro b{display:block;margin-top:16px;font-size:36px;font-weight:800;line-height:1.12}
+.ic{width:150px;height:150px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+ background:var(--ic-bg);box-shadow:var(--sombra);position:relative}
+.ic svg{stroke:var(--ic-traco)}
+.ic svg .ac{stroke:var(--ic-acento);fill:none}
+.ic svg .acf{fill:var(--ic-acento);stroke:var(--ic-acento)}
+.ic svg .pt{fill:var(--ic-traco);stroke:none}
+.n{position:absolute;top:-4px;right:-4px;width:50px;height:50px;border-radius:50%;background:var(--n-bg);color:var(--n-txt);
+ font-family:P;font-weight:800;font-size:27px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px var(--n-borda)}
+.no b{display:block;font-size:54px;line-height:1.05;font-weight:800;letter-spacing:-.01em;color:var(--txt)}
+.centro{position:absolute;left:450px;top:345px;width:300px;text-align:center}
+.bars{display:flex;align-items:flex-end;justify-content:center;gap:13px;height:126px}
+.bars i{display:block;width:34px;border-radius:8px 8px 3px 3px;background:var(--barra)}
+.centro b{display:block;margin-top:14px;font-size:44px;font-weight:800;line-height:1.02;color:var(--destaque)}
+.seta-traco{stroke:var(--seta)} .seta-ponta{fill:var(--seta)}
+
+/* Claro: papel, azul da marca e ciano só nos números */
+.claro{--bg:linear-gradient(180deg,#ffffff 0%,#eef1ff 100%);--txt:#00073e;--destaque:#0a23c0;
+ --ic-bg:#000f90;--ic-traco:#ffffff;--ic-acento:#00efff;--sombra:0 16px 40px rgba(0,15,144,.22);
+ --n-bg:#00efff;--n-txt:#00073e;--n-borda:#ffffff;--seta:#2748df;--barra:linear-gradient(#2748df,#000f90)}
+/* Passos: fundo marinho, cada passo com a sua cor */
+.passos{--bg:radial-gradient(900px 900px at 50% 66%,#141a5c 0%,#0a0f3d 55%,#05081f 100%);--txt:#ffffff;--destaque:#ffd23f;
+ --ic-traco:#ffffff;--ic-acento:#ffffff;--sombra:0 16px 44px rgba(0,0,0,.45);
+ --n-bg:#ffffff;--n-txt:#0a0f3d;--n-borda:#0a0f3d;--seta:rgba(255,255,255,.55);--barra:linear-gradient(#ffd23f,#ff9f1c)}
+.passos .p1 .ic{background:linear-gradient(135deg,#feda75,#fa7e1e 35%,#d62976 65%,#962fbf)}
+.passos .p2 .ic{background:linear-gradient(135deg,#00efff,#0a8fd8)}
+.passos .p3 .ic{background:linear-gradient(135deg,#a78bfa,#6d28d9)}
+.passos .p4 .ic{background:linear-gradient(135deg,#4ade80,#0a8a5b)}
+/* Ciano: fundo ciano da marca, marinho em tudo */
+.ciano{--bg:radial-gradient(900px 900px at 50% 66%,#7ff7ff 0%,#00efff 55%,#00d4e6 100%);--txt:#00073e;--destaque:#0a23c0;
+ --ic-bg:#ffffff;--ic-traco:#000f90;--ic-acento:#0a23c0;--sombra:0 16px 40px rgba(0,7,62,.22);
+ --n-bg:#000f90;--n-txt:#00efff;--n-borda:#00efff;--seta:#000f90;--barra:linear-gradient(#0a23c0,#00073e)}
 </style></head><body>
 <div id="hero">
- <div class="topo"><img class="logo" src="logo-dark.png" alt="">
-  <div class="k">Uma coisa alimenta a outra</div>
-  <h1>Seu Instagram traz o cliente. <em>Sua IA atende na hora.</em></h1>
+ <div class="topo"><img class="logo" id="logo" src="logo-dark.png" alt="">
+  <h1>Uma coisa<br><em>puxa a outra.</em></h1>
  </div>
  <div id="ciclo">
-  <svg width="1200" height="1000" viewBox="0 0 1200 1000" style="position:absolute;left:0;top:0">
-   <defs><marker id="seta" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-    <path d="M0,0 L10,5 L0,10 z" fill="#00efff"/></marker></defs>
-   <g fill="none" stroke="#00efff" stroke-width="8" stroke-linecap="round" stroke-dasharray="3 20">
-    <path d="M790,95 A430,430 0 0 1 960,300" marker-end="url(#seta)"/>
-    <path d="M960,650 A430,430 0 0 1 705,790" marker-end="url(#seta)"/>
-    <path d="M495,790 A430,430 0 0 1 240,650" marker-end="url(#seta)"/>
-    <path d="M240,300 A430,430 0 0 1 410,95" marker-end="url(#seta)"/>
+  <svg width="1200" height="1040" viewBox="0 0 1200 1040" style="position:absolute;left:0;top:0">
+   <defs><marker id="seta" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+    <path class="seta-ponta" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+   <g class="seta-traco" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="4 24">
+    <path d="M820,110 A440,440 0 0 1 975,300" marker-end="url(#seta)"/>
+    <path d="M975,640 A440,440 0 0 1 760,830" marker-end="url(#seta)"/>
+    <path d="M440,830 A440,440 0 0 1 225,640" marker-end="url(#seta)"/>
+    <path d="M225,300 A440,440 0 0 1 380,110" marker-end="url(#seta)"/>
    </g>
   </svg>
-  <div class="no" style="left:390px;top:0"><div class="ic">📱<div class="n">1</div></div><b>Instagram</b><span>Seu Smart Link é o 1º link da bio</span></div>
-  <div class="no" style="left:760px;top:320px"><div class="ic">🏠<div class="n">2</div></div><b>Smart Link</b><span>Quem toca vê os seus imóveis</span></div>
-  <div class="no" style="left:390px;top:700px"><div class="ic">🤖<div class="n">3</div></div><b>Sua IA</b><span>Atende na hora e pega nome e celular</span></div>
-  <div class="no" style="left:20px;top:320px"><div class="ic">💙<div class="n">4</div></div><b>Novos seguidores</b><span>Quem chega pelo link segue você</span></div>
-  <div class="centro"><div class="bars"><i style="height:50px"></i><i style="height:84px"></i><i style="height:116px"></i><i style="height:150px"></i></div><b>mais clientes atendidos</b></div>
+  <div class="no p1" style="left:390px;top:0"><div class="ic"><svg viewBox="0 0 100 100" width="88" height="88" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="20" width="60" height="60" rx="18"/><circle cx="50" cy="50" r="14"/><circle class="pt" cx="67.5" cy="32.5" r="3.5"/></svg><div class="n">1</div></div><b>Instagram</b></div>
+  <div class="no p2" style="left:760px;top:330px"><div class="ic"><svg viewBox="0 0 100 100" width="88" height="88" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><g transform="rotate(-45 50 50)"><rect x="14" y="38" width="40" height="24" rx="12"/><rect x="46" y="38" width="40" height="24" rx="12"/></g></svg><div class="n">2</div></div><b>Smart Link</b></div>
+  <div class="no p3" style="left:390px;top:700px"><div class="ic"><svg viewBox="0 0 100 100" width="88" height="88" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 26h56a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8H46L30 82V70h-8a8 8 0 0 1-8-8V34a8 8 0 0 1 8-8z"/><path class="acf" d="M50 36l3.6 8.4L62 48l-8.4 3.6L50 60l-3.6-8.4L38 48l8.4-3.6z" stroke-width="2"/></svg><div class="n">3</div></div><b>IA atende</b></div>
+  <div class="no p4" style="left:20px;top:330px"><div class="ic"><svg viewBox="0 0 100 100" width="88" height="88" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="36" r="13"/><path d="M16 80c2-15 12-23 24-23s22 8 24 23"/><path class="ac" d="M76 34v24M64 46h24"/></svg><div class="n">4</div></div><b>Seguidores</b></div>
+  <div class="centro"><div class="bars"><i style="height:42px"></i><i style="height:70px"></i><i style="height:98px"></i><i style="height:126px"></i></div><b>Mais<br>clientes</b></div>
  </div>
 </div>
+<script>
+ const tema = (location.hash || '#claro').slice(1);
+ document.getElementById('hero').className = tema;
+ if (tema !== 'passos') document.getElementById('logo').src = 'logo-light.png';
+</script>
 </body></html>
