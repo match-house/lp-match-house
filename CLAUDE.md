@@ -975,6 +975,39 @@ para aquela mensagem.
   - toques no botão por origem;
   - quem passou a ter visitas pelo Instagram (bio confirmada).
 
+## Sucesso do cliente no funil diário, todo dia (Mateus, 08/11)
+
+- A pergunta dele foi "o que você acredita que seja o sucesso do cliente".
+  A resposta: o corretor receber um cliente dele com nome e celular sem
+  precisar estar no celular, todo mês. Publicar imóvel é só a vitrine.
+  Depois ele disse: "Pode colocar no funil diário".
+- **Cartão "Sucesso do cliente"**, logo depois de "O funil inteiro". Mostra
+  quantos dos corretores com imóvel no ar chegaram a cada passo, em 7 e em
+  30 dias:
+  1. link na bio;
+  2. visitas no link;
+  3. visitas vindas do Instagram;
+  4. cliente escreveu para a IA;
+  5. cliente com nome e celular.
+  - Embaixo vem a lista de quem recebeu cliente nos 30 dias.
+  - O cartão lê a constante `SUCESSO`, que é trocada todo dia junto com as
+    outras.
+- Fontes:
+  - `node custos/sucesso.mjs <hoje>` e depois `custos/sucesso-js.mjs` (cópia
+    em `ferramentas/custos/` da branch de trabalho). Rodar depois do ranking,
+    porque a base sai de `ranking/corretores.json`;
+  - por dentro ele lê `visitas/origens`, `leads` (conversas da IA),
+    `leads/mes` e `relatorio-pro` do backoffice.
+- **Cliente** é um celular diferente do celular do próprio corretor. O
+  corretor testando com o próprio número não conta.
+- A origem das visitas só é gravada desde 22/10.
+- O relatório diário traz uma linha com quantos corretores tiveram cliente
+  em 7 e em 30 dias e quem são.
+- **Métrica principal, proposta em 08/11:** corretores com pelo menos 1
+  cliente no mês. O sinal que vem antes é ter visitas vindas do Instagram na
+  semana.
+- Os números ficam só no relatório e na página (este repositório é público).
+
 ## CAC do mês no relatório diário, todo dia (Mateus, 08/11)
 
 - Pedido dele, depois de ver o CAC de outubro e o de novembro até ontem:
