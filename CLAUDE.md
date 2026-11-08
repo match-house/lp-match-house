@@ -986,6 +986,22 @@ para aquela mensagem.
     (`whatsapp_texto_copiado` {tipo, origem}).
   - O link vai sem utm (link limpo, regra da bio), com o ponto final como
     `%2E`. Quem chega pela mensagem conta como "direto".
+- **Cartão do link com a foto grande no centro** (site #242, no ar desde
+  08/11, à noite; Mateus: "para aparecer o link [...] com a foto aí do
+  corretor" e "Pode publicar").
+  - Na lista "Links" da bio, o Instagram mostra um quadradinho cortado do
+    centro do og:image (1200 × 630). Antes, a foto de 96 px virava um ponto.
+  - Agora o quadrado central (x 285 a 915) é a foto do corretor (286 px, aro
+    ciano, selo "IA"), com "Oi! Eu sou a IA da <nome>" e o campo de pergunta.
+    Atalhos, nome e CRECI, carteira e "Crie o seu Smart Link" ficam nas
+    laterais, que o WhatsApp mostra inteiras.
+  - O desenho fica em `cartao-do-corretor.tsx`, sem buscas: dá para gerar a
+    prévia fora do Next (`next/og` com as fontes Poppins da pasta).
+  - Quem já tinha o link na bio só vê o cartão novo se tirar e colar o link
+    de novo: o Instagram guarda a imagem antiga.
+- **Título sugerido: "Fale com a minha IA"** (Mateus, 08/11). É o que aparece
+  ao lado da foto na lista de links. Está na página da bio (app #181), no
+  passo 1 do e-mail e na 4ª mensagem do "Quero os textos" (api #159).
 - A ideia maior fica para a volta: a IA respondendo no WhatsApp do próprio
   corretor, pela coexistência da Meta (mesmo número no app e na API). Falta
   confirmar se a Twilio faz.
