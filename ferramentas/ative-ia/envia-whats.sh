@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# WhatsApp "ponha a sua IA para trabalhar" (Mateus, 08/11), modelo mh_ative_ia_2 (com o passo do WhatsApp Business; antes
-# mh_ative_ia_1): {{1}} primeiro nome, {{2}} "5 imóveis" ou "1 imóvel",
-# {{3}} smartli.ink/<slug> e {{4}} <slug>?mh_src=whatsapp-ative-1 (o fim do
-# botão para app.smartli.ink/bio/...). Vai só a quem recebeu o e-mail num dia
-# anterior. No máximo LIMITE_DIA (30) por dia, somando as campanhas (regra de
-# 22/10). DRY=1 faz só a prévia.
+# WhatsApp "ponha a sua IA para trabalhar" (Mateus, 08/11). Modelo
+# mh_ative_ia_4 (bio, WhatsApp Business e redes, com o botão de resposta rápida
+# "Quero os textos": quem toca recebe na hora, do webhook do 6800, a saudação e
+# a ausência com o link dele, cada uma numa mensagem para copiar). Variáveis:
+# {{1}} primeiro nome, {{2}} "5 imóveis" ou "1 imóvel", {{3}} smartli.ink/<slug>.
+# Enquanto o v4 não estiver aprovado, vai o mh_ative_ia_3 (botão de link para
+# app.smartli.ink/bio/<slug>, com {{4}} <slug>?mh_src=whatsapp-ative-1).
+# Vai só a quem recebeu o e-mail num dia anterior. No máximo LIMITE_DIA (30)
+# por dia, somando as campanhas (regra de 22/10). DRY=1 faz só a prévia.
 # Uso: bash envia-whats.sh lista.json
 set -u
 D=$(cd "$(dirname "$0")" && pwd)
@@ -16,8 +19,12 @@ touch "$LOG" "$EMAILS"
 LIMITE_DIA=${LIMITE_DIA:-30}
 HOJE=$(TZ=America/Sao_Paulo date +%F)
 
-SID=$(curl -sS "$API/templates" | jq -r '.modelos[] | select(.nome == "mh_ative_ia_2" and (.status|ascii_downcase) == "approved") | .sid' | head -1)
-[ -z "$SID" ] && { echo "mh_ative_ia_2 ainda não aprovado pela Meta: nada enviado"; exit 0; }
+MODELOS=$(curl -sS "$API/templates")
+aprovado() { jq -r --arg n "$1" '.modelos[]? | select(.nome == $n and (.status|ascii_downcase) == "approved") | .sid' <<<"$MODELOS" | head -1; }
+VERSAO=4; SID=$(aprovado mh_ative_ia_4)
+[ -z "$SID" ] && { VERSAO=3; SID=$(aprovado mh_ative_ia_3); }
+[ -z "$SID" ] && { echo "nem mh_ative_ia_4 nem mh_ative_ia_3 aprovados pela Meta: nada enviado"; exit 0; }
+echo "modelo: mh_ative_ia_$VERSAO"
 
 # quem recebeu o e-mail antes de hoje (dia de Brasília)
 prontos=$(jq -sc --arg h "$HOJE" '[.[] | select(.status == "enviado") | select((.em | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 - 10800 | strftime("%Y-%m-%d")) < $h) | .id_user] | unique' "$EMAILS")
@@ -33,8 +40,8 @@ while read -r p; do
   nome=$(jq -r '.primeiro // ""' <<<"$p"); slug=$(jq -r '.slug // ""' <<<"$p"); im=$(jq -r .imoveis <<<"$p")
   [ -z "$slug" ] || [ -z "$nome" ] && continue
   [ "$im" = "1" ] && qtd="1 imóvel" || qtd="$im imóveis"
-  body=$(jq -n --argjson id "$id" --arg sid "$SID" --arg n "$nome" --arg q "$qtd" --arg l "smartli.ink/$slug" --arg s "$slug?mh_src=whatsapp-ative-1" \
-    '{id_user: $id, channel: "whatsapp", kind: "modelo", template_sid: $sid, variables: {"1": $n, "2": $q, "3": $l, "4": $s}}')
+  body=$(jq -n --argjson id "$id" --arg sid "$SID" --arg n "$nome" --arg q "$qtd" --arg l "smartli.ink/$slug" --arg s "$slug?mh_src=whatsapp-ative-1" --arg v "$VERSAO" \
+    '{id_user: $id, channel: "whatsapp", kind: "modelo", template_sid: $sid, variables: ({"1": $n, "2": $q, "3": $l} + (if $v == "3" then {"4": $s} else {} end))}')
   for _t in 1 2 3; do
     pv=$(curl -sS -X POST "$API/messages/preview" -H 'content-type: application/json' -d "$body")
     grep -q "limite de chamadas por minuto" <<<"$pv" || break
@@ -55,7 +62,7 @@ while read -r p; do
   if [ "$code" = "429" ] && grep -q "limite de chamadas por minuto" "$D/.resp"; then sleep 30; continue; fi
   if [ "$code" = "429" ]; then registra "$(jq -nc --argjson id "$id" '{id_user: $id, status: "teto_do_dia", em: (now|todate)}')"; break; fi
   if [ "${code:0:1}" = "2" ]; then
-    registra "$(jq -nc --argjson id "$id" '{id_user: $id, status: "enviado", em: (now|todate)}')"
+    registra "$(jq -nc --argjson id "$id" --arg v "$VERSAO" '{id_user: $id, status: "enviado", modelo: ("mh_ative_ia_" + $v), em: (now|todate)}')"
   else
     registra "$(jq -nc --argjson id "$id" --arg c "$code" --arg m "$(jq -r '.message // .' "$D/.resp" 2>/dev/null | head -c 300)" '{id_user: $id, status: "recusado", http: $c, motivo: $m, em: (now|todate)}')"
   fi
