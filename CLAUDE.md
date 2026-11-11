@@ -295,6 +295,26 @@ Notas do projeto para agentes. Ler antes de mexer.
         úteis, às 09h17. O modo Auto recusou criá-la duas vezes. Ela foi
         criada com o Mateus no modo Accept edits, com a aprovação dele na
         tela.
+      - **Calendário novo desde 12/11** (Mateus, 11/11: "Pode seguir com o
+        calendário que você recomendou"). Vale acima do ritmo de reels,
+        carrossel e stories descrito abaixo e na seção de 27/10.
+        - Motivo: depois que a Meta parou (31/10), o perfil alcançava ~30
+          pessoas por dia. Os posts com personagem alcançavam 11 a 23
+          pessoas cada e não traziam seguidor.
+        - Segunda: reel de tela (conversa real da IA numa conta de
+          demonstração). Terça e quinta: carrossel útil para o corretor
+          salvar. Quarta: post com corretor (Corretores com IA). Sexta:
+          reel útil. Sem post no fim de semana. Stories: 2 por dia, às
+          12h07 e 17h07.
+        - A série de personagens (Camila, Pedro, Mariana, Luiz, Felipe) e o
+          Modo Desbloqueado com personagem acabaram em 11/11. A Camila fica
+          só como o exemplo do app.
+        - A semana 1 (13 a 20/11) passa pela aprovação dele. Depois, publico
+          e mostro depois. Peças e legendas em `ferramentas/organico-v2/`
+          da branch de trabalho.
+        - "Comente TEXTOS e receba no Direct" entra quando a resposta a
+          comentário pelo Direct estiver pronta.
+        - Convites da série Corretores com IA: até 8 por terça (eram 5).
       - **Meta de seguidores** (Mateus, 22/10: "nossa meta é engajamento e
         chegar a 10 mil seguidores em 3 meses"): eram 1.789 em 22/10. Os
         marcos são 3.500 em 21/11, 6.500 em 21/12 e 10.000 em 22/01. Reels
