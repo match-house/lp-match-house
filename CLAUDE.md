@@ -716,14 +716,34 @@ Notas do projeto para agentes. Ler antes de mexer.
       Twilio não faz a coexistência. O caminho é a Meta direto: o app
       "Match House Atendimento" (1821225832127132) foi criado como
       Provedor de Tecnologia, e a empresa já é verificada.
-      - API #165 (rascunho): webhook, fila e as rotas GraphQL do app. Tudo
-        fica desligado sem `WA_CORRETOR=on`, o app da Meta e
-        `WA_CORRETOR_CHAVE`. Vale só para `WA_CORRETOR_AGENTES` com o Pro.
-        Revisão de segurança com vários agentes: a rodada 1 achou ~20
-        problemas (2 altos), já corrigidos. Os achados ficam em
+      - **API #165 no ar desde 11/11, 22h23 UTC, desligada**: webhook, fila
+        e as rotas GraphQL do app. Tudo fica desligado sem `WA_CORRETOR=on`,
+        o app da Meta e `WA_CORRETOR_CHAVE`. Vale só para
+        `WA_CORRETOR_AGENTES` com o Pro, ou para as contas de
+        `WA_CORRETOR_TESTE_SEM_PRO`. Estado em
+        `GET /backoffice/whatsapp-corretor/status`. Revisão de segurança com
+        vários agentes, 2 rodadas, tudo corrigido. Os achados ficam em
         `scratchpad/seguranca/`.
-      - A tela "WhatsApp com IA" está na branch `claude/whatsapp-corretor`
-        do app.
+      - **Tela "WhatsApp com IA" no app desde 11/11** (app #183): só aparece
+        quando a API diz `disponivel` ou `conectado`.
+      - **Na Meta, feito pelo Mateus em 11/11, à noite** (app "Match House
+        Atendimento"):
+        - webhook `https://api.matchhouse.com.br/webhook/whatsapp-corretor`,
+          token `matchhouse-atendimento`, com `messages` e
+          `smb_message_echoes` assinados. O `message_echoes` (sem "smb")
+          deu erro de permissão e não é o nosso. O `history` fica desligado:
+          não queremos as conversas antigas;
+        - "Entrar com o SDK do JavaScript" ligado, com o domínio
+          `https://app.smartli.ink/`;
+        - configuração do Embedded Signup pelo modelo "cadastro incorporado
+          do WhatsApp com token de expiração em 60 dias": id
+          `1002523425575213` (`WA_META_CONFIG_ID`). A variação "Geral" não
+          serve.
+        - Falta: publicar o app (sem isso a Meta só manda webhook de teste)
+          e a revisão do ECS com as variáveis `WA_*`.
+      - **Token de 60 dias**: antes de abrir aos corretores, a API precisa
+        avisar o corretor para reconectar antes de vencer. Hoje, token
+        recusado só desliga a ligação.
       - **Teste no 8000 liberado pelo Mateus em 11/11** ("Podemos testar no
         8000 sem problema acredito eu"). Vale acima da regra de não usar o
         8000 em teste da Meta, só para este teste. O teste usa
