@@ -85,6 +85,63 @@
   #c .bolha { position: absolute; right: 40px; top: 210px; width: 470px; background: var(--navy); color: #fff; border-radius: 28px 28px 8px 28px; padding: 22px 26px; box-shadow: 0 24px 50px rgba(0,7,62,.35); }
   #c .bolha .q { font-weight: 700; font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
   #c .bolha p { margin-top: 8px; font-size: 25px; line-height: 1.35; }
+
+  /* ---------- D: tire as fotos, a IA escreve o anúncio ---------- */
+  #d { background: radial-gradient(110% 80% at 0% 100%, #0b1fb8 0%, #00105a 48%, #00073e 100%); color: #fff; }
+  #d .tit { position: absolute; left: 72px; right: 72px; top: 170px; }
+  #d .kicker { color: var(--cyan); }
+  #d h1 { margin-top: 26px; font-size: 116px; }
+  #d h1 em { font-style: normal; color: var(--cyan); }
+  #d .fotos { position: absolute; left: 72px; top: 640px; width: 440px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  #d .fotos div { height: 200px; border-radius: 22px; background-size: cover; background-position: center; border: 4px solid rgba(255,255,255,.9); }
+  #d .seta { position: absolute; left: 532px; top: 830px; width: 56px; height: 56px; }
+  #d .txt { position: absolute; right: 72px; top: 620px; width: 520px; background: #fff; color: var(--navy); border-radius: 30px; padding: 30px 32px; box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  #d .txt .hd { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 19px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+  #d .txt .hd i { width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px rgba(0,239,255,.25); }
+  #d .txt .t { margin-top: 18px; font-weight: 800; font-size: 34px; line-height: 1.12; letter-spacing: -.02em; }
+  #d .txt p { margin-top: 14px; font-size: 22px; line-height: 1.5; color: var(--muted); }
+  #d .txt .chips { margin-top: 18px; display: flex; gap: 8px; flex-wrap: wrap; }
+  #d .txt .chips b { font-weight: 600; font-size: 19px; background: var(--paper); border-radius: 999px; padding: 7px 14px; }
+
+  /* ---------- E: PDF do lançamento ---------- */
+  #e { background: var(--paper); color: var(--navy); }
+  #e .tit { position: absolute; left: 72px; right: 72px; top: 168px; }
+  #e .kicker { color: var(--blue); }
+  #e h1 { margin-top: 24px; font-size: 104px; }
+  #e h1 em { font-style: normal; color: var(--blue); }
+  #e .pdf { position: absolute; left: 72px; top: 610px; width: 400px; height: 520px; background: #fff; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,7,62,.18); transform: rotate(-4deg); overflow: hidden; }
+  #e .pdf .capa { height: 330px; background: url("106-2.jpg") center / cover; position: relative; }
+  #e .pdf .capa::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,7,62,0) 40%, rgba(0,7,62,.75) 100%); }
+  #e .pdf .capa b { position: absolute; left: 24px; bottom: 20px; z-index: 1; color: #fff; font-weight: 800; font-size: 32px; line-height: 1.05; letter-spacing: -.02em; }
+  #e .pdf .ln { margin: 22px 24px 0; height: 14px; border-radius: 7px; background: var(--line); }
+  #e .pdf .ln.c { width: 60%; }
+  #e .pdf .tag { position: absolute; right: 18px; top: 18px; background: #e5383b; color: #fff; font-weight: 800; font-size: 20px; letter-spacing: .08em; padding: 6px 12px; border-radius: 8px; }
+  #e .nome { position: absolute; left: 96px; top: 1140px; font-size: 21px; color: var(--muted); font-weight: 500; }
+  #e .card { position: absolute; right: 72px; top: 620px; width: 560px; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,7,62,.2); }
+  #e .card .hd { display: flex; align-items: center; gap: 12px; padding: 20px 26px; border-bottom: 2px solid var(--line); font-weight: 700; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+  #e .card .hd i { width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px rgba(0,239,255,.25); }
+  #e .card .hd span { margin-left: auto; background: var(--navy); color: var(--cyan); letter-spacing: .1em; padding: 6px 12px; border-radius: 999px; font-size: 16px; }
+  #e .card .linha { display: flex; justify-content: space-between; gap: 16px; padding: 16px 26px; border-bottom: 2px solid var(--paper); font-size: 23px; }
+  #e .card .linha span { color: var(--muted); }
+  #e .card .linha b { font-weight: 700; text-align: right; }
+  #e .card .linha:last-child { border-bottom: 0; }
+
+  /* ---------- F: sua IA mostra seus imóveis ---------- */
+  #f { background: radial-gradient(120% 90% at 100% 0%, #0b1fb8 0%, #00105a 45%, #00073e 100%); color: #fff; }
+  #f .tit { position: absolute; left: 72px; right: 72px; top: 170px; }
+  #f .kicker { color: var(--cyan); }
+  #f h1 { margin-top: 26px; font-size: 104px; }
+  #f h1 em { font-style: normal; color: var(--cyan); }
+  #f .chat { position: absolute; left: 72px; right: 72px; top: 610px; bottom: 64px; background: #fff; border-radius: 36px; padding: 28px 30px; color: var(--navy); box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  #f .cli { margin-left: auto; width: fit-content; max-width: 70%; background: var(--blue); color: #fff; border-radius: 26px 26px 8px 26px; padding: 18px 24px; font-size: 25px; line-height: 1.35; }
+  #f .ia { margin-top: 18px; width: fit-content; max-width: 80%; background: var(--paper); border-left: 5px solid var(--cyan); border-radius: 8px 26px 26px 26px; padding: 16px 22px; font-size: 25px; line-height: 1.35; }
+  #f .ia b { display: block; font-weight: 700; font-size: 17px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 4px; }
+  #f .ops { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  #f .op { border: 2px solid var(--line); border-radius: 22px; overflow: hidden; }
+  #f .op .ft { height: 150px; background-size: cover; background-position: center; }
+  #f .op .tx { padding: 14px 18px 16px; }
+  #f .op .tt { font-weight: 700; font-size: 22px; line-height: 1.2; }
+  #f .op .pr { margin-top: 6px; font-weight: 800; font-size: 24px; color: var(--blue); }
 </style>
 </head>
 <body>
@@ -166,6 +223,67 @@
     <div class="bolha">
       <div class="q">IA do Seu Nome</div>
       <p>Oi! Esse tem 3 quartos e está disponível. Quer marcar uma visita?</p>
+    </div>
+  </div>
+</div>
+
+<!-- D -->
+<div class="art" id="d">
+  <img class="logo" src="logo-dark.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Tire as fotos.<br><em>A IA escreve</em><br>o anúncio.</h1>
+  </div>
+  <div class="fotos">
+    <div style="background-image:url('103-2.jpg')"></div>
+    <div style="background-image:url('103-3.jpg')"></div>
+    <div style="background-image:url('105-2.jpg')"></div>
+    <div style="background-image:url('103-4.jpg')"></div>
+  </div>
+  <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="#00efff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+  <div class="txt">
+    <div class="hd"><i></i>A IA escreveu</div>
+    <div class="t">Casa com piscina e 3 suítes</div>
+    <p>Sala ampla com lareira, cozinha integrada com ilha e área de lazer com piscina.</p>
+    <div class="chips"><b>3 suítes</b><b>Piscina</b><b>Lareira</b></div>
+  </div>
+</div>
+
+<!-- E -->
+<div class="art" id="e">
+  <img class="logo" src="logo-light.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Tem o PDF do<br>lançamento?<br><em>A IA cadastra.</em></h1>
+  </div>
+  <div class="pdf">
+    <div class="capa"><b>Residencial<br>Jardins</b></div>
+    <span class="tag">PDF</span>
+    <div class="ln"></div><div class="ln"></div><div class="ln c"></div>
+  </div>
+  <div class="card">
+    <div class="hd"><i></i>A IA preencheu<span>Lançamento</span></div>
+    <div class="linha"><span>Tipo</span><b>Apartamento</b></div>
+    <div class="linha"><span>Quartos</span><b>2 e 3</b></div>
+    <div class="linha"><span>Área</span><b>68 a 94 m²</b></div>
+    <div class="linha"><span>Lazer</span><b>Piscina, academia</b></div>
+    <div class="linha"><span>Fase</span><b>Em construção</b></div>
+  </div>
+</div>
+
+<!-- F -->
+<div class="art" id="f">
+  <img class="logo" src="logo-dark.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Sua IA mostra os<br><em>seus imóveis</em> a<br>quem pergunta.</h1>
+  </div>
+  <div class="chat">
+    <div class="cli">Tem casa com 3 quartos e piscina?</div>
+    <div class="ia"><b>IA do Seu Nome</b>Tenho duas opções. Quer marcar uma visita?</div>
+    <div class="ops">
+      <div class="op"><div class="ft" style="background-image:url('103-1.jpg')"></div><div class="tx"><div class="tt">Casa com piscina, 3 suítes</div><div class="pr">R$ 1.250.000</div></div></div>
+      <div class="op"><div class="ft" style="background-image:url('101-1.jpg')"></div><div class="tx"><div class="tt">Casa com 3 quartos e deck</div><div class="pr">R$ 890.000</div></div></div>
     </div>
   </div>
 </div>
