@@ -666,10 +666,20 @@ Notas do projeto para agentes. Ler antes de mexer.
       Agora vai o evento próprio `signup_cta_click`. O `Lead` do Meta não
       mudou.
     - O evento de uma campanha de conversão não muda depois de criada, e
-      evento próprio não serve. Falta o Mateus criar no painel uma
-      campanha nova com o objetivo Conversões e o evento lead (proposta:
-      começar com ~R$ 30 dos R$ 75/dia e passar o resto quando ela
-      aprender).
+      evento próprio não serve.
+  - **Duas campanhas no ChatGPT, R$ 40/dia cada, desde 11/11, ~20h**
+    (Mateus: "vamos manter em 40,00 cada campanha"; o painel pede no
+    mínimo R$ 40/dia). Soma R$ 80/dia. Vale acima dos R$ 75/dia de 03/11.
+    - "Smart Link - Registro completo" (otimiza por cadastro concluído):
+      baixei pelo Windsor de 75 para 40 e conferi.
+    - "Smart Link - Imóvel publicado" (nova, criada por ele no painel;
+      Conversões, evento lead, grupo "Corretores - Imóvel publicado", sem o
+      Espírito Santo). Anúncios novos A a F (cole o anúncio, texto do
+      WhatsApp, imóveis num link, fotos, PDF do lançamento e a IA mostrando
+      os imóveis) e o G, o antigo "IA para corretores". Artes em
+      `anuncios/chatgpt/` da branch de trabalho.
+    - Leitura em 7 dias: custo por corretor que publicou em cada campanha
+      (pelo backoffice, origem ChatGPT) e qual anúncio leva a publicar.
 
 ## Para a volta do Mateus: converter vendas (03/11)
 
