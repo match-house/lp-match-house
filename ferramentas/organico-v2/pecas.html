@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Instagram v2 - semana 1</title>
+<style>
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: P; src: url("../lp-main/_ds/match-house-design-system-a2408f83-cade-4df4-bc51-545884a020be/fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+
+  :root { --navy:#00073e; --blue:#000f90; --royal:#0b1fa8; --cyan:#00efff; --paper:#f2f3f8; --ink:#00073e; --muted:#4f5680; --soft:#c9cff5; --line:#d9dcef; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; font-family: P, sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; align-items: flex-start; }
+  .art { position: relative; overflow: hidden; }
+  .v { width: 1080px; height: 1920px; }
+  .q { width: 1080px; height: 1350px; }
+  .navy { background: radial-gradient(110% 70% at 75% 0%, #0b1fa8 0%, #00073e 58%, #00031f 100%); color: #fff; }
+  .royal { background: radial-gradient(120% 80% at 20% 0%, #2a46ff 0%, #000f90 55%, #00073e 100%); color: #fff; }
+  .paper { background: var(--paper); color: var(--ink); }
+  .cyan { background: var(--cyan); color: var(--navy); }
+  svg.cad { width: 50px; height: 50px; flex: none; }
+  .pill { font-weight: 700; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; padding: 8px 20px; border-radius: 999px; white-space: nowrap; }
+  .navy .pill, .royal .pill { background: var(--cyan); color: var(--navy); }
+  .paper .pill { background: var(--navy); color: #fff; }
+  .cyan .pill { background: var(--navy); color: #fff; }
+
+  /* ---------- reel 9:16 (zona segura: 250 a 1500 px) ---------- */
+  .v .hd { position: absolute; left: 80px; right: 80px; top: 230px; display: flex; align-items: center; gap: 16px; }
+  .v .hd .lbl { font-weight: 600; font-size: 30px; }
+  .v .hd .pill { margin-left: auto; }
+  .navy .hd svg, .royal .hd svg { color: var(--cyan); }
+  .v .h1 { position: absolute; left: 80px; right: 80px; top: 480px; font-weight: 800; font-size: 100px; line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  .v .h1 span { color: var(--cyan); display: block; margin-top: 18px; }
+  .v .h2 { position: absolute; left: 80px; right: 80px; font-weight: 800; font-size: 74px; line-height: 1.05; letter-spacing: -.03em; text-wrap: balance; }
+  .v .tx { position: absolute; left: 80px; right: 80px; font-size: 40px; line-height: 1.4; color: var(--soft); text-wrap: pretty; }
+  .v .tx b { color: #fff; font-weight: 600; }
+  .v .ft { position: absolute; left: 80px; right: 80px; top: 1500px; display: flex; justify-content: space-between; align-items: center; font-size: 28px; color: #9aa3e0; }
+  .v .ft b { color: #fff; font-weight: 600; }
+  .v .num { position: absolute; left: 80px; top: 440px; width: 150px; height: 150px; border-radius: 50%; background: var(--cyan); color: var(--navy);
+            display: grid; place-items: center; font-weight: 800; font-size: 86px; }
+  .v .passo { position: absolute; left: 80px; right: 80px; top: 650px; font-weight: 700; font-size: 70px; line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; }
+  .v .passo em { font-style: normal; color: var(--cyan); }
+  .tela { position: absolute; left: 80px; right: 80px; top: 1010px; background: #0c1660; border: 3px solid #2a3aa8; border-radius: 36px; padding: 34px 38px; }
+  .tela .cam { font-size: 26px; color: #9aa3e0; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 18px; }
+  .tela .campo { background: #f2f3f8; color: var(--ink); border-radius: 18px; padding: 20px 26px; font-size: 38px; font-weight: 600; }
+  .tela .bt { display: inline-flex; align-items: center; gap: 14px; background: var(--cyan); color: var(--navy); border-radius: 999px; padding: 18px 34px; font-weight: 700; font-size: 36px; }
+
+  /* balão do WhatsApp */
+  .wa { position: absolute; left: 80px; right: 80px; top: 650px; background: #0b141a; border-radius: 40px; padding: 40px 36px 46px; box-shadow: 0 40px 90px rgba(0,0,0,.45); }
+  .wa .top { display: flex; align-items: center; gap: 18px; color: #e9edef; font-size: 30px; font-weight: 600; padding-bottom: 26px; border-bottom: 1px solid #22303a; margin-bottom: 30px; }
+  .wa .top .av { width: 64px; height: 64px; border-radius: 50%; background: #2a3942; display: grid; place-items: center; color: #8696a0; font-size: 30px; }
+  .wa .top small { display: block; font-size: 22px; color: #8696a0; font-weight: 400; }
+  .wa .b { background: #005c4b; color: #e9edef; border-radius: 22px 22px 22px 6px; padding: 24px 28px 18px; font-size: 36px; line-height: 1.42; max-width: 92%; }
+  .wa .b .lk { color: #53bdeb; }
+  .wa .b .hr { display: block; text-align: right; font-size: 22px; color: #a6c4bd; margin-top: 8px; }
+  .wa .auto { margin-top: 22px; font-size: 24px; color: #8696a0; }
+
+  /* caminho */
+  .trilha { position: absolute; left: 80px; right: 80px; top: 640px; display: flex; flex-direction: column; gap: 22px; }
+  .trilha div { background: #0c1660; border: 3px solid #2a3aa8; border-radius: 28px; padding: 26px 32px; font-size: 40px; font-weight: 600; display: flex; align-items: center; gap: 22px; }
+  .trilha div i { font-style: normal; color: var(--cyan); font-weight: 800; font-size: 38px; width: 46px; flex: none; }
+  .trilha div small { display: block; font-size: 28px; color: #9aa3e0; font-weight: 400; margin-top: 4px; }
+
+  /* conversa do Smart Link */
+  .sl { position: absolute; left: 70px; right: 70px; top: 360px; background: #f7f8fc; border-radius: 44px; overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.45); color: var(--ink); }
+  .sl .top { background: #fff; display: flex; align-items: center; gap: 18px; padding: 28px 34px; border-bottom: 1px solid var(--line); }
+  .sl .top .av { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); color: var(--cyan); display: grid; place-items: center; font-weight: 800; font-size: 28px; flex: none; }
+  .sl .top b { display: block; font-size: 32px; } .sl .top small { font-size: 24px; color: #1a9e5a; }
+  .sl .corpo { padding: 30px 30px 36px; display: flex; flex-direction: column; gap: 20px; }
+  .sl .m { max-width: 88%; padding: 22px 26px; border-radius: 26px; font-size: 32px; line-height: 1.42; }
+  .sl .cli { align-self: flex-end; background: var(--blue); color: #fff; border-bottom-right-radius: 8px; }
+  .sl .ia { align-self: flex-start; background: #fff; border: 2px solid var(--line); border-bottom-left-radius: 8px; }
+  .sl .ia .who { display: block; font-size: 22px; color: var(--muted); font-weight: 600; margin-bottom: 6px; letter-spacing: .04em; }
+  .selo { position: absolute; left: 80px; top: 250px; font-weight: 700; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan);
+          border: 2px solid rgba(0,239,255,.55); background: rgba(1,4,32,.7); padding: 9px 18px; border-radius: 999px; }
+
+  /* ---------- carrossel 4:5 ---------- */
+  .q .hd { position: absolute; left: 80px; right: 80px; top: 76px; display: flex; align-items: center; gap: 16px; }
+  .q .hd .lbl { font-weight: 600; font-size: 28px; }
+  .q .hd .pill { margin-left: auto; }
+  .paper .hd svg { color: var(--blue); } .cyan .hd svg { color: var(--navy); }
+  .q .h1 { position: absolute; left: 80px; right: 80px; top: 250px; font-weight: 800; font-size: 104px; line-height: 1.0; letter-spacing: -.04em; text-wrap: balance; }
+  .q .h1 span { color: var(--cyan); }
+  .q .sub { position: absolute; left: 80px; right: 80px; font-size: 42px; line-height: 1.35; color: var(--soft); text-wrap: pretty; }
+  .q .arr { position: absolute; right: 80px; bottom: 80px; display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 30px; color: var(--cyan); }
+  .q .ft { position: absolute; left: 80px; right: 80px; bottom: 74px; display: flex; justify-content: space-between; align-items: center; font-size: 26px; color: var(--muted); }
+  .q .ft b { color: var(--blue); font-weight: 700; }
+  .navy .ft, .royal .ft { color: #9aa3e0; } .navy .ft b, .royal .ft b { color: #fff; }
+  .q .n { position: absolute; left: 80px; top: 210px; font-weight: 800; font-size: 34px; letter-spacing: .1em; color: var(--blue); text-transform: uppercase; }
+  .q .t { position: absolute; left: 80px; right: 80px; top: 280px; font-weight: 800; font-size: 82px; line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+  .q .c { position: absolute; left: 80px; right: 80px; font-size: 50px; line-height: 1.42; color: var(--muted); text-wrap: pretty; }
+  .q .c b { color: var(--ink); font-weight: 600; }
+  .q .bolha { position: absolute; left: 80px; right: 80px; top: 560px; background: #fff; border: 3px solid var(--line); border-radius: 40px 40px 40px 10px; padding: 44px 46px; font-size: 46px; line-height: 1.42; color: var(--ink); box-shadow: 0 24px 60px rgba(0,15,144,.10); }
+  .q .bolha .v { color: var(--blue); font-weight: 700; background: #e6e9ff; border-radius: 10px; padding: 0 10px; }
+  .q .bolha small { display: block; margin-top: 22px; font-size: 28px; color: var(--muted); }
+  .q .big { position: absolute; right: 70px; bottom: 110px; font-weight: 800; font-size: 440px; line-height: 1; color: #e3e6f5; letter-spacing: -.05em; }
+  .cta .t { top: 260px; color: #fff; } .cta .t span { color: var(--cyan); }
+  .cta .c { color: var(--soft); } .cta .c b { color: #fff; }
+  .botao { position: absolute; left: 80px; display: inline-flex; align-items: center; gap: 16px; background: var(--cyan); color: var(--navy); border-radius: 999px; padding: 24px 40px; font-weight: 700; font-size: 38px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="aberto" viewBox="0 0 48 48"><rect x="9" y="21" width="30" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M15 21v-6a9 9 0 0 1 17.5-3" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="24" cy="32" r="3" fill="currentColor"/></symbol>
+    <symbol id="seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===================== A · reel útil · sex 13/11 · saudação do WhatsApp Business ===================== -->
+<div class="art v navy" id="a1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Dica de 20 s</span></div>
+  <div class="h1">O cliente te chamou no WhatsApp às 22h.<span>O que ele recebeu?</span></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="a2">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Dica de 20 s</span></div>
+  <div class="h1">Se foi nada, ele chama outro corretor.</div>
+  <p class="tx" style="top:1000px">Dá para resolver em 2 minutos, com dois textos no <b>WhatsApp Business</b>.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="a3">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">1 de 2</span></div>
+  <div class="h2" style="top:380px">Cole na <span style="color:var(--cyan)">mensagem de saudação</span>:</div>
+  <div class="wa" style="top:640px">
+    <div class="top"><div class="av">C</div><div>Cliente<small>mandou a 1ª mensagem</small></div></div>
+    <div class="b">Olá! Obrigado pela mensagem. Enquanto eu não respondo, a minha IA já te atende e mostra os meus imóveis, a qualquer hora: <span class="lk">smartli.ink/seu-link</span><span class="hr">22:01</span></div>
+    <div class="auto">Sai sozinha na primeira mensagem do cliente.</div>
+  </div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="a4">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">2 de 2</span></div>
+  <div class="h2" style="top:380px">E na <span style="color:var(--cyan)">mensagem de ausência</span>:</div>
+  <div class="wa" style="top:640px">
+    <div class="top"><div class="av">C</div><div>Cliente<small>fora do seu horário</small></div></div>
+    <div class="b">Oi! Agora não consigo responder, mas assim que eu puder falo com você. Enquanto isso, a minha IA te atende na hora e mostra os meus imóveis: <span class="lk">smartli.ink/seu-link</span><span class="hr">22:01</span></div>
+    <div class="auto">Escolha quando ela sai: por exemplo, fora do horário comercial.</div>
+  </div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="a5">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Onde fica</span></div>
+  <div class="h2" style="top:380px">No WhatsApp Business:</div>
+  <div class="trilha">
+    <div><i>1</i><span>Configurações<small>no Android, toque nos três pontinhos ⋮</small></span></div>
+    <div><i>2</i><span>Ferramentas comerciais</span></div>
+    <div><i>3</i><span>Mensagem de saudação<small>e depois Mensagem de ausência</small></span></div>
+    <div><i>4</i><span>Ative e cole o texto</span></div>
+  </div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v royal" id="a6">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Smart Link</span></div>
+  <div class="h1">Troque <span style="display:inline;margin:0;color:inherit;white-space:nowrap">“seu-link”</span> pelo seu Smart Link.</div>
+  <p class="tx" style="top:1000px">Quem tocar fala com a <b>IA com o seu nome</b>, na hora, a qualquer hora.</p>
+  <p class="tx" style="top:1200px">Ainda não tem? Crie o seu pelo <b>link na bio do @matchhouse.br</b>.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Mande para um colega</span></div>
+</div>
+
+<!-- ===================== B · reel de tela · seg 16/11 · conversa real ===================== -->
+<div class="art v navy" id="b1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Conversa real</span></div>
+  <div class="h1">Pedimos à IA uma casa que não existe.<span>Veja a resposta.</span></div>
+  <p class="tx" style="top:1250px">Conversa real com a IA do Smart Link, numa conta de demonstração da Match House.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>A IA no link da bio</span></div>
+</div>
+<div class="art v navy" id="b2">
+  <div class="selo">Conversa real · demonstração</div>
+  <div class="sl">
+    <div class="top"><div class="av">IA</div><div><b>IA de INMC Patrimonial</b><small>● online agora</small></div></div>
+    <div class="corpo">
+      <div class="m cli">Oi! Vi a casa em Governador Valadares no Instagram. Ainda está disponível?</div>
+      <div class="m ia"><span class="who">IA</span>Casa em Governador Valadares não apareceu aqui. INMC Patrimonial tem dois terrenos na cidade: o Lote 03-A, de 963,39 m², na Rua Gastão de Magalhães, por R$ 462.430, e um terreno de 768 m² no Bairro Esplanada, para permuta, com valor de referência de R$ 5.760.000. Quer que INMC Patrimonial te mande fotos, vídeo e a localização pelo WhatsApp? Me passa seu nome e um celular com DDD.</div>
+    </div>
+  </div>
+</div>
+<div class="art v navy" id="b2b">
+  <div class="selo">Conversa real · demonstração</div>
+  <div class="sl">
+    <div class="top"><div class="av">IA</div><div><b>IA de INMC Patrimonial</b><small>● online agora</small></div></div>
+    <div class="corpo">
+      <div class="m cli">Quantos quartos tem? E garagem?</div>
+      <div class="m ia"><span class="who">IA</span>Os dois são terrenos, então não têm quartos nem garagem. INMC Patrimonial não tem casa em Governador Valadares aqui no Smart Link, mas pode chamar você no WhatsApp para ver se há outras opções. Me passa seu nome e um celular com DDD?</div>
+    </div>
+  </div>
+</div>
+<div class="art v navy" id="b3">
+  <div class="selo">Conversa real · demonstração</div>
+  <div class="sl">
+    <div class="top"><div class="av">IA</div><div><b>IA de INMC Patrimonial</b><small>● online agora</small></div></div>
+    <div class="corpo">
+      <div class="m cli">Consigo visitar no sábado de manhã?</div>
+      <div class="m ia"><span class="who">IA</span>Sábado, 14/11, de manhã, INMC Patrimonial tem 9h, 10h e 11h livres. A visita seria a um dos terrenos, já que não há casa. Me diz o horário que prefere, seu nome e um celular com DDD para eu marcar.</div>
+    </div>
+  </div>
+</div>
+<div class="art v navy" id="b4">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Conversa real</span></div>
+  <div class="h1">Ela não inventa.</div>
+  <div class="trilha" style="top:700px">
+    <div><i>1</i><span>Diz o que tem de verdade</span></div>
+    <div><i>2</i><span>Já oferece os horários livres</span></div>
+    <div><i>3</i><span>Pede nome e celular para marcar a visita</span></div>
+  </div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>A IA no link da bio</span></div>
+</div>
+<div class="art v royal" id="b5">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Smart Link</span></div>
+  <div class="h1">A IA com o seu nome, no link da sua bio.</div>
+  <p class="tx" style="top:1020px">Ela atende os <b>seus</b> clientes na hora, com os <b>seus</b> imóveis.</p>
+  <p class="tx" style="top:1200px">Crie o seu pelo <b>link na bio do @matchhouse.br</b>.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Mande para um colega</span></div>
+</div>
+
+<!-- ===================== C · carrossel útil · ter 17/11 · "qual o valor?" ===================== -->
+<div class="art q royal" id="c1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Salve para usar</span></div>
+  <div class="h1" style="top:240px">O cliente mandou só: <span>“Qual o valor?”</span></div>
+  <p class="sub" style="top:820px">4 respostas que passam o preço e continuam a conversa.</p>
+  <div class="arr">Arraste <svg style="width:36px;height:36px"><use href="#seta"/></svg></div>
+</div>
+<div class="art q paper" id="c2">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Antes de tudo</span></div>
+  <div class="t" style="top:240px">Responda o valor. E pergunte algo.</div>
+  <p class="c" style="top:560px">Quem esconde o preço faz o cliente procurar outro corretor.</p>
+  <p class="c" style="top:800px">Diga o valor e, <b>na mesma mensagem</b>, faça uma pergunta que ajude a entender o que ele procura.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>2 / 7</span></div>
+</div>
+<div class="art q paper" id="c3">
+  <div class="big">1</div>
+  <div class="n">Para entender o motivo</div>
+  <div class="t">Morar ou investir?</div>
+  <div class="bolha">Oi! Esse sai por <span class="v">R$ [valor]</span>. Você está procurando para morar ou para investir?<small>Troque [valor] e copie.</small></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>3 / 7</span></div>
+</div>
+<div class="art q paper" id="c4">
+  <div class="big">2</div>
+  <div class="n">Para falar de parcela</div>
+  <div class="t">Ofereça a simulação.</div>
+  <div class="bolha">Oi! Ele está por <span class="v">R$ [valor]</span> e aceita financiamento. Quer que eu faça uma simulação da parcela para você?<small>Troque [valor] e copie.</small></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>4 / 7</span></div>
+</div>
+<div class="art q paper" id="c5">
+  <div class="big">3</div>
+  <div class="n">Para abrir opções</div>
+  <div class="t">Mostre que tem mais.</div>
+  <div class="bolha">Oi! Esse é <span class="v">R$ [valor]</span>. Tenho outros na mesma região, de <span class="v">R$ [menor]</span> a <span class="v">R$ [maior]</span>. Quantos quartos você precisa?<small>Troque os valores e copie.</small></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>5 / 7</span></div>
+</div>
+<div class="art q paper" id="c6">
+  <div class="big">4</div>
+  <div class="n">Para marcar a visita</div>
+  <div class="t">Já ofereça um dia.</div>
+  <div class="bolha">Oi! O valor é <span class="v">R$ [valor]</span>. Consigo te mostrar ainda esta semana. Prefere durante a semana ou no sábado?<small>Troque [valor] e copie.</small></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>6 / 7</span></div>
+</div>
+<div class="art q navy cta" id="c7">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Smart Link</span></div>
+  <div class="t">E quando ele pergunta <span>às 23h?</span></div>
+  <p class="c" style="top:560px">A IA do seu Smart Link responde na hora, <b>com o seu nome</b>: passa o valor, tira a dúvida e marca a visita.</p>
+  <div class="botao" style="top:880px">Crie o seu: link na bio</div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>7 / 7</span></div>
+</div>
+
+<!-- ===================== E · carrossel útil · qua 18/11 (reserva, se não houver corretor) · fotos ===================== -->
+<div class="art q cyan" id="e1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Salve para usar</span></div>
+  <div class="h1" style="top:240px;color:var(--navy)">Foto do imóvel no celular: 5 ajustes antes de clicar.</div>
+  <div class="arr" style="color:var(--navy)">Arraste <svg style="width:36px;height:36px"><use href="#seta"/></svg></div>
+</div>
+<div class="art q paper" id="e2">
+  <div class="big">1</div><div class="n">Ajuste 1</div>
+  <div class="t">Celular na horizontal.</div>
+  <p class="c" style="top:640px">A foto mostra mais do cômodo e fica certa no anúncio e no seu Smart Link.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>2 / 7</span></div>
+</div>
+<div class="art q paper" id="e3">
+  <div class="big">2</div><div class="n">Ajuste 2</div>
+  <div class="t">Luz do dia, tudo aceso.</div>
+  <p class="c" style="top:640px">Abra cortinas e janelas e acenda as luzes. Fotografe de dia.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>3 / 7</span></div>
+</div>
+<div class="art q paper" id="e4">
+  <div class="big">3</div><div class="n">Ajuste 3</div>
+  <div class="t">Altura do peito, câmera reta.</div>
+  <p class="c" style="top:640px">Assim paredes e portas ficam retas, sem parecer que o cômodo está caindo.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>4 / 7</span></div>
+</div>
+<div class="art q paper" id="e5">
+  <div class="big">4</div><div class="n">Ajuste 4</div>
+  <div class="t">Limpe a lente.</div>
+  <p class="c" style="top:640px">Um pano na lente antes de começar. Foto embaçada quase sempre é a lente.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>5 / 7</span></div>
+</div>
+<div class="art q paper" id="e6">
+  <div class="big">5</div><div class="n">Ajuste 5</div>
+  <div class="t">A melhor foto primeiro.</div>
+  <p class="c" style="top:640px">A capa é o que faz o cliente tocar. No app da Match House, o botão <b>“Tornar capa”</b>, embaixo de cada foto, escolhe qual vem primeiro.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>6 / 7</span></div>
+</div>
+<div class="art q navy cta" id="e7">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Smart Link</span></div>
+  <div class="t">Foto boa, cliente chamando. <span>A IA atende.</span></div>
+  <p class="c" style="top:600px">Quem toca no imóvel no seu Smart Link fala com a <b>IA com o seu nome</b>, na hora.</p>
+  <div class="botao" style="top:880px">Crie o seu: link na bio</div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>7 / 7</span></div>
+</div>
+
+<!-- ===================== D · carrossel útil · qui 19/11 · 5 erros no anúncio ===================== -->
+<div class="art q navy" id="d1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Checklist</span></div>
+  <div class="h1" style="top:240px">5 erros no anúncio que fazem o cliente <span>sumir.</span></div>
+  <p class="sub" style="top:880px">Confira antes de publicar o próximo.</p>
+  <div class="arr">Arraste <svg style="width:36px;height:36px"><use href="#seta"/></svg></div>
+</div>
+<div class="art q paper" id="d2">
+  <div class="big">1</div><div class="n">Erro 1</div>
+  <div class="t">Não dizer o bairro.</div>
+  <p class="c" style="top:640px">O cliente decide primeiro pelo lugar. Sem o bairro, ele passa para o próximo anúncio.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>2 / 7</span></div>
+</div>
+<div class="art q paper" id="d3">
+  <div class="big">2</div><div class="n">Erro 2</div>
+  <div class="t">“Valor no Direct.”</div>
+  <p class="c" style="top:640px">Afasta quem está comparando. Quem vê o preço e gosta, chama.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>3 / 7</span></div>
+</div>
+<div class="art q paper" id="d4">
+  <div class="big">3</div><div class="n">Erro 3</div>
+  <div class="t">Foto escura ou torta.</div>
+  <p class="c" style="top:640px">Abra as cortinas, acenda as luzes e fotografe na horizontal, na altura do peito.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>4 / 7</span></div>
+</div>
+<div class="art q paper" id="d5">
+  <div class="big">4</div><div class="n">Erro 4</div>
+  <div class="t">Faltar o básico.</div>
+  <p class="c" style="top:640px">Quartos, vagas, metragem e condomínio logo no começo. É o que ele vai perguntar primeiro.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>5 / 7</span></div>
+</div>
+<div class="art q paper" id="d6">
+  <div class="big">5</div><div class="n">Erro 5</div>
+  <div class="t">Demorar para responder.</div>
+  <p class="c" style="top:640px">Quem chama e não é atendido manda a mesma pergunta para outro corretor.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>6 / 7</span></div>
+</div>
+<div class="art q royal cta" id="d7">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Smart Link</span></div>
+  <div class="t">O erro 5, <span>a IA resolve.</span></div>
+  <p class="c" style="top:560px">A IA do seu Smart Link responde na hora, <b>com o seu nome</b>, de dia, de noite e no fim de semana.</p>
+  <div class="botao" style="top:880px">Crie o seu: link na bio</div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>7 / 7</span></div>
+</div>
+
+<!-- ===================== F · reel útil · sex 20/11 · link na bio em 20 s ===================== -->
+<div class="art v navy" id="f1">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Passo a passo</span></div>
+  <div class="h1">Seu link na bio em 20 segundos.<span>Faça junto.</span></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="f2">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">1 de 4</span></div>
+  <div class="num">1</div>
+  <div class="passo">No seu perfil do Instagram, toque em <em>Editar perfil</em>.</div>
+  <div class="tela"><div class="cam">No seu perfil</div><span class="bt">Editar perfil</span></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="f3">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">2 de 4</span></div>
+  <div class="num">2</div>
+  <div class="passo">Toque em <em>Links</em> e depois em <em>Adicionar link externo</em>.</div>
+  <div class="tela"><div class="cam">Editar perfil › Links</div><span class="bt">Adicionar link externo</span></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="f4">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">3 de 4</span></div>
+  <div class="num">3</div>
+  <div class="passo">Em <em>URL</em>, cole o seu Smart Link.</div>
+  <div class="tela"><div class="cam">URL</div><div class="campo">smartli.ink/seu-link</div></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v navy" id="f5">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">4 de 4</span></div>
+  <div class="num">4</div>
+  <div class="passo">Em <em>Título</em>, escreva “Fale com a minha IA” e salve.</div>
+  <div class="tela"><div class="cam">Título</div><div class="campo">Fale com a minha IA</div></div>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Salve para fazer hoje</span></div>
+</div>
+<div class="art v royal" id="f6">
+  <div class="hd"><svg class="cad"><use href="#aberto"/></svg><span class="lbl">Match House</span><span class="pill">Pronto</span></div>
+  <div class="h1">Pronto. Quem tocar fala com a sua IA.</div>
+  <p class="tx" style="top:960px">No app da Match House, em <b>Divulgar</b>, o botão <b>“Cole o link na bio do Instagram”</b> já copia o link e abre essa tela.</p>
+  <p class="tx" style="top:1230px">Ainda não tem o link? Crie pelo <b>link na bio do @matchhouse.br</b>.</p>
+  <div class="ft"><span><b>@matchhouse.br</b></span><span>Mande para um colega</span></div>
+</div>
+</body>
+</html>
