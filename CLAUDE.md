@@ -655,6 +655,21 @@ Notas do projeto para agentes. Ler antes de mexer.
     - Pelo Windsor dá para mudar a verba e pausar ou religar a campanha; o
       evento de otimização (imóvel publicado) só no painel dele. Mudar a
       verba de novo só com o pedido dele.
+  - **Conversão do 1º imóvel publicado desde 11/11, ~18h45** (Mateus:
+    "Vamos tentar ajustar o chatgpt para rastrear quem publicou imóveis";
+    app #182 e LP 4520873).
+    - O app manda ao pixel da OpenAI o evento padrão `lead_created` quando a
+      conta publica o 1º imóvel. Ele só sai quando a lista nova tem um único
+      imóvel no ar, o que acabou de entrar. Vai o id do usuário em SHA-256,
+      uma vez por conta e navegador. O `registration_completed` continua.
+    - O site deixou de mandar `lead_created` no toque do botão de cadastro.
+      Agora vai o evento próprio `signup_cta_click`. O `Lead` do Meta não
+      mudou.
+    - O evento de uma campanha de conversão não muda depois de criada, e
+      evento próprio não serve. Falta o Mateus criar no painel uma
+      campanha nova com o objetivo Conversões e o evento lead (proposta:
+      começar com ~R$ 30 dos R$ 75/dia e passar o resto quando ela
+      aprender).
 
 ## Para a volta do Mateus: converter vendas (03/11)
 
@@ -687,6 +702,27 @@ Notas do projeto para agentes. Ler antes de mexer.
     - Falta confirmar se a Twilio faz. Se não fizer, Meta direto ou outro
       integrador; o 6800 fica na Twilio.
     - Nunca automação do WhatsApp Web.
+    - **Em construção desde 11/11** (Mateus: "Blza, pode começar"). A
+      Twilio não faz a coexistência. O caminho é a Meta direto: o app
+      "Match House Atendimento" (1821225832127132) foi criado como
+      Provedor de Tecnologia, e a empresa já é verificada.
+      - API #165 (rascunho): webhook, fila e as rotas GraphQL do app. Tudo
+        fica desligado sem `WA_CORRETOR=on`, o app da Meta e
+        `WA_CORRETOR_CHAVE`. Vale só para `WA_CORRETOR_AGENTES` com o Pro.
+        Revisão de segurança com vários agentes: a rodada 1 achou ~20
+        problemas (2 altos), já corrigidos. Os achados ficam em
+        `scratchpad/seguranca/`.
+      - A tela "WhatsApp com IA" está na branch `claude/whatsapp-corretor`
+        do app.
+      - **Teste no 8000 liberado pelo Mateus em 11/11** ("Podemos testar no
+        8000 sem problema acredito eu"). Vale acima da regra de não usar o
+        8000 em teste da Meta, só para este teste. O teste usa
+        `WA_CORRETOR_SO_NUMEROS` (a IA só responde os números que ele
+        passar) e `WA_CORRETOR_TESTE_SEM_PRO` (a conta 39 sem o Pro).
+        Enquanto o número estiver ligado, ficam desligadas as mensagens
+        temporárias, a visualização única e a localização em tempo real.
+      - O Evolution API fica como teste de laboratório num chip dele, nunca
+        no número de um corretor.
   - O app vira uma conversa, como o Claude, começando pelo 1º imóvel com
     teste A/B.
   - O app antigo da loja vira o app do corretor (Mateus: "Para o
