@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>ChatGPT · Imóvel publicado</title>
+<style>
+  @font-face { font-family: P; src: url("fonts/Poppins-Regular.ttf"); font-weight: 400; }
+  @font-face { font-family: P; src: url("fonts/Poppins-Medium.ttf"); font-weight: 500; }
+  @font-face { font-family: P; src: url("fonts/Poppins-SemiBold.ttf"); font-weight: 600; }
+  @font-face { font-family: P; src: url("fonts/Poppins-Bold.ttf"); font-weight: 700; }
+  @font-face { font-family: P; src: url("fonts/Poppins-ExtraBold.ttf"); font-weight: 800; }
+
+  :root { --navy: #00073e; --blue: #000f90; --cyan: #00efff; --muted: #4f5680; --paper: #f2f3f8; --line: #dde0ee; --ok: #12b76a; --wa: #d9fdd3; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; font-family: P, sans-serif; display: flex; flex-wrap: wrap; gap: 40px; padding: 40px; align-items: flex-start; }
+  .art { position: relative; overflow: hidden; width: 1200px; height: 1200px; }
+  .logo { position: absolute; left: 72px; top: 64px; height: 54px; }
+  .kicker { font-weight: 700; font-size: 26px; letter-spacing: .2em; text-transform: uppercase; }
+  h1 { font-weight: 800; letter-spacing: -.045em; line-height: .96; }
+
+  /* ---------- A: cole, a IA preenche, você publica ---------- */
+  #a { background: radial-gradient(120% 90% at 100% 0%, #0b1fb8 0%, #00105a 45%, #00073e 100%); color: #fff; }
+  #a .tit { position: absolute; left: 72px; right: 72px; top: 170px; }
+  #a .kicker { color: var(--cyan); }
+  #a h1 { margin-top: 26px; font-size: 118px; }
+  #a h1 em { font-style: normal; color: var(--cyan); }
+  #a .passos { position: absolute; left: 72px; right: 72px; bottom: 84px; display: grid; grid-template-columns: 1fr 64px 1.25fr 64px 1fr; align-items: center; }
+  #a .seta { justify-self: center; width: 44px; height: 44px; }
+  .p { background: #fff; color: var(--navy); border-radius: 30px; padding: 28px 26px; box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+  .p .n { font-weight: 700; font-size: 20px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .p .cola { margin-top: 18px; display: flex; align-items: center; gap: 12px; background: var(--paper); border: 2px dashed #b9bfdc; border-radius: 18px; padding: 16px 16px; font-size: 21px; color: var(--muted); }
+  .p .cola svg { width: 30px; height: 30px; flex: none; }
+  .p .bt { margin-top: 16px; background: var(--blue); color: #fff; border-radius: 999px; padding: 14px 0; text-align: center; font-weight: 600; font-size: 22px; }
+  .p.meio { padding: 0; overflow: hidden; }
+  .p.meio .foto { height: 190px; background: url("102-1.jpg") center / cover; position: relative; }
+  .p.meio .foto span { position: absolute; left: 16px; top: 16px; background: var(--cyan); color: var(--navy); font-weight: 700; font-size: 17px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; }
+  .p.meio .info { padding: 20px 24px 24px; }
+  .p.meio .t { font-weight: 700; font-size: 27px; line-height: 1.15; }
+  .p.meio .chips { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .p.meio .chips b { font-weight: 600; font-size: 18px; background: var(--paper); border-radius: 999px; padding: 6px 12px; }
+  .p.meio .preco { margin-top: 12px; font-weight: 800; font-size: 28px; color: var(--blue); }
+  .p.fim { text-align: center; padding: 34px 22px; }
+  .p.fim .ok { width: 96px; height: 96px; margin: 18px auto 0; border-radius: 50%; background: var(--ok); display: grid; place-items: center; }
+  .p.fim .ok svg { width: 54px; height: 54px; }
+  .p.fim .pub { margin-top: 18px; font-weight: 800; font-size: 32px; }
+  .p.fim .url { margin-top: 6px; font-size: 19px; color: var(--muted); }
+
+  /* ---------- B: recebeu no WhatsApp? cole o texto ---------- */
+  #b { background: var(--paper); color: var(--navy); }
+  #b .tit { position: absolute; left: 72px; right: 72px; top: 168px; }
+  #b .kicker { color: var(--blue); }
+  #b h1 { margin-top: 24px; font-size: 104px; }
+  #b h1 em { font-style: normal; color: var(--blue); }
+  #b .msg { position: absolute; left: 72px; top: 600px; width: 560px; background: var(--wa); border-radius: 30px 30px 30px 8px; padding: 26px 30px 22px; box-shadow: 0 18px 40px rgba(0,7,62,.12); }
+  #b .msg .de { font-weight: 600; font-size: 21px; color: #128c7e; }
+  #b .msg p { margin-top: 10px; font-size: 25px; line-height: 1.42; color: #111b21; }
+  #b .msg .h { margin-top: 10px; text-align: right; font-size: 18px; color: #667781; }
+  #b .colar { position: absolute; left: 150px; top: 950px; display: flex; align-items: center; gap: 12px; background: var(--navy); color: #fff; font-weight: 600; font-size: 24px; padding: 16px 26px; border-radius: 999px; box-shadow: 0 16px 34px rgba(0,7,62,.3); }
+  #b .colar svg { width: 28px; height: 28px; }
+  #b .card { position: absolute; right: 72px; top: 660px; width: 470px; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,7,62,.2); }
+  #b .card .hd { display: flex; align-items: center; gap: 12px; padding: 20px 24px; border-bottom: 2px solid var(--line); font-weight: 700; font-size: 19px; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+  #b .card .hd i { width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px rgba(0,239,255,.25); }
+  #b .card .linha { display: flex; justify-content: space-between; gap: 16px; padding: 15px 24px; border-bottom: 2px solid var(--paper); font-size: 22px; }
+  #b .card .linha span { color: var(--muted); }
+  #b .card .linha b { font-weight: 700; text-align: right; }
+  #b .card .linha:last-child { border-bottom: 0; }
+  #b .flecha { position: absolute; left: 640px; top: 690px; width: 70px; height: 70px; }
+
+  /* ---------- C: seus imóveis num link, com IA ---------- */
+  #c { background: linear-gradient(160deg, #00efff 0%, #00c4f0 100%); color: var(--navy); }
+  #c .tit { position: absolute; left: 72px; right: 72px; top: 168px; }
+  #c .kicker { color: var(--blue); }
+  #c h1 { margin-top: 24px; font-size: 112px; }
+  #c .pag { position: absolute; left: 72px; right: 72px; bottom: 0; height: 600px; background: #fff; border-radius: 40px 40px 0 0; box-shadow: 0 -20px 60px rgba(0,7,62,.18); padding: 34px 40px; }
+  #c .barra { display: flex; align-items: center; gap: 14px; background: var(--paper); border-radius: 999px; padding: 14px 24px; font-size: 26px; font-weight: 600; }
+  #c .barra svg { width: 26px; height: 26px; flex: none; }
+  #c .barra em { font-style: normal; color: var(--blue); }
+  #c .perfil { margin-top: 26px; display: flex; align-items: center; gap: 18px; }
+  #c .av { width: 74px; height: 74px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 28px; position: relative; }
+  #c .av i { position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 50%; background: var(--cyan); border: 4px solid #fff; }
+  #c .perfil b { display: block; font-weight: 700; font-size: 30px; }
+  #c .perfil span { font-size: 21px; color: var(--muted); }
+  #c .grade { margin-top: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  #c .im { height: 300px; border-radius: 20px; background-size: cover; background-position: center; }
+  #c .bolha { position: absolute; right: 40px; top: 210px; width: 470px; background: var(--navy); color: #fff; border-radius: 28px 28px 8px 28px; padding: 22px 26px; box-shadow: 0 24px 50px rgba(0,7,62,.35); }
+  #c .bolha .q { font-weight: 700; font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); }
+  #c .bolha p { margin-top: 8px; font-size: 25px; line-height: 1.35; }
+</style>
+</head>
+<body>
+
+<!-- A -->
+<div class="art" id="a">
+  <img class="logo" src="logo-dark.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Cole o anúncio.<br><em>A IA monta</em> o imóvel.</h1>
+  </div>
+  <div class="passos">
+    <div class="p">
+      <div class="n">1 · Cole</div>
+      <div class="cola"><svg viewBox="0 0 24 24" fill="none" stroke="#4f5680" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>link ou texto</div>
+      <div class="bt">Preencher com a IA</div>
+    </div>
+    <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="#00efff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    <div class="p meio">
+      <div class="foto"><span>2 · A IA preenche</span></div>
+      <div class="info">
+        <div class="t">Apartamento com varanda</div>
+        <div class="chips"><b>2 quartos</b><b>1 vaga</b><b>68 m²</b></div>
+        <div class="preco">R$ 520.000</div>
+      </div>
+    </div>
+    <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="#00efff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    <div class="p fim">
+      <div class="n">3 · Publique</div>
+      <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <div class="pub">No ar</div>
+      <div class="url">no seu Smart Link</div>
+    </div>
+  </div>
+</div>
+
+<!-- B -->
+<div class="art" id="b">
+  <img class="logo" src="logo-light.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Recebeu o imóvel<br>no WhatsApp?<br><em>Cole o texto.</em></h1>
+  </div>
+  <div class="msg">
+    <div class="de">Parceiro · Imobiliária</div>
+    <p>Apto 2 qts com varanda gourmet, 1 vaga, 68 m². Prédio com piscina. R$ 520 mil, aceita financiamento.</p>
+    <div class="h">14:32</div>
+  </div>
+  <div class="colar"><svg viewBox="0 0 24 24" fill="none" stroke="#00efff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="3" width="8" height="4" rx="1"/><path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/></svg>Preencher com a IA</div>
+  <div class="card">
+    <div class="hd"><i></i>A IA preencheu</div>
+    <div class="linha"><span>Tipo</span><b>Apartamento</b></div>
+    <div class="linha"><span>Quartos</span><b>2</b></div>
+    <div class="linha"><span>Vagas</span><b>1</b></div>
+    <div class="linha"><span>Área</span><b>68 m²</b></div>
+    <div class="linha"><span>Lazer</span><b>Piscina, varanda gourmet</b></div>
+    <div class="linha"><span>Valor</span><b>R$ 520.000</b></div>
+  </div>
+</div>
+
+<!-- C -->
+<div class="art" id="c">
+  <img class="logo" src="logo-light.png" alt="">
+  <div class="tit">
+    <div class="kicker">Para corretores de imóveis</div>
+    <h1>Seus imóveis<br>num link.<br>Uma IA atendendo.</h1>
+  </div>
+  <div class="pag">
+    <div class="barra"><svg viewBox="0 0 24 24" fill="none" stroke="#000f90" stroke-width="2.4" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg><span>smartli.ink/<em>seunome</em></span></div>
+    <div class="perfil">
+      <div class="av">SN<i></i></div>
+      <div><b>Seu Nome</b><span>Corretor de imóveis</span></div>
+    </div>
+    <div class="grade">
+      <div class="im" style="background-image:url('101-1.jpg')"></div>
+      <div class="im" style="background-image:url('103-1.jpg')"></div>
+      <div class="im" style="background-image:url('104-1.jpg')"></div>
+    </div>
+    <div class="bolha">
+      <div class="q">IA do Seu Nome</div>
+      <p>Oi! Esse tem 3 quartos e está disponível. Quer marcar uma visita?</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
