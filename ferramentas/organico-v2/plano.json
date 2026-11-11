@@ -1,6 +1,6 @@
 {
-  "nota": "Calendário novo do Instagram (Mateus, 11/11: 'Pode seguir com o calendário que você recomendou'). Semana 1: o Mateus aprova antes. Publica a rotina das 09h17 (trig_01CGQkw8UcHiNqFKT6HYiyKw). Quinta, 12/11: post do Igor (collab, publicado por ele).",
-  "base": null,
+  "nota": "Calendário novo do Instagram (Mateus, 11/11: 'Pode seguir com o calendário que você recomendou'). Semana 1: o Mateus aprova antes. Publica a rotina das 09h17 (trig_01CGQkw8UcHiNqFKT6HYiyKw). Quinta, 12/11: post do Igor (collab, publicado por ele). Aprovada pelo Mateus em 11/11, às 17h10: \"Pode publicar os posts da semana\".",
+  "base": "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/",
   "pecas": [
     {
       "data": "2026-11-13",
@@ -12,9 +12,13 @@
       ],
       "capa": "out/a1.jpg",
       "legenda": "O cliente te chamou no WhatsApp às 22h. O que ele recebeu?\n\nDois textos para colar hoje no WhatsApp Business:\n\nSaudação: \"Olá! Obrigado pela mensagem. Enquanto eu não respondo, a minha IA já te atende e mostra os meus imóveis, a qualquer hora: smartli.ink/seu-link\"\n\nAusência: \"Oi! Agora não consigo responder, mas assim que eu puder falo com você. Enquanto isso, a minha IA te atende na hora e mostra os meus imóveis: smartli.ink/seu-link\"\n\nOnde fica: Configurações (no Android, os três pontinhos) > Ferramentas comerciais > Mensagem de saudação e Mensagem de ausência. Ative e cole.\n\nTroque \"seu-link\" pelo seu Smart Link: quem tocar fala com a IA com o seu nome, na hora. Ainda não tem? Crie o seu pelo link na bio do @matchhouse.br.\n\nSalve para fazer hoje e mande para um colega.\n\n#whatsappbusiness #corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/a-saudacao.mp4"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "capa_url": "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/a1.jpg",
+      "aprovado_em": "2026-11-11T20:10Z"
     },
     {
       "data": "2026-11-16",
@@ -26,9 +30,13 @@
       ],
       "capa": "out/b1.jpg",
       "legenda": "Pedimos à IA do Smart Link uma casa que não existe. Ela não inventou.\n\nDisse o que tinha de verdade, ofereceu os horários livres para a visita e pediu nome e celular para marcar.\n\nA conversa é real, numa conta de demonstração da Match House, em 11/11.\n\nÉ assim que a IA com o seu nome atende quem chega pelo link da sua bio: com os seus imóveis, na hora, de dia e de noite.\n\nCrie o seu Smart Link pelo link na bio do @matchhouse.br.\n\n#inteligenciaartificial #corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/b-conversa-real.mp4"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "capa_url": "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/b1.jpg",
+      "aprovado_em": "2026-11-11T20:10Z"
     },
     {
       "data": "2026-11-17",
@@ -45,9 +53,18 @@
         "out/c7.jpg"
       ],
       "legenda": "O cliente mandou só \"Qual o valor?\". Responda o valor e, na mesma mensagem, faça uma pergunta.\n\n4 respostas prontas (troque o valor e copie):\n\n1. Para entender o motivo: \"Oi! Esse sai por R$ [valor]. Você está procurando para morar ou para investir?\"\n2. Para falar de parcela: \"Oi! Ele está por R$ [valor] e aceita financiamento. Quer que eu faça uma simulação da parcela para você?\"\n3. Para abrir opções: \"Oi! Esse é R$ [valor]. Tenho outros na mesma região, de R$ [menor] a R$ [maior]. Quantos quartos você precisa?\"\n4. Para marcar a visita: \"Oi! O valor é R$ [valor]. Consigo te mostrar ainda esta semana. Prefere durante a semana ou no sábado?\"\n\nE quando ele pergunta às 23h? A IA do seu Smart Link responde na hora, com o seu nome. Crie o seu pelo link na bio do @matchhouse.br.\n\nSalve e mande para um colega.\n\n#corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c1.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c2.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c3.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c4.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c5.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c6.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/c7.jpg"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "aprovado_em": "2026-11-11T20:10Z"
     },
     {
       "data": "2026-11-18",
@@ -65,9 +82,18 @@
         "out/e7.jpg"
       ],
       "legenda": "Foto do imóvel com o celular: 5 ajustes antes de clicar.\n\n1. Celular na horizontal.\n2. Luz do dia: abra cortinas e janelas e acenda as luzes.\n3. Altura do peito, câmera reta, para paredes e portas ficarem retas.\n4. Limpe a lente.\n5. A melhor foto primeiro: é a capa que faz o cliente tocar. No app da Match House, o botão \"Tornar capa\", embaixo de cada foto, escolhe qual vem primeiro.\n\nQuem toca no imóvel no seu Smart Link fala com a IA com o seu nome, na hora. Crie o seu pelo link na bio do @matchhouse.br.\n\nSalve para a próxima captação.\n\n#fotografiaimobiliaria #corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e1.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e2.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e3.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e4.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e5.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e6.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/e7.jpg"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "aprovado_em": "2026-11-11T20:10Z"
     },
     {
       "data": "2026-11-19",
@@ -84,9 +110,18 @@
         "out/d7.jpg"
       ],
       "legenda": "5 erros no anúncio que fazem o cliente sumir. Confira antes de publicar o próximo:\n\n1. Não dizer o bairro.\n2. \"Valor no Direct\".\n3. Foto escura ou torta.\n4. Faltar o básico: quartos, vagas, metragem e condomínio.\n5. Demorar para responder.\n\nO erro 5, a IA resolve: a IA do seu Smart Link responde na hora, com o seu nome, de dia, de noite e no fim de semana. Crie o seu pelo link na bio do @matchhouse.br.\n\nSalve e mande para um colega.\n\n#corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d1.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d2.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d3.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d4.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d5.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d6.jpg",
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/d7.jpg"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "aprovado_em": "2026-11-11T20:10Z"
     },
     {
       "data": "2026-11-20",
@@ -98,9 +133,13 @@
       ],
       "capa": "out/f1.jpg",
       "legenda": "Seu link na bio em 20 segundos:\n\n1. No seu perfil do Instagram, toque em Editar perfil.\n2. Toque em Links e depois em Adicionar link externo.\n3. Em URL, cole o seu Smart Link.\n4. Em Título, escreva \"Fale com a minha IA\" e salve.\n\nPronto: quem tocar fala com a IA com o seu nome, a qualquer hora. No app da Match House, em Divulgar, o botão \"Cole o link na bio do Instagram\" já copia o link e abre essa tela.\n\nAinda não tem o link? Crie pelo link na bio do @matchhouse.br.\n\n#linknabio #corretordeimoveis #corretor #mercadoimobiliario #imoveis",
-      "urls": null,
-      "aprovado": false,
-      "publicado": null
+      "urls": [
+        "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/f-link-na-bio.mp4"
+      ],
+      "aprovado": true,
+      "publicado": null,
+      "capa_url": "https://raw.githubusercontent.com/match-house/lp-match-house/b25359f335be42a95675936fb19b6c89aa06ab8e/anuncios/organico/v2/semana1/f1.jpg",
+      "aprovado_em": "2026-11-11T20:10Z"
     }
   ]
 }
