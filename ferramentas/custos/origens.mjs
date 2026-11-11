@@ -28,7 +28,7 @@ function origem(it) {
   const src = origemDe(it);
   const med = (it.utm_medium || '').trim().toLowerCase();
   const cont = (it.utm_content || '').trim();
-  if (src === 'chatgpt' || src === 'openai') return ['ChatGPT', null];
+  if (src === 'chatgpt' || src === 'openai' || src === 'chatgpt_ads') return ['ChatGPT', null];
   if (src === 'chatgpt.com') return ['ChatGPT sem anúncio (resposta)', null];
   if (src === 'google') return ['Google', null];
   // Link da bio marcado pelo próprio Instagram (ig / social / link_in_bio).
