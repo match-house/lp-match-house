@@ -739,8 +739,12 @@ Notas do projeto para agentes. Ler antes de mexer.
           do WhatsApp com token de expiração em 60 dias": id
           `1002523425575213` (`WA_META_CONFIG_ID`). A variação "Geral" não
           serve.
-        - Falta: publicar o app (sem isso a Meta só manda webhook de teste)
-          e a revisão do ECS com as variáveis `WA_*`.
+        - App publicado na Meta em 11/11, à noite (sem isso a Meta só manda
+          webhook de teste).
+        - Falta a revisão do ECS com as variáveis `WA_*`: o Mateus faz em
+          12/11, de manhã. Depois, conferir em
+          `/backoffice/whatsapp-corretor/status` e ele conecta o 8000 pela
+          conta 39.
       - **Token de 60 dias**: antes de abrir aos corretores, a API precisa
         avisar o corretor para reconectar antes de vencer. Hoje, token
         recusado só desliga a ligação.
