@@ -870,6 +870,16 @@ para aquela mensagem.
     recusar o campo.
   - A página do "Parar de receber" diz "lembretes e novidades": o
     `activation_opt_out_at` para a esteira e os envios do backoffice.
+- **WhatsApp com imagem** (api #162, 11/11): o preview e o send de WhatsApp
+  do tipo texto aceitam `image_url`. A foto vai com o texto de legenda,
+  numa mensagem só.
+  - Só jpg ou png, de `raw.githubusercontent.com/match-house/lp-match-house/<commit>/…`
+    (com o commit; um branch é recusado) ou de matchhouse.com.br.
+  - A API confere a imagem na prévia e no envio (abre, é jpg ou png, até
+    5 MB). Sem isso, a Twilio aceitaria e a mensagem inteira falharia
+    depois, sem aviso, gastando a única do dia.
+  - A imagem entra no código de confirmação. O MCP do backoffice ainda não
+    passa o campo: usar curl.
 
 ## Áudio no 6800 e no Direct: transcrito pela IA (ligado em 27/10, 10h26)
 
@@ -2990,6 +3000,12 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   com os nomes fica só em `scratchpad/collab/fila.json` (não vai ao repositório).
 - Nada do Espírito Santo, nenhum dado de cliente, sem preço na arte. O
   comentário da Match House vai pronto, em 2 ou 3 opções curtas com o @.
+- **A arte vai como foto no WhatsApp, nunca como link do GitHub** (Mateus,
+  11/11: "Esse link nao podia se menor? E nao pode mandar a imagem para eles
+  direto ao inves de link??"). É o `image_url` do WhatsApp (ver "WhatsApp
+  com imagem", no backoffice). A legenda do post do Instagram vai sozinha,
+  em outra mensagem, para copiar com um toque longo. Lembrar que só sai 1
+  WhatsApp por pessoa por dia.
 
 ## Perfil do @matchhouse.br (23/10)
 

@@ -45,6 +45,10 @@
   conversa). O e-mail divide o teto de 150 por dia com os outros envios.
 - Quem disser sim: arte + legenda num bloco separado + 3 linhas com "Convidar
   colaborador" + 2 ou 3 opções de comentário da Match House para o Mateus.
+- No WhatsApp, a arte vai como foto (`image_url` no preview/send, api #162),
+  nunca como link do GitHub (Mateus, 11/11). A legenda vai sozinha numa
+  mensagem própria, para copiar com um toque longo. Só sai 1 WhatsApp por
+  pessoa por dia: a foto num dia, a legenda no outro, ou a legenda por e-mail.
 - Fila: os aceites esperam a vez, um por semana; quem respondeu primeiro vai
   primeiro. Medir alcance, seguidores novos e visitas do Instagram ao Smart Link
   do corretor na semana do post.
