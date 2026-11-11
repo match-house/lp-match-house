@@ -155,8 +155,9 @@
    - UTMs + fbclid + _fbp/_fbc sao repassados pra URL de cadastro (cross-domain)
 
    SET/2026 — pixel da OpenAI (anuncios no ChatGPT):
-   - `lead_created` no CTA de cadastro (par do `Lead`); o cadastro concluido
-     (`registration_completed`) e medido no proprio app
+   - CTA de cadastro -> evento proprio `signup_cta_click` (desde 11/11; antes
+     era `lead_created`). O cadastro concluido (`registration_completed`) e o
+     1o imovel publicado (`lead_created`) sao medidos no proprio app
    - `oppref` (o clique do ChatGPT) vai na URL de cadastro, como o fbclid
 
    IMPORTANTE: nao renomeie o evento `Lead`. O conjunto
@@ -427,14 +428,15 @@
       catch (e) {}
     }
 
-    // OpenAI (anuncios no ChatGPT): cadastro -> `lead_created`, o par do
-    // `Lead`; WhatsApp -> evento proprio, so medicao. Mesmo eventID do Meta,
-    // pronto pra dedup quando o Conversions API entrar.
+    // OpenAI (anuncios no ChatGPT): os dois cliques vao como evento proprio,
+    // so medicao. Desde 11/11/2026 o `lead_created` e do app, quando a conta
+    // publica o 1o imovel (a conversao que a campanha otimiza): o toque no
+    // botao de cadastro nao pode contar como ele. O `Lead` do Meta nao muda.
     if (typeof window.oaiq === 'function') {
       try {
         if (eventName === 'Lead') {
-          window.oaiq('measure', 'lead_created', { type: 'customer_action' },
-            { event_id: eventId });
+          window.oaiq('measure', 'custom', { type: 'custom' },
+            { custom_event_name: 'signup_cta_click', event_id: eventId });
         } else {
           window.oaiq('measure', 'custom', { type: 'custom' },
             { custom_event_name: 'whatsapp_click', event_id: eventId });
