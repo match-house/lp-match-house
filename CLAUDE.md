@@ -2463,6 +2463,25 @@ quando quem cortou foi o nosso limite (app #125).
     Gemini), dentro dos US$ 20/mês da chave.
   - Na volta: resultado, escolha do modelo, o "pode" da seção 10.8 da
     política e os 5 primeiros corretores.
+- **Ligada em 5 corretores desde 11/11, ~16h55** (Mateus: "Vamos começar
+  pela IA própria, pode ligar"). Vale acima do "até 11/11 só na INMC".
+  - O Mateus pôs a revisão `matchhouse-back:35` no ar com
+    `ATENDIMENTO_AGENTES=804,1027,1041,1037,1218,950` (INMC e os id_agent
+    1027, 1041, 1037, 1218 e 950) e `ATENDIMENTO_MODELO_RESERVA` com o
+    modelo barato.
+  - O modelo da conversa segue o mesmo para todos no piloto; o
+    `ATENDIMENTO_MODELO_PRO` fica vazio.
+  - Conferido logo depois em `/backoffice/atendimento/status` e com uma
+    conversa no `/simular` por corretor: os 5 responderam com os próprios
+    imóveis.
+  - A política já tem a seção 10.9 (assistente de IA do Smart Link, guarda
+    de até 12 meses) desde 11/11.
+  - Todo dia, no relatório: as conversas de cada um
+    (`/backoffice/atendimento/conversas?id_agent=&dias=1`), quantas viraram
+    contato, o gasto do dia (`hoje` no status) e o que ajustar nas regras.
+  - Os outros corretores seguem na Intelliway. Não cancelar a Intelliway
+    nem ligar mais corretores sem o Mateus. Antes de cancelar, exportar as
+    conversas dela.
 - **Modelo por plano: pronto e desligado desde 27/10** (api #142; Mateus:
   "podemos colocar um modelo barato no plano freemium e no pro um modelo
   melhor?" e "sim deixa pronto, sem citar nomes de IAs nem modelos").
