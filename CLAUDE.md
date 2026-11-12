@@ -769,6 +769,23 @@ Notas do projeto para agentes. Ler antes de mexer.
           testar a IA. Depois da aprovação, o Mateus conecta o 8000 pela
           conta 39 (ele precisa entrar no app com o login da 39; em 12/11
           ele estava na INMC).
+        - **Análise enviada em 12/11, por volta das 17h15** (Mateus: "bora,
+          vamos terminar.."), com `whatsapp_business_messaging`,
+          `whatsapp_business_management` e `public_profile`. A Meta diz até
+          20 dias. Textos em inglês em `scratchpad/meta-review/`; o vídeo 2
+          é a criação do modelo `teste_analise_app_4` na Test Messaging
+          Account. No formulário (privado, só para a Meta) foram declarados
+          os operadores AWS, OpenRouter e Anthropic, nos Estados Unidos, e a
+          MATCH HOUSE TECHNOLOGY LTDA como responsável. Para enviar, o app
+          ganhou a plataforma Site e o domínio `app.smartli.ink`.
+          Conferência do resultado em 16/11, às 9h23
+          (`trig_01WWFvLZ47zChT9sWrFiuBRh`), e depois a cada 3 dias.
+        - A aprovação é do app: para abrir a todos os corretores não se
+          refaz. Cada corretor conecta pelo próprio botão. Só permissão nova
+          pede outra análise, e a Meta pede uma vez por ano a revisão do uso
+          de dados (um formulário curto). Abrir a todos é mudança nossa:
+          `WA_CORRETOR_AGENTES`, `WA_CORRETOR_SO_NUMEROS` e o aviso do token
+          de 60 dias.
       - **Token de 60 dias**: antes de abrir aos corretores, a API precisa
         avisar o corretor para reconectar antes de vencer. Hoje, token
         recusado só desliga a ligação.
