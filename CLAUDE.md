@@ -853,8 +853,13 @@ Tirar do funil, dos relatórios e de custo por cadastro (id_user):
     muda: as duplicadas estão vazias.
   - Em dúvida, perguntadas ao Mateus em 11/10: 1234 (100), 1092 (715) e
     1164 (998). A pessoa é a mesma e a segunda conta está vazia, mas a
-    principal só tem o link, sem imóvel. Até ele responder, continuam nos
-    números.
+    principal só tem o link, sem imóvel.
+    - **1164 e 1234 saíram em 12/11, às 9h49** (Mateus: "Pode"). O nome
+      completo é igual ao da principal e as duas estão vazias. Saíram da
+      esteira e dos números.
+    - A 1092 continua nos números. Também continuam a 1443 (o nome é
+      parecido com o da 521, mas não dá para afirmar que é a mesma
+      pessoa) e a 1362 (o sobrenome não bate com o da 1342).
   - O detalhe da varredura (provas e as que não são duplicadas) está em
     `scratchpad/contas-fora/varredura-1011.md`, nos arquivos desta conversa.
 
