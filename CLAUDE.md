@@ -748,10 +748,27 @@ Notas do projeto para agentes. Ler antes de mexer.
           serve.
         - App publicado na Meta em 11/11, à noite (sem isso a Meta só manda
           webhook de teste).
-        - Falta a revisão do ECS com as variáveis `WA_*`: o Mateus faz em
-          12/11, de manhã. Depois, conferir em
-          `/backoffice/whatsapp-corretor/status` e ele conecta o 8000 pela
-          conta 39.
+        - **Revisão 36 do ECS em 12/11, de manhã** (feita pelo Mateus, junto
+          com o certificado da nota): `WA_*` no ar,
+          `WA_CORRETOR_AGENTES=820` e `WA_CORRETOR_TESTE_SEM_PRO=820` (a
+          conta 39, smartli.ink/matchhouse) e `WA_CORRETOR_SO_NUMEROS` com os
+          2 celulares que vão mandar as mensagens de teste (o 8000 é o
+          número do corretor, não entra nessa lista). O status mostrou
+          ligado e configurado.
+        - **12/11: a Meta barrou o Conectar** com "Match House não pode
+          integrar clientes no momento", logo depois do "Continuar como".
+          Pela documentação, a conexão de quem já usa o WhatsApp Business
+          (coexistência) exige ser Provedor de Tecnologia confirmado, e com
+          o app publicado só aparecem as permissões aprovadas na análise do
+          app. Falta a **análise do app**: acesso avançado de
+          `whatsapp_business_messaging` e `whatsapp_business_management`,
+          com 2 vídeos (mensagem saindo pela "Configuração da API" e
+          chegando no WhatsApp; criação de um modelo no Gerenciador do
+          WhatsApp), ícone, política e categoria. A conta de teste
+          ("sandbox") da Meta não manda nem recebe mensagem: não serve para
+          testar a IA. Depois da aprovação, o Mateus conecta o 8000 pela
+          conta 39 (ele precisa entrar no app com o login da 39; em 12/11
+          ele estava na INMC).
       - **Token de 60 dias**: antes de abrir aos corretores, a API precisa
         avisar o corretor para reconectar antes de vencer. Hoje, token
         recusado só desliga a ligação.
@@ -1840,11 +1857,27 @@ para aquela mensagem.
       matchhouse.br@gmail.com. Mateus, 31/10: "precisavamos trocar para o
       .br vamos fazer isso qd eu voltar". A troca vai na mesma revisão do
       ECS do certificado (lembrete de 12/11, `trig_01QyGqzghFVcFUmBCVH4p5zB`).
-    - **Certificado novo criado em 31/10, falta ativar** (Mateus: "Ja criei
-      o novo certificado mas falta fazer a call de ativacao na contabilizei,
-      fica para a volta tb"). Na volta: chamada de ativação com a
-      Contabilizei, .pfx no S3 (`ecnpj.pfx`) e a revisão do ECS com a senha
-      e o `NFSE_EMAIL_DONO`. O certificado de agora vale até 29/11.
+    - **Certificado novo no ar desde 12/11** (revisão 36 do ECS, feita pelo
+      Mateus): o .pfx novo está no S3 (`ecnpj.pfx`), com a senha nova, e o
+      `NFSE_EMAIL_DONO` foi para o matchhouse.br@gmail.com. O
+      `/backoffice/nfse/status` mostra o certificado válido até
+      12/11/2027, sem problema, e a Sefin aceitou a conexão com ele.
+      Renovar em novembro de 2027 (a Contabilizei abre a renovação 30 dias
+      antes).
+    - **Leiaute da NT 009** (12/11). A produção restrita exige o leiaute
+      novo desde 20/10, e a nota de teste de 12/11 voltou com E1235
+      (`finNFSe` no lugar do `cLocEmi`). A produção segue no leiaute de
+      hoje até a data do Plano de Implantação, ainda sem dia. A api #166
+      monta os dois, usa o da NT 009 na restrita e, na produção, troca
+      sozinha na primeira recusa por leiaute, sem revisão do ECS (detalhe
+      em `api/docs/nfse.md`). No ar em 12/11, às 13h40: a nota de teste
+      na restrita saiu emitida no leiaute novo, e a produção segue no de
+      hoje (`leiaute` em `/backoffice/nfse/status`). Quando a produção
+      trocar, chega o e-mail "NFS-e: a Receita trocou o formato da nota".
+      A renovação do Enio é em 20/11.
+    - A rede do ambiente desta conversa abre `www.gov.br` (documentação da
+      NFS-e) e `developers.facebook.com` desde 12/11, liberados para ler
+      o leiaute novo e as regras da Meta.
   - **Webhook do Stripe, 19/10 (api #106):** de 13 a 19/10, 427 das 805
     entregas falharam com 404 no `invoice.paid` da fatura de R$ 0 do teste
     do plano de entrada, que todo cadastro cria. Agora a fatura de R$ 0 sem
