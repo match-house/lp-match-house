@@ -674,10 +674,17 @@ Notas do projeto para agentes. Ler antes de mexer.
       baixei pelo Windsor de 75 para 40 e conferi.
     - "Smart Link - Imóvel publicado" (nova, criada por ele no painel;
       Conversões, evento lead, grupo "Corretores - Imóvel publicado", sem o
-      Espírito Santo). Anúncios novos A a F (cole o anúncio, texto do
+      Espírito Santo). Os anúncios A a F (cole o anúncio, texto do
       WhatsApp, imóveis num link, fotos, PDF do lançamento e a IA mostrando
-      os imóveis) e o G, o antigo "IA para corretores". Artes em
-      `anuncios/chatgpt/` da branch de trabalho.
+      os imóveis) foram preparados, com as artes em `anuncios/chatgpt/` da
+      branch de trabalho.
+      - Na conferência de 12/11, o Windsor só mostrava um anúncio entregando
+        nela: "D - IA para corretores" (ad_2646eb641778819c88799b99c429c6b0).
+        Ele usa o mesmo texto do antigo "IA para corretores" e tem o "D - "
+        no título.
+      - No 1º dia (11/11), a campanha gastou R$ 45,62, teve 1.489 impressões
+        e 26 cliques, e trouxe 2 contas (1690 e 1691, `utm_campaign
+        chatgpt-imovel-publicado`, sem `utm_medium`).
     - Leitura em 7 dias: custo por corretor que publicou em cada campanha
       (pelo backoffice, origem ChatGPT) e qual anúncio leva a publicar.
 
