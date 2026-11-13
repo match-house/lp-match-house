@@ -36,7 +36,12 @@ while read -r p; do
   if [ "$(enviados_hoje)" -ge "$LIMITE_DIA" ]; then echo "reserva: $LIMITE_DIA hoje; o resto fica para amanhã"; break; fi
   # O teto de 30 por dia é de todas as campanhas juntas (regra de 22/10): o
   # backoffice conta os modelos de WhatsApp que saíram hoje, de qualquer script.
-  tot=$(curl -sS -m 30 "$API/messages?page_size=1" | jq -r '.hoje.whatsapp_modelos // empty' 2>/dev/null)
+  tot=""
+  for _t in 1 2 3; do
+    tot=$(curl -sS -m 30 "$API/messages?page_size=1" | jq -r '.hoje.whatsapp_modelos // empty' 2>/dev/null)
+    [ -n "$tot" ] && break
+    sleep 30
+  done
   if [ -z "$tot" ]; then echo "não deu para ler o total do dia: parando por segurança"; break; fi
   if [ "$tot" -ge "$LIMITE_DIA" ]; then echo "teto do dia: $tot modelos de WhatsApp hoje, somando as campanhas"; break; fi
   id=$(jq -r .id_user <<<"$p")
