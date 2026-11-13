@@ -2963,6 +2963,26 @@ quando quem cortou foi o nosso limite (app #125).
     - Em "Vários anúncios", só conta link com domínio de verdade.
     - Medir pelo envio (`property_import` text), não pelo toque no cartão:
       desde o #172 o `property_method_selected` conta no toque.
+  - **13/11: o 1º imóvel VOLTOU para a caixa única (app #184, merge
+    57a031e, no ar às 8h46).** Mateus: "Novembro esta publicando mt
+    menos... temos que investigar" e, depois do achado, "Pode voltar para a
+    tela do 1 imovel para caixa unica".
+    - O achado: cadastro e conclusão estáveis (66% a 71% passam do código),
+      importação estável (9 em 10 dão certo), mas caiu quem TENTA cadastrar.
+      Por pessoa que viu a tela (`property_create_viewed` × `property_import`):
+      12 a 16/10, caixa, 73%; 19 a 23/10, caixa, 54%; 02 a 08/11, 4 opções,
+      34%. Nas contas do ChatGPT, quem publica no 1º dia foi de 29% (semana de
+      12/10) para 10% a 11% em novembro. Novembro rodou com verba menor, então
+      não é a qualidade do tráfego.
+    - A caixa é a do #167 (Preencher com a IA sempre aceso, Colar o que
+      copiei, fotos num link discreto, "Ver outras formas"). As 4 opções
+      ficam no imóvel novo e em "Ver outras formas".
+    - Eventos: a visita vai com `layout: "primeiro"` e `primeiro_imovel:
+      true`; "Ver outras formas" é `primeiro_imovel_outras_formas`.
+    - Medir no relatório diário, por pessoa, quem viu a caixa × quem tentou
+      importar (meta: voltar para 54% a 73%), e o publicou no 1º dia das
+      contas do ChatGPT. Concluir com 7 dias somados. Não voltar às 4 opções
+      no 1º imóvel sem o Mateus.
 
 ## QR code por imóvel (no ar desde 07/10)
 
@@ -3834,6 +3854,38 @@ O clique é medido como `support_click` (com `step`) no Amplitude.
   PRO: 27 corretores receberam conversa e 3 receberam lead (1082, 1175 e
   1182), com 4 leads únicos. Fora do funil ficam os leads da 825 (sem
   usuário) e da 27 (interna).
+
+## Vercel sem custo: CPU do site e robôs (13/11)
+
+- O time está no plano sem custo da Vercel (Mateus, 12/11: "Por enquanto
+  vamos tentar nao assinar ... mas vamos monitorar"). Em 12/11, às 21h27 UTC,
+  chegou o aviso de 75% da CPU ativa (4 h por ciclo). Com 100%, os projetos
+  param, inclusive o smartli.ink. Se chegar o aviso de 90%, recomendar o Pro
+  por um mês.
+- O site (projeto match-house) faz ~96% das funções. Quem roda função se lê
+  pela CLI: `npx vercel logs requests --project prj_0PibQ2WM3PGHLZNDT8Ha2NhSSQNF
+  --scope team_oMObWh3KxyCYtcz9PM8qSRH2 --token dummy --since 11h --limit 10000
+  --json` (o segredo de rede põe o token; no plano sem custo, só as últimas
+  12 horas). Os runtime logs do MCP da Vercel dão 403.
+- Em 11 horas de 13/11 foram 889 funções: meta-externalagent 303,
+  CCBot 168, facebookexternalhit 147 (132 na página inicial do .co),
+  Googlebot 92, pessoas e métricas ~100.
+- **Robôs bloqueados desde 13/11, 9h25** (Mateus: "Pode bloquear!"): regra
+  "Robos de treino de IA e raspagem" no firewall da Vercel (deny por
+  user agent: meta-externalagent, CCBot, Bytespider, AhrefsBot) e o mesmo
+  pedido no robots.txt (site #245). Seguem liberados facebookexternalhit e
+  WhatsApp (cartão do link), Google, Bing, ChatGPT (OAI-SearchBot,
+  ChatGPT-User) e Claude. Para desfazer, apagar a regra (API
+  `/v1/security/firewall/config`, action `rules.remove`) e o trecho do
+  robots.ts.
+- **Página inicial do matchhouse.co estática desde 13/11, 9h45** (site #246;
+  Mateus: "pode fazer o .co nao estamos usando praticamente"): sai da CDN
+  (`x-vercel-cache: HIT`) e o navegador busca os imóveis.
+- As fotos dos imóveis e do corretor vêm com endereço assinado de 60
+  minutos (`expires=` + `signature=` na api.matchhouse.com.br/image/...).
+  Nenhum cache de página com foto pode passar disso.
+- Medir por dia em `api.vercel.com/v2/usage?type=requests` (datas ISO com
+  `.000Z`): antes, 3.000 a 4.500 funções por dia.
 
 ## Se o scratchpad voltar vazio (aconteceu em 13/10, 20h08)
 
