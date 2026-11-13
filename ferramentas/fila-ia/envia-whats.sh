@@ -19,6 +19,11 @@ HOJE=$(TZ=America/Sao_Paulo date +%F)
 SID=$(curl -sS "$API/templates" | jq -r '.modelos[]? | select(.nome == "mh_fila_ia_whatsapp_1" and (.status|ascii_downcase) == "approved") | .sid' | head -1)
 [ -z "$SID" ] && { echo "mh_fila_ia_whatsapp_1 ainda não aprovado pela Meta: nada enviado"; exit 0; }
 NA_FILA=$(curl -sS "$API/whatsapp-corretor/fila" | jq -c '[.itens[]?.id_user]')
+# Quem recebeu o WhatsApp de outra campanha nas últimas 48 h fica para
+# depois (Mateus, 13/11: "Pode priorizar e começar amanha"; ninguém recebe
+# duas mensagens de campanha em dois dias seguidos).
+RECENTES=$(cat "$D/../ative-ia/enviados-whats.jsonl" 2>/dev/null | jq -sc '[.[] | select(.status == "enviado") | select((.em | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601) > (now - 172800)) | .id_user] | unique')
+[ -z "$RECENTES" ] && RECENTES='[]'
 prontos=$(jq -sc --arg h "$HOJE" '[.[] | select(.status == "enviado") | select((.em | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601 - 10800 | strftime("%Y-%m-%d")) < $h) | .id_user] | unique' "$EMAILS")
 
 registra() { echo "$1" >> "$LOG"; echo "$1"; }
@@ -40,6 +45,7 @@ while read -r p; do
   grep -q "\"id_user\":$id,\"status\":\"\(enviado\|recusado\)\"" "$LOG" && continue
   jq -e --argjson id "$id" 'index($id) != null' >/dev/null <<<"$prontos" || continue
   jq -e --argjson id "$id" 'index($id) != null' >/dev/null <<<"$NA_FILA" && continue
+  jq -e --argjson id "$id" 'index($id) != null' >/dev/null <<<"$RECENTES" && continue
   nome=$(jq -r '.primeiro // ""' <<<"$p")
   [ -z "$nome" ] && continue
   body=$(jq -n --argjson id "$id" --arg sid "$SID" --arg n "$nome" \
